@@ -67,7 +67,7 @@ const Carousel = () => {
         {slides.map((slide, index) => (
           <div
             key={index}
-            className={`absolute w-full h-full transition-all duration-700 ease-in-out ${
+            className={`absolute flex justify-center items-center w-full h-full transition-all duration-700 ease-in-out ${
               index === currentIndex
                 ? "opacity-100 translate-x-0" // Keep the current slide in place
                 : index === (currentIndex - 1 + slides.length) % slides.length
@@ -79,14 +79,14 @@ const Carousel = () => {
             {/* Image */}
             <img
               src={slide.content}
-              className="block w-full h-full object-cover" // Ensures full coverage
+              className="block w-[85%] h-full object-cover" // Ensures full coverage
               alt={`Slide ${index + 1}`}
             />
 
             {/* Overlay Content */}
             <div className="absolute inset-0 flex items-center justify-center">
               <div className="p-6 bg-black/70 text-white text-center rounded-lg max-w-lg">
-                <h2 className="text-2xl font-bold">{slide.title}</h2>
+                <h2 className="text-5xl font-bold pb-8">{slide.title}</h2>
                 
                 <p className="mt-2 text-lg font-semibold">{slide.text}</p>
                 <p className="mt-2">{slide.sub}</p>
