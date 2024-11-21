@@ -104,7 +104,7 @@ const Carousel = () => {
             key={index}
             type="button"
             className={`w-3 h-3 rounded-full ${
-              index === currentIndex ? "bg-white" : "bg-gray-500"
+              index === currentIndex ? "bg-[#a3e4db]" : "bg-white"
             }`}
             aria-current={index === currentIndex ? "true" : "false"}
             aria-label={`Slide ${index + 1}`}
