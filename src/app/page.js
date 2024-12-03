@@ -3,6 +3,7 @@ import Header from "./components/Header";
 import { Banner } from "./components/Banner";
 import Carousel from "./components/Carousel";
 import About from "./components/About";
+import AboutCompany from "./components/AboutCompany";
 
 export default function Home() {
   return (
@@ -18,8 +19,12 @@ export default function Home() {
       <main className="flex-1 mt-[calc(2*var(--banner-height))] p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
           {/* Content goes here */}
           <Carousel />
+          <AboutCompany />
           <About />
+          
       </main>
+
+
 
       {/* Footer */}
       <footer className="flex gap-6 flex-wrap items-center justify-center p-4">
