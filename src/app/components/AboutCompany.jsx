@@ -37,7 +37,7 @@ const AboutCompany = () => {
         </div>
 
         {/* Right Section */}
-        <div className="bg-[#d3eef0] p-8 rounded-3xl shadow-lg">
+        <div className="bg-[    ] p-8 rounded-3xl shadow-lg">
           <h2 className="text-2xl font-semibold text-[#007ea7]">
             Une expérience ludique et sociale
           </h2>

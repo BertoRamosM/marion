@@ -5,6 +5,7 @@ import Carousel from "./components/Carousel";
 import About from "./components/About";
 import AboutCompany from "./components/AboutCompany";
 import Courses from "./components/Courses";
+import CoursesOnline from "./components/CoursesOnline";
 
 export default function Home() {
   return (
@@ -23,14 +24,12 @@ export default function Home() {
           <AboutCompany />
           <About />
           <Courses />
+          <CoursesOnline />
       </main>
 
 
 
-      {/* Footer */}
-      <footer className="flex gap-6 flex-wrap items-center justify-center p-4">
-        {/* Footer content */}
-      </footer>
+
     </div>
   );
 }
