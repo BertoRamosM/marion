@@ -9,7 +9,7 @@ const OnlineCourses = () => {
           <span className="text-[#007ea7]">Cours Individuels en Ligne</span>: Apprends à ton rythme
         </h1>
         <p className="text-lg text-gray-800 mt-4">
-          Prépare ton arrivée dans l’ouest de la France avec des cours sur mesure adaptés à tes besoins.
+          Prépare ton arrivée dans l&apos;ouest de la France avec des cours sur mesure adaptés à tes besoins.
         </p>
       </div>
 
@@ -20,13 +20,13 @@ const OnlineCourses = () => {
           <h2 className="text-2xl font-semibold text-[#007ea7]">Pourquoi nos cours en ligne ?</h2>
           <ul className="mt-4 space-y-3 text-gray-700">
             <li>
-              ✔️ <strong>Flexibilité totale:</strong> cours d’1h30 selon ta disponibilité, du lundi au vendredi.
+              ✔️ <strong>Flexibilité totale:</strong> cours d&apos;1h30 selon ta disponibilité, du lundi au vendredi.
             </li>
             <li>
-              ✔️ <strong>Progrès rapide:</strong> des cours individuels pour t’aider à progresser efficacement en français avant ton arrivée.
+              ✔️ <strong>Progrès rapide:</strong> des cours individuels pour t&apos;aider à progresser efficacement en français avant ton arrivée.
             </li>
             <li>
-              ✔️ <strong>Sur mesure:</strong> contenus adaptés à tes besoins, centres d’intérêts, secteur professionnel, et axés sur ta future ville ou région (Rennes, Nantes, Bretagne, Normandie, Pays de Loire).
+              ✔️ <strong>Sur mesure:</strong> contenus adaptés à tes besoins, centres d&apos;intérêts, secteur professionnel, et axés sur ta future ville ou région (Rennes, Nantes, Bretagne, Normandie, Pays de Loire).
             </li>
           </ul>
         </div>
@@ -35,7 +35,7 @@ const OnlineCourses = () => {
         <div className="bg-[#fff7f3] p-8 rounded-3xl shadow-lg flex flex-col justify-between">
           <h2 className="text-2xl font-semibold text-[#ffa45b]">Un suivi personnalisé</h2>
           <p className="mt-4 text-gray-700">
-            Si tu souhaites t’installer à Rennes, tu pourras rejoindre mes{' '}
+            Si tu souhaites t&apos;installer à Rennes, tu pourras rejoindre mes{' '}
             <strong>cours en petits groupes</strong> dès ton arrivée pour rencontrer de nouvelles personnes et poursuivre ton apprentissage avec une prof que tu connais déjà.
           </p>
           <p className="mt-4 text-gray-700">

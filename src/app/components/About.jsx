@@ -8,8 +8,8 @@ const About = () => {
       <div className="max-w-lg p-8 rounded-3xl shadow-lg text-white z-10">
         <h1 className="text-3xl font-bold text-[#ffa45b]">Moi, Marion</h1>
         <p className="pt-4 text-black">
-          <span className='text-[#007ea7] font-bold'>Je suis prof de français à Rennes.</span> Comme toi, je suis une expat’! J’ai vécu longtemps en dehors de mon pays, en Angleterre, en Espagne et au Mexique. 
-          Aujourd’hui je suis de retour en Bretagne et je te propose des cours spécialement pensés pour toi.
+          <span className='text-[#007ea7] font-bold'>Je suis prof de français à Rennes.</span> Comme toi, je suis une expat&apos;! J&apos;ai vécu longtemps en dehors de mon pays, en Angleterre, en Espagne et au Mexique. 
+          Aujourd&apos;hui je suis de retour en Bretagne et je te propose des cours spécialement pensés pour toi.
         </p>
         <p className="pt-6 text-black">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti ipsa quod tenetur, expedita ratione fuga dolores eaque quae perferendis optio!

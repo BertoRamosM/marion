@@ -6,7 +6,7 @@ const AboutCompany = () => {
       {/* Title Section */}
       <div className="max-w-3xl text-center mb-12">
         <h1 className="text-4xl font-bold text-gray-900">
-          <span className="text-[#ffa45b]">WestFrench</span>: Un Concept Unique pour Apprendre le Français en s'Amusant
+          <span className="text-[#ffa45b]">WestFrench</span>: Un Concept Unique pour Apprendre le Français en s&apos;Amusant
         </h1>
         <p className="text-lg text-gray-800 mt-4">
           Apprenez le français avec plaisir, dans une atmosphère unique et enrichissante !
@@ -28,7 +28,7 @@ const AboutCompany = () => {
               <strong className="text-[#ffa45b]">Approche personnalisée:</strong> thèmes adaptés aux besoins et intérêts des apprenants, avec enquêtes régulières.
             </li>
             <li>
-              <strong className="text-[#ffa45b]">Focus culturel:</strong> immersion dans la culture, le style de vie, et l’histoire locale (Rennes et le nord-ouest de la France).
+              <strong className="text-[#ffa45b]">Focus culturel:</strong> immersion dans la culture, le style de vie, et l&apos;histoire locale (Rennes et le nord-ouest de la France).
             </li>
             <li>
               Originaire de Granville et ancienne guide conférencière, la prof partage sa passion pour les cultures bretonne et normande.
@@ -43,7 +43,7 @@ const AboutCompany = () => {
           </h2>
           <ul className="mt-4 space-y-3 text-gray-700">
             <li>
-              <strong className="text-[#007ea7]">Apprendre en s’amusant:</strong> cours interactifs, sorties culturelles, et exercices pratiques basés sur des situations réelles.
+              <strong className="text-[#007ea7]">Apprendre en s&apos;amusant:</strong> cours interactifs, sorties culturelles, et exercices pratiques basés sur des situations réelles.
             </li>
             <li>
               <strong className="text-[#007ea7]">Lieu de rencontre pour expats:</strong> intégration, création de liens, et activités de groupe favorisant les interactions.

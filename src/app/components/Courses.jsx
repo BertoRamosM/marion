@@ -6,10 +6,10 @@ const Courses = () => {
       {/* Title Section */}
       <div className="max-w-3xl text-center mb-12">
         <h1 className="text-4xl font-bold text-gray-900">
-          <span className="text-[#ffa45b]">Cours a Rennes</span>: Rejoins notre communauté d’expats rennaise
+          <span className="text-[#ffa45b]">Cours a Rennes</span>: Rejoins notre communauté d&apos;expats rennaise
         </h1>
         <p className="text-lg text-gray-800 mt-4">
-          Apprends le français dans une ambiance conviviale et chaleureuse !
+          Apprends le français dans une ambiance conviviale et chaleureuse !
         </p>
       </div>
 
@@ -66,16 +66,16 @@ const Courses = () => {
             <h2 className="text-2xl font-semibold text-[#ffa45b]">Tarifs</h2>
             <ul className="mt-4 space-y-3 text-gray-700">
               <li>
-                <strong className="text-[#ffa45b]">3 mois (12 classes d’1h30):</strong> 360€ (22€/h).
+                <strong className="text-[#ffa45b]">3 mois (12 classes d&apos;1h30):</strong> 360€ (22€/h).
               </li>
               <li>
-                <strong className="text-[#ffa45b]">6 mois (24 classes d’1h30):</strong> 648€ (20€/h).
+                <strong className="text-[#ffa45b]">6 mois (24 classes d&apos;1h30):</strong> 648€ (20€/h).
               </li>
               <li>
-                <strong className="text-[#ffa45b]">9 mois (36 classes d’1h30):</strong> 972€ (18€/h).
+                <strong className="text-[#ffa45b]">9 mois (36 classes d&apos;1h30):</strong> 972€ (18€/h).
               </li>
               <li>
-                <strong className="text-[#ffa45b]">1er cours d’essai:</strong> 5€{' '}
+                <strong className="text-[#ffa45b]">1er cours d&apos;essai:</strong> 5€{' '}
                 <a href="#" className="text-[#007ea7] underline hover:text-[#005f80]">
                   ici
                 </a>.
