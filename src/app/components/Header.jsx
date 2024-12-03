@@ -18,8 +18,8 @@ const Header = () => {
       <div className="flex gap-8 items-center font-bold">
         <Link href={""} className="hover:text-[#ffa45b] transition duration-300">Accueil</Link>
         <Link href={""} className="hover:text-[#ffa45b] transition duration-300">Cours</Link>
-        <Link href={""} className="hover:text-[#ffa45b] transition duration-300">Ateliers</Link>
-        <Link href={""} className="hover:text-[#ffa45b] transition duration-300">A propos</Link>
+{/*         <Link href={""} className="hover:text-[#ffa45b] transition duration-300">Ateliers</Link>
+ */}        <Link href={""} className="hover:text-[#ffa45b] transition duration-300">A propos</Link>
         <Link href={""} className="hover:text-[#ffa45b] transition duration-300">Contact</Link>
       </div>
       <div className="flex gap-4 items-center">

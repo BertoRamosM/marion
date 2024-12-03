@@ -4,6 +4,7 @@ import { Banner } from "./components/Banner";
 import Carousel from "./components/Carousel";
 import About from "./components/About";
 import AboutCompany from "./components/AboutCompany";
+import Courses from "./components/Courses";
 
 export default function Home() {
   return (
@@ -21,7 +22,7 @@ export default function Home() {
           <Carousel />
           <AboutCompany />
           <About />
-          
+          <Courses />
       </main>
 
 
