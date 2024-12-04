@@ -6,6 +6,7 @@ import About from "./components/About";
 import AboutCompany from "./components/AboutCompany";
 import Courses from "./components/Courses";
 import CoursesOnline from "./components/CoursesOnline";
+import ContactForm from "./components/ContactForm";
 
 export default function Home() {
   return (
@@ -25,6 +26,7 @@ export default function Home() {
           <About />
           <Courses />
           <CoursesOnline />
+          <ContactForm />
       </main>
 
 

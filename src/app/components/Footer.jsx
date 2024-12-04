@@ -7,7 +7,7 @@ import YoutubeIcon from '../icons/YoutubeIcon';
 const Footer = () => {
   return (
     <footer className="bg-[#f9f9f9] py-8">
-      <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between gap-6">
+      <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between gap-6 items-center">
         {/* Left Section */}
         <div className="text-center md:text-left">
           <h2 className="text-2xl font-semibold text-[#ffa45b]">WestFrench</h2>
@@ -16,7 +16,8 @@ const Footer = () => {
             <br />
             La Maison des associations, 6 cours des Alliés à Rennes
             <br />
-            13 rue de Lassy, 35580 Guignen
+           
+<span className='text-sm'>Domiciliation de l&apos;entreprise : 13 rue de Lassy, 35580 Guignen</span>
           </p>
         </div>
 
