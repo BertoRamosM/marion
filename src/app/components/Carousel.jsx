@@ -60,7 +60,7 @@ const Carousel = () => {
   };
 
   return (
-    <div id="default-carousel" className="relative w-full" data-carousel="slide">
+    <div id="default-carousel" className="relative w-full pt-24" data-carousel="slide">
       {/* Carousel wrapper */}
       <div className="relative h-[400px] overflow-hidden rounded-lg md:h-[600px]"> {/* Adjust height */}
         {/* Carousel items */}
