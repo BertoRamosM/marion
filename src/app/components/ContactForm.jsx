@@ -20,7 +20,7 @@ const ContactForm = () => {
             />
           </div>
 
-          {/* Email */}
+          {/* Email */} 
           <div>
             <label htmlFor="email" className="block text-sm font-medium text-[#007ea7]">
               Email <span className="text-red-500">*</span>

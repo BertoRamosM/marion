@@ -1,6 +1,8 @@
 import localFont from "next/font/local";
 import "./globals.css";
 import Footer from "./components/Footer";
+import { ViewTransitions } from 'next-view-transitions'
+
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -20,6 +22,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
+    <ViewTransitions>
     <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-gradient-to-br from-gray-100 to-gray-200 `}
@@ -28,5 +31,6 @@ export default function RootLayout({ children }) {
         <Footer />
       </body>
     </html>
+    </ViewTransitions>
   );
 }

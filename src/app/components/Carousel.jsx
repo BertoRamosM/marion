@@ -11,7 +11,7 @@ const Carousel = () => {
       title: "Cours en mini-groupes a rennes",
       text: "Tu vis à Rennes ou tu viens d’emménager à Rennes ?",
       sub: "Tu veux progresser rapidement en français dans un mini groupe et rencontrer d’autres expats ? Tu ne veux plus être “un élève de plus” d’une grande école de français et de cours standardisés ? Tu veux apprendre le français tout en t’amusant ? Des cours sur-mesure en fonction de tes centres d’intérêts et de tes besoins ? ",
-      link: ""
+      link: "#courses"
     },
     { 
       type: "image", 
@@ -19,7 +19,7 @@ const Carousel = () => {
       title: "Cours en ligne",
       text: "Tu ne vis pas encore dans le nord-ouest de la France ?",
       sub: "Tu souhaites t’installer bientôt à Rennes, à Nantes, en Bretagne, en Normandie ou dans les pays de Loire et tu veux progresser en français dès maintenant avec moi en ligne et tout savoir sur ta future région ? Tu veux une prof locale qui te ressemble pour apprendre le français interactivement et ludiquement ? ",
-      link: ""
+      link: "#online-courses"
     },
     { 
       type: "image", 
@@ -89,8 +89,10 @@ const Carousel = () => {
                 <h2 className="text-5xl font-bold pb-8">{slide.title}</h2>
                 
                 <p className="mt-2 text-lg font-semibold">{slide.text}</p>
-                <p className="mt-2">{slide.sub}</p>
-                <Link href={slide.link}><button className="bg-[#ffa45b] text-black p-2 mt-8 hover:bg-[#a3e4db] transition duration-300 rounded-md font-semibold">C’est par là</button></Link>
+                <p className="mt-2 mb-4">{slide.sub}</p>
+              {slide.link ?   <Link href={slide.link}><button  className="bg-gradient-to-tr from-[#ffa45b] to-[#ff7c5b] px-6 py-3 rounded-lg text-white font-semibold shadow hover:scale-105 transition-transform duration-300 ease-out">C’est par là</button></Link> : null}
+              
+
               </div>
             </div>
           </div>

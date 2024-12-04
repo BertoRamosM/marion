@@ -9,7 +9,7 @@
         <h1 className="text-4xl font-bold flex flex-col items-center text-center">
           <span>WestFrench</span>
           <span
-            className="text-xl text-[#2c7a7b]"
+            className="text-xl text-[#2c7a7b]"  
             style={{ fontSize: "2rem" }}
           >
             Academy
