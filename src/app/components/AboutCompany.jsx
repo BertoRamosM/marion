@@ -1,8 +1,11 @@
 import React from 'react';
+import Needle from '../icons/Needle';
+import Rocket from '../icons/Rocket';
+import Heart from '../icons/Heart';
 
 const AboutCompany = () => {
   return (
-    <div className="flex flex-col items-center justify-center py-16 px-6 min-h-screen">
+    <div className="flex flex-col items-center justify-center py-16 px-6 min-h-screen" id='about'>
       {/* Title Section */}
       <div className="max-w-3xl text-center mb-12">
         <h1 className="text-4xl font-bold text-gray-900">
@@ -17,8 +20,8 @@ const AboutCompany = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl">
         {/* Left Section */}
         <div className="bg-[#fff7f3] p-8 rounded-3xl shadow-lg">
-          <h2 className="text-2xl font-semibold text-[#ffa45b]">
-            Des cours sur-mesure et interactifs
+          <h2 className="text-2xl font-semibold text-[#ffa45b] flex items-center gap-2">
+           <Needle /> Des cours sur-mesure et interactifs
           </h2>
           <ul className="mt-4 space-y-3 text-gray-700">
             <li>
@@ -38,8 +41,8 @@ const AboutCompany = () => {
 
         {/* Right Section */}
         <div className="bg-[    ] p-8 rounded-3xl shadow-lg">
-          <h2 className="text-2xl font-semibold text-[#007ea7]">
-            Une expérience ludique et sociale
+          <h2 className="text-2xl font-semibold text-[#007ea7] flex items-center gap-2">
+            <Rocket />Une expérience ludique et sociale
           </h2>
           <ul className="mt-4 space-y-3 text-gray-700">
             <li>
@@ -50,8 +53,8 @@ const AboutCompany = () => {
             </li>
           </ul>
 
-          <h2 className="text-2xl font-semibold text-[#007ea7] mt-8">
-            Une enseignante proche des apprenants
+          <h2 className="text-2xl font-semibold text-[#007ea7] mt-8 flex items-center gap-2">
+            <Heart/> Une enseignante proche des apprenants
           </h2>
           <ul className="mt-4 space-y-3 text-gray-700">
             <li>

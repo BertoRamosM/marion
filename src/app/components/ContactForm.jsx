@@ -2,7 +2,7 @@ import React from 'react';
 
 const ContactForm = () => {
   return (
-    <div className="flex items-center justify-center min-h-screen px-6 py-12">
+    <div className="flex items-center justify-center min-h-screen px-6 py-12" id='contact'>
       <div className="w-full max-w-xl p-8 rounded-3xl shadow-lg text-black">
         <h1 className="text-3xl font-bold mb-6 text-center text-[#ffa45b]">Contactez-nous</h1>
         <form className="space-y-6">
@@ -14,7 +14,7 @@ const ContactForm = () => {
             <input
               type="text"
               id="name"
-              className="w-full mt-2 p-3  rounded-lg shadow focus:outline-none focus:ring-2 focus:ring-[#ffa45b]"
+              className="w-full mt-2 p-3  rounded-lg shadow focus:outline-none focus:ring-2 focus:ring-[#ffa45b] bg-transparent"
               required
               placeholder="Entrez votre nom et prénom"
             />
@@ -28,7 +28,7 @@ const ContactForm = () => {
             <input
               type="email"
               id="email"
-              className="w-full mt-2 p-3 rounded-lg shadow focus:outline-none focus:ring-2 focus:ring-[#ffa45b]"
+              className="w-full mt-2 p-3 rounded-lg shadow focus:outline-none focus:ring-2 focus:ring-[#ffa45b] bg-transparent"
               required
               placeholder="Entrez votre email"
             />
@@ -42,7 +42,7 @@ const ContactForm = () => {
             <input
               type="tel"
               id="phone"
-              className="w-full mt-2 p-3 rounded-lg shadow focus:outline-none focus:ring-2 focus:ring-[#ffa45b]"
+              className="w-full mt-2 p-3 rounded-lg shadow focus:outline-none focus:ring-2 focus:ring-[#ffa45b] bg-transparent"
               placeholder="Entrez votre numéro de téléphone"
             />
           </div>
@@ -54,7 +54,7 @@ const ContactForm = () => {
             </label>
             <select
               id="french-level"
-              className="w-full mt-2 p-3 rounded-lg shadow focus:outline-none focus:ring-2 focus:ring-[#ffa45b]"
+              className="w-full mt-2 p-3 rounded-lg shadow focus:outline-none focus:ring-2 focus:ring-[#ffa45b] bg-transparent"
             >
               <option value="">Je ne sais pas</option>
               <option value="A1">A1</option>
@@ -74,7 +74,7 @@ const ContactForm = () => {
             <input
               type="text"
               id="objet"
-              className="w-full mt-2 p-3 rounded-lg shadow focus:outline-none focus:ring-2 focus:ring-[#ffa45b]"
+              className="w-full mt-2 p-3 rounded-lg shadow focus:outline-none focus:ring-2 focus:ring-[#ffa45b] bg-transparent"
               placeholder="Entrez l'objet de votre message"
             />
           </div>
@@ -87,7 +87,7 @@ const ContactForm = () => {
             <textarea
               id="message"
               rows="5"
-              className="w-full mt-2 p-3 rounded-lg shadow focus:outline-none focus:ring-2 focus:ring-[#ffa45b]"
+              className="w-full mt-2 p-3 rounded-lg shadow focus:outline-none focus:ring-2 focus:ring-[#ffa45b] bg-transparent"
               required
               placeholder="Écrivez votre message ici..."
             ></textarea>

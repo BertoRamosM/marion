@@ -23,9 +23,9 @@ export default function Home() {
           {/* Content goes here */}
           <Carousel />
           <AboutCompany />
-          <About />
           <Courses />
           <CoursesOnline />
+          <About /> 
           <ContactForm />
       </main>
 
