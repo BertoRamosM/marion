@@ -11,31 +11,26 @@ const Header = () => {
   let lastScrollY = 0;
 
   useEffect(() => {
-    // Initialize lastScrollY when the component is loaded
     lastScrollY = window.scrollY;
 
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
 
-      // If scrolling down, hide the header, else show it
       if (currentScrollY > lastScrollY) {
-        setIsHidden(true); // Scrolling down: hide the header
+        setIsHidden(true); 
       } else {
-        setIsHidden(false); // Scrolling up: show the header
+        setIsHidden(false); 
       }
 
       lastScrollY = currentScrollY; // Update last scroll position
     };
 
-    // Attach the scroll event listener
     window.addEventListener("scroll", handleScroll);
 
-    // Cleanup the event listener on component unmount
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, []); // Empty dependency array ensures the effect runs only once after initial render
-
+  }, []); 
   return (
     <header
       className={`flex items-center justify-between gap-4 py-8 px-4 sm:px-20 font-[family-name:var(--font-geist-sans)] top-0 bg-[#a3e4db] transition-transform duration-300 fixed z-50 w-full ${
