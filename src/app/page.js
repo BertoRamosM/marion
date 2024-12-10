@@ -13,7 +13,6 @@ export default function Home() {
     <div className="min-h-screen flex flex-col">
       {/* Fixed Header and Banner */}
       <div className="top-0 left-0 right-0 z-50 bg-white shadow-md">
-      <Banner />
         <Header />
         
       </div>
