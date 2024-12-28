@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect, useCallback } from "react";
 
@@ -57,7 +58,7 @@ const Carousel = () => {
             }`}
             data-carousel-item
           >
-            <img
+            <Image
               src={slide.content}
               className="block w-full h-full object-cover"
               alt={`Slide ${index + 1}`}
