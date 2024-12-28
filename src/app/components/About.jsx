@@ -17,7 +17,7 @@ Avant de devenir prof, j&apos;étais guide touristique et je suis passionnée pa
 <br></br>
 Comme j&apos;aime transmettre et être en contact avec les cultures du monde entier, j&apos;ai repris des études pour devenir professeure et j&apos;ai passé le diplôme du DAEFLE (diplôme d&apos;aptitude à l&apos;enseignement du français langue étrangère). 
 <br></br>
-<p className='pt-4'>J&apos;ai commencé à donner des cours de français dans un centre de langues du sud de la France à des expats venus du 4 coins du monde. J&apos;ai adoré cette expérience qui m&apos;a donné envie d'ouvrir ma propre école. 
+<p className='pt-4'>J&apos;ai commencé à donner des cours de français dans un centre de langues du sud de la France à des expats venus du 4 coins du monde. J&apos;ai adoré cette expérience qui m&apos;a donné envie d&apos;ouvrir ma propre école. 
 </p>
         </p>
         <p className="pt-6 text-black">

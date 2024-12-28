@@ -58,7 +58,7 @@ const Carousel = () => {
             }`}
             data-carousel-item
           >
-            <Image
+            <img
               src={slide.content}
               className="block w-full h-full object-cover"
               alt={`Slide ${index + 1}`}
@@ -71,7 +71,7 @@ const Carousel = () => {
                 {slide.link && (
                   <Link href={slide.link}>
                     <button className="bg-gradient-to-r from-[#ffa45b] to-[#ff7c5b] px-6 py-3 rounded-lg text-white font-semibold shadow hover:scale-105 transition-transform duration-300">
-                      C’est par là
+                      C&apos;est par là
                     </button>
                   </Link>
                 )}
