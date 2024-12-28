@@ -33,10 +33,10 @@ const Courses = () => {
               chaque participant.
             </li>
             <li>
-              ✔️ <strong className="text-[#ffa45b]">Ambiance conviviale:</strong> un espace de rencontre et d’échange
+              ✔️ <strong className="text-[#ffa45b]">Ambiance conviviale:</strong> un espace de rencontre et d&apos;échange
               pour les expats.
             </li>
-            <li>✔️ Une enseignante locale, ancienne expat’, bienveillante et attentive.</li>
+            <li>✔️ Une enseignante locale, ancienne expat&apos;, bienveillante et attentive.</li>
           </ul>
         </div>
       
