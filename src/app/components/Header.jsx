@@ -41,7 +41,7 @@ const Header = () => {
     >
       <Banner />
       <header
-        className="flex items-center justify-between gap-4 py-8 px-4 sm:px-20 font-[family-name:var(--font-geist-sans)] bg-[#a3e4db] w-full"
+        className="flex items-center flex-col sm:flex-row justify-between gap-4 py-8 px-4 sm:px-20 font-[family-name:var(--font-geist-sans)] bg-[#a3e4db] w-full text-center"
       >
         <h1 className="text-4xl font-bold flex flex-col items-center text-center">
           <span>WestFrench</span>

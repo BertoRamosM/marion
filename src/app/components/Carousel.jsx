@@ -47,7 +47,7 @@ const Carousel = () => {
   };
 
   return (
-    <div id="default-carousel" className="relative w-full pt-56 sm:pt-32" data-carousel="slide">
+    <div id="default-carousel" className="relative w-full pt-72 sm:pt-32" data-carousel="slide">
       {/* Carousel Wrapper */}
       <div className="relative h-screen sm:h-[400px] overflow-hidden rounded-lg md:h-[600px]">
         {slides.map((slide, index) => (
@@ -100,7 +100,7 @@ const Carousel = () => {
       {/* Slider Controls */}
       <button
         type="button"
-        className="absolute top-0 left-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+        className="absolute top-80 sm:top-0 left-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
         onClick={prevSlide}
         data-carousel-prev
       >
@@ -123,7 +123,7 @@ const Carousel = () => {
       </button>
       <button
         type="button"
-        className="absolute top-0 right-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+        className="absolute top-80 sm:top-0 right-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
         onClick={nextSlide}
         data-carousel-next
       >
