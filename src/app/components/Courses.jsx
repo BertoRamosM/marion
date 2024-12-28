@@ -39,7 +39,7 @@ const Courses = () => {
             <li>✔️ Une enseignante locale, ancienne expat’, bienveillante et attentive.</li>
           </ul>
         </div>
-
+      
         {/* Right Section */}
         <div className="bg-[#e5f8f6] p-8 rounded-3xl shadow-lg flex flex-col justify-between">
           <h2 className="text-2xl font-semibold text-[#007ea7] flex items-center gap-2"><LocationIcon  /> Horaires et Lieu</h2>

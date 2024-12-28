@@ -6,13 +6,23 @@ const About = () => {
     <div className="flex flex-col md:flex-row items-center justify-center gap-8 px-6 pt-8 pb-16">
       {/* Text Content Card */}
       <div className="max-w-lg p-8 rounded-3xl shadow-lg text-white z-10">
-        <h1 className="text-3xl font-bold text-[#ffa45b]">Moi, Marion</h1>
+        <h1 className="text-3xl font-bold text-[#ffa45b]">Une prof diplômée qui te ressemble !</h1>
         <p className="pt-4 text-black">
-          <span className='text-[#007ea7] font-bold'>Je suis prof de français à Rennes.</span> Comme toi, je suis une expat&apos;! J&apos;ai vécu longtemps en dehors de mon pays, en Angleterre, en Espagne et au Mexique. 
-          Aujourd&apos;hui je suis de retour en Bretagne et je te propose des cours spécialement pensés pour toi.
+          <p className='text-[#007ea7] font-bold'>Hello, moi c’est Marion et je suis professeure de français langue étrangère à Rennes.</p> <br></br> 
+          
+         <p> Comme toi, je suis une expat’ ! J’ai longtemps vécu à l’étranger, en Angleterre, au Mexique et en Espagne. Je parle d’ailleurs couramment anglais, espagnol et catalan. 
+
+Avant de devenir prof, j’étais guide touristique et je suis passionnée par l’histoire de la Bretagne et de la Normandie (dont je suis originaire). 
+</p>
+<br></br>
+Comme j’aime transmettre et être en contact avec les cultures du monde entier, j’ai repris des études pour devenir professeure et j’ai passé le diplôme du DAEFLE (diplôme d’aptitude à l’enseignement du français langue étrangère). 
+<br></br>
+<p className='pt-4'>J’ai commencé à donner des cours de français dans un centre de langues du sud de la France à des expats venus du 4 coins du monde. J’ai adoré cette expérience qui m’a donné envie d'ouvrir ma propre école. 
+</p>
         </p>
         <p className="pt-6 text-black">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti ipsa quod tenetur, expedita ratione fuga dolores eaque quae perferendis optio!
+        Je suis revenue en Bretagne et je lance maintenant WestFrench Academy, un concept unique à Rennes. 
+
         </p>
       </div>
 
