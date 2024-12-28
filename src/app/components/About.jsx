@@ -8,16 +8,16 @@ const About = () => {
       <div className="max-w-lg p-8 rounded-3xl shadow-lg text-white z-10">
         <h1 className="text-3xl font-bold text-[#ffa45b]">Une prof diplômée qui te ressemble !</h1>
         <p className="pt-4 text-black">
-          <p className='text-[#007ea7] font-bold'>Hello, moi c’est Marion et je suis professeure de français langue étrangère à Rennes.</p> <br></br> 
+          <p className='text-[#007ea7] font-bold'>Hello, moi c&apos;est Marion et je suis professeure de français langue étrangère à Rennes.</p> <br></br> 
           
-         <p> Comme toi, je suis une expat’ ! J’ai longtemps vécu à l’étranger, en Angleterre, au Mexique et en Espagne. Je parle d’ailleurs couramment anglais, espagnol et catalan. 
+         <p> Comme toi, je suis une expat&apos; ! J&apos;ai longtemps vécu à l&apos;étranger, en Angleterre, au Mexique et en Espagne. Je parle d&apos;ailleurs couramment anglais, espagnol et catalan. 
 
-Avant de devenir prof, j’étais guide touristique et je suis passionnée par l’histoire de la Bretagne et de la Normandie (dont je suis originaire). 
+Avant de devenir prof, j&apos;étais guide touristique et je suis passionnée par l&apos;histoire de la Bretagne et de la Normandie (dont je suis originaire). 
 </p>
 <br></br>
-Comme j’aime transmettre et être en contact avec les cultures du monde entier, j’ai repris des études pour devenir professeure et j’ai passé le diplôme du DAEFLE (diplôme d’aptitude à l’enseignement du français langue étrangère). 
+Comme j&apos;aime transmettre et être en contact avec les cultures du monde entier, j&apos;ai repris des études pour devenir professeure et j&apos;ai passé le diplôme du DAEFLE (diplôme d&apos;aptitude à l&apos;enseignement du français langue étrangère). 
 <br></br>
-<p className='pt-4'>J’ai commencé à donner des cours de français dans un centre de langues du sud de la France à des expats venus du 4 coins du monde. J’ai adoré cette expérience qui m’a donné envie d'ouvrir ma propre école. 
+<p className='pt-4'>J&apos;ai commencé à donner des cours de français dans un centre de langues du sud de la France à des expats venus du 4 coins du monde. J&apos;ai adoré cette expérience qui m&apos;a donné envie d'ouvrir ma propre école. 
 </p>
         </p>
         <p className="pt-6 text-black">
