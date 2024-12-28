@@ -2,6 +2,7 @@ import React from 'react';
 import Needle from '../icons/Needle';
 import Rocket from '../icons/Rocket';
 import Heart from '../icons/Heart';
+import About from './About';
 
 const AboutCompany = () => {
   return (
@@ -9,12 +10,13 @@ const AboutCompany = () => {
       {/* Title Section */}
       <div className="max-w-3xl text-center mb-12">
         <h1 className="text-4xl font-bold text-gray-900">
-          <span className="text-[#ffa45b]">WestFrench</span>: Un Concept Unique pour Apprendre le Français en s&apos;Amusant
+          <span className="text-[#ffa45b]">WestFrench avec Marion : </span>Apprends le français rapidement en mini-groupe et avec une prof locale.
         </h1>
         <p className="text-lg text-gray-800 mt-4">
-          Apprenez le français avec plaisir, dans une atmosphère unique et enrichissante !
+        Choisis le contenu de tes cours et rencontre d&apos;autres expats !
         </p>
       </div>
+      <About />
 
       {/* Content Sections */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl">

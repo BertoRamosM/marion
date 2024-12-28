@@ -8,28 +8,27 @@ const Carousel = () => {
     { 
       type: "image", 
       content: "/carousel/pic1.jpg",
-      title: "Cours en mini-groupes a rennes",
-      text: "Tu vis à Rennes ou tu viens d’emménager à Rennes ?",
-      sub: "Tu veux progresser rapidement en français dans un mini groupe et rencontrer d’autres expats ? Tu ne veux plus être “un élève de plus” d’une grande école de français et de cours standardisés ? Tu veux apprendre le français tout en t’amusant ? Des cours sur-mesure en fonction de tes centres d’intérêts et de tes besoins ? ",
+      title: "Cours de français en mini-groupe à Rennes",
+      text: "Tu habites à Rennes et tu veux progresser en français rapidement et en t’amusant ?",
+      sub: "Rejoins mes cours sur-mesure adaptés à ton niveau et à tes centres d’intérêts : petite classe, ambiance conviviale et rencontre avec d’autres expats !",
       link: "#courses"
     },
     { 
       type: "image", 
       content: "/carousel/pic2.jpg",
-      title: "Cours en ligne",
-      text: "Tu ne vis pas encore dans le nord-ouest de la France ?",
-      sub: "Tu souhaites t’installer bientôt à Rennes, à Nantes, en Bretagne, en Normandie ou dans les pays de Loire et tu veux progresser en français dès maintenant avec moi en ligne et tout savoir sur ta future région ? Tu veux une prof locale qui te ressemble pour apprendre le français interactivement et ludiquement ? ",
+      title: "Cours de français individuels en lign",
+      text: "Tu prévois de t’installer dans le nord-ouest de la France ?",
+      sub: "Prépare-toi avant ton arrivée avec une prof locale grâce à des cours sur-mesure sur ta future région et atteins rapidement un premier niveau de français ! ",
       link: "#online-courses"
     },
-    { 
+    /*{ 
       type: "image", 
       content: "/carousel/pic3.jpg",
       title: "Les ateliers de phonétique a rennes",
       text: "Tu as déjà un bon niveau de français mais tu aimerais améliorer ta prononciation et ton accent français ? ",
       sub: "Tu es un expat et tu vis à Rennes ou dans le nord-ouest de la France ? Inscris-toi à mon prochain atelier de phonétique (A partir du niveau B1, 3h en mini groupe)",
       link: ""
-    },
-    // Add more slides with different types as needed
+    },*/
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);

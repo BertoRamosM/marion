@@ -54,13 +54,13 @@ const Header = () => {
             Accueil
           </Link>
           <Link href={"#courses"} className="hover:text-[#ffa45b] transition duration-300">
-            Cours
+          Cours à Rennes
           </Link>
           <Link href={"#online-courses"} className="hover:text-[#ffa45b] transition duration-300">
             Cours en ligne
           </Link>
           <Link href={"#about"} className="hover:text-[#ffa45b] transition duration-300">
-            A propos
+          À propos
           </Link>
           <Link href={"#contact"} className="hover:text-[#ffa45b] transition duration-300">
             Contact
