@@ -16,7 +16,7 @@ const Courses = () => {
           <span className="text-[#ffa45b]">Cours en mini-groupe à Rennes:</span> rejoins notre communauté d&apos;expats
         </h1>
         <p className="text-lg text-gray-800 mt-4">
-        S’intégrer dans un nouveau pays peut-être un véritable challenge quand on ne maîtrise pas la langue. Apprends le français rapidement avec une prof qui te ressemble et fais-toi de nouveaux amis ! 
+        S&apos;intégrer dans un nouveau pays peut-être un véritable challenge quand on ne maîtrise pas la langue. Apprends le français rapidement avec une prof qui te ressemble et fais-toi de nouveaux amis ! 
         </p>
       </div>
 
@@ -33,7 +33,7 @@ const Courses = () => {
               ✔️ Une attention personnalisée et un temps de parole équilibré.
             </li>
             <li>
-              ✔️ Des cours sur-mesure selon tes centres d’intérêts et tes objectifs.
+              ✔️ Des cours sur-mesure selon tes centres d&apos;intérêts et tes objectifs.
             </li>
             <li>✔️ Un lieu de rencontre entre expats.</li>
             <li>✔️ Une ambiance décomplexée et conviviale.</li>
@@ -52,7 +52,7 @@ const Courses = () => {
             <li>
               ✔️ Une progression rapide et visible 
             </li>
-            <li>✔️ Une immersion culturelle dans l’histoire, le style de vie et les traditions bretons et rennais.</li>
+            <li>✔️ Une immersion culturelle dans l&apos;histoire, le style de vie et les traditions bretons et rennais.</li>
             <li>✔️ Des sorties culturelles ou de loisirs organisées régulièrement en dehors de la classe.</li>
           </ul>
         </div>
