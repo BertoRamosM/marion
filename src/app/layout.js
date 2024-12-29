@@ -1,6 +1,7 @@
 import localFont from "next/font/local";
 import "./globals.css";
 import Footer from "./components/Footer";
+import StickySocialIcons from "./components/StickySocialIcons";
 
 
 const geistSans = localFont({
@@ -26,6 +27,7 @@ export default function RootLayout({ children }) {
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-gradient-to-br from-gray-100 to-gray-200 `}
       >
         {children}
+        <StickySocialIcons />
         <Footer />
       </body>
     </html>

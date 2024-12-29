@@ -10,7 +10,7 @@ const OnlineCourses = () => {
       {/* Title Section */}
       <div className="max-w-3xl text-center mb-12">
         <h1 className="text-4xl font-bold text-gray-900">
-          <span className="text-[#007ea7]">Cours Individuels en Ligne</span>: Apprends à ton rythme
+          <span className="text-[#007ea7]">Cours Individuels en Ligne:</span> Apprends à ton rythme
         </h1>
         <p className="text-lg text-gray-800 mt-4">
           Prépare ton arrivée dans l&apos;ouest de la France avec des cours sur mesure adaptés à tes besoins.

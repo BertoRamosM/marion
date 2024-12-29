@@ -3,6 +3,7 @@ import FacebookIcon from '../icons/FacebookIcon';
 import LinkedinIcon from '../icons/LinkedinIcon';
 import Instagram from '../icons/Instagram';
 import YoutubeIcon from '../icons/YoutubeIcon';
+import WhatsappIcon from '../icons/WhatsappIcon';
 
 const Footer = () => {
   return (
@@ -29,7 +30,7 @@ const Footer = () => {
             <strong>Email:</strong>{' '}
             <a
               href="mailto:westfrench.marion@gmail.com"
-              className="text-[#007ea7] hover:text-[#005f80] underline transition duration-300"
+              className="text-[#007ea7] hover:text-[#ffa45b] underline transition duration-300"
             >
               westfrench.marion@gmail.com
             </a>
@@ -39,11 +40,19 @@ const Footer = () => {
         {/* Right Section */}
         <div className="text-center md:text-right">
           <div className="flex justify-center md:justify-end gap-4 mt-2">
+          <a
+              href="google.es"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[#007ea7] hover:text-[#ffa45b] transition duration-300"
+            >
+              <WhatsappIcon />
+            </a>
             <a
               href="https://facebook.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[#007ea7] hover:text-[#005f80] transition duration-300"
+              className="text-[#007ea7] hover:text-[#ffa45b] transition duration-300"
             >
               <FacebookIcon />
             </a>
@@ -51,7 +60,7 @@ const Footer = () => {
               href="https://youtube.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[#007ea7] hover:text-[#005f80] transition duration-300"
+              className="text-[#007ea7] hover:text-[#ffa45b] transition duration-300"
             >
               <YoutubeIcon />
             </a>
@@ -59,7 +68,7 @@ const Footer = () => {
               href="https://instagram.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[#007ea7] hover:text-[#005f80] transition duration-300"
+              className="text-[#007ea7] hover:text-[#ffa45b] transition duration-300"
             >
               <Instagram />
             </a>
@@ -67,7 +76,7 @@ const Footer = () => {
               href="https://linkedin.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[#007ea7] hover:text-[#005f80] transition duration-300"
+              className="text-[#007ea7] hover:text-[#ffa45b] transition duration-300"
             >
               <LinkedinIcon />
             </a>
