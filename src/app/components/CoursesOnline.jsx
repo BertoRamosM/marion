@@ -3,6 +3,7 @@ import InfoIcon from '../icons/InfoIcon';
 import FlagIcon from '../icons/FlagIcon';
 import EuroIcon from '../icons/EuroIcon';
 import LaptopIcon from '../icons/LaptopIcon';
+import { Banner2 } from './Banner2';
 
 const OnlineCourses = () => {
   return (
@@ -60,6 +61,8 @@ const OnlineCourses = () => {
               </li>
         </ul>
       </div>
+
+      <div className='pt-8'>  <Banner2 /></div>
     </div>
   );
 };
