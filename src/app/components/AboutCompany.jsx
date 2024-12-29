@@ -8,6 +8,7 @@
   import Building from '../icons/Building';
   import World from '../icons/World';
 import ExpandIcon from '../icons/ExpandIcon';
+import LaptopIcon from '../icons/LaptopIcon';
 
   const AboutCompany = () => {
     return (
@@ -39,7 +40,7 @@ import ExpandIcon from '../icons/ExpandIcon';
 
         <div class="grid gap-4">
           <div className="  bg-[#e5f8f6] text-[#007ea7] p-8 rounded-3xl shadow-lg relative overflow-hidden transition-all duration-300 ease-in-out group h-max-full max-w-full">
-            <h2 className="text-2xl font-semibold flex items-center gap-2">
+            <h2 className="text-2xl font-semibold flex items-center gap-2 flex-col text-center">
               <Heart   />Une prof proche de ses apprenants
             </h2>
             <div className="opacity-0 transform scale-y-0 group-hover:opacity-100 group-hover:scale-y-100 max-h-0 group-hover:max-h-[1000px] transition-all duration-300 ease-in-out origin-top overflow-hidden">
@@ -56,7 +57,7 @@ import ExpandIcon from '../icons/ExpandIcon';
 
        
           <div className="bg-[#fff7f3] p-8 rounded-3xl shadow-lg relative overflow-hidden transition-all duration-300 ease-in-out group">
-            <h2 className="text-2xl font-semibold text-[#ffa45b] flex items-center gap-2">
+            <h2 className="text-2xl font-semibold text-[#ffa45b] flex items-center gap-2 flex-col text-center">
               <GroupIcon />Des mini-groupes
             </h2>
             <div className="opacity-0 transform scale-y-0 group-hover:opacity-100 group-hover:scale-y-100 max-h-0 group-hover:max-h-[1000px] transition-all duration-300 ease-in-out origin-top overflow-hidden">
@@ -76,7 +77,7 @@ import ExpandIcon from '../icons/ExpandIcon';
 
           <div class="grid gap-4">
           <div className="bg-[#fff7f3] p-8 rounded-3xl shadow-lg relative overflow-hidden transition-all duration-300 ease-in-out group">
-            <h2 className="text-2xl font-semibold text-[#ffa45b] flex items-center gap-2">
+            <h2 className="text-2xl font-semibold text-[#ffa45b] flex items-center gap-2 flex-col text-center">
               <FriendIcon />Une communauté d&apos;expats
             </h2>
             <div className="opacity-0 transform scale-y-0 group-hover:opacity-100 group-hover:scale-y-100 max-h-0 group-hover:max-h-[1000px] transition-all duration-300 ease-in-out origin-top overflow-hidden">
@@ -93,7 +94,7 @@ import ExpandIcon from '../icons/ExpandIcon';
 
   
           <div className=" p-8 rounded-3xl shadow-lg relative overflow-hidden transition-all duration-300 ease-in-out group bg-[#e5f8f6] text-[#007ea7]">
-            <h2 className="text-2xl font-semibold flex items-center gap-2">
+            <h2 className="text-2xl font-semibold flex items-center gap-2 flex-col text-center">
               <Needle />Des cours sur-mesure
             </h2>
             <div className="opacity-0 transform scale-y-0 group-hover:opacity-100 group-hover:scale-y-100 max-h-0 group-hover:max-h-[1000px] transition-all duration-300 ease-in-out origin-top overflow-hidden">
@@ -113,7 +114,7 @@ import ExpandIcon from '../icons/ExpandIcon';
       <div class="grid gap-4">
       
           <div className="bg-[#e5f8f6] text-[#007ea7] p-8 rounded-3xl shadow-lg relative overflow-hidden transition-all duration-300 ease-in-out group">
-            <h2 className="text-2xl font-semibold   flex items-center gap-2">
+            <h2 className="text-2xl font-semibold   flex items-center gap-2 flex-col text-center">
               <Up />Une progression rapide tout en s&apos;amusant
             </h2>
             <div className="opacity-0 transform scale-y-0 group-hover:opacity-100 group-hover:scale-y-100 max-h-0 group-hover:max-h-[1000px] transition-all duration-300 ease-in-out origin-top overflow-hidden">
@@ -130,13 +131,13 @@ import ExpandIcon from '../icons/ExpandIcon';
 
      
           <div className="bg-[#fff7f3] p-8 rounded-3xl shadow-lg relative overflow-hidden transition-all duration-300 ease-in-out group">
-            <h2 className="text-2xl font-semibold text-[#ffa45b] flex items-center gap-2">
+            <h2 className="text-2xl font-semibold text-[#ffa45b] flex items-center gap-2 flex-col text-center">
               <World />Une immersion socioculturelle
             </h2>
             <div className="opacity-0 transform scale-y-0 group-hover:opacity-100 group-hover:scale-y-100 max-h-0 group-hover:max-h-[1000px] transition-all duration-300 ease-in-out origin-top overflow-hidden">
               <ul className="mt-4 space-y-3 text-gray-700">
                 <li>
-                  Pour apprendre une langue, il faut connaître sa culture ! Les séquences ont un <span className='font-bold'>focus culturel</span> pour en savoir plus sur <span className='font-bold'>l&apos;histoire de Rennes</span> et de la <span className='font-bold'>Bretagne</span> mais aussi sur la <span className='font-bold'>culture populaire,</span> les <span className='font-bold'>traditions bretonnes,</span> la <span className='font-bold'>gastronomie</span>gastronomie et le <span className='font-bold'>style de vie rennais</span>style de vie rennais !
+                  Pour apprendre une langue, il faut connaître sa culture ! Les séquences ont un <span className='font-bold'>focus culturel</span> pour en savoir plus sur <span className='font-bold'>l&apos;histoire de Rennes</span> et de la <span className='font-bold'>Bretagne</span> mais aussi sur la <span className='font-bold'>culture populaire,</span> les <span className='font-bold'>traditions bretonnes,</span> la <span className='font-bold'>gastronomie</span> et le <span className='font-bold'>style de vie rennais </span>!
                 </li>
               </ul>
             </div>
@@ -149,7 +150,7 @@ import ExpandIcon from '../icons/ExpandIcon';
       
           <div class="grid gap-4">
           <div className="bg-[#fff7f3] p-8 rounded-3xl shadow-lg relative overflow-hidden transition-all duration-300 ease-in-out group">
-            <h2 className="text-2xl font-semibold text-[#ffa45b] flex items-center gap-2">
+            <h2 className="text-2xl font-semibold text-[#ffa45b] flex items-center gap-2 flex-col text-center">
               <Building  />Le quartier atypique et central du Colombier
             </h2>
             <div className="opacity-0 transform scale-y-0 group-hover:opacity-100 group-hover:scale-y-100 max-h-0 group-hover:max-h-[1000px] transition-all duration-300 ease-in-out origin-top overflow-hidden">
@@ -164,17 +165,17 @@ import ExpandIcon from '../icons/ExpandIcon';
             </div>
             </div>
             <div className="bg-[#fff7f3] p-8 rounded-3xl shadow-lg relative overflow-hidden transition-all duration-300 ease-in-out group">
-            <h2 className="text-2xl font-semibold text-[#ffa45b] flex items-center gap-2">
-              <World />Des cours en ligne pour ceux qui s&apos;installent bientôt dans le Nord-Ouest 
+            <h2 className="text-2xl font-semibold text-[#ffa45b] flex flex-col items-center gap-2 text-center">
+              <LaptopIcon />Des cours en ligne pour ceux qui s&apos;installent bientôt dans le Nord-Ouest 
             </h2>
             <div className="opacity-0 transform scale-y-0 group-hover:opacity-100 group-hover:scale-y-100 max-h-0 group-hover:max-h-[1000px] transition-all duration-300 ease-in-out origin-top overflow-hidden">
               <ul className="mt-4 space-y-3 text-gray-700">
                 <li>
-               <span className='font-bold'>Si tu ne vis pas encore en France</span> mais que tu aimerais t&apos;installer prochainement <span className='font-bold'>à Rennes, Nantes, en Bretagne ou en Normandie,</span> je te propose des <span className='font-bold'>cours en ligne individuels</span>cours en ligne individuels pour atteindre un premier niveau de français qui te permettra de t&apos;assurer une <span className='font-bold'>arrivée réussie et sans stress dans ta nouvelle région. </span>
+               <span className='font-bold'>Si tu ne vis pas encore en France</span> mais que tu aimerais t&apos;installer prochainement <span className='font-bold'>à Rennes, Nantes, en Bretagne ou en Normandie,</span> je te propose des <span className='font-bold'>cours en ligne individuels </span>cours en ligne individuels pour atteindre un premier niveau de français qui te permettra de t&apos;assurer une <span className='font-bold'>arrivée réussie et sans stress dans ta nouvelle région. </span>
 
 Les cours te permettront de <span className='font-bold'>tout savoir sur le style de vie, la culture populaire, l&apos;histoire, les traditions et les activités de ton futur lieu de vie.</span> Je peux aussi t&apos;aider et te conseiller sur les différentes <span className='font-bold'>démarches administratives</span> à effectuer avant ton arrivée. 
 
-<span className='font-bold'>Si tu planifies de t&apos;installer à Rennes, tu peux commencer les cours en ligne avec moi dès maintenant</span> et tu pourras rejoindre nos <span className='font-bold'>cours collectifs dès ton arrivée</span> afin de continuer à progresser avec une <span className='font-bold'>prof que tu connais déjà</span> et de <span className='font-extrabold'>rencontrer d&apos;autres expats</span> pour t&apos;intégrer rapidement ! 
+<span className='font-bold'> Si tu planifies de t&apos;installer à Rennes, tu peux commencer les cours en ligne avec moi dès maintenant</span> et tu pourras rejoindre nos <span className='font-bold'>cours collectifs dès ton arrivée</span> afin de continuer à progresser avec une <span className='font-bold'>prof que tu connais déjà</span> et de <span className='font-extrabold'>rencontrer d&apos;autres expats</span> pour t&apos;intégrer rapidement ! 
                 </li>
               </ul>
             </div>

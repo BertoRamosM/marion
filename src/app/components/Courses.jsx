@@ -11,7 +11,7 @@ const Courses = () => {
       {/* Title Section */}
       <div className="max-w-3xl text-center mb-12">
         <h1 className="text-4xl font-bold text-gray-900">
-          <span className="text-[#ffa45b]">Cours à Rennes</span>: Rejoins notre communauté d&apos;expats rennaise
+          <span className="text-[#ffa45b]">Cours en mini-groupe à Rennes:</span> rejoins notre communauté d&apos;expats
         </h1>
         <p className="text-lg text-gray-800 mt-4">
           Apprends le français dans une ambiance conviviale et chaleureuse !
@@ -25,8 +25,7 @@ const Courses = () => {
           <h2 className="text-2xl font-semibold text-[#ffa45b] flex items-center gap-2"><InfoIcon  /> Pourquoi Choisir Nos Cours ?</h2>
           <ul className="mt-4 space-y-3 text-gray-700">
             <li>
-              ✔️ <strong className="text-[#ffa45b]">Petits groupes:</strong> de 3 à 8 personnes pour une attention
-              personnalisée.
+              ✔️ <strong className="text-[#ffa45b]">Petits groupes:</strong> de 3 à 8 personnes pour une attention personnalisée.
             </li>
             <li>
               ✔️ <strong className="text-[#ffa45b]">Cours interactifs:</strong> adaptés aux intérêts et besoins de
