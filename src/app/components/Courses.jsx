@@ -81,7 +81,7 @@ const Courses = () => {
             </p>
           </div>
           <div>
-            <h2 className="text-lg font-semibold text-[#007ea7] text-center flex items-center gap-2"><EuroIcon  /> <span>Tarifs pour des sessions d' 1h30.</span> </h2>
+            <h2 className="text-lg font-semibold text-[#007ea7] text-center flex items-center gap-2"><EuroIcon  /> <span>Tarifs pour des sessions d&apos; 1h30.</span> </h2>
             <ul className="mt-4 space-y-3 text-gray-700 text-sm md:text-base">
               <li className='flex items-center gap-2'>
                 <BookIcon /> <strong>3 mois - 12 sessions:</strong> 430€*   

@@ -51,7 +51,7 @@ const OnlineCourses = () => {
 
       {/* Tarifs Section */}
       <div className="mt-12 bg-[#e5f8f6] p-8 rounded-3xl shadow-lg max-w-4xl">
-      <h2 className="text-lg font-semibold text-[#007ea7] text-center flex items-center gap-2"><EuroIcon  /> <span>Tarifs pour des sessions d' 1h30.</span> </h2>
+      <h2 className="text-lg font-semibold text-[#007ea7] text-center flex items-center gap-2"><EuroIcon  /> <span>Tarifs pour des sessions d&apos; 1h30.</span> </h2>
         <ul className="mt-4 space-y-3 text-gray-700">
           <li className='flex items-center gap-2'><LaptopIcon /> <strong>10 sessions - 15h:</strong> 450€*</li>
           <li className='flex items-center gap-2'><LaptopIcon /> <strong>20 sessions - 30h:</strong> 840€*</li>
