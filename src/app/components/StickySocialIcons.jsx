@@ -7,9 +7,10 @@ import InstagramIcon from '../icons/Instagram';
 
 const StickySocialIcons = () => {
   return (
-    <div className="fixed top-1/2 right-4 transform -translate-y-1/2 flex flex-col gap-4 bg-white p-3 rounded-lg shadow-lg">
+    <div className="fixed top-1/2 right-4 transform -translate-y-1/2 flex flex-col gap-4 bg-transparent p-3 rounded-lg shadow-lg">
       <a
-        href="https://google.es"
+          href="https://wa.me/33784582309?text=Hello%20I%20would%20like%20to%20know%20more%20about%20your%20online%20courses"
+
         target="_blank"
         rel="noopener noreferrer"
         className="text-[#007ea7] hover:text-[#ffa45b] transition duration-300"
@@ -24,14 +25,14 @@ const StickySocialIcons = () => {
       >
         <FacebookIcon />
       </a>
-      <a
+    {/*   <a
         href="https://youtube.com"
         target="_blank"
         rel="noopener noreferrer"
         className="text-[#007ea7] hover:text-[#ffa45b] transition duration-300"
       >
         <YoutubeIcon />
-      </a>
+      </a> */}
       <a
         href="https://instagram.com"
         target="_blank"

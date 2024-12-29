@@ -17,8 +17,9 @@ const Footer = () => {
             <br />
             La Maison des associations, 6 cours des Alliés à Rennes
             <br />
+            <br />
            
-<span className='text-sm'>Domiciliation de l&apos;entreprise : 13 rue de Lassy, 35580 Guignen</span>
+<span className=''>Domiciliation de l&apos;entreprise : 13 rue de Lassy, 35580 Guignen</span>
           </p>
         </div>
 
@@ -41,8 +42,8 @@ const Footer = () => {
         <div className="text-center md:text-right">
           <div className="flex justify-center md:justify-end gap-4 mt-2">
           <a
-              href="google.es"
-              target="_blank"
+  href="https://wa.me/33784582309?text=Hello%20I%20would%20like%20to%20know%20more%20about%20your%20online%20courses"
+  target="_blank"
               rel="noopener noreferrer"
               className="text-[#007ea7] hover:text-[#ffa45b] transition duration-300"
             >
@@ -56,14 +57,14 @@ const Footer = () => {
             >
               <FacebookIcon />
             </a>
-            <a
+            {/* <a
               href="https://youtube.com"
               target="_blank"
               rel="noopener noreferrer"
               className="text-[#007ea7] hover:text-[#ffa45b] transition duration-300"
             >
               <YoutubeIcon />
-            </a>
+            </a> */}
             <a
               href="https://instagram.com"
               target="_blank"

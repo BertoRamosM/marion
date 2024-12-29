@@ -63,7 +63,7 @@ const ContactForm = () => {
 
   return (
     <div className="flex items-center justify-center min-h-screen px-6 py-12" id="contact">
-      <div className="w-full max-w-xl p-8 rounded-3xl shadow-lg text-black">
+      <div className="w-full max-w-xl p-8 rounded-3xl shadow-lg text-black ">
         <h1 className="text-3xl font-bold mb-6 text-center text-[#ffa45b]">Contactez-nous</h1>
         <form className="space-y-6" onSubmit={handleSubmit}>
           {/* Name and Surname */}
