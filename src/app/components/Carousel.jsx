@@ -8,7 +8,7 @@ const Carousel = () => {
   const slides = [
     {
       type: "image",
-      content: "/carousel/pic1.jpg",
+      content: "/carousel/red_wall.jpg",
       title: "Cours de français en mini-groupe à Rennes",
       text: "Tu habites à Rennes et tu veux progresser en français rapidement et en t’amusant ?",
       sub: "Rejoins mes cours sur-mesure adaptés à ton niveau et à tes centres d’intérêts : petite classe, ambiance conviviale et rencontre avec d’autres expats !",
@@ -58,7 +58,9 @@ const Carousel = () => {
             }`}
             data-carousel-item
           >
-            <img
+            <Image
+            width={600}
+            height={600}
               src={slide.content}
               className="block w-full h-full object-cover"
               alt={`Slide ${index + 1}`}
