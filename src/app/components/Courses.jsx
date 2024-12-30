@@ -58,11 +58,11 @@ const Courses = () => {
         </div>
 
         {/* Bottom Section */}
-        <div className="bg-[#e5f8f6] p-8 rounded-3xl shadow-lg flex justify-between w-full md:col-span-2">
-          <div>
+        <div className="bg-[#e5f8f6] p-8 rounded-3xl shadow-lg flex flex-col lg:flex-row justify-between w-full md:col-span-2">
+          <div className='pb-4 border-b-2 border-[#007ea7] flex flex-col gap-4 sm:border-none'>
             <h2 className="text-lg font-semibold text-[#007ea7] flex items-center gap-2"><CalendarIcon  /> Cours de 3 à 8 personnes,
             selon niveaux (A1, A2, B1, B2)</h2>
-            <div className="mt-4 grid grid-cols-2 text-gray-700 text-center px-8 text-sm md:text-base">
+            <div className="mt-4 grid grid-cols-2 text-gray-700 text-center px-8 text-xs sm:text-sm md:text-base">
             <div>
               <h3 className="text-[#007ea7] font-bold className='border-b-2 border-[#007ea7]'">Les Mardis</h3>
               <p className='border-b-2 border-[#007ea7]'>14h30 - 16h00</p>
@@ -81,7 +81,7 @@ const Courses = () => {
             </p>
           </div>
           <div>
-            <h2 className="text-lg font-semibold text-[#007ea7] text-center flex items-center gap-2"><EuroIcon  /> <span>Tarifs pour des sessions d&apos; 1h30.</span> </h2>
+            <h2 className="text-lg font-semibold text-[#007ea7] text-center flex items-center gap-2 pt-4"><EuroIcon  /> <span>Tarifs pour des sessions d&apos; 1h30.</span> </h2>
             <ul className="mt-4 space-y-3 text-gray-700 text-sm md:text-base">
               <li className='flex items-center gap-2'>
                 <BookIcon /> <strong>3 mois - 12 sessions:</strong> 430€*   

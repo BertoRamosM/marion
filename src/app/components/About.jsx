@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 const About = () => {
   return (
-    <div className="flex flex-col md:flex-row items-center justify-center gap-8 px-6 pt-8 pb-16 text-pretty">
+    <div className="flex flex-col lg:flex-row items-center justify-center gap-8 px-6 pt-8 pb-16 text-pretty">
       {/* Text Content Card */}
       <div className="max-w-lg p-8 rounded-3xl shadow-lg text-white z-10">
         <h1 className="text-3xl font-bold text-[#ffa45b] text-pretty">Une prof diplômée qui te ressemble !</h1>
