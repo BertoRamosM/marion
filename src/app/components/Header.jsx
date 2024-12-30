@@ -7,6 +7,16 @@ import { SpanishFlag } from "../icons/SpanishFlag";
 import { FrenchFlag } from "../icons/FrenchFlag";
 import { Banner } from "./Banner";
 
+// Import Dancing Script font
+import { Dancing_Script } from "next/font/google";
+
+// Define the font outside of the JSX
+const dancingScript = Dancing_Script({
+  subsets: ["latin"],
+  weight: ["400", "700"],
+  variable: "--font-dancing-script",
+});
+
 const Header = () => {
   const [isHidden, setIsHidden] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -45,48 +55,66 @@ const Header = () => {
       }`}
     >
       <Banner />
-      <header
-  className="flex items-center flex-col sm:flex-row justify-between gap-4 py-2 sm:py-8 px-4 sm:px-20 font-[family-name:var(--font-geist-sans)] bg-[#a3e4db] w-full text-center"
->
-  <h1 className="text-sm sm:text-base lg:text-4xl font-bold flex flex-col items-center text-center border-2 border-[#2c7a7b] p-2 lg:border-none">
-    <span>WestFrench</span>
-    <span className="text-[#2c7a7b]">Academy</span>
-  </h1>
-  <div className="hidden md:flex gap-8 items-center font-bold">
-    <Link href={"#default-carousel"} className="hover:text-[#ffa45b] transition duration-300">
-      Accueil
-    </Link>
-    <Link href={"#courses"} className="hover:text-[#ffa45b] transition duration-300">
-      Cours à Rennes
-    </Link>
-    <Link href={"#online-courses"} className="hover:text-[#ffa45b] transition duration-300">
-      Cours en ligne
-    </Link>
-    <Link href={"#about"} className="hover:text-[#ffa45b] transition duration-300">
-      À propos
-    </Link>
-    <Link href={"#contact"} className="hover:text-[#ffa45b] transition duration-300">
-      Contact
-    </Link>
-  </div>
-  <button
-    className="md:hidden text-xl font-bold py-2 px-4 text-[#ffa45b] border border-[#ffa45b] rounded-lg hover:bg-[#ffa45b] hover:text-white transition duration-300"
-    onClick={toggleModal}
+      <header className="flex items-center flex-col sm:flex-row justify-between gap-4 py-2 sm:py-8 px-4 sm:px-20 font-[family-name:var(--font-geist-sans)] bg-[#a3e4db] w-full text-center">
+      <h1 className="text-sm sm:text-base lg:text-4xl font-bold flex flex-col items-center text-center border-2 border-[#2c7a7b] p-4">
+  <span className="text-[#007ea7]">WestFrench</span>
+  <span
+    className={`text-[#2c7a7b]`}
+    style={{
+      fontFamily: "var(--font-dancing-script)",
+      marginTop: "-12px",
+    }}
   >
-    ☰
-  </button>
-  <div className="flex gap-4 items-center">
-    <FrenchFlag />
-    <UkFlag />
-    <SpanishFlag />
-  </div>
-</header>
-
+    Academy
+  </span>
+</h1>
+        <div className="hidden md:flex gap-8 items-center font-bold">
+          <Link
+            href={"#default-carousel"}
+            className="hover:text-[#ffa45b] transition duration-300"
+          >
+            Accueil
+          </Link>
+          <Link
+            href={"#courses"}
+            className="hover:text-[#ffa45b] transition duration-300"
+          >
+            Cours à Rennes
+          </Link>
+          <Link
+            href={"#online-courses"}
+            className="hover:text-[#ffa45b] transition duration-300"
+          >
+            Cours en ligne
+          </Link>
+          <Link
+            href={"#about"}
+            className="hover:text-[#ffa45b] transition duration-300"
+          >
+            À propos
+          </Link>
+          <Link
+            href={"#contact"}
+            className="hover:text-[#ffa45b] transition duration-300"
+          >
+            Contact
+          </Link>
+        </div>
+        <button
+          className="md:hidden text-xl font-bold py-2 px-4 text-[#ffa45b] border border-[#ffa45b] rounded-lg hover:bg-[#ffa45b] hover:text-white transition duration-300"
+          onClick={toggleModal}
+        >
+          ☰
+        </button>
+        <div className="flex gap-4 items-center">
+          <FrenchFlag />
+          <UkFlag />
+          <SpanishFlag />
+        </div>
+      </header>
 
       {isModalOpen && (
-        <div
-          className="fixed inset-0 bg-black bg-opacity-75 flex flex-col items-center justify-center text-white z-50"
-        >
+        <div className="fixed inset-0 bg-black bg-opacity-75 flex flex-col items-center justify-center text-white z-50">
           <button
             className="absolute top-4 right-4 text-3xl font-bold"
             onClick={toggleModal}

@@ -80,7 +80,7 @@ const Courses = () => {
               <strong className="text-[#007ea7] flex items-center gap-2"><LocationIcon/>La Maison des associations, 6 cours des Alliés à Rennes.</strong> 
             </p>
           </div>
-          <div>
+          <div className='flex flex-col items-center gap-4 mt-4 sm:mt-0'>
             <h2 className="text-lg font-semibold text-[#007ea7] text-center flex items-center gap-2 pt-4"><EuroIcon  /> <span>Tarifs pour des sessions d&apos; 1h30.</span> </h2>
             <ul className="mt-4 space-y-3 text-gray-700 text-sm md:text-base">
               <li className='flex items-center gap-2'>

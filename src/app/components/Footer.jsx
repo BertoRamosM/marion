@@ -11,7 +11,18 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between gap-6 items-center">
         {/* Left Section */}
         <div className="text-center md:text-left">
-          <h2 className="text-2xl font-semibold text-[#ffa45b]">WestFrench</h2>
+        <h1 className="text-sm sm:text-base lg:text-4xl font-bold flex flex-col items-center text-center">
+  <span className="text-[#007ea7]">WestFrench</span>
+  <span
+    className={`text-[#2c7a7b]`}
+    style={{
+      fontFamily: "var(--font-dancing-script)",
+      marginTop: "-12px",
+    }}
+  >
+    Academy
+  </span>
+</h1>
           <p className="text-gray-700 mt-2">
             Cours en mini-groupe à Rennes :
             <br />
@@ -88,7 +99,18 @@ const Footer = () => {
       {/* Bottom Section */}
       <div className="border-t border-gray-300 mt-6 pt-4 text-center">
         <p className="text-sm text-gray-600">
-          © {new Date().getFullYear()} WestFrench. Tous droits réservés.
+          © {new Date().getFullYear()}  <h1 className="text-sm sm:text-base lg:text-4xl font-bold flex flex-col items-center text-center">
+  <span className="text-[#007ea7]">WestFrench</span>
+  <span
+    className={`text-[#2c7a7b]`}
+    style={{
+      fontFamily: "var(--font-dancing-script)",
+      marginTop: "-12px",
+    }}
+  >
+    Academy
+  </span>
+</h1> Tous droits réservés.
         </p>
       </div>
     </footer>
