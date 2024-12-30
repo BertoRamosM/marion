@@ -4,6 +4,8 @@ import LinkedinIcon from '../icons/LinkedinIcon';
 import Instagram from '../icons/Instagram';
 import YoutubeIcon from '../icons/YoutubeIcon';
 import WhatsappIcon from '../icons/WhatsappIcon';
+import EmailIcon from '../icons/EmailIcon';
+
 
 const Footer = () => {
   return (
@@ -91,6 +93,14 @@ const Footer = () => {
               className="text-[#007ea7] hover:text-[#ffa45b] transition duration-300"
             >
               <LinkedinIcon />
+            </a>
+            <a
+              href="https://linkedin.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[#007ea7] hover:text-[#ffa45b] transition duration-300"
+            >
+              <EmailIcon />
             </a>
           </div>
         </div>

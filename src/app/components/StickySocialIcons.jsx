@@ -4,6 +4,8 @@ import FacebookIcon from '../icons/FacebookIcon';
 import YoutubeIcon from '../icons/YoutubeIcon';
 import LinkedinIcon from '../icons/LinkedinIcon';
 import InstagramIcon from '../icons/Instagram';
+import EmailIcon from '../icons/EmailIcon';
+
 
 const StickySocialIcons = () => {
   return (
@@ -48,6 +50,14 @@ const StickySocialIcons = () => {
         className="text-[#007ea7] hover:text-[#ffa45b] transition duration-300"
       >
         <LinkedinIcon />
+      </a>
+      <a
+        href="https://linkedin.com"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-[#007ea7] hover:text-[#ffa45b] transition duration-300"
+      >
+        <EmailIcon />
       </a>
     </div>
   );

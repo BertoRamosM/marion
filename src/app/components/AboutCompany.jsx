@@ -26,7 +26,7 @@ import LaptopIcon from '../icons/LaptopIcon';
 
         <div className="max-w-3xl text-center mb-12">
           <h1 className="text-4xl font-bold text-gray-900">
-            <span className="text-[#2c7a7b]">WestFrench, </span>c&apos;est la seule école de français à Rennes destinée exclusivement aux expats.
+            <span className="text-[#007ea7]">WestFrench, </span>c&apos;est la seule école de français à Rennes destinée exclusivement aux expats.
           </h1>
           <p className="text-lg text-gray-800 mt-4">
             Je te propose un <span className="font-bold text-[#ffa45b]">lieu authentique et familial</span> pour apprendre le français. <br />
