@@ -1,28 +1,31 @@
 "use client";
 
+import { useTranslations } from "next-intl";
 import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect, useCallback } from "react";
 
 const Carousel = () => {
+  const t = useTranslations("Carousel"); 
   const slides = [
     {
       type: "image",
       content: "/carousel/red_wall.jpg",
-      title: "Cours de français en mini-groupe à Rennes",
-      text: "Tu habites à Rennes et tu veux progresser en français rapidement et en t’amusant ?",
-      sub: "Rejoins mes cours sur-mesure adaptés à ton niveau et à tes centres d’intérêts : petite classe, ambiance conviviale et rencontre avec d’autres expats !",
+      title: t("title1"),
+      text: t("subtitle1"),
+      sub: t("text1"),
       link: "#courses",
     },
     {
       type: "image",
       content: "/carousel/pic2.jpg",
-      title: "Cours de français individuels en ligne",
-      text: "Tu prévois de t’installer dans le nord-ouest de la France ?",
-      sub: "Prépare-toi avant ton arrivée avec une prof locale grâce à des cours sur-mesure sur ta future région et atteins rapidement un premier niveau de français !",
+      title: t("title2"),
+      text: t("subtitle2"),
+      sub: t("text2"),
       link: "#online-courses",
     },
   ];
+
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const [intervalId, setIntervalId] = useState(null);
@@ -73,7 +76,7 @@ const Carousel = () => {
                 {slide.link && (
                   <Link href={slide.link}>
                     <button className="bg-gradient-to-r from-[#ffa45b] to-[#ff7c5b] px-6 py-3 rounded-lg text-white font-semibold shadow hover:scale-105 transition-transform duration-300">
-                      C&apos;est par là
+                      {t("button")}
                     </button>
                   </Link>
                 )}

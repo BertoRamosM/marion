@@ -7,7 +7,19 @@
     "contact": "Contact"
   },
   "Banner": {
-    "title": "Inscris-toi à ton premier cours d'essai à 5€",
+    "title1": "Inscris-toi à ton premier cours d'essai à 5€",
     "title2": "ici !"
+  },
+  "Carousel": {
+    "title1": "Cours de français en mini-groupe à Rennes",
+    "subtitle1": "Tu habites à Rennes et tu veux progresser en français rapidement et en t’amusant ?",
+    "text1": "Rejoins mes cours sur-mesure adaptés à ton niveau et à tes centres d’intérêts : petite classe, ambiance conviviale et rencontre avec d’autres expats !",
+
+    "title2": "Cours de français individuels en ligne",
+"subtitle2": "Vous prévoyez de vous installer dans le nord-ouest de la France ?",
+"text2": "Préparez votre arrivée avec un professeur local à travers des cours sur-mesure axés sur votre future région et atteignez rapidement un niveau de base en français !",
+    "button": " C'est par là"
+
+    
   }
 }

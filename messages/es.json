@@ -9,6 +9,18 @@
     "Banner": {
       "title": "Únete a nuestro primer curso de 5€ gratis",
       "title2": "aquí!"
-    }
+    },
+    "Carousel": {
+    "title1": "Clases de francés en mini-grupo en Rennes",
+    "subtitle1": "¿Vives en Rennes y quieres progresar en francés rápidamente y divirtiéndote?",
+    "text1": "Únete a mis clases personalizadas adaptadas a tu nivel y a tus intereses: clase pequeña, ambiente amigable y encuentro con otros expatriados!",
+
+    "title2": "Clases de francés individuales en línea",
+    "subtitle2": "¿Planeas mudarte al noroeste de Francia?",
+    "text2": "¡Prepara tu llegada con un profesor local a través de clases personalizadas enfocadas en tu futura región y alcanza rápidamente un nivel básico en francés!",
+    "button": "Empieza ahora"
+}
+
+
   }
   

@@ -9,5 +9,16 @@
   "Banner": {
     "title": "Join our first 5€ free course",
     "title2": "here!"
+  },
+  "Carousel": {
+    "title1": "French Courses in Small Groups in Rennes",
+    "subtitle1": "Do you live in Rennes and want to improve your French quickly while having fun?",
+    "text1": "Join my tailor-made courses, adapted to your level and interests: small class, friendly atmosphere, and meet other expats!",
+
+    "title2": "Individual French Courses Online",
+    "subtitle2": "Are you planning to settle in the northwest of France?",
+    "text2": "Prepare for your arrival with a local teacher through tailor-made courses focused on your future region and quickly reach a basic level of French!",
+
+    "button": "Start now"
   }
 }
