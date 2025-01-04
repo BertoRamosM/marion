@@ -3,13 +3,11 @@ import "./globals.css";
 import Footer from "./components/Footer";
 import StickySocialIcons from "./components/StickySocialIcons";
 import { Dancing_Script } from "next/font/google";
-
-
-import {NextIntlClientProvider} from 'next-intl';
-import {getMessages} from 'next-intl/server';
-import {notFound} from 'next/navigation';
-import {routing} from 'next/navigation';
-
+import { NextIntlClientProvider } from 'next-intl';
+import { getMessages } from 'next-intl/server';
+import { notFound } from 'next/navigation';
+import { routing } from 'next/navigation';
+import Head from 'next/head'; // Import Head component
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -24,8 +22,8 @@ const geistMono = localFont({
 
 const dancingScript = Dancing_Script({
   subsets: ["latin"],
-  weight: ["400", "700"], 
-  variable: "--font-dancing-script", 
+  weight: ["400", "700"],
+  variable: "--font-dancing-script",
 });
 
 export const metadata = {
@@ -34,21 +32,25 @@ export const metadata = {
 };
 
 export default async function RootLayout({ children }) {
-  
-
   const messages = await getMessages();
 
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} ${dancingScript.variable} antialiased bg-gradient-to-br from-gray-100 to-gray-200 text-pretty`}
-      >
-        <NextIntlClientProvider messages={messages}>
-        {children}
-        <StickySocialIcons />
-        <Footer />
-        </NextIntlClientProvider>
-      </body>
-    </html>
+      <html lang="fr">
+       <Head>
+          {/* Favicon Setup */}
+          <link rel="icon" href="/favicon.ico" />
+          <meta name="theme-color" content="#ffffff" />
+        </Head>
+        <body
+          className={`${geistSans.variable} ${geistMono.variable} ${dancingScript.variable} antialiased bg-gradient-to-br from-gray-100 to-gray-200 text-pretty`}
+        >
+          <NextIntlClientProvider messages={messages}>
+            {children}
+            <StickySocialIcons />
+            <Footer />
+          </NextIntlClientProvider>
+        </body>
+      </html>
+    
   );
 }
