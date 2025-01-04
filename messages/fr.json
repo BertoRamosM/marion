@@ -5,5 +5,9 @@
     "onlineCourses": "Cours en ligne",
     "about": "À propos",
     "contact": "Contact"
+  },
+  "Banner": {
+    "title": "Inscris-toi à ton premier cours d'essai à 5€",
+    "title2": "ici !"
   }
 }
