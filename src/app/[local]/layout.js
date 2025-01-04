@@ -5,6 +5,12 @@ import StickySocialIcons from "./components/StickySocialIcons";
 import { Dancing_Script } from "next/font/google";
 
 
+import {NextIntlClientProvider} from 'next-intl';
+import {getMessages} from 'next-intl/server';
+import {notFound} from 'next/navigation';
+import {routing} from 'next/navigation';
+
+
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
   variable: "--font-geist-sans",
@@ -27,15 +33,21 @@ export const metadata = {
   description: "WestFrench Academy propose des cours de français interactifs à Rennes, adaptés aux expatriés. Participez à des groupes réduits ou à des cours particuliers en ligne, pour apprendre le français de manière ludique et immersive. Découvrez la culture française grâce à un enseignement personnalisé, dirigé par un professeur expérimenté et passionné. Que vous soyez à Rennes, Nantes, ou que vous prévoyiez de vous installer en France, WestFrench vous aide à maîtriser le français dans un cadre convivial et stimulant. Commencez avec un cours d'essai à 5€ !",
 };
 
-export default function RootLayout({ children }) {
+export default async function RootLayout({ children }) {
+  
+
+  const messages = await getMessages();
+
   return (
     <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${dancingScript.variable} antialiased bg-gradient-to-br from-gray-100 to-gray-200 text-pretty`}
       >
+        <NextIntlClientProvider messages={messages}>
         {children}
         <StickySocialIcons />
         <Footer />
+        </NextIntlClientProvider>
       </body>
     </html>
   );

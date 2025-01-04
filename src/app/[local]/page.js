@@ -8,13 +8,18 @@ import Courses from "./components/Courses";
 import CoursesOnline from "./components/CoursesOnline";
 import ContactForm from "./components/ContactForm";
 
+import {useTranslations} from 'next-intl';
+import Link from "next/link";
+
 export default function Home() {
+  const t = useTranslations('HomePage');
+
   return (
     <div className="min-h-screen flex flex-col">
       {/* Fixed Header and Banner */}
       <div className="top-0 left-0 right-0 z-50 bg-white shadow-md">
         <Header />
-        
+        <Link href="/about">{t('about')}</Link>
       </div>
 
       {/* Main Content */}
