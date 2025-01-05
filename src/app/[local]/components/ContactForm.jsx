@@ -1,4 +1,5 @@
 'use client';
+import { useTranslations } from 'next-intl';
 import React, { useState } from 'react';
 
 const ContactForm = () => {
@@ -44,14 +45,14 @@ const ContactForm = () => {
 
       if (response.ok) {
         setStatus({ loading: false, success: true, error: false });
-        setModalMessage('Votre message a été envoyé avec succès!');
+        setModalMessage(t("text20"));
         setModalVisible(true);
       } else {
         throw new Error('Failed to send the email');
       }
     } catch (error) {
       setStatus({ loading: false, success: false, error: true });
-      setModalMessage('Une erreur est survenue. Veuillez réessayer.');
+      setModalMessage(t("text21"));
       setModalVisible(true);
     }
   };
@@ -61,22 +62,24 @@ const ContactForm = () => {
     setModalVisible(false);
   };
 
+  const t = useTranslations("Contact"); 
+
   return (
     <div className="flex items-center justify-center min-h-screen px-6 py-12" id="contact">
       <div className="w-full max-w-xl p-8 rounded-3xl shadow-lg text-black ">
-        <h1 className="text-3xl font-bold mb-6 text-center text-[#ffa45b]">Contactez-moi</h1>
+        <h1 className="text-3xl font-bold mb-6 text-center text-[#ffa45b]">{t("title")}</h1>
         <form className="space-y-6" onSubmit={handleSubmit}>
           {/* Name and Surname */}
           <div>
             <label htmlFor="name" className="block text-sm font-medium text-[#007ea7]">
-              Nom et Prénom <span className="text-red-500">*</span>
+            {t("text1")} <span className="text-red-500">*</span>
             </label>
             <input
               type="text"
               id="name"
               className="w-full mt-2 p-3 rounded-lg shadow focus:outline-none focus:ring-2 focus:ring-[#ffa45b] bg-transparent"
               required
-              placeholder="Entrez votre nom et prénom"
+              placeholder={t("text2")}
               value={formData.name}
               onChange={handleChange}
             />
@@ -85,14 +88,14 @@ const ContactForm = () => {
           {/* Email */}
           <div>
             <label htmlFor="email" className="block text-sm font-medium text-[#007ea7]">
-              Email <span className="text-red-500">*</span>
+            {t("text3")} <span className="text-red-500">*</span>
             </label>
             <input
               type="email"
               id="email"
               className="w-full mt-2 p-3 rounded-lg shadow focus:outline-none focus:ring-2 focus:ring-[#ffa45b] bg-transparent"
               required
-              placeholder="Entrez votre email"
+              placeholder={t("text4")}
               value={formData.email}
               onChange={handleChange}
             />
@@ -101,13 +104,13 @@ const ContactForm = () => {
           {/* Phone */}
           <div>
             <label htmlFor="phone" className="block text-sm font-medium text-[#007ea7]">
-              Téléphone (optionnel)
+            {t("text5")}
             </label>
             <input
               type="tel"
               id="phone"
               className="w-full mt-2 p-3 rounded-lg shadow focus:outline-none focus:ring-2 focus:ring-[#ffa45b] bg-transparent"
-              placeholder="Entrez votre numéro de téléphone"
+              placeholder={t("text6")}
               value={formData.phone}
               onChange={handleChange}
             />
@@ -116,7 +119,7 @@ const ContactForm = () => {
           {/* French Level */}
           <div>
             <label htmlFor="frenchLevel" className="block text-sm font-medium text-[#007ea7]">
-              Niveau de français (optionnel)
+            {t("text7")}
             </label>
             <select
               id="frenchLevel"
@@ -124,7 +127,7 @@ const ContactForm = () => {
               value={formData.frenchLevel}
               onChange={handleChange}
             >
-              <option value="">Je ne sais pas</option>
+              <option value="">{t("text8")}</option>
               <option value="A1">A1</option>
               <option value="A2">A2</option>
               <option value="B1">B1</option>
@@ -137,13 +140,13 @@ const ContactForm = () => {
           {/* Subject */}
           <div>
             <label htmlFor="objet" className="block text-sm font-medium text-[#007ea7]">
-              Objet (optionnel)
+            {t("text15")}
             </label>
             <input
               type="text"
               id="objet"
               className="w-full mt-2 p-3 rounded-lg shadow focus:outline-none focus:ring-2 focus:ring-[#ffa45b] bg-transparent"
-              placeholder="Entrez l'objet de votre message"
+              placeholder={t("text16")}
               value={formData.objet}
               onChange={handleChange}
             />
@@ -152,14 +155,14 @@ const ContactForm = () => {
           {/* Message */}
           <div>
             <label htmlFor="message" className="block text-sm font-medium text-[#007ea7]">
-              Message <span className="text-red-500">*</span>
+            {t("text17")} <span className="text-red-500">*</span>
             </label>
             <textarea
               id="message"
               rows="5"
               className="w-full mt-2 p-3 rounded-lg shadow focus:outline-none focus:ring-2 focus:ring-[#ffa45b] bg-transparent"
               required
-              placeholder="Écrivez votre message ici..."
+              placeholder={t("text18")}
               value={formData.message}
               onChange={handleChange}
             ></textarea>
@@ -171,7 +174,7 @@ const ContactForm = () => {
               type="submit"
               className="bg-gradient-to-tr from-[#ffa45b] to-[#ff7c5b] px-6 py-3 rounded-lg text-white font-semibold shadow hover:scale-105 transition-transform duration-300 ease-out"
             >
-              Envoyer
+              {t("text19")}
             </button>
           </div>
         </form>
@@ -186,7 +189,7 @@ const ContactForm = () => {
               className="mt-4 bg-gradient-to-tr from-[#ffa45b] to-[#ff7c5b] px-4 py-2 rounded-lg text-white font-semibold shadow hover:scale-105 transition-transform duration-300 ease-out"
               onClick={closeModal}
             >
-              Fermer
+              {t("text22")}
             </button>
           </div>
         </div>

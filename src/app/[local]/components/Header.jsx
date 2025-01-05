@@ -8,6 +8,8 @@ import { UkFlag } from "../icons/UkFlag";
 import { SpanishFlag } from "../icons/SpanishFlag";
 import { FrenchFlag } from "../icons/FrenchFlag";
 import { Banner } from "./Banner";
+import { Link as Link2 } from 'next-view-transitions'
+
 
 // Import Dancing Script font
 import { Dancing_Script } from "next/font/google";
@@ -72,12 +74,14 @@ const Header = () => {
           </span>
         </h1>
         <div className="hidden md:flex gap-8 items-center font-bold">
+          
           <Link
             href={"#default-carousel"}
             className="hover:text-[#ffa45b] transition duration-300"
           >
             {t("home")} 
           </Link>
+         
           <Link
             href={"#courses"}
             className="hover:text-[#ffa45b] transition duration-300"

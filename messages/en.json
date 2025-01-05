@@ -7,7 +7,7 @@
     "contact": "Contact"
   },
   "Banner": {
-    "title": "Join our first 5€ free course",
+    "title1": "Join our first 5€ free course",
     "title2": "here!"
   },
   "Carousel": {
@@ -86,7 +86,85 @@
     "text44": "The courses will provide you with all the information about the lifestyle, popular culture, history, traditions, and activities in your future place of residence.",
     "text45": "I can also assist you and advise on the administrative procedures to complete before your arrival.",
     "text46": "If you're planning to settle in Rennes, you can start online lessons with me right now and join our group classes upon arrival to continue progressing with a teacher you already know and meet other expats to integrate quickly!"
-  }
+  },
+  "Contact": {
+    "title": "Contact Me",
+  "text1": "Full Name",
+  "text2": "Enter your full name",
+  "text3": "Email",
+  "text4": "Enter your email",
+  "text5": "Phone (optional)",
+  "text6": "Enter your phone number",
+  "text7": "French Level (optional)",
+  "text8": "I don't know",
+  "text9": "A1",
+  "text10": "A2",
+  "text11": "B1",
+  "text12": "B2",
+  "text13": "C1",
+  "text14": "C2",
+  "text15": "Subject (optional)",
+  "text16": "Enter the subject of your message",
+  "text17": "Message",
+  "text18": "Write your message here...",
+  "text19": "Send",
+  "text20": "Your message has been sent successfully!",
+  "text21": "An error occurred. Please try again.",
+  "text22": "Close"
+},
+"Courses": {
+  "text1": "Mini-group courses in Rennes: Join our expat community",
+  "text2": "Integrating into a new country can be a real challenge when you don't master the language. Learn French quickly with a teacher who looks like you and make new friends!",
+  "text3": "No more overcrowded classes with impersonal and standardized lessons!",
+  "text4": "At WestFrench, I promise you:",
+  "text5": "Mini-groups of 3 to 8 people.",
+  "text6": "Personalized attention and a balanced speaking time.",
+  "text7": "Tailored lessons based on your interests and goals.",
+  "text8": "A meeting place for expats.",
+  "text9": "A relaxed and friendly atmosphere.",
+  "text10": "Real-life communication situations.",
+  "text11": "A qualified, local, and caring teacher.",
+  "text12": "Fun and interactive activities with authentic materials.",
+  "text13": "Rapid and visible progress.",
+  "text14": "Cultural immersion in Breton and Rennes history, lifestyle, and traditions.",
+  "text15": "Cultural or recreational outings regularly organized outside the classroom.",
+  "text16": "Courses of 3 to 8 people, based on levels (A1, A2, B1, B2)",
+  "text17": "Tuesdays",
+  "text18": "14:30 - 16:00",
+  "text19": "16:15 - 17:45",
+  "text20": "18:00 - 19:30",
+  "text21": "Thursdays",
+  "text22": "14:30 - 16:00",
+  "text23": "16:30 - 18:00",
+  "text24": "18:30 - 20:00",
+  "text25": "La Maison des Associations, 6 cours des Alliés in Rennes.",
+  "text26": "Prices for 1.5-hour sessions.",
+  "text27": "3 months - 12 sessions: 430€*",
+  "text28": "6 months - 24 sessions: 790€*",
+  "text29": "9 months - 36 sessions: 972€*",
+  "text30": "*3 months 24€/h, 6 months 22€/h, 9 months 20€/h"
+},"online": {
+  "title": "Individual Online Courses:",
+  "text1": "Prepare your arrival in the northwest of France",
+  "text2": "Settling in a French city where you don't know anyone and can't communicate in basic situations can be a major source of stress.",
+  "text3": "Start your",
+  "text4": "French learning journey now remotely",
+  "text5": "with Marion through tailor-made courses adapted to your needs and your new region.",
+  "text6": "Say goodbye to useless and decontextualized vocabulary learning apps. At WestFrench, you'll find:",
+  "text7": "An effective and tailor-made French program to learn, in just a few hours, how to handle the most basic communication situations according to your needs (e.g., introducing yourself, getting to know your neighbors, handling administrative formalities, shopping, ordering at a restaurant, scheduling an appointment or making a registration by phone, responding to a housing ad, applying for a job offer).",
+  "text8": "Marion, a local teacher, warm and caring, who knows your language",
+  "text9": "Courses with a cultural focus to know everything about your future city and/or region (e.g., If you plan to move to Nantes, you'll discover its history as well as Nantes cuisine, cultural places, lifestyle, and the most beautiful villages and vineyards in the surroundings).",
+  "text10": "If you plan to move to Rennes, you can start online courses with me now and join our in-person group classes upon your arrival to continue progressing with a teacher you already know and meet other expats to integrate quickly!",
+  "text11": "Prices for 1h30 sessions.",
+  "text12": "10 sessions - 15h:",
+  "text13": "20 sessions - 30h:",
+  "text14": "*3 months €24/h, 6 months €22/h, 9 months €20/h"
+}
+
+
+
+
+
   
   
 }

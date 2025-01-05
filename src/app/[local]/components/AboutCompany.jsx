@@ -149,7 +149,7 @@ const AboutCompany = () => {
             <div className="opacity-0 transform scale-y-0 group-hover:opacity-100 group-hover:scale-y-100 max-h-0 group-hover:max-h-[1000px] transition-all duration-300 ease-in-out origin-top overflow-hidden">
               <ul className="mt-4 space-y-3 text-gray-700">
                 <li>
-                  {t('text45')} <span className='font-bold'>{t('text46')}</span>. {t('text47')}.
+                  {t('text45')} <span className='font-bold'>{t('text46')}</span>.
                 </li>
               </ul>
             </div>

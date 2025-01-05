@@ -51,6 +51,5 @@ export default async function RootLayout({ children }) {
           </NextIntlClientProvider>
         </body>
       </html>
-    
   );
 }
