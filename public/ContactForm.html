@@ -8,7 +8,11 @@
 </head>
 <body>
   <h1>Contact Form</h1>
-  <form name="contact" method="POST" data-netlify="true">
+  <form name="contact"
+  method="POST"
+  action="/"
+  data-netlify="true"
+  data-netlify-honeypot="bot-field">
     <!-- Hidden field to identify the form on Netlify -->
     <input type="hidden" name="form-name" value="contact" />
     
