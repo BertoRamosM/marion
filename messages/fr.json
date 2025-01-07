@@ -176,7 +176,8 @@
   "text19": "Envoyer",
   "text20": "Votre message a été envoyé avec succès!",
   "text21": "Une erreur est survenue. Veuillez réessayer.",
-  "text22": "Fermer"
+  "text22": "Fermer",
+  "errorMessage": "Une erreur est survenue. Veuillez réessayer."
 },
 "Courses":{
     "text1": "Cours en mini-groupe à Rennes: rejoins notre communauté d'expats",

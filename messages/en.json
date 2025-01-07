@@ -163,7 +163,8 @@
       "text19": "Send",
       "text20": "Your message has been sent successfully!",
       "text21": "An error occurred. Please try again.",
-      "text22": "Close"
+      "text22": "Close",
+      "errorMessage": "An error occurred. Please try again."
     },
     "Courses": {
       "text1": "Mini-group Courses in Rennes: Join Our Expat Community",

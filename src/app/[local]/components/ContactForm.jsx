@@ -159,7 +159,6 @@ const ContactForm = () => {
 
         {/* Error Message */}
         {status === 'error' && <div className="mt-4 text-red-500">{t('errorMessage')}: {error}</div>}
-        {status === 'ok' && <div className="mt-4 text-green-500">{t('successMessage')}</div>}
       </div>
     </div>
   );

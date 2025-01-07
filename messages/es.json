@@ -167,7 +167,9 @@
     "text19": "Enviar",
     "text20": "¡Tu mensaje ha sido enviado con éxito!",
     "text21": "Ha ocurrido un error. Por favor, inténtalo de nuevo.",
-    "text22": "Cerrar"
+    "text22": "Cerrar",
+    "errorMessage": "Ha ocurrido un error. Por favor, inténtalo de nuevo."
+
   },
   "Courses": {
     "text1": "Clases en mini-grupo en Rennes: únete a nuestra comunidad de expatriados",
