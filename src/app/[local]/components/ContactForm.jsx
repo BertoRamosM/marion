@@ -1,32 +1,52 @@
 'use client';
 
+import { useState } from 'react';
 import { useTranslations } from 'next-intl';
 
 const ContactForm = () => {
-  
-
-  const closeModal = () => {
-    setModalVisible(false);
-  };
-
+  const [status, setStatus] = useState(null);
+  const [error, setError] = useState(null);
   const t = useTranslations('Contact');
+
+  const handleFormSubmit = async (event) => {
+    event.preventDefault();
+    try {
+      setStatus('pending');
+      setError(null);
+      const form = event.target;
+      const formData = new FormData(form);
+      // Update the fetch URL to point to __forms.html in the public folder
+      const res = await fetch('/__forms.html', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(formData).toString(),
+      });
+      if (res.ok) {
+        setStatus('ok');
+        form.reset(); // Clear the form inputs
+      } else {
+        throw new Error(`Error: ${res.status} ${res.statusText}`);
+      }
+    } catch (e) {
+      setStatus('error');
+      setError(e.message);
+    }
+  };
+  
 
   return (
     <div className="flex items-center justify-center min-h-screen px-6 py-12" id="contact">
       <div className="w-full max-w-xl p-8 rounded-3xl shadow-lg text-black">
         <h1 className="text-3xl font-bold mb-6 text-center text-[#ffa45b]">{t('title')}</h1>
 
-     
         <form
           className="space-y-6"
           name="contact"
           method="POST"
           data-netlify="true"
-          action="/success"
+          onSubmit={handleFormSubmit}
         >
-            <input type="hidden" name="form-name" value="contact" />
-
-        
+          <input type="hidden" name="form-name" value="contact" />
 
           {/* Name */}
           <div>
@@ -126,26 +146,20 @@ const ContactForm = () => {
             <button
               type="submit"
               className="bg-gradient-to-tr from-[#ffa45b] to-[#ff7c5b] px-6 py-3 rounded-lg text-white font-semibold shadow hover:scale-105 transition-transform duration-300 ease-out"
+              disabled={status === 'pending' || status === 'ok'}
             >
-              {t('text19')}
+              {status === 'ok'
+                ? t('text20') // Message sent
+                : status === 'pending'
+                ? t('text21') // Sending...
+                : t('text19')} {/* Send message */}
             </button>
           </div>
         </form>
 
-        {/* Modal for Success/Error */}
-       {/*  {modalVisible && (
-          <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-            <div className="bg-white p-6 rounded-lg shadow-lg text-center">
-              <h2 className="text-xl font-semibold text-[#007ea7] mb-4">{modalMessage}</h2>
-              <button
-                className="mt-4 bg-gradient-to-tr from-[#ffa45b] to-[#ff7c5b] px-4 py-2 rounded-lg text-white font-semibold shadow hover:scale-105 transition-transform duration-300 ease-out"
-                onClick={closeModal}
-              >
-                {t('text22')}
-              </button>
-            </div>
-          </div>
-        )} */}
+        {/* Error Message */}
+        {status === 'error' && <div className="mt-4 text-red-500">{t('errorMessage')}: {error}</div>}
+        {status === 'ok' && <div className="mt-4 text-green-500">{t('successMessage')}</div>}
       </div>
     </div>
   );
