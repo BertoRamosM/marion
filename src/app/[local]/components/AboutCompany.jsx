@@ -10,6 +10,7 @@ import World from '../icons/World';
 import ExpandIcon from '../icons/ExpandIcon';
 import LaptopIcon from '../icons/LaptopIcon';
 import { useTranslations } from 'next-intl';
+import Image from 'next/image';
 
 const AboutCompany = () => {
     const t = useTranslations("AboutCompany"); 
@@ -42,11 +43,11 @@ const AboutCompany = () => {
        
 
       <div class="grid gap-4">
-        <div className="  bg-[#e5f8f6] text-[#007ea7] p-8 rounded-3xl shadow-lg relative overflow-hidden transition-all duration-300 ease-in-out group h-max-full max-w-full">
+        <div className="  bg-[#e5f8f6] text-[#007ea7] p-8 rounded-3xl shadow-lg relative overflow-hidden transition-all duration-300 ease-in-out group h-max-full max-w-full ">
           <h2 className="text-2xl font-semibold flex items-center gap-2 flex-col text-center">
             <Heart   />{t("text9")}
           </h2>
-          <div className="opacity-0 transform scale-y-0 group-hover:opacity-100 group-hover:scale-y-100 max-h-0 group-hover:max-h-[1000px] transition-all duration-300 ease-in-out origin-top overflow-hidden">
+          <div className="opacity-0 transform scale-y-0 group-hover:opacity-100 group-hover:scale-y-100 max-h-0 group-hover:max-h-[1000px] transition-all duration-300 ease-in-out origin-top overflow-hidden pb-4">
             <ul className="mt-4 space-y-3 text-gray-700">
               <li>
               {t("text10")} <span className='font-bold'>{t("text11")}</span> {t("text12")} <span className='font-bold'>{t("text13")}</span> {t("text14")} <span className='font-bold'>{t("text15")}</span> {t("text16")} <span className='font-bold'>{t("text17")}</span>
@@ -56,6 +57,15 @@ const AboutCompany = () => {
           <div className="absolute right-10 bottom-3 z-10  text-black sm:hidden ">
           <ExpandIcon />  
           </div>
+          <div className="bg-gradient-to-r from-[#ffa45b] to-[#a3e4db] p-2 rounded-3xl shadow-lg">
+                 <Image
+                   src="/about/Marion.jpg"
+                   alt="Marion"
+                   width={200}
+                   height={100}
+                   className="rounded-2xl transform hover:scale-105 transition-transform duration-300 ease-out"
+                 />
+               </div>
         </div>
 
      
@@ -149,7 +159,7 @@ const AboutCompany = () => {
           <h2 className="text-2xl font-semibold text-[#ffa45b] flex items-center gap-2 flex-col text-center">
             <World /> {t("text72")}
           </h2>
-          <div className="opacity-0 transform scale-y-0 group-hover:opacity-100 group-hover:scale-y-100 max-h-0 group-hover:max-h-[1000px] transition-all duration-300 ease-in-out origin-top overflow-hidden">
+          <div className="opacity-0 transform scale-y-0 group-hover:opacity-100 group-hover:scale-y-100 max-h-0 group-hover:max-h-[1000px] transition-all duration-300 ease-in-out origin-top overflow-hidden pb-4">
             <ul className="mt-4 space-y-3 text-gray-700">
               <li>
               {t("text73")}
@@ -170,9 +180,20 @@ const AboutCompany = () => {
             </ul>
           </div>
           <div className="absolute right-10 bottom-3 z-10 text-black sm:hidden ">
-          <ExpandIcon />  
+          <ExpandIcon /> 
+           
           </div>
+          <div className="bg-gradient-to-r from-[#ffa45b] to-[#a3e4db] p-2 rounded-3xl shadow-lg">
+                 <Image
+                   src="/about/Marion2.jpg"
+                   alt="Marion"
+                   width={200}
+                   height={100}
+                   className="rounded-2xl transform hover:scale-105 transition-transform duration-300 ease-out"
+                 />
+               </div>
         </div>
+        
         </div>
 
     
@@ -181,7 +202,7 @@ const AboutCompany = () => {
           <h2 className="text-2xl font-semibold text-[#ffa45b] flex items-center gap-2 flex-col text-center">
             <Building  />  {t("text86")}
           </h2>
-          <div className="opacity-0 transform scale-y-0 group-hover:opacity-100 group-hover:scale-y-100 max-h-0 group-hover:max-h-[1000px] transition-all duration-300 ease-in-out origin-top overflow-hidden">
+          <div className="opacity-0 transform scale-y-0 group-hover:opacity-100 group-hover:scale-y-100 max-h-0 group-hover:max-h-[1000px] transition-all duration-300 ease-in-out origin-top overflow-hidden pb-4">
             <ul className="mt-4 space-y-3 text-gray-700">
               <li>
               {t("text87")}
@@ -193,12 +214,21 @@ const AboutCompany = () => {
           <div className="absolute right-10 bottom-3 z-10 text-black sm:hidden ">
           <ExpandIcon />  
           </div>
+          <div className="bg-gradient-to-r from-[#ffa45b] to-[#a3e4db] p-2 rounded-3xl shadow-lg">
+                 <Image
+                   src="/about/Marion4.jpg"
+                   alt="Marion"
+                   width={200}
+                   height={100}
+                   className="rounded-2xl transform hover:scale-105 transition-transform duration-300 ease-out"
+                 />
+               </div>
           </div>
           <div className="bg-[#fff7f3] p-8 rounded-3xl shadow-lg relative overflow-hidden transition-all duration-300 ease-in-out group">
           <h2 className="text-2xl font-semibold text-[#ffa45b] flex flex-col items-center gap-2 text-center">
             <LaptopIcon />  {t("text90")}
           </h2>
-          <div className="opacity-0 transform scale-y-0 group-hover:opacity-100 group-hover:scale-y-100 max-h-0 group-hover:max-h-[1000px] transition-all duration-300 ease-in-out origin-top overflow-hidden">
+          <div className="opacity-0 transform scale-y-0 group-hover:opacity-100 group-hover:scale-y-100 max-h-0 group-hover:max-h-[1000px] transition-all duration-300 ease-in-out origin-top overflow-hidden pb-4">
             <ul className="mt-4 space-y-3 text-gray-700">
               <li>
              <span className='font-bold'>  {t("text91")}</span>
@@ -225,6 +255,15 @@ const AboutCompany = () => {
           <div className="absolute right-10 bottom-3 z-10 text-black sm:hidden ">
           <ExpandIcon />  
           </div>
+          <div className="bg-gradient-to-r from-[#ffa45b] to-[#a3e4db] p-2 rounded-3xl shadow-lg">
+                 <Image
+                   src="/about/Marion3.jpg"
+                   alt="Marion"
+                   width={200}
+                   height={100}
+                   className="rounded-2xl transform hover:scale-105 transition-transform duration-300 ease-out"
+                 />
+               </div>
         </div>
           </div>
         </div>
