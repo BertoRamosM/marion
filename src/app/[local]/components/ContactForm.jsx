@@ -134,7 +134,7 @@ const ContactForm = () => {
         </form>
 
         {/* Modal for Success/Error */}
-        {modalVisible && (
+       {/*  {modalVisible && (
           <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
             <div className="bg-white p-6 rounded-lg shadow-lg text-center">
               <h2 className="text-xl font-semibold text-[#007ea7] mb-4">{modalMessage}</h2>
@@ -146,7 +146,7 @@ const ContactForm = () => {
               </button>
             </div>
           </div>
-        )}
+        )} */}
       </div>
     </div>
   );
