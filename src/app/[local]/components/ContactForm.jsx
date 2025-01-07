@@ -14,7 +14,7 @@ const ContactForm = () => {
 
   const [modalVisible, setModalVisible] = useState(false); 
   const [modalMessage, setModalMessage] = useState(''); 
-  const [status, setStatus] = useState({ loading: false, error: false, success: false });
+  const [status, setStatus] = useState({ loading: false, error: false, success: false }); 
 
   const handleChange = (e) => {
     const { id, value } = e.target;
@@ -30,8 +30,6 @@ const ContactForm = () => {
     setStatus({ loading: true, error: false, success: false });
 
     try {
-      // Uncomment and adjust the below fetch request if you're using your own backend to send an email
-      /*
       const response = await fetch('/api/send-email', {
         method: 'POST',
         headers: {
@@ -46,19 +44,14 @@ const ContactForm = () => {
 
       if (response.ok) {
         setStatus({ loading: false, success: true, error: false });
+        setModalMessage(t("text20"));
+        setModalVisible(true);
       } else {
         throw new Error('Failed to send the email');
       }
-      */
-
-      // Simulate success for modal (since Netlify handles the form submission)
-      setStatus({ loading: false, success: true, error: false });
-      setModalMessage(t("text20"));
-      setModalVisible(true);
-
     } catch (error) {
       setStatus({ loading: false, success: false, error: true });
-      setModalMessage(t("text21")); 
+      setModalMessage(t("text21"));
       setModalVisible(true);
     }
   };
@@ -72,12 +65,17 @@ const ContactForm = () => {
 
   return (
     <div className="flex items-center justify-center min-h-screen px-6 py-12" id="contact">
-      <div className="w-full max-w-xl p-8 rounded-3xl shadow-lg text-black">
+      <div className="w-full max-w-xl p-8 rounded-3xl shadow-lg text-black ">
         <h1 className="text-3xl font-bold mb-6 text-center text-[#ffa45b]">{t("title")}</h1>
+
+        {/* Hidden HTML form for Netlify form detection */}
+        <form name="contact" method="POST" data-netlify="true" style={{ display: 'none' }}>
+          <input type="hidden" name="form-name" value="contact" />
+          <input name="bot-field" style={{ display: 'none' }} />
+        </form>
+
         <form
-          className="space-y-6"
           name="contact"
-          netlify
           method="POST"
           data-netlify="true"
           data-netlify-honeypot="bot-field"
@@ -102,7 +100,7 @@ const ContactForm = () => {
             />
           </div>
 
-          {/* Email */}
+          {/* Email field */}
           <div>
             <label htmlFor="email" className="block text-sm font-medium text-[#007ea7]">
               {t("text3")} <span className="text-red-500">*</span>
@@ -119,7 +117,7 @@ const ContactForm = () => {
             />
           </div>
 
-          {/* Phone */}
+          {/* Phone field */}
           <div>
             <label htmlFor="phone" className="block text-sm font-medium text-[#007ea7]">
               {t("text5")}
@@ -142,6 +140,7 @@ const ContactForm = () => {
             </label>
             <select
               id="frenchLevel"
+              name="frenchLevel"
               className="w-full mt-2 p-3 rounded-lg shadow focus:outline-none focus:ring-2 focus:ring-[#ffa45b] bg-transparent"
               value={formData.frenchLevel}
               onChange={handleChange}
@@ -179,6 +178,7 @@ const ContactForm = () => {
             </label>
             <textarea
               id="message"
+              name="message"
               rows="5"
               className="w-full mt-2 p-3 rounded-lg shadow focus:outline-none focus:ring-2 focus:ring-[#ffa45b] bg-transparent"
               required
