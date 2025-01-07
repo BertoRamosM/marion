@@ -49,9 +49,6 @@ const ContactForm = () => {
           method="POST"
           data-netlify="true"
           data-netlify-honeypot="bot-field"
-          action="/"  // Add action to trigger the Netlify form submission
-          onSubmit={handleSubmit}  // Corrected this line
-          ref={formRef}  // Set the form reference
         >
           <input type="hidden" name="form-name" value="contact" />
           <input name="bot-field" style={{ display: 'none' }} />
