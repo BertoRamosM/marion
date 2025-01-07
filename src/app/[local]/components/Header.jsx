@@ -12,6 +12,7 @@ import { Banner } from "./Banner";
 
 // Import Dancing Script font
 import { Dancing_Script } from "next/font/google";
+import Image from "next/image";
 
 // Define the font outside of the JSX
 const dancingScript = Dancing_Script({
@@ -60,7 +61,7 @@ const Header = () => {
     >
       <Banner />
       <header className="flex items-center flex-col sm:flex-row justify-between gap-4 py-2 sm:py-8 px-4 sm:px-20 font-[family-name:var(--font-geist-sans)] bg-[#a3e4db] w-full text-center">
-        <h1 className="text-sm sm:text-base lg:text-4xl font-bold flex flex-col items-center text-center border-2 border-[#2c7a7b] p-4">
+       {/*  <h1 className="text-sm sm:text-base lg:text-4xl font-bold flex flex-col items-center text-center border-2 border-[#2c7a7b] p-4">
           <span className="text-[#007ea7]">WestFrench</span>
           <span
             className={`text-[#2c7a7b]`}
@@ -71,8 +72,9 @@ const Header = () => {
           >
             Academy
           </span>
-        </h1>
-        <div className="hidden md:flex gap-8 items-center font-bold">
+        </h1> */}
+        <Image src="/logos/logo-no-bg.png" alt="WestFrench logo" width={200} height={200} />
+        <div className="hidden lg:flex gap-8 items-center font-bold">
           
           <Link
             href={"#default-carousel"}
@@ -107,7 +109,7 @@ const Header = () => {
           </Link>
         </div>
         <button
-          className="md:hidden text-xl font-bold py-2 px-4 text-[#ffa45b] border border-[#ffa45b] rounded-lg hover:bg-[#ffa45b] hover:text-white transition duration-300"
+          className="lg:hidden text-xl font-bold py-2 px-4 text-[#ffa45b] border border-[#ffa45b] rounded-lg hover:bg-[#ffa45b] hover:text-white transition duration-300"
           onClick={toggleModal}
         >
           ☰

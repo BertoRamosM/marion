@@ -5,6 +5,7 @@ import Instagram from '../icons/Instagram';
 import YoutubeIcon from '../icons/YoutubeIcon';
 import WhatsappIcon from '../icons/WhatsappIcon';
 import EmailIcon from '../icons/EmailIcon';
+import Image from 'next/image';
 
 
 const Footer = () => {
@@ -13,17 +14,11 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between gap-6 items-center">
         {/* Left Section */}
         <div className="text-center md:text-left">
-        <h1 className="text-sm sm:text-base lg:text-4xl font-bold flex flex-col items-center text-center">
-  <span className="text-[#007ea7]">WestFrench</span>
-  <span
-    className={`text-[#2c7a7b]`}
-    style={{
-      fontFamily: "var(--font-dancing-script)",
-      marginTop: "-12px",
-    }}
-  >
-    Academy
-  </span>
+        <h1 className="text-sm sm:text-base lg:text-4xl font-bold flex flex-col items-center text-center pb-4">
+{/*   <span className="text-[#007ea7]">WestFrench</span> */}
+        <Image src="/logos/logo-no-bg.png" alt="WestFrench logo" width={150} height={150} />
+
+  
 </h1>
           <p className="text-gray-700 mt-2">
             Cours en mini-groupe à Rennes :
@@ -110,16 +105,8 @@ const Footer = () => {
       <div className="border-t border-gray-300 mt-6 pt-4 text-center">
         <p className="text-sm text-gray-600">
           © {new Date().getFullYear()}  <h1 className="text-sm sm:text-base lg:text-4xl font-bold flex flex-col items-center text-center">
-  <span className="text-[#007ea7]">WestFrench</span>
-  <span
-    className={`text-[#2c7a7b]`}
-    style={{
-      fontFamily: "var(--font-dancing-script)",
-      marginTop: "-12px",
-    }}
-  >
-    Academy
-  </span>
+          <Image src="/logos/logo-no-bg.png" alt="WestFrench logo" width={200} height={200} className='pt-4'/>
+
 </h1> Tous droits réservés.
         </p>
       </div>
