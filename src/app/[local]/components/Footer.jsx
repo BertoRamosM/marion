@@ -46,7 +46,7 @@ const Footer = () => {
               href="mailto:westfrench.marion@gmail.com"
               className="text-[#007ea7] hover:text-[#ffa45b] underline transition duration-300"
             >
-              westfrench.marion@gmail.com
+              marion.westfrench@gmail.com
             </a>
           </p>
         </div>

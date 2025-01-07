@@ -129,7 +129,7 @@ const AboutCompany = () => {
                 <span className='font-bold'>{t("text59")}</span> {t("text60")}
                 <span className='font-bold'>{t("text61")}</span> {t("text62")}
                 <span className='font-bold'>{t("text63")}</span> {t("text64")} 
-                <span className='font-bold'>{t("text65")}.</span>
+                <span className='font-bold'>{t("text65")}</span>
                 {t("text66")}
                  <span className='font-bold'>{t("text67")}</span>
                  {t("text68")} 
@@ -155,7 +155,7 @@ const AboutCompany = () => {
               {t("text73")}
                 <span className='font-bold'> {t("text74")}</span> 
                 {t("text75")}
-                <span className='font-bold'> {t("text76")}s</span>
+                <span className='font-bold'> {t("text76")}</span>
                 {t("text77")}
                  <span className='font-bold'> {t("text78")}</span>
                  {t("text79")}
