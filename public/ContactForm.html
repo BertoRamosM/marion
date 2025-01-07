@@ -1,4 +1,3 @@
-<!-- public/contact-form.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,33 +8,53 @@
 <body>
   <h1>Contact Form</h1>
   <form
-  className="space-y-6"
-  name="contact"
-  method="POST"
-  data-netlify="true"
-  
->
+    name="contact"
+    method="POST"
+    data-netlify="true"
+  >
     <!-- Hidden field to identify the form on Netlify -->
     <input type="hidden" name="form-name" value="contact" />
-    
+
+    <!-- Name -->
     <div>
       <label for="name">Your Name</label>
-      <input type="text" id="name" name="name" required placeholder="Enter your name" />
+      <input 
+        type="text" 
+        id="name" 
+        name="name" 
+        required 
+        placeholder="Enter your name" 
+      />
     </div>
-    
+
+    <!-- Email -->
     <div>
       <label for="email">Your Email</label>
-      <input type="email" id="email" name="email" required placeholder="Enter your email" />
+      <input 
+        type="email" 
+        id="email" 
+        name="email" 
+        required 
+        placeholder="Enter your email" 
+      />
     </div>
-    
+
+    <!-- Phone -->
     <div>
       <label for="phone">Your Phone</label>
-      <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" />
+      <input 
+        type="tel" 
+        id="phone" 
+        name="phone" 
+        placeholder="Enter your phone number" 
+      />
     </div>
-    
+
+    <!-- French Level -->
     <div>
       <label for="frenchLevel">Your French Level</label>
       <select id="frenchLevel" name="frenchLevel">
+        <option value="">Select your level</option>
         <option value="A1">A1</option>
         <option value="A2">A2</option>
         <option value="B1">B1</option>
@@ -44,17 +63,30 @@
         <option value="C2">C2</option>
       </select>
     </div>
-    
+
+    <!-- Subject -->
     <div>
       <label for="objet">Subject</label>
-      <input type="text" id="objet" name="objet" placeholder="Subject of your message" />
+      <input 
+        type="text" 
+        id="objet" 
+        name="objet" 
+        placeholder="Subject of your message" 
+      />
     </div>
-    
+
+    <!-- Message -->
     <div>
       <label for="message">Your Message</label>
-      <textarea id="message" name="message" required placeholder="Enter your message"></textarea>
+      <textarea 
+        id="message" 
+        name="message" 
+        required 
+        placeholder="Enter your message"
+      ></textarea>
     </div>
-    
+
+    <!-- Submit Button -->
     <button type="submit">Send Message</button>
   </form>
 </body>
