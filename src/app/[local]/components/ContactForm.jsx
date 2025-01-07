@@ -14,8 +14,7 @@ const ContactForm = () => {
 
   const [modalVisible, setModalVisible] = useState(false); 
   const [modalMessage, setModalMessage] = useState(''); 
-  const [status, setStatus] = useState({ loading: false, error: false, success: false }); 
-
+  const [status, setStatus] = useState({ loading: false, error: false, success: false });
 
   const handleChange = (e) => {
     const { id, value } = e.target;
@@ -31,6 +30,8 @@ const ContactForm = () => {
     setStatus({ loading: true, error: false, success: false });
 
     try {
+      // Uncomment and adjust the below fetch request if you're using your own backend to send an email
+      /*
       const response = await fetch('/api/send-email', {
         method: 'POST',
         headers: {
@@ -45,14 +46,19 @@ const ContactForm = () => {
 
       if (response.ok) {
         setStatus({ loading: false, success: true, error: false });
-        setModalMessage(t("text20"));
-        setModalVisible(true);
       } else {
         throw new Error('Failed to send the email');
       }
+      */
+
+      // Simulate success for modal (since Netlify handles the form submission)
+      setStatus({ loading: false, success: true, error: false });
+      setModalMessage(t("text20"));
+      setModalVisible(true);
+
     } catch (error) {
       setStatus({ loading: false, success: false, error: true });
-      setModalMessage(t("text21"));
+      setModalMessage(t("text21")); 
       setModalVisible(true);
     }
   };
@@ -66,24 +72,28 @@ const ContactForm = () => {
 
   return (
     <div className="flex items-center justify-center min-h-screen px-6 py-12" id="contact">
-      <div className="w-full max-w-xl p-8 rounded-3xl shadow-lg text-black ">
+      <div className="w-full max-w-xl p-8 rounded-3xl shadow-lg text-black">
         <h1 className="text-3xl font-bold mb-6 text-center text-[#ffa45b]">{t("title")}</h1>
-        <form className="space-y-6" 
-        name="contact"
-        netlify
-        method="POST"
-        data-netlify="true"
-        data-netlify-honeypot="bot-field"
-        onSubmit="submit"
+        <form
+          className="space-y-6"
+          name="contact"
+          netlify
+          method="POST"
+          data-netlify="true"
+          data-netlify-honeypot="bot-field"
+          onSubmit={handleSubmit}
         >
+          <input type="hidden" name="form-name" value="contact" />
+          <input name="bot-field" style={{ display: 'none' }} />
+
           <div>
             <label htmlFor="name" className="block text-sm font-medium text-[#007ea7]">
-            {t("text1")} <span className="text-red-500">*</span>
+              {t("text1")} <span className="text-red-500">*</span>
             </label>
             <input
               type="text"
               id="name"
-              name='name'
+              name="name"
               className="w-full mt-2 p-3 rounded-lg shadow focus:outline-none focus:ring-2 focus:ring-[#ffa45b] bg-transparent"
               required
               placeholder={t("text2")}
@@ -95,12 +105,12 @@ const ContactForm = () => {
           {/* Email */}
           <div>
             <label htmlFor="email" className="block text-sm font-medium text-[#007ea7]">
-            {t("text3")} <span className="text-red-500">*</span>
+              {t("text3")} <span className="text-red-500">*</span>
             </label>
             <input
               type="email"
               id="email"
-              name='email'
+              name="email"
               className="w-full mt-2 p-3 rounded-lg shadow focus:outline-none focus:ring-2 focus:ring-[#ffa45b] bg-transparent"
               required
               placeholder={t("text4")}
@@ -112,12 +122,12 @@ const ContactForm = () => {
           {/* Phone */}
           <div>
             <label htmlFor="phone" className="block text-sm font-medium text-[#007ea7]">
-            {t("text5")}
+              {t("text5")}
             </label>
             <input
               type="tel"
               id="phone"
-              name='phone'
+              name="phone"
               className="w-full mt-2 p-3 rounded-lg shadow focus:outline-none focus:ring-2 focus:ring-[#ffa45b] bg-transparent"
               placeholder={t("text6")}
               value={formData.phone}
@@ -128,7 +138,7 @@ const ContactForm = () => {
           {/* French Level */}
           <div>
             <label htmlFor="frenchLevel" className="block text-sm font-medium text-[#007ea7]">
-            {t("text7")}
+              {t("text7")}
             </label>
             <select
               id="frenchLevel"
@@ -149,12 +159,12 @@ const ContactForm = () => {
           {/* Subject */}
           <div>
             <label htmlFor="objet" className="block text-sm font-medium text-[#007ea7]">
-            {t("text15")}
+              {t("text15")}
             </label>
             <input
               type="text"
               id="objet"
-              name='objet'
+              name="objet"
               className="w-full mt-2 p-3 rounded-lg shadow focus:outline-none focus:ring-2 focus:ring-[#ffa45b] bg-transparent"
               placeholder={t("text16")}
               value={formData.objet}
@@ -165,7 +175,7 @@ const ContactForm = () => {
           {/* Message */}
           <div>
             <label htmlFor="message" className="block text-sm font-medium text-[#007ea7]">
-            {t("text17")} <span className="text-red-500">*</span>
+              {t("text17")} <span className="text-red-500">*</span>
             </label>
             <textarea
               id="message"
