@@ -16,11 +16,7 @@ const ContactForm = () => {
       <div className="w-full max-w-xl p-8 rounded-3xl shadow-lg text-black">
         <h1 className="text-3xl font-bold mb-6 text-center text-[#ffa45b]">{t('title')}</h1>
 
-        {/* Hidden form for Netlify's static build detection */}
-        <form name="contact" method="POST" data-netlify="true" hidden>
-          <input type="hidden" name="form-name" value="contact" />
-        </form>
-
+     
         <form
           className="space-y-6"
           name="contact"
