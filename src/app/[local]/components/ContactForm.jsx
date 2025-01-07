@@ -12,11 +12,11 @@ const ContactForm = () => {
     message: '',
   });
 
-  const [modalVisible, setModalVisible] = useState(false); // Modal visibility state
-  const [modalMessage, setModalMessage] = useState(''); // Modal message state
-  const [status, setStatus] = useState({ loading: false, error: false, success: false }); // Status of the submission
+  const [modalVisible, setModalVisible] = useState(false); 
+  const [modalMessage, setModalMessage] = useState(''); 
+  const [status, setStatus] = useState({ loading: false, error: false, success: false }); 
 
-  // Handle form data change
+
   const handleChange = (e) => {
     const { id, value } = e.target;
     setFormData((prevData) => ({
@@ -68,8 +68,13 @@ const ContactForm = () => {
     <div className="flex items-center justify-center min-h-screen px-6 py-12" id="contact">
       <div className="w-full max-w-xl p-8 rounded-3xl shadow-lg text-black ">
         <h1 className="text-3xl font-bold mb-6 text-center text-[#ffa45b]">{t("title")}</h1>
-        <form className="space-y-6" onSubmit={handleSubmit}>
-          {/* Name and Surname */}
+        <form className="space-y-6" 
+        name="contact"
+        method="POST"
+        data-netlify="true"
+        data-netlify-honeypot="bot-field"
+        onSubmit="submit"
+        >
           <div>
             <label htmlFor="name" className="block text-sm font-medium text-[#007ea7]">
             {t("text1")} <span className="text-red-500">*</span>
@@ -77,6 +82,7 @@ const ContactForm = () => {
             <input
               type="text"
               id="name"
+              name='name'
               className="w-full mt-2 p-3 rounded-lg shadow focus:outline-none focus:ring-2 focus:ring-[#ffa45b] bg-transparent"
               required
               placeholder={t("text2")}
@@ -93,6 +99,7 @@ const ContactForm = () => {
             <input
               type="email"
               id="email"
+              name='email'
               className="w-full mt-2 p-3 rounded-lg shadow focus:outline-none focus:ring-2 focus:ring-[#ffa45b] bg-transparent"
               required
               placeholder={t("text4")}
@@ -109,6 +116,7 @@ const ContactForm = () => {
             <input
               type="tel"
               id="phone"
+              name='phone'
               className="w-full mt-2 p-3 rounded-lg shadow focus:outline-none focus:ring-2 focus:ring-[#ffa45b] bg-transparent"
               placeholder={t("text6")}
               value={formData.phone}
@@ -145,6 +153,7 @@ const ContactForm = () => {
             <input
               type="text"
               id="objet"
+              name='objet'
               className="w-full mt-2 p-3 rounded-lg shadow focus:outline-none focus:ring-2 focus:ring-[#ffa45b] bg-transparent"
               placeholder={t("text16")}
               value={formData.objet}
