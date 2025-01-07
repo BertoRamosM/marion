@@ -12,8 +12,8 @@ const ContactForm = () => {
     message: '',
   });
 
-  const [modalVisible, setModalVisible] = useState(false); 
-  const [modalMessage, setModalMessage] = useState(''); 
+  const [modalVisible, setModalVisible] = useState(false);
+  const [modalMessage, setModalMessage] = useState('');
   const [status, setStatus] = useState({ loading: false, error: false, success: false });
 
   const handleChange = (e) => {
@@ -24,51 +24,37 @@ const ContactForm = () => {
     }));
   };
 
-  // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     setStatus({ loading: true, error: false, success: false });
 
-    try {
-      // Uncomment and adjust the below fetch request if you're using your own backend to send an email
-      /*
-      const response = await fetch('/api/send-email', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          email: formData.email,
-          name: formData.name,
-          message: formData.message,
-        }),
-      });
+    // Trigger Netlify's form submission behavior
+    const form = e.target;
 
-      if (response.ok) {
-        setStatus({ loading: false, success: true, error: false });
-      } else {
-        throw new Error('Failed to send the email');
-      }
-      */
+    // Check if the form is valid and perform actions accordingly
+    const response = await fetch(form.action, {
+      method: form.method,
+      body: new FormData(form),
+    });
 
-      // Simulate success for modal (since Netlify handles the form submission)
+    if (response.ok) {
       setStatus({ loading: false, success: true, error: false });
-      setModalMessage(t("text20"));
-      setModalVisible(true);
-
-    } catch (error) {
+      setModalMessage("Thank you for your message! We'll get back to you shortly.");
+    } else {
       setStatus({ loading: false, success: false, error: true });
-      setModalMessage(t("text21")); 
-      setModalVisible(true);
+      setModalMessage("Oops! Something went wrong. Please try again later.");
     }
+
+    // Show the modal
+    setModalVisible(true);
   };
 
-  // Close modal
   const closeModal = () => {
     setModalVisible(false);
   };
 
-  const t = useTranslations("Contact"); 
+  const t = useTranslations("Contact");
 
   return (
     <div className="flex items-center justify-center min-h-screen px-6 py-12" id="contact">
@@ -77,8 +63,8 @@ const ContactForm = () => {
         <form
           className="space-y-6"
           name="contact"
-          netlify
           method="POST"
+          action="/"
           data-netlify="true"
           data-netlify-honeypot="bot-field"
           onSubmit={handleSubmit}
@@ -86,6 +72,7 @@ const ContactForm = () => {
           <input type="hidden" name="form-name" value="contact" />
           <input name="bot-field" style={{ display: 'none' }} />
 
+          {/* Name */}
           <div>
             <label htmlFor="name" className="block text-sm font-medium text-[#007ea7]">
               {t("text1")} <span className="text-red-500">*</span>
@@ -198,22 +185,22 @@ const ContactForm = () => {
             </button>
           </div>
         </form>
-      </div>
 
-      {/* Modal for Success/Error */}
-      {modalVisible && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-          <div className="bg-white p-6 rounded-lg shadow-lg text-center">
-            <h2 className="text-xl font-semibold text-[#007ea7] mb-4">{modalMessage}</h2>
-            <button
-              className="mt-4 bg-gradient-to-tr from-[#ffa45b] to-[#ff7c5b] px-4 py-2 rounded-lg text-white font-semibold shadow hover:scale-105 transition-transform duration-300 ease-out"
-              onClick={closeModal}
-            >
-              {t("text22")}
-            </button>
+        {/* Modal for Success/Error */}
+        {modalVisible && (
+          <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+            <div className="bg-white p-6 rounded-lg shadow-lg text-center">
+              <h2 className="text-xl font-semibold text-[#007ea7] mb-4">{modalMessage}</h2>
+              <button
+                className="mt-4 bg-gradient-to-tr from-[#ffa45b] to-[#ff7c5b] px-4 py-2 rounded-lg text-white font-semibold shadow hover:scale-105 transition-transform duration-300 ease-out"
+                onClick={closeModal}
+              >
+                {t("text22")}
+              </button>
+            </div>
           </div>
-        </div>
-      )}
+        )}
+      </div>
     </div>
   );
 };
