@@ -70,6 +70,7 @@ const ContactForm = () => {
         <h1 className="text-3xl font-bold mb-6 text-center text-[#ffa45b]">{t("title")}</h1>
         <form className="space-y-6" 
         name="contact"
+        netlify
         method="POST"
         data-netlify="true"
         data-netlify-honeypot="bot-field"
