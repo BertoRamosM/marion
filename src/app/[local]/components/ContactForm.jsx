@@ -1,36 +1,21 @@
 'use client';
 import { useTranslations } from 'next-intl';
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 
 const ContactForm = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    frenchLevel: '',
-    objet: '',
-    message: '',
-  });
-
+  const formRef = useRef(null);  // Reference for the form
   const [modalVisible, setModalVisible] = useState(false);
   const [modalMessage, setModalMessage] = useState('');
   const [status, setStatus] = useState({ loading: false, error: false, success: false });
 
-  const handleChange = (e) => {
-    const { id, value } = e.target;
-    setFormData((prevData) => ({
-      ...prevData,
-      [id]: value,
-    }));
-  };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    const form = formRef.current;
+
     setStatus({ loading: true, error: false, success: false });
 
-    const form = e.target;
-
-    // Submit the form using fetch API
+    // Trigger Netlify's form submission behavior
     const response = await fetch(form.action, {
       method: form.method,
       body: new FormData(form),
@@ -66,6 +51,7 @@ const ContactForm = () => {
           data-netlify-honeypot="bot-field"
           action="/"  // Add action to trigger the Netlify form submission
           onSubmit={handleSubmit}  // Corrected this line
+          ref={formRef}  // Set the form reference
         >
           <input type="hidden" name="form-name" value="contact" />
           <input name="bot-field" style={{ display: 'none' }} />
@@ -82,8 +68,6 @@ const ContactForm = () => {
               className="w-full mt-2 p-3 rounded-lg shadow focus:outline-none focus:ring-2 focus:ring-[#ffa45b] bg-transparent"
               required
               placeholder={t("text2")}
-              value={formData.name}
-              onChange={handleChange}
             />
           </div>
 
@@ -99,8 +83,6 @@ const ContactForm = () => {
               className="w-full mt-2 p-3 rounded-lg shadow focus:outline-none focus:ring-2 focus:ring-[#ffa45b] bg-transparent"
               required
               placeholder={t("text4")}
-              value={formData.email}
-              onChange={handleChange}
             />
           </div>
 
@@ -115,8 +97,6 @@ const ContactForm = () => {
               name="phone"
               className="w-full mt-2 p-3 rounded-lg shadow focus:outline-none focus:ring-2 focus:ring-[#ffa45b] bg-transparent"
               placeholder={t("text6")}
-              value={formData.phone}
-              onChange={handleChange}
             />
           </div>
 
@@ -127,9 +107,8 @@ const ContactForm = () => {
             </label>
             <select
               id="frenchLevel"
+              name="frenchLevel"
               className="w-full mt-2 p-3 rounded-lg shadow focus:outline-none focus:ring-2 focus:ring-[#ffa45b] bg-transparent"
-              value={formData.frenchLevel}
-              onChange={handleChange}
             >
               <option value="">{t("text8")}</option>
               <option value="A1">A1</option>
@@ -152,8 +131,6 @@ const ContactForm = () => {
               name="objet"
               className="w-full mt-2 p-3 rounded-lg shadow focus:outline-none focus:ring-2 focus:ring-[#ffa45b] bg-transparent"
               placeholder={t("text16")}
-              value={formData.objet}
-              onChange={handleChange}
             />
           </div>
 
@@ -164,12 +141,11 @@ const ContactForm = () => {
             </label>
             <textarea
               id="message"
+              name="message"
               rows="5"
               className="w-full mt-2 p-3 rounded-lg shadow focus:outline-none focus:ring-2 focus:ring-[#ffa45b] bg-transparent"
               required
               placeholder={t("text18")}
-              value={formData.message}
-              onChange={handleChange}
             ></textarea>
           </div>
 
