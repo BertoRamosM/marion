@@ -22,12 +22,10 @@ const ContactForm = () => {
         </form>
 
         <form
-          ref={formRef}
           className="space-y-6"
           name="contact"
           method="POST"
           data-netlify="true"
-          onSubmit={handleSubmit}
         >
         
 
