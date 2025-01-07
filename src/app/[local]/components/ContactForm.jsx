@@ -26,13 +26,11 @@ const ContactForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     setStatus({ loading: true, error: false, success: false });
 
-    // Trigger Netlify's form submission behavior
     const form = e.target;
 
-    // Check if the form is valid and perform actions accordingly
+    // Submit the form using fetch API
     const response = await fetch(form.action, {
       method: form.method,
       body: new FormData(form),
@@ -66,7 +64,8 @@ const ContactForm = () => {
           method="POST"
           data-netlify="true"
           data-netlify-honeypot="bot-field"
-          onSubmit="submit"
+          action="/"  // Add action to trigger the Netlify form submission
+          onSubmit={handleSubmit}  // Corrected this line
         >
           <input type="hidden" name="form-name" value="contact" />
           <input name="bot-field" style={{ display: 'none' }} />
