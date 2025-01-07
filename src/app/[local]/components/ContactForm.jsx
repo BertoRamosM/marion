@@ -1,47 +1,9 @@
 'use client';
 
 import { useTranslations } from 'next-intl';
-import React, { useRef, useState } from 'react';
 
 const ContactForm = () => {
-  const formRef = useRef(null); // Reference for the form
-  const [modalVisible, setModalVisible] = useState(false);
-  const [modalMessage, setModalMessage] = useState('');
-  const [status, setStatus] = useState({ loading: false, error: false, success: false });
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
-    const form = formRef.current;
-
-    setStatus({ loading: true, error: false, success: false });
-
-    // Trigger Netlify's form submission behavior
-    const formData = new FormData(form);
-
-    try {
-      const response = await fetch('/', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: new URLSearchParams(Object.fromEntries(formData)).toString(),
-      });
-
-      if (response.ok) {
-        setStatus({ loading: false, success: true, error: false });
-        setModalMessage("Thank you for your message! We'll get back to you shortly.");
-        form.reset(); // Clear the form
-      } else {
-        throw new Error('Submission failed');
-      }
-    } catch (error) {
-      console.error('Form submission error:', error);
-      setStatus({ loading: false, success: false, error: true });
-      setModalMessage("Oops! Something went wrong. Please try again later.");
-    }
-
-    // Show the modal
-    setModalVisible(true);
-  };
+  
 
   const closeModal = () => {
     setModalVisible(false);
