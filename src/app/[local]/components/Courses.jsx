@@ -26,9 +26,9 @@ const Courses = () => {
       <div className="max-w-5xl grid grid-cols-1 md:grid-cols-2 gap-8">
         {/* Left Section */}
         <div className="bg-[#fff7f3] p-8 rounded-3xl shadow-lg flex flex-col justify-between">
-          <h2 className="text-2xl font-semibold text-[#ffa45b] flex flex-col items-center gap-2">
+          <h2 className="text-lg font-semibold text-[#ffa45b] flex flex-col items-center gap-2">
             <span className="text-base">{t('text3')}</span>
-            <span className="flex gap-4 items-center justify-center text-[#007ea7]">
+            <span className="flex gap-4 items-center justify-center text-[#007ea7] <span className='flex items-center justify-center gap-4 text-xl'>">
               <InfoIcon />{t('text4')}
             </span>
           </h2>

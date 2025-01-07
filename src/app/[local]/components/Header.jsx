@@ -8,7 +8,6 @@ import { UkFlag } from "../icons/UkFlag";
 import { SpanishFlag } from "../icons/SpanishFlag";
 import { FrenchFlag } from "../icons/FrenchFlag";
 import { Banner } from "./Banner";
-import { Link as Link2 } from 'next-view-transitions'
 
 
 // Import Dancing Script font
