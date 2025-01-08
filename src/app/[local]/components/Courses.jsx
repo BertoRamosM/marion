@@ -6,6 +6,7 @@ import BookIcon from '../icons/BookIcon';
 import CalendarIcon from '../icons/CalendarIcon';
 import { Banner } from './Banner';
 import { useTranslations } from 'next-intl';
+import Gallery from './Gallery';
 
 const Courses = () => {
   const t = useTranslations("Courses"); 
@@ -99,6 +100,7 @@ const Courses = () => {
           </div>
         </div>
       </div>
+      <Gallery />
 
       {/* Banner Section */}
       <div className="pt-8">
