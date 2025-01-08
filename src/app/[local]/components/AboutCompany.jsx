@@ -57,7 +57,7 @@ const AboutCompany = () => {
           <div className="absolute right-10 bottom-3 z-10  text-black sm:hidden ">
           <ExpandIcon />  
           </div>
-          <div className="bg-gradient-to-r from-[#ffa45b] to-[#a3e4db] p-2 rounded-3xl shadow-lg">
+          <div className="bg-gradient-to-r from-[#ffa45b] to-[#a3e4db] p-2 rounded-3xl shadow-lg flex items-center justify-center">
                  <Image
                    src="/about/Marion.jpg"
                    alt="Marion"
@@ -183,7 +183,7 @@ const AboutCompany = () => {
           <ExpandIcon /> 
            
           </div>
-          <div className="bg-gradient-to-r from-[#ffa45b] to-[#a3e4db] p-2 rounded-3xl shadow-lg">
+          <div className="bg-gradient-to-r from-[#ffa45b] to-[#a3e4db] p-2 rounded-3xl shadow-lg flex items-center justify-center">
                  <Image
                    src="/about/Marion2.jpg"
                    alt="Marion"
@@ -214,7 +214,7 @@ const AboutCompany = () => {
           <div className="absolute right-10 bottom-3 z-10 text-black sm:hidden ">
           <ExpandIcon />  
           </div>
-          <div className="bg-gradient-to-r from-[#ffa45b] to-[#a3e4db] p-2 rounded-3xl shadow-lg">
+          <div className="bg-gradient-to-r from-[#ffa45b] to-[#a3e4db] p-2 rounded-3xl shadow-lg flex items-center justify-center">
                  <Image
                    src="/about/Marion4.jpg"
                    alt="Marion"
@@ -224,7 +224,7 @@ const AboutCompany = () => {
                  />
                </div>
           </div>
-          <div className="bg-[#fff7f3] p-8 rounded-3xl shadow-lg relative overflow-hidden transition-all duration-300 ease-in-out group">
+          <div className="bg-[#fff7f3] p-8 rounded-3xl shadow-lg relative overflow-hidden transition-all duration-300 ease-in-out groupz">
           <h2 className="text-2xl font-semibold text-[#ffa45b] flex flex-col items-center gap-2 text-center">
             <LaptopIcon />  {t("text90")}
           </h2>
@@ -255,7 +255,7 @@ const AboutCompany = () => {
           <div className="absolute right-10 bottom-3 z-10 text-black sm:hidden ">
           <ExpandIcon />  
           </div>
-          <div className="bg-gradient-to-r from-[#ffa45b] to-[#a3e4db] p-2 rounded-3xl shadow-lg">
+          <div className="bg-gradient-to-r from-[#ffa45b] to-[#a3e4db] p-2 rounded-3xl shadow-lg flex items-center justify-center">
                  <Image
                    src="/about/Marion3.jpg"
                    alt="Marion"
