@@ -171,8 +171,8 @@ const AboutCompany = () => {
                  {t("text79")}
                   <span className='font-bold'> {t("text80")}</span>
                   {t("text81")}
-                   <span className='font-bold'>  {t("text81")}</span> 
-                   {t("text82")}
+                   <span className='font-bold'>  {t("text82")}</span> 
+                   
                    <span className='font-bold'>  {t("text83")}</span>
                    {t("text84")}
                     <span className='font-bold'>  {t("text85")} </span>!
@@ -224,47 +224,47 @@ const AboutCompany = () => {
                  />
                </div>
           </div>
-          <div className="bg-[#fff7f3] p-8 rounded-3xl shadow-lg relative overflow-hidden transition-all duration-300 ease-in-out groupz">
-          <h2 className="text-2xl font-semibold text-[#ffa45b] flex flex-col items-center gap-2 text-center">
-            <LaptopIcon />  {t("text90")}
-          </h2>
-          <div className="opacity-0 transform scale-y-0 group-hover:opacity-100 group-hover:scale-y-100 max-h-0 group-hover:max-h-[1000px] transition-all duration-300 ease-in-out origin-top overflow-hidden pb-4">
-            <ul className="mt-4 space-y-3 text-gray-700">
-              <li>
-             <span className='font-bold'>  {t("text91")}</span>
-             {t("text92")}
-              <span className='font-bold'>{t("text93")}</span>
-              {t("text94")} <span className='font-bold'>{t("text95")} </span>
-              {t("text96")}
-               <span className='font-bold'>{t("text97")} </span>
-               {t("text98")}
-<span className='font-bold'>{t("text99")}
-  </span> {t("text100")}
-  <span className='font-bold'>{t("text101")}</span>
-  {t("text102")}
+          <div className="bg-[#fff7f3] p-8 rounded-3xl shadow-lg relative overflow-hidden transition-all duration-300 ease-in-out group">
+  <h2 className="text-2xl font-semibold text-[#ffa45b] flex flex-col items-center gap-2 text-center">
+    <LaptopIcon /> {t("text90")}
+  </h2>
+  <div className="opacity-0 transform scale-y-0 group-hover:opacity-100 group-hover:scale-y-100 max-h-0 group-hover:max-h-[1000px] transition-all duration-300 ease-in-out origin-top overflow-hidden pb-4">
+    <ul className="mt-4 space-y-3 text-gray-700">
+      <li>
+        <span className="font-bold">{t("text91")}</span>
+        {t("text92")}
+        <span className="font-bold">{t("text93")}</span>
+        {t("text94")} <span className="font-bold">{t("text95")}</span>
+        {t("text96")}
+        <span className="font-bold">{t("text97")}</span>
+        {t("text98")}
+        <span className="font-bold">{t("text99")}</span>
+        {t("text100")}
+        <span className="font-bold">{t("text101")}</span>
+        {t("text102")}
+        <span className="font-bold">{t("text103")}</span>
+        {t("text104")} <span className="font-bold">{t("text105")}</span>
+        {t("text106")} <span className="font-bold">{t("text107")}</span>
+        {t("text108")}
+        <span className="font-extrabold">{t("text109")}</span>
+        {t("text110")}
+      </li>
+    </ul>
+  </div>
+  <div className="absolute right-10 bottom-3 z-10 text-black sm:hidden">
+    <ExpandIcon />
+  </div>
+  <div className="bg-gradient-to-r from-[#ffa45b] to-[#a3e4db] p-2 rounded-3xl shadow-lg flex items-center justify-center">
+    <Image
+      src="/about/Marion3.jpg"
+      alt="Marion"
+      width={200}
+      height={100}
+      className="rounded-2xl transform hover:scale-105 transition-transform duration-300 ease-out"
+    />
+  </div>
+</div>
 
-<span className='font-bold'> {t("text103")}</span>
-{t("text104")} <span className='font-bold'>{t("text105")}</span>
-{t("text106")} <span className='font-bold'>{t("text107")}</span>
-{t("text108")} 
-   <span className='font-extrabold'>{t("text109")}</span>
-   {t("text110")}
-              </li>
-            </ul>
-          </div>
-          <div className="absolute right-10 bottom-3 z-10 text-black sm:hidden ">
-          <ExpandIcon />  
-          </div>
-          <div className="bg-gradient-to-r from-[#ffa45b] to-[#a3e4db] p-2 rounded-3xl shadow-lg flex items-center justify-center">
-                 <Image
-                   src="/about/Marion3.jpg"
-                   alt="Marion"
-                   width={200}
-                   height={100}
-                   className="rounded-2xl transform hover:scale-105 transition-transform duration-300 ease-out"
-                 />
-               </div>
-        </div>
           </div>
         </div>
       

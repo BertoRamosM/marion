@@ -60,7 +60,7 @@ const Header = () => {
       }`}
     >
       <Banner />
-      <header className="flex items-center flex-col sm:flex-row justify-between gap-4 py-2 sm:py-8 px-4 sm:px-20 font-[family-name:var(--font-geist-sans)] bg-[#a3e4db] w-full text-center">
+      <header className="flex items-center flex-col sm:flex-row justify-between gap-4 py-2 sm:p-0  px-4 sm:px-20 font-[family-name:var(--font-geist-sans)] bg-[#a3e4db] w-full text-center">
        {/*  <h1 className="text-sm sm:text-base lg:text-4xl font-bold flex flex-col items-center text-center border-2 border-[#2c7a7b] p-4">
           <span className="text-[#007ea7]">WestFrench</span>
           <span
@@ -73,7 +73,7 @@ const Header = () => {
             Academy
           </span>
         </h1> */}
-        <Image src="/logos/logo-no-bg.png" alt="WestFrench logo" width={200} height={200} />
+        <Image src="/logos/logo-no-bg.png" alt="WestFrench logo" width={200} height={180} />
         <div className="hidden lg:flex gap-8 items-center font-bold">
           
           <Link

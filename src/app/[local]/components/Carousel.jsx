@@ -50,7 +50,7 @@ const Carousel = () => {
   };
 
   return (
-    <div id="default-carousel" className="relative w-full pt-64 sm:pt-48 lg:pt-42" data-carousel="slide">
+    <div id="default-carousel" className="relative w-full pt-72 sm:pt-36 lg:pt-36" data-carousel="slide">
       {/* Carousel Wrapper */}
       <div className="relative h-screen sm:h-[400px] overflow-hidden rounded-lg md:h-[600px]">
         {slides.map((slide, index) => (
