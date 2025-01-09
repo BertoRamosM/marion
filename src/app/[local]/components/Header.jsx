@@ -73,7 +73,7 @@ const Header = () => {
             Academy
           </span>
         </h1> */}
-        <Image src="/logos/logo-no-bg.png" alt="WestFrench logo" width={200} height={180} />
+        <Image src="/logos/logo-no-bg.png" alt="WestFrench logo" width={150} height={180} className="py-2"/>
         <div className="hidden lg:flex gap-8 items-center font-bold">
           
           <Link
