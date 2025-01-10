@@ -27,7 +27,7 @@ const Footer = () => {
             <br />
             <br />
            
-<span className=''>Domiciliation de l&apos;entreprise : 13 rue de Lassy, 35580 Guignen</span>
+<span className=''>Portée par la coopérative d’activités Elan Créateur, 7 rue Armand Herpin Lacroix – CS 73902, 35039 RENNES CEDEX</span>
           </p>
         </div>
 

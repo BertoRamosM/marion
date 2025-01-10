@@ -120,7 +120,7 @@ const Gallery = () => {
         <div>
           <Image
             className="h-auto max-w-full rounded-lg"
-            src="/gallery/Photo 12.jpg"
+            src="/gallery/rennes.png"
             alt="Photo 9"
             width={150}
             height={150}
