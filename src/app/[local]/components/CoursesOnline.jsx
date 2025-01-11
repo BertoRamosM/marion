@@ -28,7 +28,7 @@ const OnlineCourses = () => {
       {/* Content Section */}
       <div className="max-w-5xl grid grid-cols-1 md:grid-cols-2 gap-8">
         {/* Left Section */}
-        <div className="bg-white p-8 rounded-3xl shadow-lg flex flex-col justify-between">
+        <div className="bg-white p-8 rounded-3xl shadow-lg flex flex-col justify-between text-black">
           <h2 className=" font-semibold text-[#007ea7] flex items-center gap-2 flex-col"><span className='text-base'>{t("text6")} </span><span className='flex items-center justify-center gap-4 text-xl'><InfoIcon  /> {t("textWF")}</span></h2>
           
           <p className='pt-2'>
