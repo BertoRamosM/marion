@@ -39,6 +39,7 @@ export default async function RootLayout({ children }) {
        <Head>
           {/* Favicon Setup */}
           <link rel="icon" href="/favicon.ico" />
+          <meta name="google-site-verification" content="Ml98YqB2kA_XBnJ3KJ9IbevLRqu5R6STf5W4TjSJy3w" />
           <meta name="theme-color" content="#ffffff" />
         </Head>
         <body
