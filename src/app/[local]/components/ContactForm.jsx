@@ -144,6 +144,7 @@ const ContactForm = () => {
           {/* Submit Button */}
           <div className="text-center">
             <button
+            aria-label='send message'
               type="submit"
               className="bg-gradient-to-tr from-[#ffa45b] to-[#ff7c5b] px-6 py-3 rounded-lg text-white font-semibold shadow hover:scale-105 transition-transform duration-300 ease-out"
               disabled={status === 'pending' || status === 'ok'}

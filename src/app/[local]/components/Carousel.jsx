@@ -74,8 +74,8 @@ const Carousel = () => {
                 <p className="mt-2 text-lg">{slide.text}</p>
                 <p className="mt-2 mb-4">{slide.sub}</p>
                 {slide.link && (
-                  <Link href={slide.link}>
-                    <button className="bg-gradient-to-r from-[#ffa45b] to-[#ff7c5b] px-6 py-3 rounded-lg text-white font-semibold shadow hover:scale-105 transition-transform duration-300">
+                  <Link href={slide.link} aria-label="section link">
+                    <button className="bg-gradient-to-r from-[#ffa45b] to-[#ff7c5b] px-6 py-3 rounded-lg text-white font-semibold shadow hover:scale-105 transition-transform duration-300" aria-label="section button">
                       {t("button")}
                     </button>
                   </Link>
@@ -104,6 +104,7 @@ const Carousel = () => {
 
       {/* Slider Controls */}
       <button
+      aria-label="Slide Navigation"
         type="button"
         className="absolute top-80 sm:top-0 left-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
         onClick={prevSlide}
@@ -127,6 +128,7 @@ const Carousel = () => {
         </span>
       </button>
       <button
+      aria-label="Slide Navigation"
         type="button"
         className="absolute top-80 sm:top-0 right-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
         onClick={nextSlide}

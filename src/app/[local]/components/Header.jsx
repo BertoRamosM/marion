@@ -77,6 +77,7 @@ const Header = () => {
         <div className="hidden lg:flex gap-8 items-center font-bold">
           
           <Link
+          aria-label="Home"
             href={"#default-carousel"}
             className="hover:text-[#ffa45b] transition duration-300"
           >
@@ -84,24 +85,28 @@ const Header = () => {
           </Link>
          
           <Link
+          aria-label="Courses"
             href={"#courses"}
             className="hover:text-[#ffa45b] transition duration-300"
           >
             {t("coursesRennes")}
           </Link>
           <Link
+          aria-label="Online Courses"
             href={"#online-courses"}
             className="hover:text-[#ffa45b] transition duration-300"
           >
             {t("onlineCourses")} 
           </Link>
           <Link
+          aria-label="About"
             href={"#about"}
             className="hover:text-[#ffa45b] transition duration-300"
           >
             {t("about")} 
           </Link>
           <Link
+          aria-label="Contact"
             href={"#contact"}
             className="hover:text-[#ffa45b] transition duration-300"
           >
@@ -109,19 +114,20 @@ const Header = () => {
           </Link>
         </div>
         <button
+        aria-label="toggle menu"
           className="lg:hidden text-xl font-bold py-2 px-4 text-[#ffa45b] border border-[#ffa45b] rounded-lg hover:bg-[#ffa45b] hover:text-white transition duration-300"
           onClick={toggleModal}
         >
           ☰
         </button>
         <div className="flex gap-4 items-center">
-          <Link href="/" locale="fr">
+          <Link href="/" locale="fr" aria-label="French">
             <FrenchFlag />
           </Link>
-          <Link href="/" locale="en">
+          <Link href="/" locale="en" aria-label="English">
             <UkFlag />
           </Link>
-          <Link href="/" locale="es">
+          <Link href="/" locale="es" aria-label="Spanish">
             <SpanishFlag />
           </Link>
         </div>
@@ -130,25 +136,26 @@ const Header = () => {
       {isModalOpen && (
         <div className="fixed inset-0 bg-black bg-opacity-75 flex flex-col items-center justify-center text-white z-50">
           <button
+          aria-label="close menu"
             className="absolute top-4 right-4 text-3xl font-bold"
             onClick={toggleModal}
           >
             ×
           </button>
           <nav className="flex flex-col gap-8 text-xl font-bold">
-            <Link href={"#default-carousel"} onClick={toggleModal}>
+            <Link href={"#default-carousel"} onClick={toggleModal} aria-label="Home">
               {t("home")}
             </Link>
-            <Link href={"#courses"} onClick={toggleModal}>
+            <Link href={"#courses"} onClick={toggleModal} aria-label="Courses">
               {t("coursesRennes")}
             </Link>
-            <Link href={"#online-courses"} onClick={toggleModal}>
+            <Link href={"#online-courses"} onClick={toggleModal} aria-label="Online Courses">
               {t("onlineCourses")}
             </Link>
-            <Link href={"#about"} onClick={toggleModal}>
+            <Link href={"#about"} onClick={toggleModal} aria-label="About">
               {t("about")}
             </Link>
-            <Link href={"#contact"} onClick={toggleModal}>
+            <Link href={"#contact"} onClick={toggleModal} aria-label="Contact">
               {t("contact")}
             </Link>
           </nav>
