@@ -9,7 +9,7 @@ const Gallery = () => {
         <div>
           <Image
             className="h-auto max-w-full rounded-lg"
-            src="/gallery/Photo 1.jpg"
+            src="/gallery/Photo 1.webp"
             alt="Photo 4"
             width={150}
             height={150}
@@ -18,7 +18,7 @@ const Gallery = () => {
         <div>
           <Image
             className="h-auto max-w-full rounded-lg"
-            src="/gallery/Photo 2.jpg"
+            src="/gallery/Photo 2.webp"
             alt="Photo 5"
             width={150}
             height={150}
@@ -27,7 +27,7 @@ const Gallery = () => {
         <div>
           <Image
             className="h-auto max-w-full rounded-lg"
-            src="/gallery/Photo 3.jpg"
+            src="/gallery/Photo 3.webp"
             alt="Photo 6"
             width={150}
             height={150}
@@ -40,7 +40,7 @@ const Gallery = () => {
         <div>
           <Image
             className="h-auto max-w-full rounded-lg"
-            src="/gallery/Photo 4.jpg"
+            src="/gallery/Photo 4.webp"
             alt="Photo 7"
             width={150}
             height={150}
@@ -49,7 +49,7 @@ const Gallery = () => {
         <div>
           <Image
             className="h-auto max-w-full rounded-lg"
-            src="/gallery/Photo 5.jpg"
+            src="/gallery/Photo 5.webp"
             alt="Photo 8"
             width={150}
             height={150}
@@ -58,7 +58,7 @@ const Gallery = () => {
         <div>
           <Image
             className="h-auto max-w-full rounded-lg"
-            src="/gallery/Photo 6.jpg"
+            src="/gallery/Photo 6.webp"
             alt="Photo 9"
             width={150}
             height={150}
@@ -71,7 +71,7 @@ const Gallery = () => {
         <div>
           <Image
             className="h-auto max-w-full rounded-lg"
-            src="/gallery/Photo 7.jpg"
+            src="/gallery/Photo 7.webp"
             alt="Photo 4"
             width={150}
             height={150}
@@ -80,7 +80,7 @@ const Gallery = () => {
         <div>
           <Image
             className="h-auto max-w-full rounded-lg"
-            src="/gallery/Photo 8.jpg"
+            src="/gallery/Photo 8.webp"
             alt="Photo 5"
             width={150}
             height={150}
@@ -89,7 +89,7 @@ const Gallery = () => {
         <div>
           <Image
             className="h-auto max-w-full rounded-lg"
-            src="/gallery/Photo 9.jpg"
+            src="/gallery/Photo 9.webp"
             alt="Photo 6"
             width={150}
             height={150}
@@ -102,7 +102,7 @@ const Gallery = () => {
         <div>
           <Image
             className="h-auto max-w-full rounded-lg"
-            src="/gallery/Photo 10.jpg"
+            src="/gallery/Photo 10.webp"
             alt="Photo 7"
             width={150}
             height={150}
@@ -111,7 +111,7 @@ const Gallery = () => {
         <div>
           <Image
             className="h-auto max-w-full rounded-lg"
-            src="/gallery/Photo 11.jpg"
+            src="/gallery/Photo 11.webp"
             alt="Photo 8"
             width={150}
             height={150}
@@ -120,7 +120,7 @@ const Gallery = () => {
         <div>
           <Image
             className="h-auto max-w-full rounded-lg"
-            src="/gallery/rennes.png"
+            src="/gallery/rennes.webp"
             alt="Photo 9"
             width={150}
             height={150}

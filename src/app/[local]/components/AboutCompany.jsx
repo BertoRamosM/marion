@@ -59,7 +59,7 @@ const AboutCompany = () => {
           </div>
           <div className="bg-gradient-to-r from-[#ffa45b] to-[#a3e4db] p-2 rounded-3xl shadow-lg flex items-center justify-center">
                  <Image
-                   src="/about/Marion.jpg"
+                   src="/about/Marion.webp"
                    alt="Marion"
                    width={200}
                    height={100}
@@ -85,7 +85,7 @@ const AboutCompany = () => {
           </div>
           <div className="bg-gradient-to-r from-[#ffa45b] to-[#a3e4db] p-2 rounded-3xl shadow-lg flex items-center justify-center">
                  <Image
-                   src="/gallery/Photo 5.jpg"
+                   src="/gallery/Photo 5.webp"
                    alt="Marion"
                    width={200}
                    height={100}
@@ -114,7 +114,7 @@ const AboutCompany = () => {
           </div>
           <div className="bg-gradient-to-r from-[#ffa45b] to-[#a3e4db] p-2 rounded-3xl shadow-lg flex items-center justify-center">
                  <Image
-                   src="/gallery/Photo 13.jpg"
+                   src="/gallery/Photo 13.webp"
                    alt="Marion"
                    width={200}
                    height={100}
@@ -141,7 +141,7 @@ const AboutCompany = () => {
           </div>
           <div className="bg-gradient-to-r from-[#ffa45b] to-[#a3e4db] p-2 rounded-3xl shadow-lg flex items-center justify-center">
                  <Image
-                   src="/gallery/Photo 14.jpg"
+                   src="/gallery/Photo 14.webp"
                    alt="Marion"
                    width={200}
                    height={100}
@@ -184,7 +184,7 @@ const AboutCompany = () => {
           </div>
           <div className="bg-gradient-to-r from-[#ffa45b] to-[#a3e4db] p-2 rounded-3xl shadow-lg flex items-center justify-center">
                  <Image
-                   src="/gallery/Photo 7.jpg"
+                   src="/gallery/Photo 7.webp"
                    alt="Marion"
                    width={200}
                    height={100}
@@ -226,7 +226,7 @@ const AboutCompany = () => {
           </div>
           <div className="bg-gradient-to-r from-[#ffa45b] to-[#a3e4db] p-2 rounded-3xl shadow-lg flex items-center justify-center">
                  <Image
-                   src="/about/Marion2.jpg"
+                   src="/about/Marion2.webp"
                    alt="Marion"
                    width={200}
                    height={100}
@@ -257,7 +257,7 @@ const AboutCompany = () => {
           </div>
           <div className="bg-gradient-to-r from-[#ffa45b] to-[#a3e4db] p-2 rounded-3xl shadow-lg flex items-center justify-center">
                  <Image
-                   src="/about/Marion4.jpg"
+                   src="/about/Marion4.webp"
                    alt="Marion"
                    width={200}
                    height={100}
@@ -297,7 +297,7 @@ const AboutCompany = () => {
   </div>
   <div className="bg-gradient-to-r from-[#ffa45b] to-[#a3e4db] p-2 rounded-3xl shadow-lg flex items-center justify-center">
     <Image
-      src="/about/Marion3.jpg"
+      src="/about/Marion3.webp"
       alt="Marion"
       width={200}
       height={100}

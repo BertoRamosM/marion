@@ -10,7 +10,7 @@ const Carousel = () => {
   const slides = [
     {
       type: "image",
-      content: "/carousel/red_wall.jpg",
+      content: "/carousel/red_wall.webp",
       title: t("title1"),
       text: t("subtitle1"),
       sub: t("text1"),
@@ -18,7 +18,7 @@ const Carousel = () => {
     },
     {
       type: "image",
-      content: "/carousel/pic2.jpg",
+      content: "/carousel/pic2.webp",
       title: t("title2"),
       text: t("subtitle2"),
       sub: t("text2"),
