@@ -6,7 +6,7 @@ import Link from "next/link";
 import { useState, useEffect, useCallback } from "react";
 
 const Carousel = () => {
-  const t = useTranslations("Carousel"); 
+  const t = useTranslations("Carousel");
   const slides = [
     {
       type: "image",
@@ -56,20 +56,19 @@ const Carousel = () => {
         {slides.map((slide, index) => (
           <div
             key={index}
-            className={`absolute flex justify-center items-center w-full h-full transition-all duration-700 ease-in-out ${
-              index === currentIndex ? "opacity-100 translate-x-0" : "opacity-0 translate-x-[-100%]"
-            }`}
+            className={`absolute flex justify-center items-center w-full h-full transition-all duration-700 ease-in-out ${index === currentIndex ? "opacity-100 translate-x-0" : "opacity-0 translate-x-[-100%]"
+              }`}
             data-carousel-item
           >
             <Image
-            
-            width={600}
-            height={600}
+
+              width={600}
+              height={600}
               src={slide.content}
               className="block w-full h-full object-cover"
               alt={`Slide ${index + 1}`}
               priority
-              layout="responsive"
+
             />
             <div className="absolute inset-0 flex items-center justify-center bg-black/50">
               <div className="p-6 text-white text-center rounded-lg max-w-lg">
@@ -95,9 +94,8 @@ const Carousel = () => {
           <button
             key={index}
             type="button"
-            className={`w-3 h-3 rounded-full ${
-              index === currentIndex ? "bg-[#a3e4db]" : "bg-white"
-            }`}
+            className={`w-3 h-3 rounded-full ${index === currentIndex ? "bg-[#a3e4db]" : "bg-white"
+              }`}
             aria-current={index === currentIndex ? "true" : "false"}
             aria-label={`Slide ${index + 1}`}
             onClick={() => setCurrentIndex(index)}
@@ -107,7 +105,7 @@ const Carousel = () => {
 
       {/* Slider Controls */}
       <button
-      aria-label="Slide Navigation"
+        aria-label="Slide Navigation"
         type="button"
         className="absolute top-80 sm:top-0 left-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
         onClick={prevSlide}
@@ -131,7 +129,7 @@ const Carousel = () => {
         </span>
       </button>
       <button
-      aria-label="Slide Navigation"
+        aria-label="Slide Navigation"
         type="button"
         className="absolute top-80 sm:top-0 right-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
         onClick={nextSlide}
