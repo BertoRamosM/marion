@@ -54,7 +54,7 @@ const AboutCompany = () => {
               </li>
             </ul>
           </div>
-          <div className="absolute right-32 bottom-1 z-10  text-black sm:hidden ">
+          <div className="absolute left-1/2 bottom-1 z-10  text-black sm:hidden ">
           <ExpandIcon />  
           </div>
           <div className="bg-gradient-to-r from-[#ffa45b] to-[#a3e4db] p-2 rounded-3xl shadow-lg flex items-center justify-center">
@@ -80,7 +80,7 @@ const AboutCompany = () => {
               </li>
             </ul>
           </div>
-          <div className="absolute right-32 bottom-1 z-10 text-black sm:hidden ">
+          <div className="absolute left-1/2 bottom-1 z-10 text-black sm:hidden ">
           <ExpandIcon />  
           </div>
           <div className="bg-gradient-to-r from-[#ffa45b] to-[#a3e4db] p-2 rounded-3xl shadow-lg flex items-center justify-center">
@@ -109,7 +109,7 @@ const AboutCompany = () => {
               </li>
             </ul>
           </div>
-          <div className="absolute right-32 bottom-1 z-10 text-black sm:hidden ">
+          <div className="absolute left-1/2 bottom-1 z-10 text-black sm:hidden ">
           <ExpandIcon />  
           </div>
           <div className="bg-gradient-to-r from-[#ffa45b] to-[#a3e4db] p-2 rounded-3xl shadow-lg flex items-center justify-center">
@@ -136,7 +136,7 @@ const AboutCompany = () => {
               </li>
             </ul>
           </div>
-          <div className="absolute right-32 bottom-1 z-10 text-black sm:hidden ">
+          <div className="absolute left-1/2 bottom-1 z-10 text-black sm:hidden ">
           <ExpandIcon />  
           </div>
           <div className="bg-gradient-to-r from-[#ffa45b] to-[#a3e4db] p-2 rounded-3xl shadow-lg flex items-center justify-center">
@@ -179,7 +179,7 @@ const AboutCompany = () => {
               </li>
             </ul>
           </div>
-          <div className="absolute right-32 bottom-1 z-10 text-black sm:hidden ">
+          <div className="absolute left-1/2 bottom-1 z-10 text-black sm:hidden ">
           <ExpandIcon />  
           </div>
           <div className="bg-gradient-to-r from-[#ffa45b] to-[#a3e4db] p-2 rounded-3xl shadow-lg flex items-center justify-center">
@@ -220,7 +220,7 @@ const AboutCompany = () => {
               </li>
             </ul>
           </div>
-          <div className="absolute right-32 bottom-1 z-10 text-black sm:hidden ">
+          <div className="absolute left-1/2 bottom-1 z-10 text-black sm:hidden ">
           <ExpandIcon /> 
            
           </div>
@@ -252,7 +252,7 @@ const AboutCompany = () => {
               </li>
             </ul>
           </div>
-          <div className="absolute right-32 bottom-1 z-10 text-black sm:hidden ">
+          <div className="absolute left-1/2 bottom-1 z-10 text-black sm:hidden ">
           <ExpandIcon />  
           </div>
           <div className="bg-gradient-to-r from-[#ffa45b] to-[#a3e4db] p-2 rounded-3xl shadow-lg flex items-center justify-center">
@@ -292,7 +292,7 @@ const AboutCompany = () => {
       </li>
     </ul>
   </div>
-  <div className="absolute right-32 bottom-1 z-10 text-black sm:hidden">
+  <div className="absolute left-1/2 bottom-1 z-10 text-black sm:hidden">
     <ExpandIcon />
   </div>
   <div className="bg-gradient-to-r from-[#ffa45b] to-[#a3e4db] p-2 rounded-3xl shadow-lg flex items-center justify-center">
