@@ -16,7 +16,7 @@ const AboutCompany = () => {
     const t = useTranslations("AboutCompany"); 
   
   return (
-    <div className="flex flex-col items-center justify-center py-16 px-6 min-h-screen" id="about">
+    <div className="flex flex-col items-center justify-center py-16 px-0 sm:px-6 min-h-screen" id="about">
       {/* Title Section */}
       <div className="max-w-3xl text-center mb-12">
         <h1 className="text-4xl font-bold text-gray-900">

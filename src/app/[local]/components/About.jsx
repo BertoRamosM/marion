@@ -6,9 +6,10 @@ const About = () => {
   const t = useTranslations("About"); 
 
   return (
-    <div className="flex flex-col lg:flex-row items-center justify-center gap-8 px-6 pt-8 pb-16 text-pretty">
+    <div className="flex flex-col lg:flex-row items-center justify-center gap-8 px-0 sm:px-6 pt-8 pb-16 text-pretty">
       {/* Text Content Card */}
-      <div className="max-w-lg p-8 rounded-3xl shadow-lg text-white z-10">
+      <div className="sm:max-w-lg p-8 rounded-3xl shadow-lg text-white z-10">
+
         <h1 className="text-3xl font-bold text-[#ffa45b] text-pretty">{t("text1")}</h1>
         <div className="pt-4 text-black">
           <p className='text-[#007ea7] font-bold'>{t("text2")}</p> <br></br> 
