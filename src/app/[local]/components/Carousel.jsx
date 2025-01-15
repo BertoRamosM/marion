@@ -68,7 +68,7 @@ const Carousel = () => {
               className="block w-full h-full object-cover"
               alt={`Slide ${index + 1}`}
               priority
-
+              
             />
             <div className="absolute inset-0 flex items-center justify-center bg-black/50">
               <div className="p-6 text-white text-center rounded-lg max-w-lg">

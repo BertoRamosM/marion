@@ -14,7 +14,6 @@
     "title1": "Cursos de francés en mini-grupo en Rennes",
     "subtitle1": "¿Vives en Rennes y quieres mejorar tu francés rápidamente mientras te diviertes?",
     "text1": "Únete a mis clases personalizadas, adaptadas a tu nivel e intereses: clases pequeñas, ambiente amigable y encuentro con otros expats.",
-    
     "title2": "Clases de francés individuales en línea",
     "subtitle2": "¿Estás planeando mudarte al noroeste de Francia?",
     "text2": "¡Prepárate antes de tu llegada con una profesora local a través de clases personalizadas sobre tu futura región y alcanza rápidamente un nivel básico o avanzado de francés!",
@@ -38,7 +37,6 @@
     "text5": "Te ofrezco un ",
     "text6": "lugar auténtico y familiar",
     "text7": "para aprender francés.",
-    
     "text8": "Una estructura diferente de las grandes escuelas con clases masificadas y cursos impersonales y estandarizados, donde los profesores nunca son los mismos y no conocen a sus estudiantes.",
     "text9": "Una profesora cercana a sus estudiantes",
     "text10": "La profesora pone énfasis en",
@@ -49,7 +47,6 @@
     "text15": "comentarios constructivos a menudo",
     "text16": "en un ambiente",
     "text17": "de apoyo.",
-    
     "text18": "Mini-grupos",
     "text19": "Las clases colectivas en Rennes se realizan en",
     "text20": "pequeños grupos de 3 a 8 personas",
@@ -169,7 +166,6 @@
     "text21": "Ha ocurrido un error. Por favor, inténtalo de nuevo.",
     "text22": "Cerrar",
     "errorMessage": "Ha ocurrido un error. Por favor, inténtalo de nuevo."
-
   },
   "Courses": {
     "text1": "Clases en mini-grupo en Rennes: únete a nuestra comunidad de expats",
@@ -219,6 +215,6 @@
     "text11": "Precios para sesiones de 1h30.",
     "text12": "10 sesiones - 15h: ",
     "text13": "20 sesiones - 30h: ",
-    "text14": "* 10 sessions 30€/h, 20 sessions 28€/h"
+    "text14": "* 10 sessions 30€/h, 20 sessions 35€/h"
   }
 }
