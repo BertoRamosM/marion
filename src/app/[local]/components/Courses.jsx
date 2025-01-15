@@ -79,7 +79,7 @@ const Courses = () => {
               </strong>
             </p>
           </div>
-          <div className="flex flex-col items-center gap-4 mt-4 sm:mt-0">
+          {/* <div className="flex flex-col items-center gap-4 mt-4 sm:mt-0">
             <h2 className="text-lg font-semibold text-[#007ea7] text-center flex items-center gap-2 pt-4">
               <EuroIcon /> {t('text26')}
             </h2>
@@ -97,7 +97,7 @@ const Courses = () => {
                 {t('text30')}
               </li>
             </ul>
-          </div>
+          </div> */}
         </div>
       </div>
       <Gallery />
