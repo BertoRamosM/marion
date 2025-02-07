@@ -59,18 +59,18 @@ const Courses = () => {
             <h2 className="text-lg font-semibold text-[#007ea7] flex items-center gap-2">
               <CalendarIcon /> {t('text16')}
             </h2>
-            <div className="mt-4 grid grid-cols-2 text-gray-700 text-center px-8 text-xs sm:text-sm md:text-base">
+            <div className="mt-4 grid grid-cols-2 text-gray-700 text-center px-8 text-xs md:text-sm">
               <div>
                 <h3 className="text-[#007ea7] font-bold">{t('text17')}</h3>
-                <p className='border-b-2 border-[#007ea7]'>{t('text18')}</p>
-                <p className='border-b-2 border-[#007ea7]'>{t('text19')}</p>
-                <p className='border-b-2 border-[#007ea7]'>{t('text20')}</p>
+                <p className='border-b-2 border-r-2 border-[#007ea7]'><span className='font-bold'>{t('text188')}</span>{t('text18')}</p>
+                <p className='border-b-2 border-[#007ea7] border-r-2'><span className='font-bold'>{t('text199')}</span>{t('text19')}</p>
+                <p className='border-b-2 border-[#007ea7] border-r-2'><span className='font-bold'>{t('text200')}</span>{t('text20')}</p>
               </div>
               <div>
                 <h3 className="text-[#007ea7] font-bold">{t('text21')}</h3>
-                <p className='border-b-2 border-[#007ea7]'>{t('text22')}</p>
-                <p className='border-b-2 border-[#007ea7]'>{t('text23')}</p>
-                <p className='border-b-2 border-[#007ea7]'>{t('text24')}</p>
+                <p className='border-b-2 border-[#007ea7] pl-2'><span className='font-bold'>{t('text211')}</span>{t('text22')}</p>
+                <p className='border-b-2 border-[#007ea7] pl-2'><span className='font-bold'>{t('text222')}</span>{t('text23')}</p>
+                <p className='border-b-2 border-[#007ea7] pl-2'><span className='font-bold'>{t('text233')}</span>{t('text24')}</p>
               </div>
             </div>
             <p className="mt-4 text-gray-700">
