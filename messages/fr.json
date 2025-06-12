@@ -14,13 +14,12 @@
     "title1": "Cours de français en mini-groupe à Rennes",
     "subtitle1": "Tu habites à Rennes et tu veux progresser en français rapidement et en t’amusant ?",
     "text1": "Rejoins mes cours sur-mesure adaptés à ton niveau et à tes centres d’intérêts : petite classe, ambiance conviviale et rencontre avec d’autres expats !",
-
     "title2": "Cours de français individuels en ligne",
-"subtitle2": "Tu prévois de t’installer dans le nord-ouest de la France ?",
-"text2": "Prépare-toi avant ton arrivée avec une prof locale grâce à des cours sur-mesure sur ta future région et atteins rapidement un premier niveau de français !",
+    "subtitle2": "Tu prévois de t’installer dans le nord-ouest de la France ?",
+    "text2": "Prépare-toi avant ton arrivée avec une prof locale grâce à des cours sur-mesure sur ta future région et atteins rapidement un premier niveau de français !",
     "button": " C'est par là"
   },
-  "About":{
+  "About": {
     "text1": "Une prof diplômée qui te ressemble !",
     "text2": "Hello, moi c'est Marion et je suis professeure de français langue étrangère à Rennes.",
     "text3": "Comme toi, je suis une expat' ! J'ai longtemps vécu à l'étranger, en Angleterre, au Mexique et en Espagne. Je parle d'ailleurs couramment anglais, espagnol et catalan.",
@@ -29,7 +28,7 @@
     "text6": "J'ai commencé à donner des cours de français dans un centre de langues du sud de la France à des expats venus des 4 coins du monde. J'ai adoré cette expérience qui m'a donné envie d'ouvrir ma propre école.",
     "text7": "Je suis revenue en Bretagne et je lance maintenant WestFrench Academy, un concept unique à Rennes."
   },
-  "AboutCompany":{
+  "AboutCompany": {
     "Marion": "WestFrench avec Marion:",
     "text1": "Apprends le français rapidement en mini-groupe et avec une prof locale.",
     "text2": "Choisis le contenu de tes cours et rencontre d'autres expats !",
@@ -38,50 +37,39 @@
     "text5": " Je te propose un",
     "text6": "lieu authentique et familial",
     "text7": "pour apprendre le français.",
-
     "text8": "Une structure différente des grandes écoles aux classes surchargées et aux cours impersonnels et standardisés où les profs ne sont jamais les mêmes et ne connaissent pas leurs apprenants.",
     "text9": "Une prof proche de ses apprenants",
     "text10": "La prof met un point d'honneur à",
     "text11": "connaître chaque élève",
-  
     "text12": "et à leur donner une",
     "text13": "attention personnalisée.",
     "text14": "L'erreur est la bienvenue car elle donne l'opportunité d'apprendre. La prof te donne des",
     "text15": "feedbacks réguliers constructifs",
-  
     "text16": "dans une",
     "text17": "ambiance bienveillante.",
-
-
     "text18": "Des mini-groupes",
-  
     "text19": "Les cours collectifs à Rennes se font en",
     "text20": "petits groupes de 3 à 8 personnes",
     "text21": "maximum réparties par niveau afin de créer une",
     "text22": "ambiance conviviale et décomplexée",
-  
     "text23": "où chaque apprenant pourra respecter son rythme et pourra",
     "text24": "prendre la parole tout au long du cours.",
     "text25": "Une communauté d'expats",
     "text26": "Plus qu'une école, c'est un",
-  
     "text27": "lieu de rencontre entre expats,",
     "text28": "une véritable",
     "text29": "communauté accueillante où on peut se faire des",
     "text30": "nouveaux amis facilement.",
     "text31": "Les cours collectifs en petit comité ",
     "text32": "favorisent les",
-  
     "text33": "activités interactives",
     "text34": "et le ",
     "text35": "travail d'équipe",
-  
     "text36": "pour tisser des liens entre apprenants et",
     "text37": "s'intégrer dans sa ville. Des ",
     "text38": "sorties culturelles ou de loisirs",
     "text39": "sont régulièrement organisées pour vivre le français en dehors de la classe et consolider l'esprit de groupe.",
     "text40": "Des cours sur-mesure",
-  
     "text41": "Ils sont pensés exclusivement pour les expats.",
     "text42": "Chaque séquence est construite en fonction des",
     "text43": "besoins propres aux expats en général",
@@ -155,31 +143,31 @@
   },
   "Contact": {
     "title": "Contacte-moi",
-  "text1": "Nom et Prénom",
-  "text2": "Entrez votre nom et prénom",
-  "text3": "Email",
-  "text4": "Entrez votre email",
-  "text5": "Téléphone (optionnel)",
-  "text6": "Entrez votre numéro de téléphone",
-  "text7": "Niveau de français (optionnel)",
-  "text8": "Je ne sais pas",
-  "text9": "A1",
-  "text10": "A2",
-  "text11": "B1",
-  "text12": "B2",
-  "text13": "C1",
-  "text14": "C2",
-  "text15": "Objet (optionnel)",
-  "text16": "Entrez l'objet de votre message",
-  "text17": "Message",
-  "text18": "Écrivez votre message ici...",
-  "text19": "Envoyer",
-  "text20": "Votre message a été envoyé avec succès!",
-  "text21": "Une erreur est survenue. Veuillez réessayer.",
-  "text22": "Fermer",
-  "errorMessage": "Une erreur est survenue. Veuillez réessayer."
-},
-"Courses":{
+    "text1": "Nom et Prénom",
+    "text2": "Entrez votre nom et prénom",
+    "text3": "Email",
+    "text4": "Entrez votre email",
+    "text5": "Téléphone (optionnel)",
+    "text6": "Entrez votre numéro de téléphone",
+    "text7": "Niveau de français (optionnel)",
+    "text8": "Je ne sais pas",
+    "text9": "A1",
+    "text10": "A2",
+    "text11": "B1",
+    "text12": "B2",
+    "text13": "C1",
+    "text14": "C2",
+    "text15": "Objet (optionnel)",
+    "text16": "Entrez l'objet de votre message",
+    "text17": "Message",
+    "text18": "Écrivez votre message ici...",
+    "text19": "Envoyer",
+    "text20": "Votre message a été envoyé avec succès!",
+    "text21": "Une erreur est survenue. Veuillez réessayer.",
+    "text22": "Fermer",
+    "errorMessage": "Une erreur est survenue. Veuillez réessayer."
+  },
+  "Courses": {
     "text1": "Cours en mini-groupe à Rennes: rejoins notre communauté d'expats",
     "text2": "S'intégrer dans un nouveau pays peut-être un véritable challenge quand on ne maîtrise pas la langue. Apprends le français rapidement avec une prof qui te ressemble et fais-toi de nouveaux amis !",
     "text3": "Fini les classes surchargées aux cours impersonnels et standardisés !",
@@ -215,26 +203,27 @@
     "text27": "3 mois - 12 sessions: 430€*",
     "text28": "6 mois - 24 sessions: 790€*",
     "text29": "9 mois - 36 sessions: 1080€*",
-    "text30": "*3 mois 24€/h, 6 mois 22€/h, 9 mois 20€/h"
-},
-"online": {
-  "title": "Cours Individuels en ligne:",
-  "text1": "prépare ton arrivée dans le nord-ouest de la France",
-  "text2": " S'installer dans une ville française où on ne connaît personne et sans pouvoir communiquer dans des situations basiques peut être une grande source de stress.",
-  "text3": "Commence ton",
-  "text4": "apprentissage du français dès maintenant à distance",
-  "text5": "avec moi grâce à des cours sur-mesure adaptés à tes besoins et à ta nouvelle région.",
-  "text6": "Fini les applications inutiles et décontextualisées d'apprentissage de vocabulaire.",
-  "textWF": "A WestFrench, tu trouveras :",
-  "text7": "Un programme de français efficace et sur-mesure pour apprendre, en seulement quelques heures, à te débrouiller dans les situations de communication les plus basiques selon tes besoins (ex : se présenter, faire connaissance avec ses voisins, effectuer des formalités administratives, faire des courses, commander au restaurant, prendre un rendez-vous ou réaliser une inscription par téléphone, répondre à une annonce de logement, candidater à une offre de travail). ",
-  "text8": "Marion, une prof locale, chaleureuse et bienveillante qui connaît ta langue",
-  "text9": "Des cours à focus culturel pour tout savoir de ta future ville et/ou région (ex : Si tu souhaites t'installer prochainement à Nantes, tu découvriras son histoire mais aussi la gastronomie nantaise, les lieux culturels, le style de vie ainsi que les plus beaux villages et vignobles des alentours).",
-  "text10": "Si tu prévois de t'installer à Rennes, tu peux commencer les cours en ligne avec moi dès maintenant et tu pourras rejoindre nos cours collectifs en présentiel dès ton arrivée afin de continuer à progresser avec une prof que tu connais déjà et de rencontrer d'autres expats pour t'intégrer rapidement ! ",
-  "text11": "Tarifs pour des sessions d' 1h30.",
-  "text12": "10 sessions - 15h: ",
-  "text13": "20 sessions - 30h: ",
-  "text14": "*10 sessions 35€/h, 20 sessions 30€/h"
+    "text30": "*3 mois 24€/h, 6 mois 22€/h, 9 mois 20€/h",
+    "textWed1": " Mercredi",
+    "textWed2": " Niveau B1:",
+    "textWed3": " 18h30 - 20h00"
+  },
+  "online": {
+    "title": "Cours Individuels en ligne:",
+    "text1": "prépare ton arrivée dans le nord-ouest de la France",
+    "text2": " S'installer dans une ville française où on ne connaît personne et sans pouvoir communiquer dans des situations basiques peut être une grande source de stress.",
+    "text3": "Commence ton",
+    "text4": "apprentissage du français dès maintenant à distance",
+    "text5": "avec moi grâce à des cours sur-mesure adaptés à tes besoins et à ta nouvelle région.",
+    "text6": "Fini les applications inutiles et décontextualisées d'apprentissage de vocabulaire.",
+    "textWF": "A WestFrench, tu trouveras :",
+    "text7": "Un programme de français efficace et sur-mesure pour apprendre, en seulement quelques heures, à te débrouiller dans les situations de communication les plus basiques selon tes besoins (ex : se présenter, faire connaissance avec ses voisins, effectuer des formalités administratives, faire des courses, commander au restaurant, prendre un rendez-vous ou réaliser une inscription par téléphone, répondre à une annonce de logement, candidater à une offre de travail). ",
+    "text8": "Marion, une prof locale, chaleureuse et bienveillante qui connaît ta langue",
+    "text9": "Des cours à focus culturel pour tout savoir de ta future ville et/ou région (ex : Si tu souhaites t'installer prochainement à Nantes, tu découvriras son histoire mais aussi la gastronomie nantaise, les lieux culturels, le style de vie ainsi que les plus beaux villages et vignobles des alentours).",
+    "text10": "Si tu prévois de t'installer à Rennes, tu peux commencer les cours en ligne avec moi dès maintenant et tu pourras rejoindre nos cours collectifs en présentiel dès ton arrivée afin de continuer à progresser avec une prof que tu connais déjà et de rencontrer d'autres expats pour t'intégrer rapidement ! ",
+    "text11": "Tarifs pour des sessions d' 1h30.",
+    "text12": "10 sessions - 15h: ",
+    "text13": "20 sessions - 30h: ",
+    "text14": "*10 sessions 35€/h, 20 sessions 30€/h"
+  }
 }
-}
-
-  
