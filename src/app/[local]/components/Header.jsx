@@ -25,29 +25,32 @@ const Header = () => {
   const t = useTranslations("Header");
   const [isHidden, setIsHidden] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const lastScrollY = useRef(0);
+
+
+
+  const lastScrollY = useRef(0); // useRef preserves value across renders
 
   useEffect(() => {
-    lastScrollY = window.scrollY;
+    lastScrollY.current = window.scrollY;
 
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
 
-      if (currentScrollY > lastScrollY) {
+      if (currentScrollY > lastScrollY.current) {
         setIsHidden(true);
       } else {
         setIsHidden(false);
       }
 
-      lastScrollY = currentScrollY;
+      lastScrollY.current = currentScrollY;
     };
 
     window.addEventListener("scroll", handleScroll);
-
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
 
   const toggleModal = () => {
     setIsModalOpen((prev) => !prev);
