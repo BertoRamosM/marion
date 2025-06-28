@@ -1,9 +1,9 @@
 'use client';
 
-import React, { useState, useEffect } from "react";
-import {Link} from '../../../i18n/routing';
+import React, { useState, useEffect, useRef } from "react";
+import { Link } from '../../../i18n/routing';
 
-import { useTranslations } from "next-intl"; 
+import { useTranslations } from "next-intl";
 import { UkFlag } from "../icons/UkFlag";
 import { SpanishFlag } from "../icons/SpanishFlag";
 import { FrenchFlag } from "../icons/FrenchFlag";
@@ -22,10 +22,10 @@ const dancingScript = Dancing_Script({
 });
 
 const Header = () => {
-  const t = useTranslations("Header"); 
+  const t = useTranslations("Header");
   const [isHidden, setIsHidden] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  let lastScrollY = 0;
+  const lastScrollY = useRef(0);
 
   useEffect(() => {
     lastScrollY = window.scrollY;
@@ -55,13 +55,12 @@ const Header = () => {
 
   return (
     <div
-      className={`fixed top-0 z-50 w-full transition-transform duration-300 ${
-        isHidden ? "header-hidden" : ""
-      }`}
+      className={`fixed top-0 z-50 w-full transition-transform duration-300 ${isHidden ? "header-hidden" : ""
+        }`}
     >
       <Banner />
       <header className="flex items-center flex-col sm:flex-row justify-between gap-4 py-2 sm:p-0  px-4 sm:px-20 font-[family-name:var(--font-geist-sans)] bg-[#a3e4db] w-full text-center">
-       {/*  <h1 className="text-sm sm:text-base lg:text-4xl font-bold flex flex-col items-center text-center border-2 border-[#2c7a7b] p-4">
+        {/*  <h1 className="text-sm sm:text-base lg:text-4xl font-bold flex flex-col items-center text-center border-2 border-[#2c7a7b] p-4">
           <span className="text-[#007ea7]">WestFrench</span>
           <span
             className={`text-[#2c7a7b]`}
@@ -73,48 +72,48 @@ const Header = () => {
             Academy
           </span>
         </h1> */}
-        <Image src="/logos/logo-no-bg.png" alt="WestFrench logo" width={150} height={180} className="py-2"/>
+        <Image src="/logos/logo-no-bg.png" alt="WestFrench logo" width={150} height={180} className="py-2" />
         <div className="hidden lg:flex gap-8 items-center font-bold">
-          
+
           <Link
-          aria-label="Home"
+            aria-label="Home"
             href={"#default-carousel"}
             className="hover:text-[#ffa45b] transition duration-300"
           >
-            {t("home")} 
+            {t("home")}
           </Link>
-         
+
           <Link
-          aria-label="Courses"
+            aria-label="Courses"
             href={"#courses"}
             className="hover:text-[#ffa45b] transition duration-300"
           >
             {t("coursesRennes")}
           </Link>
           <Link
-          aria-label="Online Courses"
+            aria-label="Online Courses"
             href={"#online-courses"}
             className="hover:text-[#ffa45b] transition duration-300"
           >
-            {t("onlineCourses")} 
+            {t("onlineCourses")}
           </Link>
           <Link
-          aria-label="About"
+            aria-label="About"
             href={"#about"}
             className="hover:text-[#ffa45b] transition duration-300"
           >
-            {t("about")} 
+            {t("about")}
           </Link>
           <Link
-          aria-label="Contact"
+            aria-label="Contact"
             href={"#contact"}
             className="hover:text-[#ffa45b] transition duration-300"
           >
-            {t("contact")} 
+            {t("contact")}
           </Link>
         </div>
         <button
-        aria-label="toggle menu"
+          aria-label="toggle menu"
           className="lg:hidden text-xl font-bold py-2 px-4 text-[#ffa45b] border border-[#ffa45b] rounded-lg hover:bg-[#ffa45b] hover:text-white transition duration-300"
           onClick={toggleModal}
         >
@@ -136,7 +135,7 @@ const Header = () => {
       {isModalOpen && (
         <div className="fixed inset-0 bg-black bg-opacity-75 flex flex-col items-center justify-center text-white z-50">
           <button
-          aria-label="close menu"
+            aria-label="close menu"
             className="absolute top-4 right-4 text-3xl font-bold"
             onClick={toggleModal}
           >
