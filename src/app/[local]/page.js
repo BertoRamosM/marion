@@ -28,7 +28,7 @@ export default function Home() {
           <Courses />
           <CoursesOnline />
           <ContactForm />
-          <div className="pl-24 pr-24 pt-24">
+          <div className="pl-8 pr-8 sm:pl-24 sm:pr-24 sm:pt-24">
           <InstagramGallery />
           </div>
 
