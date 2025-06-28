@@ -6,10 +6,9 @@ import YoutubeIcon from '../icons/YoutubeIcon';
 import WhatsappIcon from '../icons/WhatsappIcon';
 import EmailIcon from '../icons/EmailIcon';
 import Image from 'next/image';
-import InstagramGallery from './InstagramGallery';
 
-
-const Footer = () => {
+a2db56
+ooter = () => {
   return (
     <footer className="bg-[#f9f9f9] py-8">
       <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between gap-6 items-center">

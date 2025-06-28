@@ -31,6 +31,7 @@ export default function Home() {
           <div className="pl-24 pr-24 pt-24">
           <InstagramGallery />
           </div>
+
       </main>
 
 
