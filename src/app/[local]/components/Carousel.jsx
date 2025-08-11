@@ -50,7 +50,7 @@ const Carousel = () => {
   };
 
   return (
-    <div id="default-carousel" className="relative w-full pt-72 sm:pt-36 lg:pt-36" data-carousel="slide">
+    <div id="default-carousel" className="relative w-full pt-72 sm:pt-36 lg:pt-28" data-carousel="slide">
       {/* Carousel Wrapper */}
       <div className="relative h-screen sm:h-[400px] overflow-hidden rounded-lg md:h-[600px]">
         {slides.map((slide, index) => (
@@ -61,7 +61,6 @@ const Carousel = () => {
             data-carousel-item
           >
             <Image
-
               width={600}
               height={600}
               src={slide.content}
