@@ -67,6 +67,8 @@ const Carousel = () => {
   fill
   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 100vw, 1200px"
   priority={index === 0}
+  placeholder="blur"
+  blurDataURL={`/carousel/placeholder${index + 1}.webp`}
 />
             <div className="absolute inset-0 flex items-center justify-center bg-black/50">
               <div className="p-6 text-white text-center rounded-lg max-w-lg">

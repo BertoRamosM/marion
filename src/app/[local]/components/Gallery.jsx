@@ -1,132 +1,51 @@
-import React from 'react';
-import Image from 'next/image';
+'use client';
+import React, { useState, useEffect } from "react";
+import Image from "next/image";
+
+// Structure images by columns to match your layout
+const columns = [
+  ["/gallery/Photo 1.webp", "/gallery/Photo 2.webp", "/gallery/Photo 3.webp"],
+  ["/gallery/Photo 4.webp", "/gallery/Photo 5.webp", "/gallery/Photo 6.webp"],
+  ["/gallery/Photo 7.webp", "/gallery/Photo 8.webp", "/gallery/Photo 9.webp"],
+  ["/gallery/Photo 10.webp", "/gallery/Photo 11.webp", "/gallery/rennes.webp"],
+];
 
 const Gallery = () => {
+  const [visibleColumns, setVisibleColumns] = useState(
+    Array(columns.length).fill([]) // initially empty arrays for each column
+  );
+
+  useEffect(() => {
+    columns.forEach((col, colIndex) => {
+      col.forEach((img, imgIndex) => {
+        setTimeout(() => {
+          setVisibleColumns((prev) => {
+            const newCols = [...prev];
+            newCols[colIndex] = [...newCols[colIndex], img];
+            return newCols;
+          });
+        }, (imgIndex + colIndex * 3) * 150); // staggered delay
+      });
+    });
+  }, []);
+
   return (
     <div className="grid grid-cols-2 md:grid-cols-4 gap-4 pt-8">
-      {/* Column 1 */}
-      <div className="grid gap-4">
-        <div>
-          <Image
-            className="h-auto max-w-full rounded-lg"
-            src="/gallery/Photo 1.webp"
-            alt="Photo 4"
-            width={150}
-            height={150}
-          />
+      {visibleColumns.map((col, colIndex) => (
+        <div key={colIndex} className="grid gap-4">
+          {col.map((src, index) => (
+            <div key={index}>
+              <Image
+                className="h-auto max-w-full rounded-lg transition-opacity duration-500 opacity-100"
+                src={src}
+                alt={`Photo ${colIndex * 3 + index + 1}`}
+                width={150}
+                height={150}
+              />
+            </div>
+          ))}
         </div>
-        <div>
-          <Image
-            className="h-auto max-w-full rounded-lg"
-            src="/gallery/Photo 2.webp"
-            alt="Photo 5"
-            width={150}
-            height={150}
-          />
-        </div>
-        <div>
-          <Image
-            className="h-auto max-w-full rounded-lg"
-            src="/gallery/Photo 3.webp"
-            alt="Photo 6"
-            width={150}
-            height={150}
-          />
-        </div>
-      </div>
-
-      {/* Column 2 */}
-      <div className="grid gap-4">
-        <div>
-          <Image
-            className="h-auto max-w-full rounded-lg"
-            src="/gallery/Photo 4.webp"
-            alt="Photo 7"
-            width={150}
-            height={150}
-          />
-        </div>
-        <div>
-          <Image
-            className="h-auto max-w-full rounded-lg"
-            src="/gallery/Photo 5.webp"
-            alt="Photo 8"
-            width={150}
-            height={150}
-          />
-        </div>
-        <div>
-          <Image
-            className="h-auto max-w-full rounded-lg"
-            src="/gallery/Photo 6.webp"
-            alt="Photo 9"
-            width={150}
-            height={150}
-          />
-        </div>
-      </div>
-
-      {/* Column 3 */}
-      <div className="grid gap-4">
-        <div>
-          <Image
-            className="h-auto max-w-full rounded-lg"
-            src="/gallery/Photo 7.webp"
-            alt="Photo 4"
-            width={150}
-            height={150}
-          />
-        </div>
-        <div>
-          <Image
-            className="h-auto max-w-full rounded-lg"
-            src="/gallery/Photo 8.webp"
-            alt="Photo 5"
-            width={150}
-            height={150}
-          />
-        </div>
-        <div>
-          <Image
-            className="h-auto max-w-full rounded-lg"
-            src="/gallery/Photo 9.webp"
-            alt="Photo 6"
-            width={150}
-            height={150}
-          />
-        </div>
-      </div>
-
-      {/* Column 4 */}
-      <div className="grid gap-4">
-        <div>
-          <Image
-            className="h-auto max-w-full rounded-lg"
-            src="/gallery/Photo 10.webp"
-            alt="Photo 7"
-            width={150}
-            height={150}
-          />
-        </div>
-        <div>
-          <Image
-            className="h-auto max-w-full rounded-lg"
-            src="/gallery/Photo 11.webp"
-            alt="Photo 8"
-            width={150}
-            height={150}
-          />
-        </div>
-        <div>
-          <Image
-            className="h-auto max-w-full rounded-lg"
-            src="/gallery/rennes.webp"
-            alt="Photo 9"
-            width={150}
-            height={150}
-          />
-        </div>
-      </div>
+      ))}
     </div>
   );
 };
