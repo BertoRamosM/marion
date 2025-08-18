@@ -8,6 +8,8 @@ import Courses from "./components/Courses";
 import CoursesOnline from "./components/CoursesOnline";
 import ContactForm from "./components/ContactForm";
 import InstagramGallery from "./components/InstagramGallery";
+import Reviews from "./components/Reviews";
+
 
 
 
@@ -28,9 +30,10 @@ export default function Home() {
           <Courses />
           <CoursesOnline />
           <ContactForm />
-          <div className="pl-8 pr-8 sm:pl-24 sm:pr-24 sm:pt-24">
+          <div className="pl-8 pr-8 sm:pl-24 sm:pr-24 sm:pt-24 pb-12">
           <InstagramGallery />
           </div>
+           <Reviews />
 
       </main>
 
