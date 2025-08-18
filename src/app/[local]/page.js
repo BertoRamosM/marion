@@ -23,18 +23,17 @@ export default function Home() {
       </div>
 
       {/* Main Content */}
-      <main className="flex-1 mt-[calc(2*var(--banner-height))] p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-          {/* Content goes here */}
-          <Carousel />
-          <AboutCompany />
-          <Courses />
-          <CoursesOnline />
-          <ContactForm />
-          <div className="pl-8 pr-8 sm:pl-24 sm:pr-24 sm:pt-24 pb-12">
+      <main className="flex-1 mt-[calc(2*var(--banner-height))] p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)] items-center">
+        {/* Content goes here */}
+        <Carousel />
+        <AboutCompany />
+        <Courses />
+        <CoursesOnline />
+        <Reviews />
+        <ContactForm />
+        <div className="w-2/3 mx-auto py-12 sm:pt-18 sm:pb-12">
           <InstagramGallery />
-          </div>
-           <Reviews />
-
+        </div>
       </main>
 
 
