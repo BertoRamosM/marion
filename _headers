@@ -1,0 +1,25 @@
+# Cache localized pages for 1 hour (edge + browser)
+# This keeps content reasonably fresh
+/fr/*
+/en/*
+/es/*
+  Cache-Control: public, max-age=3600, must-revalidate
+
+# Cache Next.js static assets (JS/CSS) for 1 year (never changes)
+# Allows CDN and browser to serve instantly
+/_next/static/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Cache images in public folder for 1 year
+/images/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Cache robots.txt and sitemap.xml for 1 hour
+/sitemap.xml
+/robots.txt
+  Cache-Control: public, max-age=3600, must-revalidate
+
+# Optional: cache favicon and logos for 1 year
+/favicon.ico
+/logo-no-bg.png
+  Cache-Control: public, max-age=31536000, immutable
