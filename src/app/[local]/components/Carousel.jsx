@@ -60,15 +60,14 @@ const Carousel = () => {
               }`}
             data-carousel-item
           >
-            <Image
-              width={600}
-              height={600}
-              src={slide.content}
-              className="block w-full h-full object-cover"
-              alt={`Slide ${index + 1}`}
-              priority
-              
-            />
+           <Image
+  src={slide.content}
+  alt={`Slide ${index + 1}`}
+  className="block w-full h-full object-cover"
+  fill
+  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 100vw, 1200px"
+  priority={index === 0}
+/>
             <div className="absolute inset-0 flex items-center justify-center bg-black/50">
               <div className="p-6 text-white text-center rounded-lg max-w-lg">
                 <h2 className="text-4xl font-bold pb-4">{slide.title}</h2>
