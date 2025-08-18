@@ -2,7 +2,7 @@ import React from 'react'
 
 const LinkedinIcon = () => {
   return (
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" stroke-linecap="round" strokeLinejoin="round" className="icon icon-tabler icons-tabler-outline icon-tabler-brand-linkedin">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="icon icon-tabler icons-tabler-outline icon-tabler-brand-linkedin">
   <path stroke="none" d="M0 0h24v24H0z" fill="none" />
   <path d="M8 11v5" />
   <path d="M8 8v.01" />

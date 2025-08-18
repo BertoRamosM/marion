@@ -42,7 +42,7 @@ const AboutCompany = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
        
 
-      <div class="grid gap-4">
+      <div className="grid gap-4">
         <div className="  bg-[#e5f8f6] text-[#007ea7] p-8 rounded-3xl shadow-lg relative overflow-hidden transition-all duration-300 ease-in-out group h-max-full max-w-full ">
           <h2 className="text-2xl font-semibold flex items-center gap-2 flex-col text-center">
             <Heart   />{t("text9")}
@@ -97,7 +97,7 @@ const AboutCompany = () => {
         </div>
 
 
-        <div class="grid gap-4">
+        <div className="grid gap-4">
         <div className="bg-[#fff7f3] p-8 rounded-3xl shadow-lg relative overflow-hidden transition-all duration-300 ease-in-out group">
           <h2 className="text-2xl font-semibold text-[#ffa45b] flex items-center gap-2 flex-col text-center">
             <FriendIcon />{t("text25")}
@@ -154,7 +154,7 @@ const AboutCompany = () => {
     </div>
 
 
-    <div class="grid gap-4">
+    <div className="grid gap-4">
     
         <div className="bg-[#e5f8f6] text-[#007ea7] p-8 rounded-3xl shadow-lg relative overflow-hidden transition-all duration-300 ease-in-out group">
           <h2 className="text-2xl font-semibold   flex items-center gap-2 flex-col text-center">
@@ -238,7 +238,7 @@ const AboutCompany = () => {
         </div>
 
     
-        <div class="grid gap-4">
+        <div className="grid gap-4">
         <div className="bg-[#fff7f3] p-8 rounded-3xl shadow-lg relative overflow-hidden transition-all duration-300 ease-in-out group">
           <h2 className="text-2xl font-semibold text-[#ffa45b] flex items-center gap-2 flex-col text-center">
             <Building  />  {t("text86")}

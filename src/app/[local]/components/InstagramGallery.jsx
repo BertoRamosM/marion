@@ -19,7 +19,7 @@ export default function InstagramGallery() {
         <iframe
             src="https://cdn.lightwidget.com/widgets/7c5f5f5978a959e6a00d60b3ede6ec51.html"
             scrolling="no"
-            allowTransparency="true"
+            allowtransparency="true"
             className="lightwidget-widget"
             style={{
                 width: '100%',

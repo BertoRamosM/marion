@@ -14,7 +14,7 @@ const Footer = () => {
     <footer className="bg-[#f9f9f9] py-8">
       <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between gap-6 items-center">
         {/* Left Section */}
-        <div className="text-center md:text-left">
+        <div className="text-center md:text-left flex flex-col items-center sm:items-start">
           <h1 className="text-sm sm:text-base lg:text-4xl font-bold flex flex-col items-center text-center pb-4">
             {/*   <span className="text-[#007ea7]">WestFrench</span> */}
             <Image src="/logos/logo-no-bg.png" alt="WestFrench logo" width={150} height={150} />
@@ -111,12 +111,12 @@ const Footer = () => {
 
       {/* Bottom Section */}
       <div className="border-t border-gray-300 mt-6 pt-4 text-center">
-        <p className="text-sm text-gray-600">
+        <p className="text-sm text-gray-600"></p>
           © {new Date().getFullYear()}  <h1 className="text-sm sm:text-base lg:text-4xl font-bold flex flex-col items-center text-center">
             <Image src="/logos/logo-no-bg.png" alt="WestFrench logo" width={200} height={200} className='pt-4' />
 
           </h1> Tous droits réservés.
-        </p>
+        
       </div>
     </footer>
   );
