@@ -74,8 +74,8 @@ const Courses = () => {
               </div>
               <div className='flex flex-col gap-1'>
                 <h3 className="text-[#007ea7] font-bold">{t('text21')}</h3>
-                <p className='border-2 sm:border-b-2 border-[#007ea7] border-[#007ea7] p-1 border-b-2 border-l-2 border-[#007ea7]'><span className='font-bold'>{t('text211')}</span>{t('text22')}</p>
-                <p className='border-2 sm:border-b-2 border-[#007ea7] border-[#007ea7] p-1 border-b-2 border-l-2 border-[#007ea7]'><span className='font-bold'>{t('text222')}</span>{t('text23')}</p>
+{/*                 <p className='border-2 sm:border-b-2 border-[#007ea7] border-[#007ea7] p-1 border-b-2 border-l-2 border-[#007ea7]'><span className='font-bold'>{t('text211')}</span>{t('text22')}</p>
+                <p className='border-2 sm:border-b-2 border-[#007ea7] border-[#007ea7] p-1 border-b-2 border-l-2 border-[#007ea7]'><span className='font-bold'>{t('text222')}</span>{t('text23')}</p> */}
                 <p className='border-2 sm:border-b-2 border-[#007ea7] border-[#007ea7] p-1 border-b-2 border-l-2 border-[#007ea7]'><span className='font-bold'>{t('text233')}</span>{t('text24')}</p>
               </div>
             </div>
