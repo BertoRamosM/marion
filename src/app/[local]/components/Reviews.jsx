@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 
@@ -8,6 +8,8 @@ const SmallCarousel = ({ slides }) => {
   const t = useTranslations("Reviews");
 
   const [currentIndex, setCurrentIndex] = useState(0);
+  const touchStartX = useRef(0);
+  const touchEndX = useRef(0);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -22,6 +24,26 @@ const SmallCarousel = ({ slides }) => {
 
   const prevSlide = () => {
     setCurrentIndex((prev) => (prev - 1 + slides.length) % slides.length);
+  };
+
+  // Swipe handlers
+  const handleTouchStart = (e) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchMove = (e) => {
+    touchEndX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchEnd = () => {
+    const deltaX = touchStartX.current - touchEndX.current;
+    if (Math.abs(deltaX) > 50) { // minimum swipe distance
+      if (deltaX > 0) {
+        nextSlide(); // swiped left
+      } else {
+        prevSlide(); // swiped right
+      }
+    }
   };
 
   const renderStars = (rating) => {
@@ -40,15 +62,18 @@ const SmallCarousel = ({ slides }) => {
 
   return (
     <div className="w-full max-w-md mx-auto h-full" id="reviews">
-      {/* Title */}
       <div className="text-center mb-8">
         <h1 className="text-4xl font-bold text-gray-900">
           <span className="text-[#007ea7]">{t("title")}</span>
         </h1>
       </div>
 
-      {/* Slides */}
-      <div className="relative w-full h-[400px]"> 
+      <div
+        className="relative w-full h-[400px]"
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleTouchEnd}
+      >
         {slides.map((slide, index) => (
           <div
             key={index}
@@ -74,7 +99,6 @@ const SmallCarousel = ({ slides }) => {
           </div>
         ))}
 
-        {/* Navigation Buttons */}
         <button
           onClick={prevSlide}
           className="absolute top-40 left-0 transform -translate-y-1/2 bg-white/70 hover:text-black/40 rounded-full p-2 text-black z-10"
@@ -93,7 +117,6 @@ const SmallCarousel = ({ slides }) => {
     </div>
   );
 };
-
 
 
 
