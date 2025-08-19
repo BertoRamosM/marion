@@ -69,7 +69,7 @@ const SmallCarousel = ({ slides }) => {
       </div>
 
       <div
-        className="relative w-full h-[400px]"
+        className="relative w-full h-[450px]"
         onTouchStart={handleTouchStart}
         onTouchMove={handleTouchMove}
         onTouchEnd={handleTouchEnd}
