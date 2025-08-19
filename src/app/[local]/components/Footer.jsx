@@ -33,7 +33,7 @@ const Footer = () => {
         </div>
 
         {/* Middle Section */}
-        <div className="text-center md:text-left">
+        <div className="text-center md:text-left flex items-center justify-center flex-col gap-8">
           <p className="text-gray-700">
             <strong>Téléphone:</strong> 07 84 58 23 09
             <br />
@@ -46,10 +46,9 @@ const Footer = () => {
               marion.westfrench@gmail.com
             </a>
           </p>
-        </div>
 
-        {/* Right Section */}
-        <div className="text-center md:text-right">
+
+            <div className="text-center md:text-right">
           <div className="flex justify-center md:justify-end gap-4 mt-2">
             <a
             aria-label='Whatsapp'
@@ -107,6 +106,10 @@ const Footer = () => {
             </a>
           </div>
         </div>
+        </div>
+
+        {/* Right Section */}
+      
       </div>
 
       {/* Bottom Section */}
