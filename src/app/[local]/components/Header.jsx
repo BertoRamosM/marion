@@ -62,7 +62,7 @@ const Header = () => {
         }`}
     >
       <Banner />
-      <header className="flex items-center flex-col sm:flex-row justify-between gap-4 py-2 sm:p-0  px-4 sm:px-20 font-[family-name:var(--font-geist-sans)] bg-[#a3e4db] w-full text-center">
+<header className="flex items-center flex-col sm:flex-row justify-between gap-2 sm:gap-4 py-1 sm:py-2 px-2 sm:px-20 font-[family-name:var(--font-geist-sans)] bg-[#a3e4db] w-full text-center">
         {/*  <h1 className="text-sm sm:text-base lg:text-4xl font-bold flex flex-col items-center text-center border-2 border-[#2c7a7b] p-4">
           <span className="text-[#007ea7]">WestFrench</span>
           <span
@@ -75,7 +75,13 @@ const Header = () => {
             Academy
           </span>
         </h1> */}
-        <Image src="/logos/logo-no-bg.png" alt="WestFrench logo" width={150} height={180} className="py-2" />
+<Image
+  src="/logos/logo-no-bg.png"
+  alt="WestFrench logo"
+  width={150}
+  height={180}
+  className="py-2 w-24 h-auto sm:w-28 md:w-36 lg:w-40"
+/>
         <div className="hidden lg:flex gap-8 items-center font-bold">
 
           <Link
@@ -117,7 +123,7 @@ const Header = () => {
         </div>
         <button
           aria-label="toggle menu"
-          className="lg:hidden text-xl font-bold py-2 px-4 text-[#ffa45b] border border-[#ffa45b] rounded-lg hover:bg-[#ffa45b] hover:text-white transition duration-300"
+          className="lg:hidden text-lg font-bold py-1 px-2 text-[#ffa45b] border border-[#ffa45b] rounded-lg hover:bg-[#ffa45b] hover:text-white transition duration-300"
           onClick={toggleModal}
         >
           ☰
@@ -136,7 +142,7 @@ const Header = () => {
       </header>
 
       {isModalOpen && (
-        <div className="fixed inset-0 bg-black bg-opacity-75 flex flex-col items-center justify-center text-white z-50">
+        <div className="fixed inset-0 bg-black bg-opacity-75 flex flex-col items-center justify-center text-black z-50">
           <button
             aria-label="close menu"
             className="absolute top-4 right-4 text-3xl font-bold"
@@ -144,7 +150,7 @@ const Header = () => {
           >
             ×
           </button>
-          <nav className="flex flex-col gap-8 text-xl font-bold">
+          <nav className="flex flex-col gap-8 text-xl font-bold text-white">
             <Link href={"#default-carousel"} onClick={toggleModal} aria-label="Home">
               {t("home")}
             </Link>

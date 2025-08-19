@@ -24,6 +24,14 @@ const Carousel = () => {
       sub: t("text2"),
       link: "#online-courses",
     },
+     {
+      type: "image",
+      content: "/gallery/Photo 21.webp",
+      title: t("title3"),
+      text: t("subtitle3"),
+      sub: t("text3"),
+      link: "#reviews",
+    },
   ];
 
 
@@ -50,7 +58,7 @@ const Carousel = () => {
   };
 
   return (
-    <div id="default-carousel" className="relative w-full pt-72 sm:pt-36 lg:pt-28" data-carousel="slide">
+    <div id="default-carousel" className="relative w-full pt-48 sm:pt-36 lg:pt-28" data-carousel="slide">
       {/* Carousel Wrapper */}
       <div className="relative h-screen sm:h-[400px] overflow-hidden rounded-lg md:h-[600px]">
         {slides.map((slide, index) => (

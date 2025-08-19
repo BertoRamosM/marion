@@ -2,8 +2,11 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 
 const SmallCarousel = ({ slides }) => {
+  const t = useTranslations("Reviews");
+
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
@@ -21,65 +24,80 @@ const SmallCarousel = ({ slides }) => {
     setCurrentIndex((prev) => (prev - 1 + slides.length) % slides.length);
   };
 
-  // Render star rating (supports halves)
   const renderStars = (rating) => {
     const stars = [];
     for (let i = 1; i <= 5; i++) {
       if (rating >= i) {
-        stars.push(<span key={i} className="text-yellow-400">&#9733;</span>); // full star
+        stars.push(<span key={i} className="text-yellow-400">&#9733;</span>);
       } else if (rating >= i - 0.5) {
-        stars.push(<span key={i} className="text-yellow-400">&#9733;</span>); // half star (simplified)
+        stars.push(<span key={i} className="text-yellow-400">&#9733;</span>);
       } else {
-        stars.push(<span key={i} className="text-gray-300">&#9733;</span>); // empty star
+        stars.push(<span key={i} className="text-gray-300">&#9733;</span>);
       }
     }
     return stars;
   };
 
   return (
-    <div className="relative w-full max-w-xs mx-auto">
-      {/* Slides */}
-      {slides.map((slide, index) => (
-        <div
-          key={index}
-          className={`transition-all duration-700 ease-in-out ${
-            index === currentIndex ? "opacity-100" : "opacity-0 absolute top-0 left-0"
-          }`}
-        >
-          <div className="bg-white shadow-lg rounded-xl p-4 flex flex-col items-center text-center">
-            <div className="w-20 h-20 relative mb-4">
-              <Image
-                src={slide.image}
-                alt={slide.title}
-                className="rounded-full object-cover"
-                fill
-              />
-            </div>
-            <h3 className="font-semibold text-lg">{slide.title}</h3>
-            <p className="text-gray-600 text-sm my-2 px-6">{slide.text}</p>
-            <div className="flex space-x-1">{renderStars(slide.rating)}</div>
-          </div>
-        </div>
-      ))}
+    <div className="w-full max-w-md mx-auto h-full" id="reviews">
+      {/* Title */}
+      <div className="text-center mb-8">
+        <h1 className="text-4xl font-bold text-gray-900">
+          <span className="text-[#007ea7]">{t("title")}</span>
+        </h1>
+      </div>
 
-      {/* Navigation Buttons */}
-      <button
-        onClick={prevSlide}
-        className="absolute top-1/2 left-0 transform -translate-y-1/2 bg-white/70 hover:bg-white/90 rounded-full p-2 pr-4"
-        aria-label="Previous Slide"
-      >
-        &#8592;
-      </button>
-      <button
-        onClick={nextSlide}
-        className="absolute top-1/2 right-0 transform -translate-y-1/2 bg-white/70 hover:bg-white/90 rounded-full p-2 pr-4"
-        aria-label="Next Slide"
-      >
-        &#8594;
-      </button>
+      {/* Slides */}
+      <div className="relative w-full h-[400px]"> 
+        {slides.map((slide, index) => (
+          <div
+            key={index}
+            className={`transition-all duration-700 ease-in-out ${
+              index === currentIndex
+                ? "opacity-100 relative"
+                : "opacity-0 absolute top-0 left-0"
+            }`}
+          >
+            <div className="bg-white shadow-lg rounded-xl p-4 flex flex-col items-center text-center">
+              <div className="w-20 h-20 relative mb-4">
+                <Image
+                  src={slide.image}
+                  alt={slide.title}
+                  className="rounded-full object-cover"
+                  fill
+                />
+              </div>
+              <h3 className="font-semibold text-lg text-black">{slide.title}</h3>
+              <p className="text-gray-700 text-sm my-2 px-6">{slide.text}</p>
+              <div className="flex space-x-1">{renderStars(slide.rating)}</div>
+            </div>
+          </div>
+        ))}
+
+        {/* Navigation Buttons */}
+        <button
+          onClick={prevSlide}
+          className="absolute top-40 left-0 transform -translate-y-1/2 bg-white/70 hover:text-black/40 rounded-full p-2 text-black z-10"
+          aria-label="Previous Slide"
+        >
+          &#8592;
+        </button>
+        <button
+          onClick={nextSlide}
+          className="absolute top-40 right-0 transform -translate-y-1/2 bg-white/70 hover:text-black/40 rounded-full p-2 pr-4 text-black z-10"
+          aria-label="Next Slide"
+        >
+          &#8594;
+        </button>
+      </div>
     </div>
   );
 };
+
+
+
+
+
 // Example usage
 const slidesData = [
   { image: "/reviews/pic1.png", title: "Paula Hernández", text: "Marion is an excellent teacher. In just three months, I have been able to greatly improve my French thanks to her classes. In addition, I’ve had the chance to meet new people and form new friendships through the meetups she organizes. The classes are very dynamic and tailored to each student’s needs. I will definitely continue with her lessons and highly recommend her.", rating: 4.5 },

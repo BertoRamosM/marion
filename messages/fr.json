@@ -17,7 +17,10 @@
     "title2": "Cours de français individuels en ligne",
     "subtitle2": "Tu prévois de t’installer dans le nord-ouest de la France ?",
     "text2": "Prépare-toi avant ton arrivée avec une prof locale grâce à des cours sur-mesure sur ta future région et atteins rapidement un premier niveau de français !",
-    "button": " C'est par là"
+    "button": " C'est par là",
+    "title3": "Ce que disent nos élèves",
+    "subtitle3": "Des expériences réelles d’apprenants comme vous",
+    "text3": "Découvrez comment nos cours de français ont aidé les élèves à gagner en confiance, progresser rapidement et prendre plaisir à apprendre."
   },
   "About": {
     "text1": "Une prof diplômée qui te ressemble !",
@@ -225,5 +228,8 @@
     "text12": "10 sessions - 15h: ",
     "text13": "20 sessions - 30h: ",
     "text14": "*10 sessions 35€/h, 20 sessions 30€/h"
+  },
+  "Reviews": {
+    "title": "Clients satisfaits"
   }
 }

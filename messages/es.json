@@ -17,7 +17,10 @@
     "title2": "Clases de francés individuales en línea",
     "subtitle2": "¿Estás planeando mudarte al noroeste de Francia?",
     "text2": "¡Prepárate antes de tu llegada con una profesora local a través de clases personalizadas sobre tu futura región y alcanza rápidamente un nivel básico o avanzado de francés!",
-    "button": "Aquí"
+    "button": "Aquí",
+    "title3": "Lo que dicen los estudiantes",
+    "subtitle3": "Experiencias reales de estudiantes como tú",
+    "text3": "Descubre cómo nuestras clases individuales de francés han ayudado a los estudiantes a ganar confianza, mejorar rápidamente y disfrutar aprendiendo."
   },
   "About": {
     "text1": "¡Una profesora calificada que te entiende!",
@@ -204,7 +207,7 @@
     "text28": "6 meses - 24 sesiones: 790€*",
     "text29": "9 meses - 36 sesiones: 1080€*",
     "text30": "*3 meses 24€/h, 6 meses 22€/h, 9 meses 20€/h",
-     "textWed1": " Miércoles",
+    "textWed1": " Miércoles",
     "textWed2": " Nivel B1:",
     "textWed3": " 18:30 - 20:00"
   },
@@ -225,5 +228,8 @@
     "text12": "10 sesiones - 15h: ",
     "text13": "20 sesiones - 30h: ",
     "text14": "* 10 sessions 35€/h, 20 sessions 30€/h"
+  },
+  "Reviews": {
+    "title": "Clientes Felices"
   }
 }

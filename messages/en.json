@@ -17,7 +17,10 @@
     "title2": "Individual online French lessons",
     "subtitle2": "Planning to move to the northwest of France?",
     "text2": "Prepare yourself before your arrival with a local teacher through tailor-made lessons focused on your future region and quickly reach an initial level of French!",
-    "button": "This way"
+    "button": "This way",
+    "title3": "What Students Say",
+    "subtitle3": "Real experiences from learners like you",
+    "text3": "Discover how our French classes have helped students gain confidence, improve quickly, and enjoy learning."
   },
   "About": {
     "text1": "A qualified teacher who gets you!",
@@ -225,5 +228,8 @@
     "text12": "10 sessions - 15 hours: ",
     "text13": "20 sessions - 30 hours:",
     "text14": "10 sessions 35€/h, 20 sessions 30€/h"
+  },
+  "Reviews": {
+    "title": "Happy Customers"
   }
 }
