@@ -41,6 +41,56 @@ export default async function RootLayout({ children }) {
           <link rel="icon" href="/favicon.ico" />
           <meta name="google-site-verification" content="Ml98YqB2kA_XBnJ3KJ9IbevLRqu5R6STf5W4TjSJy3w" />
           <meta name="theme-color" content="#ffffff" />
+
+          <script
+    type="application/ld+json"
+    dangerouslySetInnerHTML={{
+      __html: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": ["LocalBusiness","EducationalOrganization"],
+        "name": "WestFrench Academy",
+        "url": "https://westfrench-academy.com",
+        "logo": "https://www.westfrench.com/logo.png",
+        "image": "https://www.westfrench.com/cover.jpg",
+        "description": "Cours de français interactifs à Rennes pour expatriés, en groupe ou en ligne.",
+        "telephone": "+33 7 84 58 23 09",
+        "email": "contact@westfrench.com",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "6 Cr des Alliés",
+          "addressLocality": "Rennes",
+          "addressRegion": "Bretagne",
+          "postalCode": "35000",
+          "addressCountry": "FR"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 48.10542631895695,
+          "longitude": -1.674797659032797
+        },
+        "openingHoursSpecification": [
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+            "opens": "09:30",
+            "closes": "19:30"
+          }
+        ],
+        "areaServed": [
+          { "@type": "City", "name": "Rennes" },
+          { "@type": "AdministrativeArea", "name": "Ille-et-Vilaine" },
+          { "@type": "Country", "name": "France" }
+        ],
+        "priceRange": "€€",
+        "sameAs": [
+          "https://www.instagram.com/westfrench_academy/",
+          "https://www.facebook.com/p/WestFrench-Academy-Marion-61571846455654/",
+          "https://www.linkedin.com/in/marionrichardfrenchteacher/"
+
+        ]
+      })
+    }}
+  />
         </Head>
         <body
           className={`${geistSans.variable} ${geistMono.variable} ${dancingScript.variable} antialiased bg-gradient-to-br from-gray-100 to-gray-200 text-pretty`}
