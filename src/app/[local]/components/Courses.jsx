@@ -96,6 +96,7 @@ const Courses = () => {
               <li className="flex items-center gap-2">
                 <BookIcon /> <strong>{t('text28')}</strong>
               </li>
+
               {/* <li className="flex items-center gap-2">
                 <BookIcon /> <strong>{t('text29')}</strong>
               </li> */}
