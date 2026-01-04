@@ -16,82 +16,66 @@ const ContactForm = () => {
         </h1>
 
         <form
-          className="space-y-6"
           name="contact"
           method="POST"
-         action="/__forms.html"
+          action="/success"
           data-netlify="true"
           data-netlify-honeypot="bot-field"
+          className="space-y-6"
         >
-          {/* Netlify required hidden fields */}
+          {/* REQUIRED by Netlify */}
           <input type="hidden" name="form-name" value="contact" />
           <input type="hidden" name="bot-field" />
 
           {/* Name */}
           <div>
-            <label
-              htmlFor="name"
-              className="block text-sm font-medium text-[#007ea7]"
-            >
-              {t('text1')} <span className="text-red-500">*</span>
+            <label className="block text-sm font-medium text-[#007ea7]">
+              {t('text1')} *
             </label>
             <input
               type="text"
-              id="name"
               name="name"
               required
               placeholder={t('text2')}
-              className="w-full mt-2 p-3 rounded-lg shadow focus:outline-none focus:ring-2 focus:ring-[#ffa45b] bg-transparent"
+              className="w-full mt-2 p-3 rounded-lg shadow bg-transparent"
             />
           </div>
 
           {/* Email */}
           <div>
-            <label
-              htmlFor="email"
-              className="block text-sm font-medium text-[#007ea7]"
-            >
-              {t('text3')} <span className="text-red-500">*</span>
+            <label className="block text-sm font-medium text-[#007ea7]">
+              {t('text3')} *
             </label>
             <input
               type="email"
-              id="email"
               name="email"
               required
               placeholder={t('text4')}
-              className="w-full mt-2 p-3 rounded-lg shadow focus:outline-none focus:ring-2 focus:ring-[#ffa45b] bg-transparent"
+              className="w-full mt-2 p-3 rounded-lg shadow bg-transparent"
             />
           </div>
 
           {/* Phone */}
           <div>
-            <label
-              htmlFor="phone"
-              className="block text-sm font-medium text-[#007ea7]"
-            >
+            <label className="block text-sm font-medium text-[#007ea7]">
               {t('text5')}
             </label>
             <input
               type="tel"
-              id="phone"
               name="phone"
               placeholder={t('text6')}
-              className="w-full mt-2 p-3 rounded-lg shadow focus:outline-none focus:ring-2 focus:ring-[#ffa45b] bg-transparent"
+              className="w-full mt-2 p-3 rounded-lg shadow bg-transparent"
             />
           </div>
 
           {/* French Level */}
           <div>
-            <label
-              htmlFor="frenchLevel"
-              className="block text-sm font-medium text-[#007ea7]"
-            >
+            <label className="block text-sm font-medium text-[#007ea7]">
               {t('text7')}
             </label>
             <select
-              id="frenchLevel"
               name="frenchLevel"
-              className="w-full mt-2 p-3 rounded-lg shadow focus:outline-none focus:ring-2 focus:ring-[#ffa45b] bg-transparent"
+              className="w-full mt-2 p-3 rounded-lg shadow bg-transparent"
             >
               <option value="">{t('text8')}</option>
               <option value="A1">A1</option>
@@ -105,36 +89,28 @@ const ContactForm = () => {
 
           {/* Subject */}
           <div>
-            <label
-              htmlFor="objet"
-              className="block text-sm font-medium text-[#007ea7]"
-            >
+            <label className="block text-sm font-medium text-[#007ea7]">
               {t('text15')}
             </label>
             <input
               type="text"
-              id="objet"
               name="objet"
               placeholder={t('text16')}
-              className="w-full mt-2 p-3 rounded-lg shadow focus:outline-none focus:ring-2 focus:ring-[#ffa45b] bg-transparent"
+              className="w-full mt-2 p-3 rounded-lg shadow bg-transparent"
             />
           </div>
 
           {/* Message */}
           <div>
-            <label
-              htmlFor="message"
-              className="block text-sm font-medium text-[#007ea7]"
-            >
-              {t('text17')} <span className="text-red-500">*</span>
+            <label className="block text-sm font-medium text-[#007ea7]">
+              {t('text17')} *
             </label>
             <textarea
-              id="message"
               name="message"
-              rows="5"
               required
+              rows={5}
               placeholder={t('text18')}
-              className="w-full mt-2 p-3 rounded-lg shadow focus:outline-none focus:ring-2 focus:ring-[#ffa45b] bg-transparent"
+              className="w-full mt-2 p-3 rounded-lg shadow bg-transparent"
             />
           </div>
 
@@ -142,8 +118,7 @@ const ContactForm = () => {
           <div className="text-center">
             <button
               type="submit"
-              aria-label="send message"
-              className="bg-gradient-to-tr from-[#ffa45b] to-[#ff7c5b] px-6 py-3 rounded-lg text-white font-semibold shadow hover:scale-105 transition-transform duration-300 ease-out"
+              className="bg-gradient-to-tr from-[#ffa45b] to-[#ff7c5b] px-6 py-3 rounded-lg text-white font-semibold"
             >
               {t('text19')}
             </button>
