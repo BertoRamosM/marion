@@ -16,7 +16,7 @@ const ContactForm = () => {
       const form = event.target;
       const formData = new FormData(form);
       // Update the fetch URL to point to __forms.html in the public folder
-      const res = await fetch('/__forms.html', {
+   const res = await fetch('/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: new URLSearchParams(formData).toString(),
@@ -40,13 +40,15 @@ const ContactForm = () => {
         <h1 className="text-3xl font-bold mb-6 text-center text-[#ffa45b]">{t('title')}</h1>
 
         <form
-          className="space-y-6"
-          name="contact"
-          method="POST"
-          data-netlify="true"
-          onSubmit={handleFormSubmit}
-        >
-          <input type="hidden" name="form-name" value="contact" />
+  className="space-y-6"
+  name="contact"
+  method="POST"
+  data-netlify="true"
+  data-netlify-honeypot="bot-field"
+  onSubmit={handleFormSubmit}
+>
+  <input type="hidden" name="form-name" value="contact" />
+  <input type="hidden" name="bot-field" />
 
           {/* Name */}
           <div>

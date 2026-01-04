@@ -7,8 +7,10 @@
   </head>
   <body>
     <!-- Form for Netlify -->
-    <form name="contact" data-netlify="true" method="POST" hidden>
-      <input type="hidden" name="form-name" value="contact" />
+<form name="contact" data-netlify="true" data-netlify-honeypot="bot-field" method="POST" hidden>
+  <input type="hidden" name="form-name" value="contact" />
+  <input type="hidden" name="bot-field" />
+
       <input type="text" name="name" required />
       <input type="email" name="email" required />
       <input type="text" name="frenchLevel" />
