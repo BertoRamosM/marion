@@ -2,40 +2,37 @@
 
 import { useState } from 'react';
 import { useTranslations } from 'next-intl';
-import { useRouter } from 'next/navigation';
 
-export default function ContactForm() {
+const ContactForm = () => {
+  const [status, setStatus] = useState(null);
+  const [error, setError] = useState(null);
   const t = useTranslations('Contact');
-  const router = useRouter();
-  const [submitting, setSubmitting] = useState(false);
-  const [error, setError] = useState('');
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setSubmitting(true);
-    setError('');
-
-    const form = e.target;
-    const formData = new FormData(form);
-
+  const handleFormSubmit = async (event) => {
+    event.preventDefault();
     try {
-      const res = await fetch('/', {
+      setStatus('pending');
+      setError(null);
+      const form = event.target;
+      const formData = new FormData(form);
+      // Update the fetch URL to point to __forms.html in the public folder
+      const res = await fetch('/__forms.html', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: new URLSearchParams(formData).toString(),
       });
-
       if (res.ok) {
-        router.push('/success');
+        setStatus('ok');
+        form.reset(); // Clear the form inputs
       } else {
-        throw new Error(`Submission failed: ${res.status}`);
+        throw new Error(`Error: ${res.status} ${res.statusText}`);
       }
-    } catch (err) {
-      console.error(err);
-      setError('Submission failed. Please try again.');
-      setSubmitting(false);
+    } catch (e) {
+      setStatus('error');
+      setError(e.message);
     }
   };
+  
 
   return (
     <div className="flex items-center justify-center min-h-screen px-0 sm:px-6 py-12" id="contact">
@@ -43,16 +40,13 @@ export default function ContactForm() {
         <h1 className="text-3xl font-bold mb-6 text-center text-[#ffa45b]">{t('title')}</h1>
 
         <form
-           name="contact"
-  method="POST"
-  action="/contact-form.html"
-  data-netlify="true"
-  data-netlify-honeypot="bot-field"
-  onSubmit={handleSubmit}
           className="space-y-6"
+          name="contact"
+          method="POST"
+          data-netlify="true"
+          onSubmit={handleFormSubmit}
         >
           <input type="hidden" name="form-name" value="contact" />
-          <input type="hidden" name="bot-field" />
 
           {/* Name */}
           <div>
@@ -63,9 +57,9 @@ export default function ContactForm() {
               type="text"
               id="name"
               name="name"
+              className="w-full mt-2 p-3 rounded-lg shadow focus:outline-none focus:ring-2 focus:ring-[#ffa45b] bg-transparent"
               required
               placeholder={t('text2')}
-              className="w-full mt-2 p-3 rounded-lg shadow focus:outline-none focus:ring-2 focus:ring-[#ffa45b] bg-transparent"
             />
           </div>
 
@@ -78,9 +72,9 @@ export default function ContactForm() {
               type="email"
               id="email"
               name="email"
+              className="w-full mt-2 p-3 rounded-lg shadow focus:outline-none focus:ring-2 focus:ring-[#ffa45b] bg-transparent"
               required
               placeholder={t('text4')}
-              className="w-full mt-2 p-3 rounded-lg shadow focus:outline-none focus:ring-2 focus:ring-[#ffa45b] bg-transparent"
             />
           </div>
 
@@ -93,8 +87,8 @@ export default function ContactForm() {
               type="tel"
               id="phone"
               name="phone"
-              placeholder={t('text6')}
               className="w-full mt-2 p-3 rounded-lg shadow focus:outline-none focus:ring-2 focus:ring-[#ffa45b] bg-transparent"
+              placeholder={t('text6')}
             />
           </div>
 
@@ -127,8 +121,8 @@ export default function ContactForm() {
               type="text"
               id="objet"
               name="objet"
-              placeholder={t('text16')}
               className="w-full mt-2 p-3 rounded-lg shadow focus:outline-none focus:ring-2 focus:ring-[#ffa45b] bg-transparent"
+              placeholder={t('text16')}
             />
           </div>
 
@@ -141,26 +135,34 @@ export default function ContactForm() {
               id="message"
               name="message"
               rows="5"
+              className="w-full mt-2 p-3 rounded-lg shadow focus:outline-none focus:ring-2 focus:ring-[#ffa45b] bg-transparent"
               required
               placeholder={t('text18')}
-              className="w-full mt-2 p-3 rounded-lg shadow focus:outline-none focus:ring-2 focus:ring-[#ffa45b] bg-transparent"
-            />
+            ></textarea>
           </div>
 
-          {/* Submit */}
+          {/* Submit Button */}
           <div className="text-center">
             <button
+            aria-label='send message'
               type="submit"
-              disabled={submitting}
               className="bg-gradient-to-tr from-[#ffa45b] to-[#ff7c5b] px-6 py-3 rounded-lg text-white font-semibold shadow hover:scale-105 transition-transform duration-300 ease-out"
+              disabled={status === 'pending' || status === 'ok'}
             >
-              {submitting ? t('text21') : t('text19')}
+              {status === 'ok'
+                ? t('text20') // Message sent
+                : status === 'pending'
+                ? t('text21') // Sending...
+                : t('text19')} {/* Send message */}
             </button>
           </div>
-
-          {error && <p className="mt-4 text-red-500">{error}</p>}
         </form>
+
+        {/* Error Message */}
+        {status === 'error' && <div className="mt-4 text-red-500">{t('errorMessage')}: {error}</div>}
       </div>
     </div>
   );
-}
+};
+
+export default ContactForm;

@@ -1,9 +1,21 @@
-<form name="contact" method="POST" data-netlify="true" hidden>
-  <input type="hidden" name="form-name" value="contact" />
-  <input name="name" />
-  <input name="email" />
-  <input name="phone" />
-  <input name="frenchLevel" />
-  <input name="objet" />
-  <textarea name="message"></textarea>
-</form>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Netlify Forms Handler</title>
+  </head>
+  <body>
+    <!-- Form for Netlify -->
+    <form name="contact" data-netlify="true" method="POST" hidden>
+      <input type="hidden" name="form-name" value="contact" />
+      <input type="text" name="name" required />
+      <input type="email" name="email" required />
+      <input type="text" name="frenchLevel" />
+      <input type="tel" name="phone" />
+      <input type="text" name="objet" />
+      <input type="text" name="message" required />
+      <button type="submit">Send Message</button>
+    </form>
+  </body>
+</html>
