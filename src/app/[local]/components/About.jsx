@@ -11,7 +11,7 @@ const About = () => {
       {/* Text Content Card */}
       <div className="sm:max-w-lg p-8 rounded-3xl shadow-lg text-white z-10">
 
-        <h2 className="text-3xl font-bold text-[#a8570a] text-pretty">{t("text1")}</h2>
+        <h2 className="text-3xl font-bold text-[#d24b06] text-pretty">{t("text1")}</h2>
         <div className="pt-4 text-black">
           <p className='text-[#006a8f] font-bold'>{t("text2")}</p> <br></br> 
           

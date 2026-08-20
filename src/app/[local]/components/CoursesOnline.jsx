@@ -20,7 +20,7 @@ const OnlineCourses = () => {
         {t("text2")}
         </p>
         <p className="text-lg text-gray-800 mt-4">
-        {t("text3")}<span className="font-bold text-[#a8570a]"> {t("text4")}</span>  {t("text5")}  <br />
+        {t("text3")}<span className="font-bold text-[#c2410c]"> {t("text4")}</span>  {t("text5")}  <br />
           
           </p>
       </div>

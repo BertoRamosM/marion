@@ -124,7 +124,7 @@ const Header = () => {
         </div>
         <button
           aria-label="toggle menu"
-          className="lg:hidden text-lg font-bold py-1 px-2 text-[#a8570a] border border-[#ffa45b] rounded-lg hover:bg-[#ffa45b] hover:text-white transition duration-300"
+          className="lg:hidden text-lg font-bold py-1 px-2 text-[#c2410c] border border-[#ffa45b] rounded-lg hover:bg-[#ffa45b] hover:text-white transition duration-300"
           onClick={toggleModal}
         >
           ☰

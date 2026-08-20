@@ -13,7 +13,9 @@ import DisclosureCard from './DisclosureCard';
 
 const TEAL = 'bg-[#e5f8f6] text-[#006a8f]';
 const CREAM = 'bg-[#fff7f3]';
-const CREAM_TITLE = 'text-[#a8570a]';
+// Card titles are text-2xl (24px), which WCAG treats as large text (3:1),
+// so they can carry a brighter orange than the smaller inline text below.
+const CREAM_TITLE = 'text-[#d24b06]';
 
 const AboutCompany = () => {
   const t = useTranslations("AboutCompany");
@@ -24,7 +26,7 @@ const AboutCompany = () => {
       {/* Title Section */}
       <div className="max-w-3xl text-center mb-12">
         <h2 className="text-4xl font-bold text-gray-900">
-          <span className="text-[#a8570a]">{t("Marion")} </span>{t("text1")}
+          <span className="text-[#d24b06]">{t("Marion")} </span>{t("text1")}
         </h2>
         <p className="text-lg text-gray-800 mt-4">
         {t("text2")}
@@ -37,7 +39,7 @@ const AboutCompany = () => {
           <span className="text-[#006a8f]">{t("text3")} </span>{t("text4")}
         </h2>
         <p className="text-lg text-gray-800 mt-4">
-        {t("text5")} <span className="font-bold text-[#a8570a]">{t("text6")}</span> {t("text7")} <br />
+        {t("text5")} <span className="font-bold text-[#c2410c]">{t("text6")}</span> {t("text7")} <br />
           <span className="text-gray-500 text-sm"> {t("text8")} </span>
         </p>
       </div>

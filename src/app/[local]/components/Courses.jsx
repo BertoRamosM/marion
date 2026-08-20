@@ -16,7 +16,7 @@ const Courses = () => {
       {/* Title Section */}
       <div className="max-w-3xl text-center mb-12">
         <h2 className="text-4xl font-bold text-gray-900">
-          <span className="text-[#a8570a]">{t("text1")}</span>
+          <span className="text-[#d24b06]">{t("text1")}</span>
         </h2>
         <p className="text-lg text-gray-800 mt-4">
           {t('text2')}
@@ -27,7 +27,7 @@ const Courses = () => {
       <div className="max-w-5xl grid grid-cols-1 md:grid-cols-2 gap-8">
         {/* Left Section */}
         <div className="bg-[#fff7f3] p-8 rounded-3xl shadow-lg flex flex-col justify-between">
-          <h2 className="text-lg font-semibold text-[#a8570a] flex flex-col items-center gap-2">
+          <h2 className="text-lg font-semibold text-[#c2410c] flex flex-col items-center gap-2">
             <span className="text-base">{t('text3')}</span>
             <span className="flex gap-4 items-center justify-center text-[#006a8f] <span className='flex items-center justify-center gap-4 text-xl'>">
               <InfoIcon />{t('text4')}
