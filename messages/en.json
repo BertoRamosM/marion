@@ -3,6 +3,17 @@
     "title": "WestFrench Academy | French Lessons in Rennes",
     "description": "Interactive French lessons in Rennes for expats: small groups or private online lessons. First trial lesson for just €5. Book with Marion today!"
   },
+  "Schema": {
+    "courseGroupName": "Small-group French lessons in Rennes",
+    "courseGroupDesc": "French classes in small groups of 3 to 8 people in Rennes, organised by level (A1, A2, B1, B2) and designed for expats. 90-minute sessions, friendly atmosphere and cultural immersion.",
+    "courseOnlineName": "Private online French lessons",
+    "courseOnlineDesc": "One-to-one online French lessons to prepare for your move to northwest France. A tailor-made programme adapted to your needs and your future region."
+  },
+  "A11y": {
+    "logo": "WestFrench Academy logo",
+    "marion": "Marion, French language teacher in Rennes",
+    "galleryItem": "French lessons for expats in Rennes — photo {number}"
+  },
   "Header": {
     "home": "Home",
     "coursesRennes": "Courses in Rennes",

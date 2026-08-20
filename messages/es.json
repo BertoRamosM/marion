@@ -3,6 +3,17 @@
     "title": "WestFrench Academy | Clases de francés en Rennes",
     "description": "Clases de francés en Rennes para expatriados: grupos reducidos o clases particulares en línea. ¡Primera clase de prueba a 5€! Reserva con Marion."
   },
+  "Schema": {
+    "courseGroupName": "Clases de francés en grupos reducidos en Rennes",
+    "courseGroupDesc": "Clases de francés en grupos reducidos de 3 a 8 personas en Rennes, por nivel (A1, A2, B1, B2), diseñadas para expatriados. Sesiones de 1h30, ambiente agradable e inmersión cultural.",
+    "courseOnlineName": "Clases de francés individuales en línea",
+    "courseOnlineDesc": "Clases particulares de francés en línea para preparar tu llegada al noroeste de Francia. Programa personalizado adaptado a tus necesidades y a tu futura región."
+  },
+  "A11y": {
+    "logo": "Logotipo de WestFrench Academy",
+    "marion": "Marion, profesora de francés como lengua extranjera en Rennes",
+    "galleryItem": "Clases de francés para expatriados en Rennes — foto {number}"
+  },
   "Header": {
     "home": "Inicio",
     "coursesRennes": "Cursos en Rennes",

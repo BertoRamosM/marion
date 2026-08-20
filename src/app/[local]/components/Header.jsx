@@ -23,6 +23,7 @@ const dancingScript = Dancing_Script({
 
 const Header = () => {
   const t = useTranslations("Header");
+  const tA11y = useTranslations("A11y");
   const [isHidden, setIsHidden] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -77,7 +78,7 @@ const Header = () => {
         </h1> */}
 <Image
   src="/logos/logo-no-bg.png"
-  alt="WestFrench logo"
+  alt={tA11y("logo")}
   width={150}
   height={180}
   className="py-2 w-24 h-auto sm:w-28 md:w-36 lg:w-40"

@@ -3,7 +3,8 @@ import Image from 'next/image';
 import { useTranslations } from 'next-intl';
 
 const About = () => {
-  const t = useTranslations("About"); 
+  const t = useTranslations("About");
+  const tA11y = useTranslations("A11y");
 
   return (
     <div className="flex flex-col lg:flex-row items-center justify-center gap-8 px-0 sm:px-6 pt-8 pb-16 text-pretty">
@@ -36,7 +37,7 @@ const About = () => {
           <div className="relative w-[280px] h-[280px] sm:w-[400px] sm:h-[400px] rounded-2xl overflow-hidden">
             <Image
               src="/about/Marion.webp"
-              alt="Marion"
+              alt={tA11y("marion")}
               fill
               sizes="(max-width: 640px) 280px, 400px"
               className="object-cover transform hover:scale-105 transition-transform duration-300 ease-out"

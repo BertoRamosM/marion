@@ -90,7 +90,7 @@ const Carousel = () => {
               {(isActive || index === 0) && (
                 <Image
                   src={slide.content}
-                  alt={`Slide ${index + 1}`}
+                  alt={slide.title}
                   fill
                   className="block w-full h-full object-cover"
                   sizes="(max-width: 640px) 100vw, calc(100vw - 160px)"

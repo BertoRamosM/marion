@@ -86,7 +86,7 @@ const Courses = () => {
               </strong>
             </p>
           </div>
-          <div className="flex flex-col items-center gap-4 mt-4 sm:mt-0">
+         <div className="flex flex-col items-center gap-4 mt-4 sm:mt-0 lg:border-l lg:border-gray-900 lg:pl-4">
             <h2 className="text-lg font-semibold text-[#006a8f] text-center flex items-center gap-2 pt-4">
               <EuroIcon /> {t('text26')}
             </h2>

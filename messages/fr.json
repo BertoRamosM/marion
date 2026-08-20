@@ -3,6 +3,17 @@
     "title": "WestFrench Academy | Cours de français à Rennes",
     "description": "Cours de français interactifs à Rennes pour expatriés : petits groupes ou cours particuliers en ligne. 1er cours d'essai à 5€. Réservez avec Marion !"
   },
+  "Schema": {
+    "courseGroupName": "Cours de français en mini-groupe à Rennes",
+    "courseGroupDesc": "Cours de français en petits groupes de 3 à 8 personnes à Rennes, par niveau (A1, A2, B1, B2), conçus pour les expatriés. Sessions d'1h30, ambiance conviviale et immersion culturelle.",
+    "courseOnlineName": "Cours de français individuels en ligne",
+    "courseOnlineDesc": "Cours particuliers de français en ligne pour préparer votre installation dans le nord-ouest de la France. Programme sur-mesure adapté à vos besoins et à votre future région."
+  },
+  "A11y": {
+    "logo": "Logo de WestFrench Academy",
+    "marion": "Marion, professeure de français langue étrangère à Rennes",
+    "galleryItem": "Cours de français pour expatriés à Rennes — photo {number}"
+  },
   "Header": {
     "home": "Accueil",
     "coursesRennes": "Cours à Rennes",
