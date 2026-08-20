@@ -110,11 +110,11 @@ const Footer = () => {
       </div>
 
       {/* Bottom Section */}
-      <div className="border-t border-gray-300 mt-6 pt-4 text-center">
+      <div className="border-t border-gray-300 mt-6 pt-4 text-center flex justify-center items-center">
         <p className="text-sm text-gray-600"></p>
-          © {new Date().getFullYear()}  <span className="inline-flex flex-col items-center text-center">
+          © {new Date().getFullYear()}  Tous droits réservés.<span className="inline-flex flex-col items-center text-center">
             <Image src="/logos/logo-no-bg.png" alt="WestFrench logo" width={200} height={200} className='pt-4' />
-          </span> Tous droits réservés.
+          </span>
         
       </div>
     </footer>
