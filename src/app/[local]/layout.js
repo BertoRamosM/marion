@@ -4,7 +4,10 @@ import Footer from "./components/Footer";
 import StickySocialIcons from "./components/StickySocialIcons";
 import { Dancing_Script } from "next/font/google";
 import { NextIntlClientProvider } from "next-intl";
-import { getMessages } from "next-intl/server";
+import { getMessages, getTranslations } from "next-intl/server";
+import { routing } from "../../i18n/routing";
+
+const SITE_URL = "https://www.westfrench-academy.com";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -68,25 +71,39 @@ const jsonLd = {
   ],
 };
 
-export const metadata = {
-  title: "WestFrench Academy",
-  description:
-    "WestFrench Academy propose des cours de français interactifs à Rennes, adaptés aux expatriés. Participez à des groupes réduits ou à des cours particuliers en ligne, pour apprendre le français de manière ludique et immersive. Découvrez la culture française grâce à un enseignement personnalisé, dirigé par un professeur expérimenté et passionné. Que vous soyez à Rennes, Nantes, ou que vous prévoyiez de vous installer en France, WestFrench vous aide à maîtriser le français dans un cadre convivial et stimulant. Commencez avec un cours d'essai à 5€ !",
-  icons: { icon: "/favicon.ico" },
-  verification: {
-    google: "Ml98YqB2kA_XBnJ3KJ9IbevLRqu5R6STf5W4TjSJy3w",
-  },
-};
+export async function generateMetadata({ params }) {
+  const { local } = await params;
+  const t = await getTranslations({ locale: local, namespace: "Metadata" });
+
+  return {
+    title: t("title"),
+    description: t("description"),
+    icons: { icon: "/favicon.ico" },
+    verification: {
+      google: "Ml98YqB2kA_XBnJ3KJ9IbevLRqu5R6STf5W4TjSJy3w",
+    },
+    alternates: {
+      canonical: `${SITE_URL}/${local}`,
+      languages: {
+        ...Object.fromEntries(
+          routing.locales.map((locale) => [locale, `${SITE_URL}/${locale}`])
+        ),
+        "x-default": `${SITE_URL}/${routing.defaultLocale}`,
+      },
+    },
+  };
+}
 
 export const viewport = {
   themeColor: "#ffffff",
 };
 
-export default async function RootLayout({ children }) {
+export default async function RootLayout({ children, params }) {
+  const { local } = await params;
   const messages = await getMessages();
 
   return (
-    <html lang="fr">
+    <html lang={local}>
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${dancingScript.variable} antialiased bg-gradient-to-br from-gray-100 to-gray-200 text-pretty`}
       >
