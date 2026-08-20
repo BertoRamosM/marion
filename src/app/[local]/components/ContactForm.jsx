@@ -37,7 +37,7 @@ const ContactForm = () => {
   return (
     <div className="flex items-center justify-center min-h-screen px-0 sm:px-6 py-24" id="contact">
       <div className="w-full max-w-xl p-8 rounded-3xl shadow-lg text-black">
-        <h1 className="text-3xl font-bold mb-6 text-center text-[#ffa45b]">{t('title')}</h1>
+        <h1 className="text-3xl font-bold mb-6 text-center text-[#a8570a]">{t('title')}</h1>
 
         <form
           className="space-y-6"
@@ -56,7 +56,7 @@ const ContactForm = () => {
 
           {/* Name */}
           <div>
-            <label htmlFor="name" className="block text-sm font-medium text-[#007ea7]">
+            <label htmlFor="name" className="block text-sm font-medium text-[#006a8f]">
               {t('text1')} <span className="text-red-500">*</span>
             </label>
             <input
@@ -71,7 +71,7 @@ const ContactForm = () => {
 
           {/* Email */}
           <div>
-            <label htmlFor="email" className="block text-sm font-medium text-[#007ea7]">
+            <label htmlFor="email" className="block text-sm font-medium text-[#006a8f]">
               {t('text3')} <span className="text-red-500">*</span>
             </label>
             <input
@@ -86,7 +86,7 @@ const ContactForm = () => {
 
           {/* Phone */}
           <div>
-            <label htmlFor="phone" className="block text-sm font-medium text-[#007ea7]">
+            <label htmlFor="phone" className="block text-sm font-medium text-[#006a8f]">
               {t('text5')}
             </label>
             <input
@@ -100,7 +100,7 @@ const ContactForm = () => {
 
           {/* French Level */}
           <div>
-            <label htmlFor="frenchLevel" className="block text-sm font-medium text-[#007ea7]">
+            <label htmlFor="frenchLevel" className="block text-sm font-medium text-[#006a8f]">
               {t('text7')}
             </label>
             <select
@@ -120,7 +120,7 @@ const ContactForm = () => {
 
           {/* Subject */}
           <div>
-            <label htmlFor="objet" className="block text-sm font-medium text-[#007ea7]">
+            <label htmlFor="objet" className="block text-sm font-medium text-[#006a8f]">
               {t('text15')}
             </label>
             <input
@@ -134,7 +134,7 @@ const ContactForm = () => {
 
           {/* Message */}
           <div>
-            <label htmlFor="message" className="block text-sm font-medium text-[#007ea7]">
+            <label htmlFor="message" className="block text-sm font-medium text-[#006a8f]">
               {t('text17')} <span className="text-red-500">*</span>
             </label>
             <textarea

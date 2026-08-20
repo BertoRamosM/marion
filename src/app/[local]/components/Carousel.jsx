@@ -93,7 +93,7 @@ const Carousel = () => {
                   alt={`Slide ${index + 1}`}
                   fill
                   className="block w-full h-full object-cover"
-                  sizes="100vw"
+                  sizes="(max-width: 640px) 100vw, calc(100vw - 160px)"
                   priority={index === 0}
                   fetchPriority={index === 0 ? "high" : "auto"}
                   placeholder={index === 0 ? "blur" : "empty"}
@@ -108,9 +108,11 @@ const Carousel = () => {
               {/* Dark Overlay + Text */}
               <div className="absolute inset-0 flex items-center justify-center bg-black/50">
                 <div className="p-6 text-white text-center rounded-lg max-w-lg">
-                  <h2 className="text-4xl font-bold pb-4">
-                    {slide.title}
-                  </h2>
+                  {index === 0 ? (
+                    <h1 className="text-4xl font-bold pb-4">{slide.title}</h1>
+                  ) : (
+                    <h2 className="text-4xl font-bold pb-4">{slide.title}</h2>
+                  )}
 
                   <p className="mt-2 text-lg">
                     {slide.text}

@@ -62,9 +62,9 @@ const SmallCarousel = ({ slides }) => {
   return (
     <div className="w-full max-w-md mx-auto h-full" id="reviews">
       <div className="text-center mb-8">
-        <h1 className="text-4xl font-bold text-gray-900">
-          <span className="text-[#007ea7]">{t("title")}</span>
-        </h1>
+        <h2 className="text-4xl font-bold text-gray-900">
+          <span className="text-[#006a8f]">{t("title")}</span>
+        </h2>
       </div>
 
       <div

@@ -15,12 +15,9 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between gap-6 items-center">
         {/* Left Section */}
         <div className="text-center md:text-left flex flex-col items-center sm:items-start">
-          <h1 className="text-sm sm:text-base lg:text-4xl font-bold flex flex-col items-center text-center pb-4">
-            {/*   <span className="text-[#007ea7]">WestFrench</span> */}
+          <div className="flex flex-col items-center text-center pb-4">
             <Image src="/logos/logo-no-bg.png" alt="WestFrench logo" width={150} height={150} />
-
-
-          </h1>
+          </div>
           <p className="text-gray-700 mt-2">
             Cours en mini-groupe à Rennes :
             <br />
@@ -41,7 +38,7 @@ const Footer = () => {
             <a
             aria-label='Email'
               href="mailto:marion.westfrench@gmail.com"
-              className="text-[#007ea7] hover:text-[#ffa45b] underline transition duration-300"
+              className="text-[#006a8f] hover:text-[#ffa45b] underline transition duration-300"
             >
               marion.westfrench@gmail.com
             </a>
@@ -55,7 +52,7 @@ const Footer = () => {
               href="https://wa.me/33784582309?text=Hello%20I%20would%20like%20to%20know%20more%20about%20your%20online%20courses"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[#007ea7] hover:text-[#ffa45b] transition duration-300"
+              className="text-[#006a8f] hover:text-[#ffa45b] transition duration-300"
             >
               <WhatsappIcon />
             </a>
@@ -64,7 +61,7 @@ const Footer = () => {
               href="https://www.facebook.com/share/18s3C5AGKS/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[#007ea7] hover:text-[#ffa45b] transition duration-300"
+              className="text-[#006a8f] hover:text-[#ffa45b] transition duration-300"
             >
               <FacebookIcon />
             </a>
@@ -73,16 +70,16 @@ const Footer = () => {
               href="https://youtube.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[#007ea7] hover:text-[#ffa45b] transition duration-300"
+              className="text-[#006a8f] hover:text-[#ffa45b] transition duration-300"
             >
               <YoutubeIcon />
             </a> */}
             <a
-            aria-label='Email'
+            aria-label='Instagram'
               href="https://www.instagram.com/westfrench_academy/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[#007ea7] hover:text-[#ffa45b] transition duration-300"
+              className="text-[#006a8f] hover:text-[#ffa45b] transition duration-300"
             >
               <Instagram />
             </a>
@@ -91,7 +88,7 @@ const Footer = () => {
               href="https://www.linkedin.com/in/marionrichardfrenchteacher/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[#007ea7] hover:text-[#ffa45b] transition duration-300"
+              className="text-[#006a8f] hover:text-[#ffa45b] transition duration-300"
             >
               <LinkedinIcon />
             </a>
@@ -100,7 +97,7 @@ const Footer = () => {
               href="mailto:marion.westfrench@gmail.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[#007ea7] hover:text-[#ffa45b] transition duration-300"
+              className="text-[#006a8f] hover:text-[#ffa45b] transition duration-300"
             >
               <EmailIcon />
             </a>
@@ -115,10 +112,9 @@ const Footer = () => {
       {/* Bottom Section */}
       <div className="border-t border-gray-300 mt-6 pt-4 text-center">
         <p className="text-sm text-gray-600"></p>
-          © {new Date().getFullYear()}  <h1 className="text-sm sm:text-base lg:text-4xl font-bold flex flex-col items-center text-center">
+          © {new Date().getFullYear()}  <span className="inline-flex flex-col items-center text-center">
             <Image src="/logos/logo-no-bg.png" alt="WestFrench logo" width={200} height={200} className='pt-4' />
-
-          </h1> Tous droits réservés.
+          </span> Tous droits réservés.
         
       </div>
     </footer>

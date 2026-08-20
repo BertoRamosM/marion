@@ -64,7 +64,7 @@ const Header = () => {
       <Banner />
 <header className="flex items-center flex-col sm:flex-row justify-between gap-2 sm:gap-4 py-1 sm:py-2 px-2 sm:px-20 font-[family-name:var(--font-geist-sans)] bg-[#a3e4db] w-full text-center">
         {/*  <h1 className="text-sm sm:text-base lg:text-4xl font-bold flex flex-col items-center text-center border-2 border-[#2c7a7b] p-4">
-          <span className="text-[#007ea7]">WestFrench</span>
+          <span className="text-[#006a8f]">WestFrench</span>
           <span
             className={`text-[#2c7a7b]`}
             style={{
@@ -123,7 +123,7 @@ const Header = () => {
         </div>
         <button
           aria-label="toggle menu"
-          className="lg:hidden text-lg font-bold py-1 px-2 text-[#ffa45b] border border-[#ffa45b] rounded-lg hover:bg-[#ffa45b] hover:text-white transition duration-300"
+          className="lg:hidden text-lg font-bold py-1 px-2 text-[#a8570a] border border-[#ffa45b] rounded-lg hover:bg-[#ffa45b] hover:text-white transition duration-300"
           onClick={toggleModal}
         >
           ☰
