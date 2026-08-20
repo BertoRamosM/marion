@@ -1,0 +1,16 @@
+# WestFrench Academy
+
+> WestFrench Academy offers interactive French lessons in Rennes, France, designed for expats. Marion, a qualified French teacher (DAEFLE diploma), teaches small in-person groups in Rennes and private online lessons for those preparing to move to the region. A first trial lesson is available for €5.
+
+## Pages
+
+- [French (default)](https://www.westfrench-academy.com/fr): Homepage in French — courses, pricing, testimonials, and contact form.
+- [English](https://www.westfrench-academy.com/en): Homepage in English for English-speaking expats.
+- [Spanish](https://www.westfrench-academy.com/es): Homepage in Spanish for Spanish-speaking expats.
+
+## Key sections
+
+- [Group courses in Rennes](https://www.westfrench-academy.com/fr#courses): Small-group French classes (3-8 people) by level, held at La Maison des Associations in Rennes.
+- [Online courses](https://www.westfrench-academy.com/fr#online-courses): Private online French lessons for people preparing to move to northwest France.
+- [About Marion](https://www.westfrench-academy.com/fr#about): Background and teaching philosophy of the school's teacher.
+- [Contact / booking](https://www.westfrench-academy.com/fr#contact): Contact form to book a trial lesson.
