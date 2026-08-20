@@ -99,7 +99,7 @@ const Carousel = () => {
                   placeholder={index === 0 ? "blur" : "empty"}
                   blurDataURL={
                     index === 0
-                      ? "/carousel/placeholder1.webp"
+                      ? "data:image/webp;base64,UklGRngAAABXRUJQVlA4IGwAAACQBACdASoQABUAPu1iqk4ppaQiMAgBMB2JbACdMoRwACWecdiNk6fGWX1lwYwA/tzm/GnoguWGnCVWoBWrliMcJ+t3mOUelIbKuT+2MY+kidkWN9/NcsH2/W1m9dh8eaXgNj9kZYher6oAAAA="
                       : undefined
                   }
                 />
