@@ -347,5 +347,11 @@
     "title": "Suis-moi sur Instagram",
     "subtitle": "Un aperçu de la vie des cours et de Rennes.",
     "cta": "Voir le profil Instagram"
+  },
+  "Intro": {
+    "groupSize": "Groupes de 3 à 8 personnes",
+    "levels": "Niveaux A1 à B2",
+    "where": "À Rennes et en ligne",
+    "trial": "1er cours d'essai gratuit"
   }
 }

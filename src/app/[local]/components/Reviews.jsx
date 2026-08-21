@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useRef } from "react";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 
@@ -8,28 +8,21 @@ const SmallCarousel = ({ slides }) => {
   const t = useTranslations("Reviews");
 
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [isPaused, setIsPaused] = useState(false);
   const touchStartX = useRef(0);
   const touchEndX = useRef(0);
 
-  // Reviews can be long, so stop advancing while someone is reading them —
-  // on hover, on keyboard focus, or if they prefer reduced motion.
-  useEffect(() => {
-    if (isPaused) return;
-
-    const prefersReducedMotion = window.matchMedia(
-      "(prefers-reduced-motion: reduce)"
-    ).matches;
-    if (prefersReducedMotion) return;
-
-    const interval = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % slides.length);
-    }, 15000);
-    return () => clearInterval(interval);
-  }, [slides.length, isPaused]);
-
-  const pause = () => setIsPaused(true);
-  const resume = () => setIsPaused(false);
+  /*
+   * No auto-advance, on purpose.
+   *
+   * Reviews vary a lot in length, so rotating on a timer changed the height of
+   * this section every 15 seconds — which shoved the contact form below it
+   * around while someone was typing. That is why reviews used to sit *after*
+   * the form, where most visitors never reached them.
+   *
+   * Letting the visitor drive (arrows, swipe, keyboard) means the height only
+   * changes when they ask for it, so the section can sit immediately before
+   * the form. It also means nobody loses a long testimonial half-read.
+   */
 
   const nextSlide = () => {
     setCurrentIndex((prev) => (prev + 1) % slides.length);
@@ -92,10 +85,6 @@ const SmallCarousel = ({ slides }) => {
         onTouchStart={handleTouchStart}
         onTouchMove={handleTouchMove}
         onTouchEnd={handleTouchEnd}
-        onMouseEnter={pause}
-        onMouseLeave={resume}
-        onFocus={pause}
-        onBlur={resume}
       >
         {slides.map((slide, index) => (
           <div

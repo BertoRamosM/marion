@@ -9,6 +9,8 @@ import CoursesOnline from "./components/CoursesOnline";
 import ContactForm from "./components/ContactForm";
 import InstagramGallery from "./components/InstagramGallery";
 import Reviews from "./components/Reviews";
+import Gallery from "./components/Gallery";
+import Intro from "./components/Intro";
 
 
 
@@ -24,16 +26,40 @@ export default function Home() {
 
       {/* Main Content */}
       <main className="flex-1 mt-[calc(2*var(--banner-height))] p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)] items-center">
-        {/* Content goes here */}
+        {/*
+          Order is deliberate, for someone arriving from a search like
+          "french classes in rennes":
+
+            1. Hero — what this is.
+            2. The offer, in-person then online. Previously the "why us"
+               section and Marion's bio came first, which meant 2000px of
+               persuasion before any schedule or price.
+            3. Gallery — a visual breather, moved out of the Courses section
+               where it interrupted the pricing → call-to-action flow.
+            4. Why us + Marion — the differentiator, once they know what is
+               on offer.
+            5. Reviews, then the form. Social proof immediately before the
+               ask; it used to sit after it, where most visitors never
+               reached it. Safe now that the reviews carousel no longer
+               auto-advances, so it cannot shove the form around.
+            6. Instagram last.
+        */}
         <Carousel />
-        <AboutCompany />
+        <Intro />
+        {/* Marion's bio before any pricing: people commit months and several
+            hundred euros to one specific teacher, so "who is teaching me"
+            comes before "how much". The longer "why us" card block still sits
+            after the offer, so this stays a short lead-in rather than the
+            2000px of persuasion it used to be. */}
+        <About />
         <Courses />
         <CoursesOnline />
-        <ContactForm />
-        {/* Reviews sit below the form on purpose: the carousel rotates every
-            15s and its height varies with the length of each review, which
-            shifted the form while someone was typing in it. */}
+        <div className="w-full py-8">
+          <Gallery />
+        </div>
+        <AboutCompany />
         <Reviews />
+        <ContactForm />
         {/* Full width on phones: w-2/3 alone left the Instagram grid at
             roughly 200px, which made the thumbnails tiny. */}
         <div className="w-full md:w-2/3 mx-auto py-12 sm:pt-18 sm:pb-12">

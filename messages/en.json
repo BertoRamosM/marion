@@ -347,5 +347,11 @@
     "title": "Follow me on Instagram",
     "subtitle": "A glimpse of life in the classes and around Rennes.",
     "cta": "View the Instagram profile"
+  },
+  "Intro": {
+    "groupSize": "Groups of 3 to 8 people",
+    "levels": "Levels A1 to B2",
+    "where": "In Rennes and online",
+    "trial": "First trial lesson free"
   }
 }

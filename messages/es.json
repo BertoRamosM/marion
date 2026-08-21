@@ -347,5 +347,11 @@
     "title": "Sígueme en Instagram",
     "subtitle": "Un vistazo a las clases y a la vida en Rennes.",
     "cta": "Ver el perfil de Instagram"
+  },
+  "Intro": {
+    "groupSize": "Grupos de 3 a 8 personas",
+    "levels": "Niveles A1 a B2",
+    "where": "En Rennes y en línea",
+    "trial": "Primera clase de prueba gratuita"
   }
 }

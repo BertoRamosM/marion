@@ -45,9 +45,14 @@ function buildJsonLd(locale, t, description) {
     name: "WestFrench Academy",
     url: pageUrl,
     logo: `${SITE_URL}/logos/logo-no-bg.png`,
-    // The photo Google shows beside the search result. It reads this from the
-    // organisation entity, so a real photo works better here than the logo card.
-    image: `${SITE_URL}/og-photo.jpg`,
+    // The photo Google shows beside the search result, read from the
+    // organisation entity. Supplied at several aspect ratios because Google
+    // asks for that and picks whichever fits the layout it renders.
+    image: [
+      `${SITE_URL}/og-photo-16x9.jpg`,
+      `${SITE_URL}/og-photo-4x3.jpg`,
+      `${SITE_URL}/og-photo.jpg`,
+    ],
     description,
     telephone: PHONE,
     email: EMAIL,
@@ -82,6 +87,11 @@ function buildJsonLd(locale, t, description) {
     knowsLanguage: ["fr", "en", "es", "ca"],
     priceRange: "€€",
     sameAs: [
+      // Google Business Profile listing. Included so Google can tie this
+      // website and the Maps listing together as one entity. The ?cid= form is
+      // the stable canonical URL; the long /maps/place/... one carries session
+      // parameters that change.
+      "https://maps.google.com/?cid=8809206434949443188",
       "https://www.instagram.com/westfrench_academy/",
       "https://www.facebook.com/p/WestFrench-Academy-Marion-61571846455654/",
       "https://www.linkedin.com/in/marionrichardfrenchteacher/",

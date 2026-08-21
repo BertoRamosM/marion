@@ -7,7 +7,7 @@ const About = () => {
   const tA11y = useTranslations("A11y");
 
   return (
-    <div className="flex flex-col lg:flex-row items-center justify-center gap-8 px-0 sm:px-6 pt-8 pb-16 text-pretty">
+    <div id="about" className="flex flex-col lg:flex-row items-center justify-center gap-8 px-0 sm:px-6 pt-8 pb-16 text-pretty">
       {/* Text Content Card */}
       <div className="sm:max-w-lg p-8 rounded-3xl shadow-lg text-white z-10">
 

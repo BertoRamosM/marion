@@ -1,6 +1,5 @@
 import React from 'react';
 import Needle from '../icons/Needle';
-import About from './About';
 import Heart from '../icons/Heart';
 import GroupIcon from '../icons/GroupIcon';
 import FriendIcon from '../icons/FriendIcon';
@@ -22,17 +21,7 @@ const AboutCompany = () => {
   const bold = (key) => <span className='font-bold'>{t(key)}</span>;
 
   return (
-    <div className="flex flex-col items-center justify-center py-16 px-0 sm:px-6 min-h-screen" id="about">
-      {/* Title Section */}
-      <div className="max-w-3xl text-center mb-12">
-        <h2 className="text-4xl font-bold text-gray-900">
-          <span className="text-[#d24b06]">{t("Marion")} </span>{t("text1")}
-        </h2>
-        <p className="text-lg text-gray-800 mt-4">
-        {t("text2")}
-        </p>
-      </div>
-      <About />
+    <div className="flex flex-col items-center justify-center py-16 px-0 sm:px-6 min-h-screen">
 
       <div className="max-w-3xl text-center mb-12">
         <h2 className="text-4xl font-bold text-gray-900">

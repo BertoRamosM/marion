@@ -5,7 +5,6 @@ import EuroIcon from '../icons/EuroIcon';
 import CalendarIcon from '../icons/CalendarIcon';
 import { Banner } from './Banner';
 import { useTranslations } from 'next-intl';
-import Gallery from './Gallery';
 import CheckBadge from './CheckBadge';
 
 // The eleven promises used to sit in two separate cream boxes, the second of
@@ -148,8 +147,6 @@ const Courses = () => {
           </div>
         </div>
       </div>
-
-      <Gallery />
 
       {/* Banner Section — w-full so the card reaches its own max-w-3xl
           instead of shrinking to fit inside the centred column. */}

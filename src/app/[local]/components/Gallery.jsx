@@ -135,7 +135,10 @@ const Gallery = () => {
     <>
       {/* Full width on phones: w-2/3 alone squeezed the two columns to
           roughly 96px per thumbnail. */}
-      <div className="columns-2 gap-4 pt-8 space-y-4 w-full md:w-2/3 sm:columns-3 md:columns-4">
+      {/* mx-auto because this no longer lives inside the Courses section's
+          centring flex container — at md+ it is only 2/3 wide, so without it
+          the grid hugs the left edge of the page. */}
+      <div className="columns-2 gap-4 pt-8 space-y-4 w-full md:w-2/3 mx-auto sm:columns-3 md:columns-4">
         {images.map((src, index) => (
           <div key={src} className="break-inside-avoid mb-4">
             <button
