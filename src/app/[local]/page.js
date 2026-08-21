@@ -25,7 +25,7 @@ export default function Home() {
       </div>
 
       {/* Main Content */}
-      <main className="flex-1 mt-[calc(2*var(--banner-height))] p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)] items-center">
+      <main id="main-content" tabIndex={-1} className="flex-1 p-8 pb-20 gap-16 sm:p-20 items-center">
         {/*
           Order is deliberate, for someone arriving from a search like
           "french classes in rennes":

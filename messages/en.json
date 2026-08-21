@@ -20,7 +20,8 @@
     "galleryNext": "Next photo",
     "galleryDialog": "Photo gallery",
     "switchLanguage": "Switch to English",
-    "currentLanguage": "Current language"
+    "currentLanguage": "Current language",
+    "skipToContent": "Skip to main content"
   },
   "Header": {
     "home": "Home",

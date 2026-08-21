@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useTranslations } from "next-intl";
 import Instagram from "../icons/Instagram";
 
@@ -9,14 +9,44 @@ const PROFILE_URL = "https://www.instagram.com/westfrench_academy/";
 export default function InstagramGallery() {
   const t = useTranslations("Instagram");
   const [loadInstagram, setLoadInstagram] = useState(false);
+  const placeholderRef = useRef(null);
 
+  /*
+   * Loads when the visitor scrolls the gallery into view, rather than on a
+   * three-second timer after page load.
+   *
+   * This section sits at the very bottom of a long page, so most visitors
+   * never reach it — which means the third-party script and the request to
+   * LightWidget usually never happen at all, and never on initial load.
+   *
+   * rootMargin starts the load slightly before the gallery is on screen so it
+   * has a head start; the observer disconnects after firing once.
+   */
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setLoadInstagram(true);
-    }, 3000);
+    if (loadInstagram) return;
 
-    return () => clearTimeout(timer);
-  }, []);
+    const target = placeholderRef.current;
+    if (!target) return;
+
+    // Very old browsers: just load it rather than showing an empty box forever.
+    if (typeof IntersectionObserver === "undefined") {
+      setLoadInstagram(true);
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((entry) => entry.isIntersecting)) {
+          setLoadInstagram(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: "300px" }
+    );
+
+    observer.observe(target);
+    return () => observer.disconnect();
+  }, [loadInstagram]);
 
   useEffect(() => {
     if (!loadInstagram) return;
@@ -66,7 +96,8 @@ export default function InstagramGallery() {
             src="https://cdn.lightwidget.com/widgets/7c5f5f5978a959e6a00d60b3ede6ec51.html"
             scrolling="no"
             title={t("title")}
-            allowTransparency
+            /* allowTransparency removed: an obsolete IE-era attribute that
+               React rejects, logging a console error on every render. */
             className="lightwidget-widget"
             style={{
               width: "100%",
@@ -76,9 +107,14 @@ export default function InstagramGallery() {
             }}
           />
         ) : (
-          /* Reserves the same height so the heading above does not jump when
-             the widget loads three seconds in. */
-          <div className="w-full" style={{ minHeight: "400px" }} aria-hidden="true" />
+          /* The observer watches this element, and it reserves the widget's
+             400px so nothing below jumps when the real gallery arrives. */
+          <div
+            ref={placeholderRef}
+            className="w-full"
+            style={{ minHeight: "400px" }}
+            aria-hidden="true"
+          />
         )}
       </div>
     </section>

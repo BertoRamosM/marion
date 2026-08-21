@@ -7,10 +7,6 @@ module.exports = {
   ],
   theme: {
     extend: {
-      colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
-      },
       keyframes: {
         // Used when an expandable card opens. Native <details> cannot animate
         // its own height, so the revealed text fades and eases into place

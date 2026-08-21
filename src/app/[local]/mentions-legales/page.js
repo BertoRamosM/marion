@@ -62,7 +62,7 @@ export default async function LegalPage({ params }) {
         <Header />
       </div>
 
-      <main className="flex-1 p-8 pb-20 sm:p-20 font-[family-name:var(--font-geist-sans)]">
+      <main id="main-content" tabIndex={-1} className="flex-1 p-8 pb-20 sm:p-20">
         {/* Clears the fixed banner + header with room to breathe. At
             sm:pt-16 the heading actually slipped behind the header on
             desktop, where the fixed chrome is ~152px tall. */}
@@ -291,9 +291,11 @@ export default async function LegalPage({ params }) {
                 .
               </p>
               <p className="text-gray-600">
-                Pour limiter cette collecte, la galerie n’est chargée qu’après
-                l’affichage de la page et n’est pas nécessaire à la consultation
-                du site.
+                Pour limiter cette collecte, la galerie est chargée uniquement
+                lorsque vous faites défiler la page jusqu’à elle : si vous ne
+                descendez pas jusqu’au bas du site, aucune requête n’est
+                envoyée à LightWidget. La galerie n’est pas nécessaire à la
+                consultation du site.
               </p>
             </Section>
 

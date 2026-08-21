@@ -191,7 +191,7 @@ const Carousel = () => {
       <button
         aria-label="Previous slide"
         type="button"
-        className="absolute top-80 sm:top-0 left-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+        className="absolute top-80 sm:top-0 left-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#006a8f] rounded-full"
         onClick={prevSlide}
         data-carousel-prev
       >
@@ -217,7 +217,7 @@ const Carousel = () => {
       <button
         aria-label="Next slide"
         type="button"
-        className="absolute top-80 sm:top-0 right-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+        className="absolute top-80 sm:top-0 right-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#006a8f] rounded-full"
         onClick={nextSlide}
         data-carousel-next
       >

@@ -1,8 +1,7 @@
-import localFont from "next/font/local";
 import "./globals.css";
 import Footer from "./components/Footer";
 import StickySocialIcons from "./components/StickySocialIcons";
-import { Dancing_Script } from "next/font/google";
+import { Nunito } from "next/font/google";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages, getTranslations } from "next-intl/server";
 import { routing } from "../../i18n/routing";
@@ -11,21 +10,21 @@ const SITE_URL = "https://www.westfrench-academy.com";
 const EMAIL = "marion.westfrench@gmail.com";
 const PHONE = "+33784582309";
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
-});
-
-const dancingScript = Dancing_Script({
+/*
+ * One font for the whole site.
+ *
+ * Replaces Geist, whose neutral, technical tone sat oddly against the rounded
+ * cards and pastel palette. Nunito's slightly rounded terminals echo those
+ * shapes. Geist Mono and Dancing Script are gone — neither rendered anywhere,
+ * so they were pure download weight.
+ *
+ * display: swap so text paints immediately in the fallback rather than
+ * blocking on the font file.
+ */
+const nunito = Nunito({
   subsets: ["latin"],
-  weight: ["400", "700"],
-  variable: "--font-dancing-script",
+  variable: "--font-nunito",
+  display: "swap",
 });
 
 /**
@@ -295,8 +294,22 @@ export default async function RootLayout({ children, params }) {
   return (
     <html lang={local}>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${dancingScript.variable} antialiased bg-gradient-to-br from-gray-100 to-gray-200 text-pretty`}
+        className={`${nunito.variable} antialiased bg-gradient-to-br from-gray-100 to-gray-200 text-pretty`}
       >
+        {/*
+          First thing in the tab order. Without it a keyboard user has to tab
+          through the banner, logo, five nav links and three flags on every
+          page before reaching the content. Hidden until focused.
+        */}
+        {/* Positioning lives in .skip-link in globals.css — see the comment
+            there for why it is not done with utilities. */}
+        <a
+          href="#main-content"
+          className="skip-link rounded-lg bg-white px-5 py-3 font-bold text-[#00485f] shadow-lg"
+        >
+          {tA11y("skipToContent")}
+        </a>
+
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

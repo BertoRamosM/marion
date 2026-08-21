@@ -10,16 +10,7 @@ import { FrenchFlag } from "../icons/FrenchFlag";
 import { Banner } from "./Banner";
 
 
-// Import Dancing Script font
-import { Dancing_Script } from "next/font/google";
 import Image from "next/image";
-
-// Define the font outside of the JSX
-const dancingScript = Dancing_Script({
-  subsets: ["latin"],
-  weight: ["400", "700"],
-  variable: "--font-dancing-script",
-});
 
 const Header = () => {
   const t = useTranslations("Header");
@@ -71,7 +62,7 @@ const Header = () => {
 {/* Single row at every size. Stacking on phones (flex-col) pushed logo,
     menu button and flags onto three lines, costing ~90px of vertical space
     for content that fits comfortably side by side. */}
-<header className="flex items-center flex-row justify-between gap-2 sm:gap-4 py-1 sm:py-2 px-2 sm:px-20 font-[family-name:var(--font-geist-sans)] bg-[#a3e4db] w-full text-center">
+<header className="flex items-center flex-row justify-between gap-2 sm:gap-4 py-1 sm:py-2 px-2 sm:px-20 bg-[#a3e4db] w-full text-center">
         {/*  <h1 className="text-sm sm:text-base lg:text-4xl font-bold flex flex-col items-center text-center border-2 border-[#2c7a7b] p-4">
           <span className="text-[#006a8f]">WestFrench</span>
           <span

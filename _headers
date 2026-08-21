@@ -1,3 +1,15 @@
+# Security headers, applied to every page.
+# X-Frame-Options       stops the site being embedded in someone else's iframe
+#                       (clickjacking a form is the usual motive)
+# X-Content-Type-Options stops browsers guessing a file's type
+# Referrer-Policy       sends the domain but not the full path to other sites
+# Permissions-Policy    denies APIs this site never uses
+/*
+  X-Frame-Options: SAMEORIGIN
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=()
+
 # Cache localized pages for 1 hour (edge + browser)
 # This keeps content reasonably fresh
 /fr/*

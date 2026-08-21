@@ -44,7 +44,7 @@ export const Banner = ({ variant = "bar", href = "/#contact" }) => {
 
   return (
     <div
-      className={`flex items-center justify-center py-2 px-4 sm:px-20 font-[family-name:var(--font-geist-sans)] text-center ${GRADIENT}`}
+      className={`flex items-center justify-center py-2 px-4 sm:px-20 text-center ${GRADIENT}`}
     >
       <Wrapper
         {...linkProps}

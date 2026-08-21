@@ -122,8 +122,8 @@ export default async function BlogPostPage({ params }) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      <main className="flex-1 mt-[calc(2*var(--banner-height))] p-8 pb-20 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-        <article className="max-w-3xl mx-auto pt-40 sm:pt-28">
+      <main id="main-content" tabIndex={-1} className="flex-1 p-8 pb-20 sm:p-20">
+        <article className="max-w-3xl mx-auto pt-32 sm:pt-28">
           {/* Breadcrumb */}
           <nav className="text-sm text-gray-600 mb-6" aria-label="Breadcrumb">
             <Link href="/" className="hover:text-[#c2410c] underline">

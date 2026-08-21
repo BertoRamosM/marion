@@ -54,8 +54,8 @@ export default async function BlogIndexPage({ params }) {
         <Header />
       </div>
 
-      <main className="flex-1 mt-[calc(2*var(--banner-height))] p-8 pb-20 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-        <div className="max-w-3xl mx-auto text-center pt-40 sm:pt-28">
+      <main id="main-content" tabIndex={-1} className="flex-1 p-8 pb-20 sm:p-20">
+        <div className="max-w-3xl mx-auto text-center pt-32 sm:pt-28">
           <h1 className="text-4xl font-bold text-gray-900">
             <span className="text-[#d24b06]">{t('title')}</span>
           </h1>

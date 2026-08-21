@@ -20,7 +20,8 @@
     "galleryNext": "Foto siguiente",
     "galleryDialog": "Galería de fotos",
     "switchLanguage": "Cambiar a español",
-    "currentLanguage": "Idioma actual"
+    "currentLanguage": "Idioma actual",
+    "skipToContent": "Ir al contenido principal"
   },
   "Header": {
     "home": "Inicio",

@@ -5,8 +5,46 @@
 
 body {
   color: #171717;
-  font-family: Arial, Helvetica, sans-serif;
+  /*
+   * The site font, applied at the root rather than only on <main>.
+   * The footer and the sticky social icons live outside <main>, so with
+   * Arial here they rendered in a different typeface from every other
+   * part of the page. Arial stays as the fallback.
+   */
+  font-family: var(--font-nunito), Arial, Helvetica, sans-serif;
 }
 html {
   scroll-behavior: smooth;
+}
+
+/*
+ * Visible keyboard focus on everything interactive.
+ *
+ * :focus-visible rather than :focus, so it appears for keyboard users without
+ * ringing every mouse click. Wrapped in :where() to keep specificity at zero —
+ * any component that defines its own focus ring still wins.
+ */
+:where(a, button, summary, input, select, textarea, [tabindex]):focus-visible {
+  outline: 3px solid #006a8f;
+  outline-offset: 2px;
+}
+
+/*
+ * Skip-to-content link: parked above the viewport, slides in when focused.
+ *
+ * Written as plain CSS because Tailwind emits `-translate-y-24` after
+ * `focus:translate-y-0` (both are the same utility family), so the
+ * unconditional rule always won and the link never appeared.
+ */
+.skip-link {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  z-index: 200;
+  transform: translateY(-150%);
+  transition: transform 200ms ease;
+}
+
+.skip-link:focus {
+  transform: translateY(0);
 }
