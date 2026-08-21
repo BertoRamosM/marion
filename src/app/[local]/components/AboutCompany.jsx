@@ -44,12 +44,17 @@ const AboutCompany = () => {
         </p>
       </div>
 
-      {/* Content Sections */}
-      {/* items-start stops grid rows from stretching every column to match the
-          tallest one, which made all the other cards grow when one was opened. */}
+      {/* Content Sections
+          - items-start stops grid rows from stretching every column to match
+            the tallest one, which made all the other cards grow when one was
+            opened.
+          - All eight cards are direct grid items. They used to be pre-grouped
+            into four vertical pairs, which meant the grid held only 4 items:
+            at lg (3 columns) that left the fourth pair stranded alone on a
+            second row, two cards tall and a third of the width. Flowing them
+            individually also gives a natural left-to-right reading order. */}
       <div className="grid items-start grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
 
-        <div className="grid content-start gap-4">
           <DisclosureCard
             cardClassName={TEAL}
             icon={<Heart />}
@@ -68,9 +73,7 @@ const AboutCompany = () => {
           >
             {t("text19")} {bold("text20")} {t("text21")} {bold("text22")} {t("text23")} {bold("text24")}
           </DisclosureCard>
-        </div>
 
-        <div className="grid content-start gap-4">
           <DisclosureCard
             cardClassName={CREAM}
             titleClassName={CREAM_TITLE}
@@ -89,9 +92,7 @@ const AboutCompany = () => {
           >
             {bold("text41")} {t("text42")} {bold("text43")} {t("text44")} {bold("text45")} {t("text46")} {bold("text47")} {t("text48")} {bold("text49")} {t("text50")} {bold("text51")} {t("text52")}{bold("text53")} {t("text54")}
           </DisclosureCard>
-        </div>
 
-        <div className="grid content-start gap-4">
           <DisclosureCard
             cardClassName={TEAL}
             icon={<Up />}
@@ -134,9 +135,7 @@ const AboutCompany = () => {
             {t("text84")}
             {bold("text85")}!
           </DisclosureCard>
-        </div>
 
-        <div className="grid content-start gap-4">
           <DisclosureCard
             cardClassName={CREAM}
             titleClassName={CREAM_TITLE}
@@ -175,7 +174,6 @@ const AboutCompany = () => {
             <span className="font-extrabold">{t("text109")}</span>
             {t("text110")}
           </DisclosureCard>
-        </div>
 
       </div>
     </div>
