@@ -1,7 +1,7 @@
 {
   "Metadata": {
     "title": "WestFrench Academy | Cours de français à Rennes",
-    "description": "Cours de français interactifs à Rennes pour expatriés : petits groupes ou cours particuliers en ligne. 1er cours d'essai à 5€. Réservez avec Marion !"
+    "description": "Cours de français interactifs à Rennes pour expatriés : petits groupes ou cours particuliers en ligne. 1er cours d'essai gratuit. Réservez avec Marion !"
   },
   "Schema": {
     "courseGroupName": "Cours de français en mini-groupe à Rennes",
@@ -12,7 +12,13 @@
   "A11y": {
     "logo": "Logo de WestFrench Academy",
     "marion": "Marion, professeure de français langue étrangère à Rennes",
-    "galleryItem": "Cours de français pour expatriés à Rennes — photo {number}"
+    "galleryItem": "Cours de français pour expatriés à Rennes — photo {number}",
+    "blogImage": "Cours de français pour expatriés à Rennes",
+    "galleryOpen": "Agrandir la photo {number}",
+    "galleryClose": "Fermer",
+    "galleryPrev": "Photo précédente",
+    "galleryNext": "Photo suivante",
+    "galleryDialog": "Galerie photos"
   },
   "Header": {
     "home": "Accueil",
@@ -218,12 +224,10 @@
     "text24": " 19h15 - 20h45",
     "text25": "La Maison des associations, 6 cours des alliés à Rennes.",
     "text26": "Tarifs pour des sessions d'1h30.",
-
     "text27": "3 mois - 12 sessions: 440€*",
     "text28": "6 mois - 24 sessions: 810€*",
     "text29": "9 mois - 36 sessions: 1080€*",
     "text30": "*3 mois 24€/h, 6 mois 22€",
-
     "textWed1": " Mercredis",
     "textWed2": " Niveau A1 (débutant):",
     "textWed3": " 18h30 - 20h00"
@@ -247,6 +251,90 @@
     "text14": "*10 sessions 35€/h, 20 sessions 30€/h"
   },
   "Reviews": {
-    "title": "Apprenants satisfaits"
+    "title": "Apprenants satisfaits",
+    "items": [
+      {
+        "name": "Paula Hernández",
+        "text": "Marion est une excellente professeure. En seulement trois mois, j’ai beaucoup progressé en français grâce à ses cours. J’ai aussi eu la chance de rencontrer de nouvelles personnes et de nouer des amitiés lors des rencontres qu’elle organise. Les cours sont très dynamiques et adaptés aux besoins de chaque élève. Je vais sans hésiter continuer avec elle et je la recommande vivement."
+      },
+      {
+        "name": "Yuchen Huang",
+        "text": "Marion est une excellente professeure de français. Elle est passionnée, patiente et m’encourage toujours à parler français avec confiance. Elle a d’abord pris le temps de comprendre mes besoins et mes centres d’intérêt, puis a conçu des cours faits pour moi. J’apprends énormément à chaque séance. Si vous envisagez d’apprendre le français, ou si vous étudiez depuis un certain temps sans avoir l’impression de progresser, je recommande vivement Marion. Grâce à elle, j’ai fait de gros progrès !"
+      },
+      {
+        "name": "Clover L",
+        "text": "Marion est une professeure de français vraiment formidable. Elle arrive toujours parfaitement préparée, enseigne avec le cœur et sait faire ressortir le meilleur de ses élèves. L’ambiance en cours est toujours détendue et interactive, ce qui rend l’apprentissage efficace et agréable. Sa gentillesse et ses encouragements comptent beaucoup. J’ai beaucoup de chance d’être son élève. Je la recommande vivement ! ❤️❤️❤️"
+      },
+      {
+        "name": "César Faria",
+        "text": "Marion est une excellente professeure de français. Elle prend vraiment le temps de comprendre mes besoins et adapte chaque leçon en fonction de mon niveau, de mes objectifs et de mon rythme. La qualité des cours est remarquable, c’est toujours clair, structuré et personnalisé. Elle est très attentive et je me sens vraiment bien accompagné dans mon parcours grâce à elle. C’est un vrai plaisir d’apprendre avec toi, merci !"
+      },
+      {
+        "name": "Marco Boschetti",
+        "text": "Marion est vraiment très bien ! J’ai commencé les cours au niveau A2 et je suis rapidement passé au B1, et je suis en bonne voie vers le B2. De bons cours et de bonnes activités, parfait pour les personnes qui travaillent, les étudiants et les autres."
+      },
+      {
+        "name": "Emmanuelle Dubois",
+        "text": "Marion accompagne un petit groupe de jeunes bénéficiaires de la protection internationale (jeunes migrants) avec des niveaux de français très hétérogènes. Et pourtant à chaque collectif, chaque participant y trouve son compte. Que cela soit à l’écrit, à l’oral, en lecture... ses outils sont pertinents, adaptés et Marion est très engagée auprès de ces jeunes qui l’ont bien adoptée pour les #coursdefrançais à l’association We Ker. Pas de place à l’ennui, c’est toujours ludique. J’ai toujours plaisir et confiance à intégrer un nouveau jeune dans ses cours collectifs."
+      },
+      {
+        "name": "writemesoon100",
+        "text": "J’ai apprécié la petite taille du groupe et l’ambiance détendue. Marion utilise différentes techniques et des supports concrets pendant le cours. La salle est située en centre-ville et facile d’accès. Convient aussi bien aux débutants qu’aux niveaux avancés. Profitez de votre cours de français."
+      },
+      {
+        "name": "mami",
+        "text": "J’ai rencontré Marion et apprendre le français est devenu amusant ! C’est une prof très gentille qui m’enseigne patiemment même en tant que débutante. Je suis reconnaissante pour cette rencontre !"
+      },
+      {
+        "name": "Celine Luo",
+        "text": "Marion est une professeure de français suuuper sympa ! J’ai passé un moment formidable avec elle à Rennes."
+      },
+      {
+        "name": "NAOKI HUA",
+        "text": "Ce fut une expérience d’apprentissage du français très intéressante et enrichissante. Grâce à plusieurs mois de cours particuliers avec le professeur, mon français s’est considérablement amélioré, notamment en ce qui concerne l’actualité. J’ai développé mon autonomie d’apprentissage et enrichi considérablement mon vocabulaire. C’est un cours de français que tout apprenant devrait suivre."
+      },
+      {
+        "name": "Preeti Yadav",
+        "text": "Marion est une excellente professeur. Ses cours sont très interactifs et elle adapte son cours en fonction des besoins de chacun."
+      },
+      {
+        "name": "Profesora Belinda",
+        "text": "Je recommande vivement Marion Richard et ses cours de français. Je lui suis reconnaissante de l’attention qu’elle porte à mes centres d’intérêt et à mes questions. Je n’ai jamais eu de professeure aussi réactive. Nos cours se déroulaient sur Google Meet et elle a rendu cela à la fois amusant et extrêmement concret. J’avais demandé des expressions courantes et familières : elle me les a apportées à travers des vidéos, des chansons, des publicités et des films, tous actuels et utiles pour ce dont j’ai besoin — grammaire, expressions idiomatiques et culture. Merci, Marion !"
+      },
+      {
+        "name": "Manny WANG",
+        "text": "Je prends des cours de français avec Marion depuis six mois et je peux affirmer sans hésiter qu’elle est une professeure exceptionnelle. Elle est incroyablement sérieuse et passionnée par l’enseignement. Dès qu’on a une question, elle est là pour aider, avec des explications claires. En cours, Marion apporte beaucoup d’énergie et d’enthousiasme. Elle nous encourage à parler français, ce qui est selon moi essentiel pour apprendre une langue. Grâce à son accompagnement bienveillant, je suis devenu bien plus à l’aise pour m’exprimer. Ses horaires sont aussi flexibles, ce qui facilite l’organisation avec ma vie d’étudiant chargée. Marion crée un cadre d’apprentissage positif, encourageant et efficace. Je la recommande à toute personne qui souhaite progresser en français."
+      },
+      {
+        "name": "Carlos Aaron",
+        "text": "Marion Richard est un très bon professeur. J’ai beaucoup appris grâce à ses cours. Ses explications sont claires, intéressantes et faciles à comprendre. Je recommande vivement ses cours."
+      },
+      {
+        "name": "Tzu-Yi Sung",
+        "text": "Au début, quand j’ai commencé les cours de français, je ne parlais pas français du tout. Après six mois de cours, j’ai maintenant quelques bases. Je peux reconnaître certains mots et je commence à comprendre le français petit à petit. Merci beaucoup pour votre patience et pour votre très bon enseignement."
+      },
+      {
+        "name": "Kristine Borsholm",
+        "text": "Les meilleurs cours de français que j’ai jamais eus ! Je suis passée d’un niveau A1/A2 à B2 en un an grâce à Marion, qui m’a beaucoup aidée. Je la recommande vraiment !"
+      }
+    ]
+  },
+  "Blog": {
+    "nav": "Blog",
+    "title": "Le blog",
+    "subtitle": "Conseils pour apprendre le français et s'installer à Rennes et en Bretagne.",
+    "readMore": "Lire l'article",
+    "backToBlog": "Retour au blog",
+    "backToSite": "Retour au site",
+    "published": "Publié le",
+    "empty": "Aucun article pour le moment. Revenez bientôt !",
+    "breadcrumbHome": "Accueil"
+  },
+  "Legal": {
+    "nav": "Mentions légales",
+    "backToSite": "Retour au site",
+    "metaDescription": "Mentions légales et politique de confidentialité de WestFrench Academy, cours de français à Rennes.",
+    "formNotice": "Vos données servent uniquement à répondre à votre demande.",
+    "formNoticeLink": "En savoir plus"
   }
 }

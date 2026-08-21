@@ -45,9 +45,11 @@ const AboutCompany = () => {
       </div>
 
       {/* Content Sections */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+      {/* items-start stops grid rows from stretching every column to match the
+          tallest one, which made all the other cards grow when one was opened. */}
+      <div className="grid items-start grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
 
-        <div className="grid gap-4">
+        <div className="grid content-start gap-4">
           <DisclosureCard
             cardClassName={TEAL}
             icon={<Heart />}
@@ -68,7 +70,7 @@ const AboutCompany = () => {
           </DisclosureCard>
         </div>
 
-        <div className="grid gap-4">
+        <div className="grid content-start gap-4">
           <DisclosureCard
             cardClassName={CREAM}
             titleClassName={CREAM_TITLE}
@@ -89,7 +91,7 @@ const AboutCompany = () => {
           </DisclosureCard>
         </div>
 
-        <div className="grid gap-4">
+        <div className="grid content-start gap-4">
           <DisclosureCard
             cardClassName={TEAL}
             icon={<Up />}
@@ -134,7 +136,7 @@ const AboutCompany = () => {
           </DisclosureCard>
         </div>
 
-        <div className="grid gap-4">
+        <div className="grid content-start gap-4">
           <DisclosureCard
             cardClassName={CREAM}
             titleClassName={CREAM_TITLE}
@@ -147,9 +149,10 @@ const AboutCompany = () => {
             {t("text89")}
           </DisclosureCard>
 
+          {/* Online courses card in the blue/teal tones, matching the other
+              teal cards rather than the cream ones. */}
           <DisclosureCard
-            cardClassName={CREAM}
-            titleClassName={CREAM_TITLE}
+            cardClassName={TEAL}
             icon={<LaptopIcon />}
             title={t("text90")}
             imageSrc="/about/Marion3.webp"

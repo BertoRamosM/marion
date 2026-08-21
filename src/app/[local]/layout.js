@@ -229,7 +229,7 @@ export async function generateMetadata({ params }) {
       canonical: url,
       languages: {
         ...Object.fromEntries(
-          routing.locales.map((locale) => [locale, `${SITE_URL}/${locale}`])
+          routing.locales.map((locale) => [locale, `${SITE_URL}/${locale}`]),
         ),
         "x-default": `${SITE_URL}/${routing.defaultLocale}`,
       },
@@ -284,6 +284,28 @@ export default async function RootLayout({ children, params }) {
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
+
+        {/*
+          Ambient brand light behind the whole site, same motif as the footer.
+
+          Deliberately: fixed (four blobs cover a 15,000px page instead of
+          dozens, and cost far less to paint), at hand-picked positions rather
+          than random ones (random would differ between server and client and
+          jump on every load), and at much lower opacity than the footer's —
+          these sit behind body text, and automated contrast checks cannot see
+          through a blurred sibling, so the score would not warn us if this
+          got too strong.
+        */}
+        <div
+          aria-hidden="true"
+          className="fixed inset-0 -z-10 overflow-hidden pointer-events-none"
+        >
+          <div className="absolute top-[6%] -left-24 w-[28rem] h-[28rem] rounded-full bg-[#3fd0bd] opacity-25 blur-3xl" />
+          <div className="absolute top-[34%] -right-32 w-[32rem] h-[32rem] rounded-full bg-[#ff7c3d] opacity-20 blur-3xl" />
+          <div className="absolute top-[64%] -left-32 w-[30rem] h-[30rem] rounded-full bg-[#3fd0bd] opacity-20 blur-3xl" />
+          <div className="absolute bottom-[4%] -right-24 w-[26rem] h-[26rem] rounded-full bg-[#ff7c3d] opacity-25 blur-3xl" />
+        </div>
+
         <NextIntlClientProvider messages={messages}>
           {children}
           <StickySocialIcons />

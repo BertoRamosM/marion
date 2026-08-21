@@ -29,9 +29,14 @@ export default function Home() {
         <AboutCompany />
         <Courses />
         <CoursesOnline />
-        <Reviews />
         <ContactForm />
-        <div className="w-2/3 mx-auto py-12 sm:pt-18 sm:pb-12">
+        {/* Reviews sit below the form on purpose: the carousel rotates every
+            15s and its height varies with the length of each review, which
+            shifted the form while someone was typing in it. */}
+        <Reviews />
+        {/* Full width on phones: w-2/3 alone left the Instagram grid at
+            roughly 200px, which made the thumbnails tiny. */}
+        <div className="w-full md:w-2/3 mx-auto py-12 sm:pt-18 sm:pb-12">
           <InstagramGallery />
         </div>
       </main>

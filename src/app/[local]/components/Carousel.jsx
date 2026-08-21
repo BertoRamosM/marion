@@ -36,6 +36,7 @@ const Carousel = () => {
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
 
   const startInterval = useCallback(() => {
     return setInterval(() => {
@@ -43,12 +44,23 @@ const Carousel = () => {
     }, 20000);
   }, [slides.length]);
 
-  // Automatically rotate the carousel
+  // Automatically rotate the carousel, unless the visitor is hovering or
+  // tabbing through it, or has asked their system to reduce motion.
   useEffect(() => {
+    if (isPaused) return;
+
+    const prefersReducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+    if (prefersReducedMotion) return;
+
     const id = startInterval();
 
     return () => clearInterval(id);
-  }, [startInterval]);
+  }, [startInterval, isPaused]);
+
+  const pause = () => setIsPaused(true);
+  const resume = () => setIsPaused(false);
 
   const nextSlide = () => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % slides.length);
@@ -60,11 +72,18 @@ const Carousel = () => {
     );
   };
 
+  // Top padding clears the fixed banner + header. pt-48 was sized for the old
+  // three-row mobile header (~182px of fixed chrome); that header is now a
+  // single 68px row, so the large padding just left a blank gap under it.
   return (
     <div
       id="default-carousel"
-      className="relative w-full pt-48 sm:pt-36 lg:pt-28"
+      className="relative w-full pt-20 sm:pt-28 lg:pt-24"
       data-carousel="slide"
+      onMouseEnter={pause}
+      onMouseLeave={resume}
+      onFocus={pause}
+      onBlur={resume}
     >
       {/* Carousel Wrapper */}
       <div className="relative h-[500px] sm:h-[400px] overflow-hidden rounded-lg md:h-[600px]">
@@ -129,7 +148,12 @@ const Carousel = () => {
                     >
                       <button
                         type="button"
-                        className="bg-gradient-to-r from-[#ffa45b] to-[#ff7c5b] px-6 py-3 rounded-lg text-white font-semibold shadow hover:scale-105 transition-transform duration-300"
+                        /* Was white text on the light orange gradient: only
+                           1.96:1, which read as washed out over the photo. A
+                           light mint button with dark teal text is 7.02:1 and
+                           pops against the dark overlay. Mint already appears
+                           in the carousel arrow rings. */
+                        className="bg-[#a3e4db] hover:bg-[#8fded2] px-6 py-3 rounded-lg text-[#00485f] font-bold shadow-lg hover:scale-105 transition-all duration-300"
                         aria-label="section button"
                       >
                         {t("button")}

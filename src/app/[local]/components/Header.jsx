@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect, useRef } from "react";
-import { Link } from '../../../i18n/routing';
+import { Link, usePathname } from '../../../i18n/routing';
 
 import { useTranslations } from "next-intl";
 import { UkFlag } from "../icons/UkFlag";
@@ -24,6 +24,10 @@ const dancingScript = Dancing_Script({
 const Header = () => {
   const t = useTranslations("Header");
   const tA11y = useTranslations("A11y");
+  const tBlog = useTranslations("Blog");
+  // Locale switching keeps you on the current page (e.g. a blog post)
+  // instead of always jumping back to the home page.
+  const pathname = usePathname();
   const [isHidden, setIsHidden] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -63,7 +67,10 @@ const Header = () => {
         }`}
     >
       <Banner />
-<header className="flex items-center flex-col sm:flex-row justify-between gap-2 sm:gap-4 py-1 sm:py-2 px-2 sm:px-20 font-[family-name:var(--font-geist-sans)] bg-[#a3e4db] w-full text-center">
+{/* Single row at every size. Stacking on phones (flex-col) pushed logo,
+    menu button and flags onto three lines, costing ~90px of vertical space
+    for content that fits comfortably side by side. */}
+<header className="flex items-center flex-row justify-between gap-2 sm:gap-4 py-1 sm:py-2 px-2 sm:px-20 font-[family-name:var(--font-geist-sans)] bg-[#a3e4db] w-full text-center">
         {/*  <h1 className="text-sm sm:text-base lg:text-4xl font-bold flex flex-col items-center text-center border-2 border-[#2c7a7b] p-4">
           <span className="text-[#006a8f]">WestFrench</span>
           <span
@@ -76,47 +83,53 @@ const Header = () => {
             Academy
           </span>
         </h1> */}
+{/* 326x213 matches the real file. The previous 150x180 declared a portrait
+    box, so the browser reserved ~200px of height and then collapsed to ~104px
+    once the image loaded — a visible jump in a fixed header. */}
 <Image
   src="/logos/logo-no-bg.png"
   alt={tA11y("logo")}
-  width={150}
-  height={180}
-  className="py-2 w-24 h-auto sm:w-28 md:w-36 lg:w-40"
+  width={326}
+  height={213}
+  priority
+  className="py-1 w-20 h-auto sm:w-24 md:w-28 lg:w-32"
 />
         <div className="hidden lg:flex gap-8 items-center font-bold">
 
           <Link
-            aria-label="Home"
-            href={"#default-carousel"}
+            href={"/#default-carousel"}
             className="hover:text-[#ffa45b] transition duration-300"
           >
             {t("home")}
           </Link>
 
           <Link
-            aria-label="Courses"
-            href={"#courses"}
+            href={"/#courses"}
             className="hover:text-[#ffa45b] transition duration-300"
           >
             {t("coursesRennes")}
           </Link>
           <Link
-            aria-label="Online Courses"
-            href={"#online-courses"}
+            href={"/#online-courses"}
             className="hover:text-[#ffa45b] transition duration-300"
           >
             {t("onlineCourses")}
           </Link>
           <Link
-            aria-label="About"
-            href={"#about"}
+            href={"/#about"}
             className="hover:text-[#ffa45b] transition duration-300"
           >
             {t("about")}
           </Link>
+          {/* <Link
+            href={"/blog"}
+            prefetch={false}
+            className="hover:text-[#ffa45b] transition duration-300"
+          >
+            {tBlog("nav")}
+          </Link> */}
           <Link
-            aria-label="Contact"
-            href={"#contact"}
+            href={"/#contact"}
             className="hover:text-[#ffa45b] transition duration-300"
           >
             {t("contact")}
@@ -129,14 +142,16 @@ const Header = () => {
         >
           ☰
         </button>
-        <div className="flex gap-4 items-center">
-          <Link href="/" locale="fr" aria-label="French">
+        <div className="flex gap-2 sm:gap-4 items-center">
+          {/* prefetch disabled: switching language is a deliberate, rare action,
+              so there is no need to download the other two locales up front. */}
+          <Link href={pathname} locale="fr" prefetch={false} aria-label="Français">
             <FrenchFlag />
           </Link>
-          <Link href="/" locale="en" aria-label="English">
+          <Link href={pathname} locale="en" prefetch={false} aria-label="English">
             <UkFlag />
           </Link>
-          <Link href="/" locale="es" aria-label="Spanish">
+          <Link href={pathname} locale="es" prefetch={false} aria-label="Español">
             <SpanishFlag />
           </Link>
         </div>
@@ -144,27 +159,32 @@ const Header = () => {
 
       {isModalOpen && (
         <div className="fixed inset-0 bg-black bg-opacity-75 flex flex-col items-center justify-center text-black z-50">
+          {/* Explicitly white: the wrapper sets text-black, so the close
+              glyph was rendering black against a near-black overlay. */}
           <button
             aria-label="close menu"
-            className="absolute top-4 right-4 text-3xl font-bold"
+            className="absolute top-4 right-4 p-2 text-5xl leading-none font-bold text-white hover:text-[#ffa45b] transition duration-300"
             onClick={toggleModal}
           >
             ×
           </button>
           <nav className="flex flex-col gap-8 text-xl font-bold text-white">
-            <Link href={"#default-carousel"} onClick={toggleModal} aria-label="Home">
+            <Link href={"/#default-carousel"} onClick={toggleModal}>
               {t("home")}
             </Link>
-            <Link href={"#courses"} onClick={toggleModal} aria-label="Courses">
+            <Link href={"/#courses"} onClick={toggleModal}>
               {t("coursesRennes")}
             </Link>
-            <Link href={"#online-courses"} onClick={toggleModal} aria-label="Online Courses">
+            <Link href={"/#online-courses"} onClick={toggleModal}>
               {t("onlineCourses")}
             </Link>
-            <Link href={"#about"} onClick={toggleModal} aria-label="About">
+            <Link href={"/#about"} onClick={toggleModal}>
               {t("about")}
             </Link>
-            <Link href={"#contact"} onClick={toggleModal} aria-label="Contact">
+           {/*  <Link href={"/blog"} onClick={toggleModal} prefetch={false}>
+              {tBlog("nav")}
+            </Link> */}
+            <Link href={"/#contact"} onClick={toggleModal}>
               {t("contact")}
             </Link>
           </nav>

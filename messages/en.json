@@ -1,7 +1,7 @@
 {
   "Metadata": {
     "title": "WestFrench Academy | French Lessons in Rennes",
-    "description": "Interactive French lessons in Rennes for expats: small groups or private online lessons. First trial lesson for just €5. Book with Marion today!"
+    "description": "Interactive French lessons in Rennes for expats: small groups or private online lessons. First trial lesson free. Book with Marion today!"
   },
   "Schema": {
     "courseGroupName": "Small-group French lessons in Rennes",
@@ -12,7 +12,13 @@
   "A11y": {
     "logo": "WestFrench Academy logo",
     "marion": "Marion, French language teacher in Rennes",
-    "galleryItem": "French lessons for expats in Rennes — photo {number}"
+    "galleryItem": "French lessons for expats in Rennes — photo {number}",
+    "blogImage": "French lessons for expats in Rennes",
+    "galleryOpen": "Enlarge photo {number}",
+    "galleryClose": "Close",
+    "galleryPrev": "Previous photo",
+    "galleryNext": "Next photo",
+    "galleryDialog": "Photo gallery"
   },
   "Header": {
     "home": "Home",
@@ -245,6 +251,90 @@
     "text14": "10 sessions 35€/h, 20 sessions 30€/h"
   },
   "Reviews": {
-    "title": "Happy Students"
+    "title": "Happy Students",
+    "items": [
+      {
+        "name": "Paula Hernández",
+        "text": "Marion is an excellent teacher. In just three months, I have been able to greatly improve my French thanks to her classes. In addition, I’ve had the chance to meet new people and form new friendships through the meetups she organizes. The classes are very dynamic and tailored to each student’s needs. I will definitely continue with her lessons and highly recommend her."
+      },
+      {
+        "name": "Yuchen Huang",
+        "text": "Marion is an excellent French teacher. She is passionate, patient, and always encourages me to speak French with confidence. She first took the time to understand my needs and interests, then designed lessons tailored specifically for me. I’ve learned so much from every class. If you’re thinking about learning French, or if you’ve been studying for a while but feel like you’re not making progress, I highly recommend Marion. With her help, I’ve made great improvements!"
+      },
+      {
+        "name": "Clover L",
+        "text": "Marion is a truly wonderful French teacher. She always comes to class fully prepared, teaches with heart, and knows how to bring out the best in her students. The class atmosphere is always relaxed and interactive, which makes learning both effective and enjoyable. Her kindness and encouragement mean a lot. I’m so lucky to be one of her students. I highly recommend her! ❤️❤️❤️"
+      },
+      {
+        "name": "César Faria",
+        "text": "Marion is an excellent French teacher. She really takes the time to understand my needs and adapts every lesson to my level, my goals and my pace. The quality of the lessons is remarkable — always clear, structured and personalised. She is very attentive and I genuinely feel well supported on my journey thanks to her. It’s a real pleasure to learn with you, thank you!"
+      },
+      {
+        "name": "Marco Boschetti",
+        "text": "Marion is super good! I started the course when I was at A2 level and quickly moved up to B1 and am well on my way to B2. Good lessons and good activities, great for workers, university students and others."
+      },
+      {
+        "name": "Emmanuelle Dubois",
+        "text": "Marion works with a small group of young beneficiaries of international protection (young migrants) whose levels of French vary widely. And yet in every session, every participant gets what they need. Whether in writing, speaking or reading, her materials are relevant and well adapted, and Marion is deeply committed to these young people, who have taken to her for the #coursdefrançais at the We Ker association. There is no room for boredom — it is always playful. I am always glad and confident to place a new young person in her group lessons."
+      },
+      {
+        "name": "writemesoon100",
+        "text": "I enjoyed the small class size and the relaxed atmosphere. Marion uses different techniques and physical aids during the class. The classroom is centrally located and easily accessible. Good for beginners to advanced learners. Profitez de votre cours de français."
+      },
+      {
+        "name": "mami",
+        "text": "I met Marion and learning French became fun! She is a very kind teacher who teaches me patiently, even as a complete beginner. I am grateful for this encounter!"
+      },
+      {
+        "name": "Celine Luo",
+        "text": "Marion is a superrr nice french teacher! I spent a wonderful time with her in Rennes."
+      },
+      {
+        "name": "NAOKI HUA",
+        "text": "It was a very interesting and rewarding experience learning French. Thanks to several months of private lessons with the teacher, my French improved considerably, particularly around current affairs. I became a more independent learner and greatly expanded my vocabulary. This is a French course every learner should take."
+      },
+      {
+        "name": "Preeti Yadav",
+        "text": "Marion is an excellent teacher. Her lessons are very interactive and she adapts them to everyone’s needs."
+      },
+      {
+        "name": "Profesora Belinda",
+        "text": "I highly recommend Marion Richard and her French classes. I am grateful for her attention to my particular interests and questions. I have never had a more responsive instructor. Our classes were conducted on Google Meet and she made that fun and immensely practical. I specifically asked for colloquial, common expressions and she delivered them through videos, songs, ads and films — all current and useful for what I need: grammar, idiomatic expressions and cultural knowledge. Thank you, Marion!"
+      },
+      {
+        "name": "Manny WANG",
+        "text": "I’ve been taking French lessons with Marion for half a year, and I can confidently say she is an exceptional teacher. She is incredibly responsible and passionate about teaching. Whenever you have a question, she is always there to help, offering clear explanations and guidance. During lessons, Marion brings great energy and enthusiasm. She encourages us to speak French, which I believe is essential for me learning a new language. Thanks to her supportive approach, I’ve become much more confident expressing myself. Her scheduling is also flexible, which makes it much easier to balance lessons with my busy student life. Marion creates a positive, encouraging, and effective learning environment. I would highly recommend her to anyone looking to improve French."
+      },
+      {
+        "name": "Carlos Aaron",
+        "text": "Marion Richard is a very good teacher. I have learned a great deal from her lessons. Her explanations are clear, interesting and easy to follow. I highly recommend her classes."
+      },
+      {
+        "name": "Tzu-Yi Sung",
+        "text": "When I started French lessons, I did not speak any French at all. After six months of classes, I now have some foundations. I can recognise certain words and I am starting to understand French little by little. Thank you so much for your patience and for your excellent teaching."
+      },
+      {
+        "name": "Kristine Borsholm",
+        "text": "The best French lessons I have ever had! I went from an A1/A2 level to B2 in one year thanks to Marion, who helped me enormously. I really do recommend her!"
+      }
+    ]
+  },
+  "Blog": {
+    "nav": "Blog",
+    "title": "The blog",
+    "subtitle": "Tips for learning French and settling into Rennes and Brittany.",
+    "readMore": "Read the article",
+    "backToBlog": "Back to the blog",
+    "backToSite": "Back to the site",
+    "published": "Published on",
+    "empty": "No articles yet. Check back soon!",
+    "breadcrumbHome": "Home"
+  },
+  "Legal": {
+    "nav": "Legal notice",
+    "backToSite": "Back to the site",
+    "metaDescription": "Legal notice and privacy policy for WestFrench Academy, French lessons in Rennes.",
+    "formNotice": "Your details are used only to reply to your enquiry.",
+    "formNoticeLink": "Learn more"
   }
 }

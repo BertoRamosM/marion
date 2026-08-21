@@ -1,7 +1,7 @@
 {
   "Metadata": {
     "title": "WestFrench Academy | Clases de francés en Rennes",
-    "description": "Clases de francés en Rennes para expatriados: grupos reducidos o clases particulares en línea. ¡Primera clase de prueba a 5€! Reserva con Marion."
+    "description": "Clases de francés en Rennes para expatriados: grupos reducidos o clases particulares en línea. ¡Primera clase de prueba gratuita! Reserva con Marion."
   },
   "Schema": {
     "courseGroupName": "Clases de francés en grupos reducidos en Rennes",
@@ -12,7 +12,13 @@
   "A11y": {
     "logo": "Logotipo de WestFrench Academy",
     "marion": "Marion, profesora de francés como lengua extranjera en Rennes",
-    "galleryItem": "Clases de francés para expatriados en Rennes — foto {number}"
+    "galleryItem": "Clases de francés para expatriados en Rennes — foto {number}",
+    "blogImage": "Clases de francés para expatriados en Rennes",
+    "galleryOpen": "Ampliar la foto {number}",
+    "galleryClose": "Cerrar",
+    "galleryPrev": "Foto anterior",
+    "galleryNext": "Foto siguiente",
+    "galleryDialog": "Galería de fotos"
   },
   "Header": {
     "home": "Inicio",
@@ -245,6 +251,90 @@
     "text14": "* 10 sessions 35€/h, 20 sessions 30€/h"
   },
   "Reviews": {
-    "title": "Estudiantes Satisfechos"
+    "title": "Estudiantes Satisfechos",
+    "items": [
+      {
+        "name": "Paula Hernández",
+        "text": "Marion es una excelente profesora. En solo tres meses he mejorado mucho mi francés gracias a sus clases. Además, he tenido la oportunidad de conocer gente nueva y hacer amistades en los encuentros que organiza. Las clases son muy dinámicas y adaptadas a las necesidades de cada alumno. Sin duda seguiré con ella y la recomiendo mucho."
+      },
+      {
+        "name": "Yuchen Huang",
+        "text": "Marion es una excelente profesora de francés. Es apasionada, paciente y siempre me anima a hablar francés con confianza. Primero se tomó el tiempo de entender mis necesidades e intereses y después diseñó clases hechas a mi medida. Aprendo muchísimo en cada clase. Si estás pensando en aprender francés, o llevas tiempo estudiando y sientes que no avanzas, te recomiendo mucho a Marion. Con su ayuda he mejorado enormemente."
+      },
+      {
+        "name": "Clover L",
+        "text": "Marion es una profesora de francés realmente maravillosa. Siempre llega a clase totalmente preparada, enseña con el corazón y sabe sacar lo mejor de sus alumnos. El ambiente en clase es siempre relajado e interactivo, lo que hace que aprender sea eficaz y divertido. Su amabilidad y sus ánimos significan mucho. Tengo mucha suerte de ser su alumna. ¡La recomiendo muchísimo! ❤️❤️❤️"
+      },
+      {
+        "name": "César Faria",
+        "text": "Marion es una excelente profesora de francés. Se toma el tiempo de entender mis necesidades y adapta cada lección a mi nivel, mis objetivos y mi ritmo. La calidad de las clases es notable: siempre claras, estructuradas y personalizadas. Es muy atenta y de verdad me siento bien acompañado en mi aprendizaje gracias a ella. ¡Es un verdadero placer aprender contigo, gracias!"
+      },
+      {
+        "name": "Marco Boschetti",
+        "text": "¡Marion es muy buena! Empecé el curso con un nivel A2 y pasé rápidamente a B1, y voy camino del B2. Buenas clases y buenas actividades, ideal para gente que trabaja, estudiantes y demás."
+      },
+      {
+        "name": "Emmanuelle Dubois",
+        "text": "Marion acompaña a un grupo reducido de jóvenes beneficiarios de protección internacional (jóvenes migrantes) con niveles de francés muy heterogéneos. Y, aun así, en cada sesión cada participante encuentra lo que necesita. Ya sea por escrito, oralmente o en lectura, sus materiales son pertinentes y adaptados, y Marion está muy comprometida con estos jóvenes, que la han adoptado para los #coursdefrançais en la asociación We Ker. No hay lugar para el aburrimiento: siempre es divertido. Siempre es un placer y una tranquilidad incorporar a un nuevo joven a sus clases en grupo."
+      },
+      {
+        "name": "writemesoon100",
+        "text": "Me gustó el tamaño reducido del grupo y el ambiente relajado. Marion utiliza distintas técnicas y materiales concretos durante la clase. El aula está en el centro y es de fácil acceso. Ideal tanto para principiantes como para niveles avanzados. Disfruta de tu clase de francés."
+      },
+      {
+        "name": "mami",
+        "text": "¡Conocí a Marion y aprender francés se volvió divertido! Es una profesora muy amable que me enseña con paciencia, incluso siendo principiante. ¡Estoy agradecida por este encuentro!"
+      },
+      {
+        "name": "Celine Luo",
+        "text": "¡Marion es una profesora de francés supersimpática! Pasé un tiempo maravilloso con ella en Rennes."
+      },
+      {
+        "name": "NAOKI HUA",
+        "text": "Fue una experiencia de aprendizaje del francés muy interesante y enriquecedora. Gracias a varios meses de clases particulares con la profesora, mi francés mejoró considerablemente, sobre todo en temas de actualidad. Desarrollé mi autonomía de aprendizaje y amplié mucho mi vocabulario. Es un curso de francés que todo estudiante debería hacer."
+      },
+      {
+        "name": "Preeti Yadav",
+        "text": "Marion es una excelente profesora. Sus clases son muy interactivas y las adapta a las necesidades de cada persona."
+      },
+      {
+        "name": "Profesora Belinda",
+        "text": "Si eres hispanohablante y quieres aprender a hablar con tus vecinos al norte de la frontera, te recomiendo las clases de Marion Richard. Me dio clases por Zoom y te aseguro que no hay nada más valioso que tener una profesora que también habla español y que reconoce de inmediato cuándo el error que cometes nace de tu lengua materna. Además, hay momentos en que intentar explicar algo en francés no ayuda, pero ella puede decírtelo en castellano para que entiendas de verdad lo que dices. Tú sí puedes. Aprender otro idioma es cosa de todos los seres humanos. Y Marion Richard te ayudará."
+      },
+      {
+        "name": "Manny WANG",
+        "text": "Llevo medio año tomando clases de francés con Marion y puedo decir con total seguridad que es una profesora excepcional. Es increíblemente responsable y apasionada por la enseñanza. Siempre que tienes una duda, está ahí para ayudar, con explicaciones claras. En clase, Marion aporta mucha energía y entusiasmo. Nos anima a hablar francés, algo que considero esencial para aprender un idioma. Gracias a su apoyo, me expreso con mucha más confianza. Sus horarios también son flexibles, lo que facilita compaginar las clases con mi ajetreada vida de estudiante. Marion crea un entorno de aprendizaje positivo, motivador y eficaz. La recomiendo a cualquiera que quiera mejorar su francés."
+      },
+      {
+        "name": "Carlos Aaron",
+        "text": "Marion Richard es una muy buena profesora. He aprendido mucho gracias a sus clases. Sus explicaciones son claras, interesantes y fáciles de entender. Recomiendo mucho sus clases."
+      },
+      {
+        "name": "Tzu-Yi Sung",
+        "text": "Al principio, cuando empecé las clases de francés, no hablaba francés en absoluto. Después de seis meses de clases, ya tengo algunas bases. Reconozco algunas palabras y empiezo a entender el francés poco a poco. Muchas gracias por tu paciencia y por tu excelente enseñanza."
+      },
+      {
+        "name": "Kristine Borsholm",
+        "text": "¡Las mejores clases de francés que he tenido! Pasé de un nivel A1/A2 a B2 en un año gracias a Marion, que me ayudó muchísimo. ¡La recomiendo de verdad!"
+      }
+    ]
+  },
+  "Blog": {
+    "nav": "Blog",
+    "title": "El blog",
+    "subtitle": "Consejos para aprender francés e instalarte en Rennes y Bretaña.",
+    "readMore": "Leer el artículo",
+    "backToBlog": "Volver al blog",
+    "backToSite": "Volver al sitio",
+    "published": "Publicado el",
+    "empty": "Todavía no hay artículos. ¡Vuelve pronto!",
+    "breadcrumbHome": "Inicio"
+  },
+  "Legal": {
+    "nav": "Aviso legal",
+    "backToSite": "Volver al sitio",
+    "metaDescription": "Aviso legal y política de privacidad de WestFrench Academy, clases de francés en Rennes.",
+    "formNotice": "Tus datos se usan únicamente para responder a tu solicitud.",
+    "formNoticeLink": "Más información"
   }
 }

@@ -2,11 +2,13 @@
 
 import { useState } from 'react';
 import { useTranslations } from 'next-intl';
+import { Link } from '../../../i18n/routing';
 
 const ContactForm = () => {
   const [status, setStatus] = useState(null);
   const [error, setError] = useState(null);
   const t = useTranslations('Contact');
+  const tLegal = useTranslations('Legal');
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
@@ -34,9 +36,12 @@ const ContactForm = () => {
   };
   
 
+  // min-h-screen removed along with the tall top padding: with the wider card
+  // the content no longer fills the viewport, so centring it inside a
+  // full-height box would have re-added empty space above the form.
   return (
-    <div className="flex items-center justify-center min-h-screen px-0 sm:px-6 py-24" id="contact">
-      <div className="w-full max-w-xl p-8 rounded-3xl shadow-lg text-black">
+    <div className="flex items-start justify-center px-0 sm:px-6 pt-8 pb-24" id="contact">
+      <div className="w-full max-w-3xl p-8 rounded-3xl shadow-lg text-black">
         <h2 className="text-3xl font-bold mb-6 text-center text-[#d24b06]">{t('title')}</h2>
 
         <form
@@ -161,6 +166,18 @@ const ContactForm = () => {
                 ? t('text21') // Sending...
                 : t('text19')} {/* Send message */}
             </button>
+
+            {/* GDPR asks that people be told how their data is used at the
+                point of collection, not only on a separate page. */}
+            <p className="mt-4 text-xs text-gray-600">
+              {tLegal('formNotice')}{' '}
+              <Link
+                href="/mentions-legales"
+                className="text-[#006a8f] hover:text-[#c2410c] underline"
+              >
+                {tLegal('formNoticeLink')}
+              </Link>
+            </p>
           </div>
         </form>
 
