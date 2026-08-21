@@ -12,11 +12,18 @@ import Reviews from "./components/Reviews";
 import Gallery from "./components/Gallery";
 import Intro from "./components/Intro";
 import SectionDivider from "./components/SectionDivider";
+import { setRequestLocale } from "next-intl/server";
 
 
 
 
-export default function Home() {
+export default async function Home({ params }) {
+  const { local } = await params;
+
+  // Enables static rendering — see the note in layout.js. The section
+  // components below call useTranslations as server components, so the
+  // locale has to be in place before they render.
+  setRequestLocale(local);
 
   return (
     <div className="min-h-screen flex flex-col">

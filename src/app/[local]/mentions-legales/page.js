@@ -1,4 +1,4 @@
-import { getTranslations } from 'next-intl/server';
+import { getTranslations, setRequestLocale } from 'next-intl/server';
 import Header from '../components/Header';
 import { Link, routing } from '../../../i18n/routing';
 import { SITE_URL } from '../../../lib/site';
@@ -54,6 +54,9 @@ const Section = ({ title, children }) => (
 
 export default async function LegalPage({ params }) {
   const { local } = await params;
+
+  // Static rendering — see layout.js.
+  setRequestLocale(local);
   const t = await getTranslations({ locale: local, namespace: 'Legal' });
 
   return (

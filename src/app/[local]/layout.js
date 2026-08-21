@@ -3,7 +3,11 @@ import Footer from "./components/Footer";
 import StickySocialIcons from "./components/StickySocialIcons";
 import { Nunito } from "next/font/google";
 import { NextIntlClientProvider } from "next-intl";
-import { getMessages, getTranslations } from "next-intl/server";
+import {
+  getMessages,
+  getTranslations,
+  setRequestLocale,
+} from "next-intl/server";
 import { routing } from "../../i18n/routing";
 
 const SITE_URL = "https://www.westfrench-academy.com";
@@ -220,6 +224,20 @@ function buildJsonLd(locale, t, description) {
   };
 }
 
+/*
+ * Tells Next.js the three locale segments up front, so /fr, /en and /es are
+ * built as static HTML at deploy time instead of rendered per request.
+ *
+ * Without this (and the setRequestLocale call below) every visit ran a
+ * serverless function: Netlify returned
+ * "Cache-Control: private, no-cache, no-store", so nothing was ever cached
+ * and a cold start put time-to-first-byte at ~5.7s on the first visit of
+ * the day — 87% of a 6.5s LCP.
+ */
+export function generateStaticParams() {
+  return routing.locales.map((local) => ({ local }));
+}
+
 export async function generateMetadata({ params }) {
   const { local } = await params;
   const t = await getTranslations({ locale: local, namespace: "Metadata" });
@@ -281,6 +299,12 @@ export const viewport = {
 
 export default async function RootLayout({ children, params }) {
   const { local } = await params;
+
+  // Must come before any translation call in this tree. It hands next-intl
+  // the locale directly; otherwise next-intl reads the incoming request to
+  // work it out, which opts the whole route out of static rendering.
+  setRequestLocale(local);
+
   const messages = await getMessages();
   const tSchema = await getTranslations({ locale: local, namespace: "Schema" });
   const tA11y = await getTranslations({ locale: local, namespace: "A11y" });

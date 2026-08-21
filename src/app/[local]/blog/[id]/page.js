@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
-import { getTranslations } from 'next-intl/server';
+import { getTranslations, setRequestLocale } from 'next-intl/server';
 import Header from '../../components/Header';
 import { Link, routing } from '../../../../i18n/routing';
 import {
@@ -61,6 +61,9 @@ export async function generateMetadata({ params }) {
 
 export default async function BlogPostPage({ params }) {
   const { local, id } = await params;
+
+  // Static rendering — see layout.js.
+  setRequestLocale(local);
   const post = getPost(id, local);
 
   if (!post) notFound();

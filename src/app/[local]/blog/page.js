@@ -1,4 +1,4 @@
-import { getTranslations } from 'next-intl/server';
+import { getTranslations, setRequestLocale } from 'next-intl/server';
 import Header from '../components/Header';
 import BlogCard from '../components/BlogCard';
 import { Link, routing } from '../../../i18n/routing';
@@ -39,6 +39,9 @@ export async function generateMetadata({ params }) {
 
 export default async function BlogIndexPage({ params }) {
   const { local } = await params;
+
+  // Static rendering — see layout.js.
+  setRequestLocale(local);
   const t = await getTranslations({ locale: local, namespace: 'Blog' });
   const tA11y = await getTranslations({ locale: local, namespace: 'A11y' });
 
