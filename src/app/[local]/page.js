@@ -11,6 +11,7 @@ import InstagramGallery from "./components/InstagramGallery";
 import Reviews from "./components/Reviews";
 import Gallery from "./components/Gallery";
 import Intro from "./components/Intro";
+import SectionDivider from "./components/SectionDivider";
 
 
 
@@ -44,22 +45,51 @@ export default function Home() {
                auto-advances, so it cannot shove the form around.
             6. Instagram last.
         */}
+        {/*
+          Sections are separated by an ornament between them rather than by
+          recolouring them, so the page gradient and its ambient blobs stay
+          continuous across the whole site.
+        */}
         <Carousel />
         <Intro />
+
+        <SectionDivider />
+
         {/* Marion's bio before any pricing: people commit months and several
             hundred euros to one specific teacher, so "who is teaching me"
             comes before "how much". The longer "why us" card block still sits
             after the offer, so this stays a short lead-in rather than the
             2000px of persuasion it used to be. */}
         <About />
+
+        <SectionDivider />
+
         <Courses />
+
+        <SectionDivider />
+
         <CoursesOnline />
+
+        <SectionDivider />
+
         <div className="w-full py-8">
           <Gallery />
         </div>
+
+        <SectionDivider />
+
         <AboutCompany />
+
+        <SectionDivider />
+
         <Reviews />
+
+        <SectionDivider />
+
         <ContactForm />
+
+        <SectionDivider />
+
         {/* Full width on phones: w-2/3 alone left the Instagram grid at
             roughly 200px, which made the thumbnails tiny. */}
         <div className="w-full md:w-2/3 mx-auto py-12 sm:pt-18 sm:pb-12">

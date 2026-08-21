@@ -32,7 +32,7 @@ const Intro = () => {
 
   return (
     <section className="relative max-w-4xl mx-auto text-center pt-4 pb-12 px-4">
-      <h2 className="text-4xl font-bold text-gray-900">
+      <h2 className="text-4xl font-bold text-gray-900 pt-14">
         <span className="text-[#d24b06]">{t('Marion')} </span>
         {t('text1')}
       </h2>
