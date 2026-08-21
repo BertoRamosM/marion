@@ -194,7 +194,7 @@
     "text22": "Fermer",
     "errorMessage": "Une erreur est survenue. Veuillez réessayer.",
     "errorTitle": "Ton message n’a pas pu être envoyé",
-    "errorHelp": "Vérifie ta connexion et réessaie, ou écris-moi directement à",
+    "errorHelp": "Si tu vois ce message, écris-moi directement à :",
     "successTitle": "Message envoyé, merci !",
     "successHelp": "Je te réponds dès que possible."
   },

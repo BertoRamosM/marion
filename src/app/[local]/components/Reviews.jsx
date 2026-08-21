@@ -128,21 +128,53 @@ const SmallCarousel = ({ slides }) => {
         ))}
 
         {/* Pinned near the top of the card so they stay reachable no matter
-            how tall the active review is. */}
+            how tall the active review is.
+
+            They were bg-white/70 with a black glyph — sitting on a white card,
+            which made them almost invisible, and hover:text-black/40 actually
+            faded them further. Now a mint ring provides the contrast against
+            white, matching the hero carousel's arrows, and hover fills the
+            button instead of dimming it. */}
         <button
           onClick={prevSlide}
-          className="absolute top-40 left-0 -translate-y-1/2 bg-white/70 hover:text-black/40 rounded-full p-2 text-black z-10"
           aria-label="Previous Slide"
+          className="group absolute top-40 -left-2 sm:-left-4 -translate-y-1/2 z-10 flex h-11 w-11 items-center justify-center rounded-full bg-white text-[#006a8f] ring-4 ring-[#a3e4db] shadow-lg transition-all duration-300 hover:bg-[#a3e4db] hover:text-[#00485f] hover:scale-110"
         >
-          ←
+          <svg
+            className="h-4 w-4"
+            viewBox="0 0 6 10"
+            fill="none"
+            aria-hidden="true"
+          >
+            <path
+              d="M5 1 1 5l4 4"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
         </button>
 
         <button
           onClick={nextSlide}
-          className="absolute top-40 right-0 -translate-y-1/2 bg-white/70 hover:text-black/40 rounded-full p-2 pr-4 text-black z-10"
           aria-label="Next Slide"
+          className="group absolute top-40 -right-2 sm:-right-4 -translate-y-1/2 z-10 flex h-11 w-11 items-center justify-center rounded-full bg-white text-[#006a8f] ring-4 ring-[#a3e4db] shadow-lg transition-all duration-300 hover:bg-[#a3e4db] hover:text-[#00485f] hover:scale-110"
         >
-          →
+          <svg
+            className="h-4 w-4"
+            viewBox="0 0 6 10"
+            fill="none"
+            aria-hidden="true"
+          >
+            <path
+              d="m1 9 4-4-4-4"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
         </button>
       </div>
     </div>
@@ -156,7 +188,7 @@ const SmallCarousel = ({ slides }) => {
 // text for each review come from messages/*.json so every locale reads its
 // own version. Order here must match the "Reviews.items" array.
 const REVIEW_META = [
-  { image: "/reviews/pic1.png", rating: 4.5 },
+  { image: "/reviews/pic1.png", rating: 5 },
   { image: "/reviews/pic2.png", rating: 5 },
   { image: "/reviews/pic3.png", rating: 5 },
   { image: "/reviews/pic4.png", rating: 5 },

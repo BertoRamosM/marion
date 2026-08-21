@@ -194,7 +194,7 @@
     "text22": "Close",
     "errorMessage": "An error occurred. Please try again.",
     "errorTitle": "Your message could not be sent",
-    "errorHelp": "Check your connection and try again, or email me directly at",
+    "errorHelp": "If you are seeing this, please contact me directly at:",
     "successTitle": "Message sent, thank you!",
     "successHelp": "I will get back to you as soon as I can."
   },

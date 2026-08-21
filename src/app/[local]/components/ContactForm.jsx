@@ -196,15 +196,17 @@ const ContactForm = () => {
             <p className="text-lg font-bold text-red-800">
               {t('errorTitle')}
             </p>
-            <p className="mt-2 text-sm text-red-900">
-              {t('errorHelp')}{' '}
-              <a
-                href="mailto:marion.westfrench@gmail.com"
-                className="font-semibold underline"
-              >
-                marion.westfrench@gmail.com
-              </a>
-            </p>
+            <p className="mt-2 text-sm text-red-900">{t('errorHelp')}</p>
+
+            {/* The address as its own tappable block rather than an inline
+                link: if the form is broken, this is the only way through, so
+                it should be impossible to miss. */}
+            <a
+              href="mailto:marion.westfrench@gmail.com"
+              className="mt-3 inline-block break-all rounded-lg bg-white px-5 py-3 text-base font-bold text-red-800 underline decoration-2 underline-offset-2 shadow transition-transform duration-300 hover:scale-105"
+            >
+              marion.westfrench@gmail.com
+            </a>
             {error && (
               <p className="mt-3 text-xs text-red-700/80">
                 {t('errorMessage')}: {error}

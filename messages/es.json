@@ -194,7 +194,7 @@
     "text22": "Cerrar",
     "errorMessage": "Ha ocurrido un error. Por favor, inténtalo de nuevo.",
     "errorTitle": "No se ha podido enviar tu mensaje",
-    "errorHelp": "Comprueba tu conexión e inténtalo de nuevo, o escríbeme directamente a",
+    "errorHelp": "Si ves este mensaje, escríbeme directamente a:",
     "successTitle": "¡Mensaje enviado, gracias!",
     "successHelp": "Te responderé lo antes posible."
   },
