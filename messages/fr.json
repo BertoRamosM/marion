@@ -18,7 +18,9 @@
     "galleryClose": "Fermer",
     "galleryPrev": "Photo précédente",
     "galleryNext": "Photo suivante",
-    "galleryDialog": "Galerie photos"
+    "galleryDialog": "Galerie photos",
+    "switchLanguage": "Passer en français",
+    "currentLanguage": "Langue actuelle"
   },
   "Header": {
     "home": "Accueil",
@@ -189,7 +191,11 @@
     "text20": "Votre message a été envoyé avec succès!",
     "text21": "Une erreur est survenue. Veuillez réessayer.",
     "text22": "Fermer",
-    "errorMessage": "Une erreur est survenue. Veuillez réessayer."
+    "errorMessage": "Une erreur est survenue. Veuillez réessayer.",
+    "errorTitle": "Ton message n’a pas pu être envoyé",
+    "errorHelp": "Vérifie ta connexion et réessaie, ou écris-moi directement à",
+    "successTitle": "Message envoyé, merci !",
+    "successHelp": "Je te réponds dès que possible."
   },
   "Courses": {
     "text1": "Cours en mini-groupe à Rennes: rejoins notre communauté d'expats",
@@ -336,5 +342,10 @@
     "metaDescription": "Mentions légales et politique de confidentialité de WestFrench Academy, cours de français à Rennes.",
     "formNotice": "Vos données servent uniquement à répondre à votre demande.",
     "formNoticeLink": "En savoir plus"
+  },
+  "Instagram": {
+    "title": "Suis-moi sur Instagram",
+    "subtitle": "Un aperçu de la vie des cours et de Rennes.",
+    "cta": "Voir le profil Instagram"
   }
 }

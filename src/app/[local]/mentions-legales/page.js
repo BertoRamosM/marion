@@ -107,6 +107,20 @@ export default async function LegalPage({ params }) {
               </p>
             </Section>
 
+            <Section title="Conception et réalisation du site">
+              <p>
+                Ce site a été conçu et développé par{' '}
+                <strong>Alberto Ramos</strong> —{' '}
+                <a
+                  href="mailto:albertramos902@gmail.com"
+                  className="text-[#006a8f] hover:text-[#c2410c] underline"
+                >
+                  albertramos902@gmail.com
+                </a>
+                .
+              </p>
+            </Section>
+
             <Section title="Hébergement">
               <p>
                 Le site est hébergé par <strong>Netlify, Inc.</strong>, 101 2nd

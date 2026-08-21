@@ -18,7 +18,9 @@
     "galleryClose": "Close",
     "galleryPrev": "Previous photo",
     "galleryNext": "Next photo",
-    "galleryDialog": "Photo gallery"
+    "galleryDialog": "Photo gallery",
+    "switchLanguage": "Switch to English",
+    "currentLanguage": "Current language"
   },
   "Header": {
     "home": "Home",
@@ -189,7 +191,11 @@
     "text20": "Your message has been sent successfully!",
     "text21": "An error occurred. Please try again.",
     "text22": "Close",
-    "errorMessage": "An error occurred. Please try again."
+    "errorMessage": "An error occurred. Please try again.",
+    "errorTitle": "Your message could not be sent",
+    "errorHelp": "Check your connection and try again, or email me directly at",
+    "successTitle": "Message sent, thank you!",
+    "successHelp": "I will get back to you as soon as I can."
   },
   "Courses": {
     "text1": "Courses in a small group in Rennes: Join our expat community",
@@ -336,5 +342,10 @@
     "metaDescription": "Legal notice and privacy policy for WestFrench Academy, French lessons in Rennes.",
     "formNotice": "Your details are used only to reply to your enquiry.",
     "formNoticeLink": "Learn more"
+  },
+  "Instagram": {
+    "title": "Follow me on Instagram",
+    "subtitle": "A glimpse of life in the classes and around Rennes.",
+    "cta": "View the Instagram profile"
   }
 }

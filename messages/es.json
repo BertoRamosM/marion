@@ -18,7 +18,9 @@
     "galleryClose": "Cerrar",
     "galleryPrev": "Foto anterior",
     "galleryNext": "Foto siguiente",
-    "galleryDialog": "Galería de fotos"
+    "galleryDialog": "Galería de fotos",
+    "switchLanguage": "Cambiar a español",
+    "currentLanguage": "Idioma actual"
   },
   "Header": {
     "home": "Inicio",
@@ -189,7 +191,11 @@
     "text20": "¡Tu mensaje ha sido enviado con éxito!",
     "text21": "Ha ocurrido un error. Por favor, inténtalo de nuevo.",
     "text22": "Cerrar",
-    "errorMessage": "Ha ocurrido un error. Por favor, inténtalo de nuevo."
+    "errorMessage": "Ha ocurrido un error. Por favor, inténtalo de nuevo.",
+    "errorTitle": "No se ha podido enviar tu mensaje",
+    "errorHelp": "Comprueba tu conexión e inténtalo de nuevo, o escríbeme directamente a",
+    "successTitle": "¡Mensaje enviado, gracias!",
+    "successHelp": "Te responderé lo antes posible."
   },
   "Courses": {
     "text1": "Clases en mini-grupo en Rennes: únete a nuestra comunidad de expats",
@@ -336,5 +342,10 @@
     "metaDescription": "Aviso legal y política de privacidad de WestFrench Academy, clases de francés en Rennes.",
     "formNotice": "Tus datos se usan únicamente para responder a tu solicitud.",
     "formNoticeLink": "Más información"
+  },
+  "Instagram": {
+    "title": "Sígueme en Instagram",
+    "subtitle": "Un vistazo a las clases y a la vida en Rennes.",
+    "cta": "Ver el perfil de Instagram"
   }
 }

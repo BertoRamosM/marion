@@ -3,7 +3,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Link, usePathname } from '../../../i18n/routing';
 
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 import { UkFlag } from "../icons/UkFlag";
 import { SpanishFlag } from "../icons/SpanishFlag";
 import { FrenchFlag } from "../icons/FrenchFlag";
@@ -28,6 +28,7 @@ const Header = () => {
   // Locale switching keeps you on the current page (e.g. a blog post)
   // instead of always jumping back to the home page.
   const pathname = usePathname();
+  const locale = useLocale();
   const [isHidden, setIsHidden] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -142,18 +143,39 @@ const Header = () => {
         >
           ☰
         </button>
-        <div className="flex gap-2 sm:gap-4 items-center">
-          {/* prefetch disabled: switching language is a deliberate, rare action,
-              so there is no need to download the other two locales up front. */}
-          <Link href={pathname} locale="fr" prefetch={false} aria-label="Français">
-            <FrenchFlag />
-          </Link>
-          <Link href={pathname} locale="en" prefetch={false} aria-label="English">
-            <UkFlag />
-          </Link>
-          <Link href={pathname} locale="es" prefetch={false} aria-label="Español">
-            <SpanishFlag />
-          </Link>
+        {/* Flags as round "coins". The active locale sits full-colour with a
+            teal ring; the others are dimmed and desaturated until hovered, so
+            you can now tell at a glance which language you are reading —
+            previously all three looked identical. */}
+        <div className="flex gap-1.5 sm:gap-2.5 items-center">
+          {[
+            { code: 'fr', label: 'Français', Flag: FrenchFlag },
+            { code: 'en', label: 'English', Flag: UkFlag },
+            { code: 'es', label: 'Español', Flag: SpanishFlag },
+          ].map(({ code, label, Flag }) => {
+            const isActive = code === locale;
+            return (
+              <Link
+                key={code}
+                href={pathname}
+                locale={code}
+                /* prefetch disabled: switching language is a deliberate, rare
+                   action, so there is no need to download the other locales
+                   up front. */
+                prefetch={false}
+                aria-label={label}
+                aria-current={isActive ? 'true' : undefined}
+                title={isActive ? `${label} — ${tA11y('currentLanguage')}` : label}
+                className={`relative flex h-8 w-8 sm:h-9 sm:w-9 items-center justify-center overflow-hidden rounded-full shadow-sm transition-all duration-300 [&>svg]:h-full [&>svg]:w-full [&>svg]:object-cover ${
+                  isActive
+                    ? 'ring-2 ring-[#006a8f] ring-offset-1 ring-offset-[#a3e4db] scale-105'
+                    : 'opacity-55 saturate-50 hover:opacity-100 hover:saturate-100 hover:scale-110'
+                }`}
+              >
+                <Flag />
+              </Link>
+            );
+          })}
         </div>
       </header>
 

@@ -181,8 +181,52 @@ const ContactForm = () => {
           </div>
         </form>
 
-        {/* Error Message */}
-        {status === 'error' && <div className="mt-4 text-red-500">{t('errorMessage')}: {error}</div>}
+        {/*
+          Status messages. role="alert" + aria-live so screen readers announce
+          them, and sized to actually be noticed — the previous one-line red
+          text was easy to miss right under a long form. The technical detail
+          is kept but demoted, since "Error: 500" means nothing to a visitor.
+        */}
+        {status === 'error' && (
+          <div
+            role="alert"
+            aria-live="assertive"
+            className="mt-6 rounded-2xl border-2 border-red-300 bg-red-50 p-5 text-center shadow-lg"
+          >
+            <p className="text-lg font-bold text-red-800">
+              {t('errorTitle')}
+            </p>
+            <p className="mt-2 text-sm text-red-900">
+              {t('errorHelp')}{' '}
+              <a
+                href="mailto:marion.westfrench@gmail.com"
+                className="font-semibold underline"
+              >
+                marion.westfrench@gmail.com
+              </a>
+            </p>
+            {error && (
+              <p className="mt-3 text-xs text-red-700/80">
+                {t('errorMessage')}: {error}
+              </p>
+            )}
+          </div>
+        )}
+
+        {status === 'ok' && (
+          <div
+            role="status"
+            aria-live="polite"
+            className="mt-6 rounded-2xl border-2 border-[#a3e4db] bg-[#e5f8f6] p-5 text-center shadow-lg"
+          >
+            <p className="text-lg font-bold text-[#00485f]">
+              {t('successTitle')}
+            </p>
+            <p className="mt-2 text-sm text-[#006a8f]">
+              {t('successHelp')}
+            </p>
+          </div>
+        )}
       </div>
     </div>
   );

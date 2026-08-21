@@ -45,7 +45,9 @@ function buildJsonLd(locale, t, description) {
     name: "WestFrench Academy",
     url: pageUrl,
     logo: `${SITE_URL}/logos/logo-no-bg.png`,
-    image: `${SITE_URL}/og-image.jpg`,
+    // The photo Google shows beside the search result. It reads this from the
+    // organisation entity, so a real photo works better here than the logo card.
+    image: `${SITE_URL}/og-photo.jpg`,
     description,
     telephone: PHONE,
     email: EMAIL,
@@ -225,6 +227,11 @@ export async function generateMetadata({ params }) {
     verification: {
       google: "Ml98YqB2kA_XBnJ3KJ9IbevLRqu5R6STf5W4TjSJy3w",
     },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: { index: true, follow: true, "max-image-preview": "large" },
+    },
     alternates: {
       canonical: url,
       languages: {
@@ -243,9 +250,9 @@ export async function generateMetadata({ params }) {
       locale: local,
       images: [
         {
-          url: "/og-image.jpg",
+          url: "/og-photo.jpg",
           width: 1200,
-          height: 630,
+          height: 800,
           alt: title,
         },
       ],
@@ -254,7 +261,7 @@ export async function generateMetadata({ params }) {
       card: "summary_large_image",
       title,
       description,
-      images: ["/og-image.jpg"],
+      images: ["/og-photo.jpg"],
     },
   };
 }
