@@ -3,20 +3,29 @@
 import { useState } from 'react';
 import { useTranslations } from 'next-intl';
 import { Link } from '../../../i18n/routing';
+import SectionHeading from './SectionHeading';
+import EmailIcon from '../icons/EmailIcon';
 
 /*
  * Field styling, shared so the six inputs cannot drift apart.
  *
  * They were bg-transparent with only a soft shadow and no border, sitting on
  * the page gradient — so there was no visible edge telling you where to type.
- * Solid white plus a teal border gives each field a clear boundary. The
- * colour is chosen for contrast, not just looks: #a3e4db managed only 1.35:1
- * against the cream card, well under the 3:1 WCAG asks for UI boundaries.
- * #1f8a86 is 3.94:1 and still sits in the brand palette.
+ * A filled field with a teal border gives each one a clear boundary.
+ *
+ * Both colours are picked from measurements, not by eye:
+ *   - Border #1f8a86 is 3.94:1 against the cream card. The brand mint #a3e4db
+ *     managed only 1.35:1, well under the 3:1 WCAG asks of UI boundaries.
+ *   - Fill #e7e5e4 is stone-200: a warm grey rather than a cool one, so it sits
+ *     with the cream card instead of fighting it. Chosen over the lighter
+ *     greys because at 1.19 it separates from the cream noticeably, where
+ *     gray-50 was 1.01 — near-invisible against the card.
+ *   - The gray-600 placeholder stays: on gray-500 this fill is 3.85:1, under
+ *     the 4.5 threshold.
  */
 const FIELD =
-  'w-full mt-2 p-3 rounded-lg bg-white border-2 border-[#1f8a86] text-gray-900 ' +
-  'placeholder:text-gray-500 shadow-sm transition-colors duration-200 ' +
+  'w-full mt-2 p-3 rounded-lg bg-stone-100 border-2 border-[#1f8a86] text-gray-900 ' +
+  'placeholder:text-gray-600 shadow-sm transition-colors duration-200 ' +
   'hover:border-[#006a8f] focus:border-[#006a8f] focus:outline-none ' +
   'focus:ring-2 focus:ring-[#ffa45b]';
 
@@ -25,6 +34,7 @@ const ContactForm = () => {
   const [error, setError] = useState(null);
   const t = useTranslations('Contact');
   const tLegal = useTranslations('Legal');
+  const tLabel = useTranslations('SectionLabel');
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
@@ -58,7 +68,11 @@ const ContactForm = () => {
   return (
     <div className="flex items-start justify-center px-0 sm:px-6 pt-8 pb-24" id="contact">
       <div className="w-full max-w-3xl bg-[#fff7f3] p-8 rounded-3xl shadow-lg text-black">
-        <h2 className="text-3xl font-bold mb-6 text-center text-[#d24b06]">{t('title')}</h2>
+        <SectionHeading
+          icon={<EmailIcon />}
+          label={tLabel('contact')}
+          title={<span className="text-[#d24b06]">{t('title')}</span>}
+        />
 
         <form
           className="space-y-6"

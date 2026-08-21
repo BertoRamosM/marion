@@ -354,5 +354,12 @@
     "levels": "Levels A1 to B2",
     "where": "In Rennes and online",
     "trial": "First trial lesson free"
+  },
+  "SectionLabel": {
+    "courses": "Courses in Rennes",
+    "online": "Online courses",
+    "whyUs": "Why WestFrench",
+    "reviews": "Testimonials",
+    "contact": "Contact"
   }
 }

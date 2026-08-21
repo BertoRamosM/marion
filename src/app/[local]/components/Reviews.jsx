@@ -3,9 +3,12 @@
 import { useState, useRef } from "react";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
+import SectionHeading from "./SectionHeading";
+import FriendIcon from "../icons/FriendIcon";
 
 const SmallCarousel = ({ slides }) => {
   const t = useTranslations("Reviews");
+  const tLabel = useTranslations("SectionLabel");
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const touchStartX = useRef(0);
@@ -71,11 +74,11 @@ const SmallCarousel = ({ slides }) => {
   // form's width so the two sections line up.
   return (
     <div className="w-full max-w-3xl mx-auto pb-20" id="reviews">
-      <div className="text-center mb-8">
-        <h2 className="text-4xl font-bold text-gray-900">
-          <span className="text-[#006a8f]">{t("title")}</span>
-        </h2>
-      </div>
+      <SectionHeading
+        icon={<FriendIcon />}
+        label={tLabel("reviews")}
+        title={<span className="text-[#006a8f]">{t("title")}</span>}
+      />
 
       {/* No fixed or minimum height: the container hugs whichever review is
           showing, so short ones leave no dead space and the long one pushes

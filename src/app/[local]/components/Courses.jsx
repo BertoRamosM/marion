@@ -6,6 +6,7 @@ import CalendarIcon from '../icons/CalendarIcon';
 import { Banner } from './Banner';
 import { useTranslations } from 'next-intl';
 import CheckBadge from './CheckBadge';
+import SectionHeading from './SectionHeading';
 
 // The eleven promises used to sit in two separate cream boxes, the second of
 // which had no heading and read as an orphan. They are one list now.
@@ -35,18 +36,17 @@ const PRICES = ['text27', 'text28'];
 
 const Courses = () => {
   const t = useTranslations("Courses");
+  const tLabel = useTranslations('SectionLabel');
 
   return (
     <div className="flex flex-col items-center justify-center py-16 px-0 sm:px-6 min-h-screen" id="courses">
-      {/* Title Section */}
-      <div className="max-w-3xl text-center mb-12">
-        <h2 className="text-4xl font-bold text-gray-900">
-          <span className="text-[#d24b06]">{t("text1")}</span>
-        </h2>
-        <p className="text-lg text-gray-800 mt-4">
-          {t('text2')}
-        </p>
-      </div>
+      <SectionHeading
+        icon={<LocationIcon />}
+        label={tLabel('courses')}
+        title={<span className="text-[#d24b06]">{t("text1")}</span>}
+      >
+        {t('text2')}
+      </SectionHeading>
 
       <div className="w-full max-w-5xl flex flex-col gap-8">
         {/* What you get */}

@@ -5,6 +5,7 @@ import LaptopIcon from '../icons/LaptopIcon';
 import { Banner } from './Banner';
 import { useTranslations } from 'next-intl';
 import CheckBadge from './CheckBadge';
+import SectionHeading from './SectionHeading';
 
 // The four benefits previously sat in two separate cards, the second without a
 // heading — the same orphan-box problem the in-person section had. One list now.
@@ -26,21 +27,21 @@ const PRICES = [
 
 const OnlineCourses = () => {
   const t = useTranslations("online");
+  const tLabel = useTranslations("SectionLabel");
 
   return (
     <div className="flex flex-col items-center justify-center py-16 px-0 sm:px-6 min-h-screen" id='online-courses'>
-      {/* Title Section */}
-      <div className="max-w-3xl text-center mb-12">
-        <h2 className="text-4xl font-bold text-gray-900">
-          <span className="text-[#006a8f]">{t("title")}</span> {t("text1")}
-        </h2>
-        <p className="text-lg text-gray-800 mt-4">
-        {t("text2")}
+      <SectionHeading
+        icon={<LaptopIcon />}
+        label={tLabel('online')}
+        title={<><span className="text-[#006a8f]">{t("title")}</span> {t("text1")}</>}
+      >
+        <p>{t("text2")}</p>
+        <p className="mt-4">
+          {t("text3")}
+          <span className="font-bold text-[#c2410c]"> {t("text4")}</span> {t("text5")}
         </p>
-        <p className="text-lg text-gray-800 mt-4">
-        {t("text3")}<span className="font-bold text-[#c2410c]"> {t("text4")}</span>  {t("text5")}
-        </p>
-      </div>
+      </SectionHeading>
 
       <div className="w-full max-w-5xl flex flex-col gap-8">
         {/* What you get — mirrors the in-person section's layout */}

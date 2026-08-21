@@ -9,6 +9,7 @@ import World from '../icons/World';
 import LaptopIcon from '../icons/LaptopIcon';
 import { useTranslations } from 'next-intl';
 import DisclosureCard from './DisclosureCard';
+import SectionHeading from './SectionHeading';
 
 const TEAL = 'bg-[#e5f8f6] text-[#006a8f]';
 const CREAM = 'bg-[#fff7f3]';
@@ -18,20 +19,22 @@ const CREAM_TITLE = 'text-[#d24b06]';
 
 const AboutCompany = () => {
   const t = useTranslations("AboutCompany");
+  const tLabel = useTranslations("SectionLabel");
   const bold = (key) => <span className='font-bold'>{t(key)}</span>;
 
   return (
     <div className="flex flex-col items-center justify-center py-16 px-0 sm:px-6 min-h-screen">
 
-      <div className="max-w-3xl text-center mb-12">
-        <h2 className="text-4xl font-bold text-gray-900">
-          <span className="text-[#006a8f]">{t("text3")} </span>{t("text4")}
-        </h2>
-        <p className="text-lg text-gray-800 mt-4">
-        {t("text5")} <span className="font-bold text-[#c2410c]">{t("text6")}</span> {t("text7")} <br />
-          <span className="text-gray-500 text-sm"> {t("text8")} </span>
+      <SectionHeading
+        icon={<Heart />}
+        label={tLabel('whyUs')}
+        title={<><span className="text-[#006a8f]">{t("text3")} </span>{t("text4")}</>}
+      >
+        <p>
+          {t("text5")} <span className="font-bold text-[#c2410c]">{t("text6")}</span> {t("text7")}
         </p>
-      </div>
+        <p className="mt-2 text-sm text-gray-500">{t("text8")}</p>
+      </SectionHeading>
 
       {/* Content Sections
           - items-start stops grid rows from stretching every column to match
