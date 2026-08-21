@@ -165,6 +165,52 @@ const Carousel = () => {
             </div>
           );
         })}
+
+        {/*
+          Arrows live inside the image box, not outside it.
+
+          They used to be siblings of it with `top-80 sm:top-0` and `h-full`,
+          which meant a 580px-tall button starting 320px down: on mobile it
+          overhung the image by 320px, put the arrow glyph 30px *below* the
+          carousel, and left a large invisible tap target over the section
+          underneath. Anchored here, `top-1/2` is the middle of the image at
+          every breakpoint, and the hit area is the button itself.
+        */}
+        <button
+          aria-label="Previous slide"
+          type="button"
+          onClick={prevSlide}
+          data-carousel-prev
+          className="absolute top-1/2 left-2 sm:left-4 z-30 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-white/30 text-[#a3e4db] ring-4 ring-[#a3e4db] transition-all duration-300 hover:bg-white/60 hover:scale-110 focus-visible:outline-none focus-visible:ring-[#006a8f]"
+        >
+          <svg className="h-4 w-4" viewBox="0 0 6 10" fill="none" aria-hidden="true">
+            <path
+              stroke="currentColor"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d="M5 1 1 5l4 4"
+            />
+          </svg>
+        </button>
+
+        <button
+          aria-label="Next slide"
+          type="button"
+          onClick={nextSlide}
+          data-carousel-next
+          className="absolute top-1/2 right-2 sm:right-4 z-30 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-white/30 text-[#a3e4db] ring-4 ring-[#a3e4db] transition-all duration-300 hover:bg-white/60 hover:scale-110 focus-visible:outline-none focus-visible:ring-[#006a8f]"
+        >
+          <svg className="h-4 w-4" viewBox="0 0 6 10" fill="none" aria-hidden="true">
+            <path
+              stroke="currentColor"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d="m1 9 4-4-4-4"
+            />
+          </svg>
+        </button>
       </div>
 
       {/* Slider Indicators */}
@@ -187,57 +233,6 @@ const Carousel = () => {
         ))}
       </div>
 
-      {/* Previous Button */}
-      <button
-        aria-label="Previous slide"
-        type="button"
-        className="absolute top-80 sm:top-0 left-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#006a8f] rounded-full"
-        onClick={prevSlide}
-        data-carousel-prev
-      >
-        <span className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 group-hover:bg-white/50 ring-4 ring-[#a3e4db]">
-          <svg
-            className="w-4 h-4 text-[#a3e4db]"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 6 10"
-          >
-            <path
-              stroke="currentColor"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="M5 1 1 5l4 4"
-            />
-          </svg>
-        </span>
-      </button>
-
-      {/* Next Button */}
-      <button
-        aria-label="Next slide"
-        type="button"
-        className="absolute top-80 sm:top-0 right-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#006a8f] rounded-full"
-        onClick={nextSlide}
-        data-carousel-next
-      >
-        <span className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 group-hover:bg-white/50 ring-4 ring-[#a3e4db]">
-          <svg
-            className="w-4 h-4 text-[#a3e4db]"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 6 10"
-          >
-            <path
-              stroke="currentColor"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="m1 9 4-4-4-4"
-            />
-          </svg>
-        </span>
-      </button>
     </div>
   );
 };

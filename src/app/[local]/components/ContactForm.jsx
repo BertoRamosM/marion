@@ -4,6 +4,22 @@ import { useState } from 'react';
 import { useTranslations } from 'next-intl';
 import { Link } from '../../../i18n/routing';
 
+/*
+ * Field styling, shared so the six inputs cannot drift apart.
+ *
+ * They were bg-transparent with only a soft shadow and no border, sitting on
+ * the page gradient — so there was no visible edge telling you where to type.
+ * Solid white plus a teal border gives each field a clear boundary. The
+ * colour is chosen for contrast, not just looks: #a3e4db managed only 1.35:1
+ * against the cream card, well under the 3:1 WCAG asks for UI boundaries.
+ * #1f8a86 is 3.94:1 and still sits in the brand palette.
+ */
+const FIELD =
+  'w-full mt-2 p-3 rounded-lg bg-white border-2 border-[#1f8a86] text-gray-900 ' +
+  'placeholder:text-gray-500 shadow-sm transition-colors duration-200 ' +
+  'hover:border-[#006a8f] focus:border-[#006a8f] focus:outline-none ' +
+  'focus:ring-2 focus:ring-[#ffa45b]';
+
 const ContactForm = () => {
   const [status, setStatus] = useState(null);
   const [error, setError] = useState(null);
@@ -41,7 +57,7 @@ const ContactForm = () => {
   // full-height box would have re-added empty space above the form.
   return (
     <div className="flex items-start justify-center px-0 sm:px-6 pt-8 pb-24" id="contact">
-      <div className="w-full max-w-3xl p-8 rounded-3xl shadow-lg text-black">
+      <div className="w-full max-w-3xl bg-[#fff7f3] p-8 rounded-3xl shadow-lg text-black">
         <h2 className="text-3xl font-bold mb-6 text-center text-[#d24b06]">{t('title')}</h2>
 
         <form
@@ -68,7 +84,7 @@ const ContactForm = () => {
               type="text"
               id="name"
               name="name"
-              className="w-full mt-2 p-3 rounded-lg shadow focus:outline-none focus:ring-2 focus:ring-[#ffa45b] bg-transparent"
+              className={FIELD}
               required
               placeholder={t('text2')}
             />
@@ -83,7 +99,7 @@ const ContactForm = () => {
               type="email"
               id="email"
               name="email"
-              className="w-full mt-2 p-3 rounded-lg shadow focus:outline-none focus:ring-2 focus:ring-[#ffa45b] bg-transparent"
+              className={FIELD}
               required
               placeholder={t('text4')}
             />
@@ -98,7 +114,7 @@ const ContactForm = () => {
               type="tel"
               id="phone"
               name="phone"
-              className="w-full mt-2 p-3 rounded-lg shadow focus:outline-none focus:ring-2 focus:ring-[#ffa45b] bg-transparent"
+              className={FIELD}
               placeholder={t('text6')}
             />
           </div>
@@ -111,7 +127,7 @@ const ContactForm = () => {
             <select
               id="frenchLevel"
               name="frenchLevel"
-              className="w-full mt-2 p-3 rounded-lg shadow focus:outline-none focus:ring-2 focus:ring-[#ffa45b] bg-transparent"
+              className={FIELD}
             >
               <option value="">{t('text8')}</option>
               <option value="A1">A1</option>
@@ -132,7 +148,7 @@ const ContactForm = () => {
               type="text"
               id="objet"
               name="objet"
-              className="w-full mt-2 p-3 rounded-lg shadow focus:outline-none focus:ring-2 focus:ring-[#ffa45b] bg-transparent"
+              className={FIELD}
               placeholder={t('text16')}
             />
           </div>
@@ -146,7 +162,7 @@ const ContactForm = () => {
               id="message"
               name="message"
               rows="5"
-              className="w-full mt-2 p-3 rounded-lg shadow focus:outline-none focus:ring-2 focus:ring-[#ffa45b] bg-transparent"
+              className={FIELD}
               required
               placeholder={t('text18')}
             ></textarea>
