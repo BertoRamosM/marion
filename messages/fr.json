@@ -1,7 +1,7 @@
 {
   "Metadata": {
-    "title": "WestFrench Academy | Cours de français à Rennes",
-    "description": "Cours de français interactifs à Rennes pour expatriés : petits groupes ou cours particuliers en ligne. 1er cours d'essai gratuit. Réservez avec Marion !"
+    "title": "Westfrench Academy | Cours de français à Rennes",
+    "description": "Westfrench Academy propose des cours de français à Rennes pour expatriés : petits groupes ou cours particuliers en ligne. Essai gratuit avec Marion."
   },
   "Schema": {
     "courseGroupName": "Cours de français en mini-groupe à Rennes",
@@ -10,7 +10,7 @@
     "courseOnlineDesc": "Cours particuliers de français en ligne pour préparer votre installation dans le nord-ouest de la France. Programme sur-mesure adapté à vos besoins et à votre future région."
   },
   "A11y": {
-    "logo": "Logo de WestFrench Academy",
+    "logo": "Logo de Westfrench Academy",
     "marion": "Marion, professeure de français langue étrangère à Rennes",
     "galleryItem": "Cours de français pour expatriés à Rennes — photo {number}",
     "blogImage": "Cours de français pour expatriés à Rennes",
@@ -53,13 +53,13 @@
     "text4": "Avant de devenir prof, j'étais guide touristique et je suis passionnée par l'histoire de la Bretagne et de la Normandie (dont je suis originaire).",
     "text5": "Comme j'aime transmettre et être en contact avec les cultures du monde entier, j'ai repris des études pour devenir professeure et j'ai passé le diplôme du DAEFLE (diplôme d'aptitude à l'enseignement du français langue étrangère).",
     "text6": "J'ai commencé à donner des cours de français dans un centre de langues du sud de la France à des expats venus des 4 coins du monde. J'ai adoré cette expérience qui m'a donné envie d'ouvrir ma propre école.",
-    "text7": "Je suis revenue en Bretagne et je lance maintenant WestFrench Academy, un concept unique à Rennes."
+    "text7": "Je suis revenue en Bretagne et je lance maintenant Westfrench Academy, un concept unique à Rennes."
   },
   "AboutCompany": {
-    "Marion": "WestFrench avec Marion:",
+    "Marion": "Westfrench avec Marion:",
     "text1": "Apprends le français rapidement en mini-groupe et avec une prof locale.",
     "text2": "Choisis le contenu de tes cours et rencontre d'autres expats !",
-    "text3": "WestFrench,",
+    "text3": "Westfrench,",
     "text4": "c'est la seule école de français à Rennes destinée exclusivement aux expats,",
     "text5": " Je te propose un",
     "text6": "lieu authentique et familial",
@@ -141,7 +141,7 @@
     "text82": "traditions bretonnes,",
     "text83": "la gastronomie ",
     "text84": "et le ",
-    "text85": "style de vie rennais",
+    "text85": "style de vie rennais !",
     "text86": "Le quartier atypique et central du Colombier",
     "text87": "Les cours collectifs sont donnés à la ",
     "text88": "Maison des Associations, ",
@@ -202,7 +202,7 @@
     "text1": "Cours en mini-groupe à Rennes: rejoins notre communauté d'expats",
     "text2": "S'intégrer dans un nouveau pays peut-être un véritable challenge quand on ne maîtrise pas la langue. Apprends le français rapidement avec une prof qui te ressemble et fais-toi de nouveaux amis !",
     "text3": "Fini les classes surchargées aux cours impersonnels et standardisés !",
-    "text4": "à WestFrench, je te promets :",
+    "text4": "à Westfrench, je te promets :",
     "text5": "Des mini-groupes de 3 à 8 personnes.",
     "text6": "Une attention personnalisée et un temps de parole équilibré.",
     "text7": "Des cours sur-mesure selon tes centres d'intérêts et tes objectifs.",
@@ -237,7 +237,8 @@
     "text30": "*3 mois 24€/h, 6 mois 22€",
     "textWed1": " Mercredis",
     "textWed2": " Niveau A1 (débutant):",
-    "textWed3": " 18h30 - 20h00"
+    "textWed3": " 18h30 - 20h00",
+    "bookPlace": "Réserver ma place"
   },
   "online": {
     "title": "Cours Individuels en ligne:",
@@ -247,7 +248,7 @@
     "text4": "apprentissage du français dès maintenant à distance",
     "text5": "avec moi grâce à des cours sur-mesure adaptés à tes besoins et à ta nouvelle région.",
     "text6": "Fini les applications inutiles et décontextualisées d'apprentissage de vocabulaire.",
-    "textWF": "A WestFrench, tu trouveras :",
+    "textWF": "A Westfrench, tu trouveras :",
     "text7": "Un programme de français efficace et sur-mesure pour apprendre, en seulement quelques heures, à te débrouiller dans les situations de communication les plus basiques selon tes besoins (ex : se présenter, faire connaissance avec ses voisins, effectuer des formalités administratives, faire des courses, commander au restaurant, prendre un rendez-vous ou réaliser une inscription par téléphone, répondre à une annonce de logement, candidater à une offre de travail). ",
     "text8": "Marion, une prof locale, chaleureuse et bienveillante qui connaît ta langue",
     "text9": "Des cours à focus culturel pour tout savoir de ta future ville et/ou région (ex : Si tu souhaites t'installer prochainement à Nantes, tu découvriras son histoire mais aussi la gastronomie nantaise, les lieux culturels, le style de vie ainsi que les plus beaux villages et vignobles des alentours).",
@@ -255,7 +256,8 @@
     "text11": "Tarifs pour des sessions d' 1h30.",
     "text12": "10 sessions - 15h: ",
     "text13": "20 sessions - 30h: ",
-    "text14": "*10 sessions 35€/h, 20 sessions 30€/h"
+    "text14": "*10 sessions 35€/h, 20 sessions 30€/h",
+    "bookPlace": "Réserver ma place"
   },
   "Reviews": {
     "title": "Apprenants satisfaits",
@@ -324,7 +326,8 @@
         "name": "Kristine Borsholm",
         "text": "Les meilleurs cours de français que j’ai jamais eus ! Je suis passée d’un niveau A1/A2 à B2 en un an grâce à Marion, qui m’a beaucoup aidée. Je la recommande vraiment !"
       }
-    ]
+    ],
+    "rating": "Note : {rating} sur 5"
   },
   "Blog": {
     "nav": "Blog",
@@ -340,7 +343,7 @@
   "Legal": {
     "nav": "Mentions légales",
     "backToSite": "Retour au site",
-    "metaDescription": "Mentions légales et politique de confidentialité de WestFrench Academy, cours de français à Rennes.",
+    "metaDescription": "Mentions légales et politique de confidentialité de Westfrench Academy, cours de français à Rennes.",
     "formNotice": "Vos données servent uniquement à répondre à votre demande.",
     "formNoticeLink": "En savoir plus"
   },
@@ -358,8 +361,13 @@
   "SectionLabel": {
     "courses": "Cours à Rennes",
     "online": "Cours en ligne",
-    "whyUs": "Pourquoi WestFrench",
+    "whyUs": "Pourquoi Westfrench",
     "reviews": "Témoignages",
-    "contact": "Contact"
+    "contact": "Contact",
+    "gallery": "Galerie"
+  },
+  "Gallery": {
+    "title": "En images",
+    "description": "Quelques moments de cours à Rennes, des activités avec les apprenants, la salle, et le quartier autour."
   }
 }

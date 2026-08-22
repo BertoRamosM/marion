@@ -1,7 +1,7 @@
 {
   "Metadata": {
-    "title": "WestFrench Academy | French Lessons in Rennes",
-    "description": "Interactive French lessons in Rennes for expats: small groups or private online lessons. First trial lesson free. Book with Marion today!"
+    "title": "Westfrench Academy | French Lessons in Rennes",
+    "description": "Westfrench Academy offers French lessons in Rennes for expats: small groups or private online lessons. First trial lesson free, with Marion."
   },
   "Schema": {
     "courseGroupName": "Small-group French lessons in Rennes",
@@ -10,7 +10,7 @@
     "courseOnlineDesc": "One-to-one online French lessons to prepare for your move to northwest France. A tailor-made programme adapted to your needs and your future region."
   },
   "A11y": {
-    "logo": "WestFrench Academy logo",
+    "logo": "Westfrench Academy logo",
     "marion": "Marion, French language teacher in Rennes",
     "galleryItem": "French lessons for expats in Rennes — photo {number}",
     "blogImage": "French lessons for expats in Rennes",
@@ -53,13 +53,13 @@
     "text4": "Before becoming a teacher, I was a tour guide and I am passionate about the history of Brittany and Normandy (where I am from).",
     "text5": "As I love teaching and interacting with cultures from around the world, I returned to my studies to become a teacher and obtained the DAEFLE diploma (Diploma of Aptitude for the Teaching of French as a Foreign Language).",
     "text6": "I started teaching French in a language center in the south of France to expats from all over the world. I loved this experience, which motivated me to open my own school.",
-    "text7": "I came back to Brittany and now I am launching WestFrench Academy, a unique concept in Rennes."
+    "text7": "I came back to Brittany and now I am launching Westfrench Academy, a unique concept in Rennes."
   },
   "AboutCompany": {
-    "Marion": "WestFrench with Marion:",
+    "Marion": "Westfrench with Marion:",
     "text1": "Learn French quickly in a small group with a local teacher.",
     "text2": "Choose the content of your lessons and meet other expats!",
-    "text3": "WestFrench,",
+    "text3": "Westfrench,",
     "text4": "is the only French school in Rennes exclusively for expats.",
     "text5": "I offer you an",
     "text6": "authentic and friendly space",
@@ -139,7 +139,7 @@
     "text80": "popular culture, ",
     "text81": "Brittany traditions, ",
     "text82": "gastronomy",
-    "text83": "and the Rennes lifestyle",
+    "text83": "and the Rennes lifestyle!",
     "text84": "",
     "text85": "",
     "text86": "The Colombier district",
@@ -202,7 +202,7 @@
     "text1": "Courses in a small group in Rennes: Join our expat community",
     "text2": "Integrating into a new country can be a real challenge when you don't speak the language. Learn French quickly with a teacher who understands you and make new friends!",
     "text3": "No more overcrowded classes with impersonal and standardized lessons!",
-    "text4": "At WestFrench, I promise you:",
+    "text4": "At Westfrench, I promise you:",
     "text5": "Small groups of 3 to 8 people.",
     "text6": "Personalized attention and large speaking time.",
     "text7": "Custom lessons based on your interests and goals.",
@@ -237,7 +237,8 @@
     "text30": "*3 months 24€/h, 6 months 22€",
     "textWed1": " Wednesdays",
     "textWed2": " A1 level (beginners):",
-    "textWed3": "  6:30 PM - 8:00 PM"
+    "textWed3": "  6:30 PM - 8:00 PM",
+    "bookPlace": "Book my place"
   },
   "online": {
     "title": "Individual Online Courses:",
@@ -247,7 +248,7 @@
     "text4": "French learning journey now from afar",
     "text5": "with Marion, with custom courses tailored to your needs and your new region.",
     "text6": "No more useless, decontextualized vocabulary apps.",
-    "textWF": "At WestFrench, you will find:",
+    "textWF": "At Westfrench, you will find:",
     "text7": "An effective and tailored French program to learn, in just a few hours, how to manage in basic communication situations based on your needs (e.g., introducing yourself, getting to know your neighbors, handling administrative tasks, shopping, ordering at a restaurant, making an appointment, make a phone call, responding to housing ads, applying for a job).",
     "text8": "Marion, a local, warm, and caring teacher who understands your language.",
     "text9": "Cultural-focused lessons to learn everything about your future city and/or region (e.g., if you're planning to move to Nantes, you’ll explore its history, local cuisine, cultural venues, lifestyle, as well as nearby villages and vineyards).",
@@ -255,7 +256,8 @@
     "text11": "Rates for 1.5 hour sessions.",
     "text12": "10 sessions - 15 hours: ",
     "text13": "20 sessions - 30 hours:",
-    "text14": "10 sessions 35€/h, 20 sessions 30€/h"
+    "text14": "10 sessions 35€/h, 20 sessions 30€/h",
+    "bookPlace": "Book my place"
   },
   "Reviews": {
     "title": "Happy Students",
@@ -324,7 +326,8 @@
         "name": "Kristine Borsholm",
         "text": "The best French lessons I have ever had! I went from an A1/A2 level to B2 in one year thanks to Marion, who helped me enormously. I really do recommend her!"
       }
-    ]
+    ],
+    "rating": "Rating: {rating} out of 5"
   },
   "Blog": {
     "nav": "Blog",
@@ -340,7 +343,7 @@
   "Legal": {
     "nav": "Legal notice",
     "backToSite": "Back to the site",
-    "metaDescription": "Legal notice and privacy policy for WestFrench Academy, French lessons in Rennes.",
+    "metaDescription": "Legal notice and privacy policy for Westfrench Academy, French lessons in Rennes.",
     "formNotice": "Your details are used only to reply to your enquiry.",
     "formNoticeLink": "Learn more"
   },
@@ -358,8 +361,13 @@
   "SectionLabel": {
     "courses": "Courses in Rennes",
     "online": "Online courses",
-    "whyUs": "Why WestFrench",
+    "whyUs": "Why Westfrench",
     "reviews": "Testimonials",
-    "contact": "Contact"
+    "contact": "Contact",
+    "gallery": "Gallery"
+  },
+  "Gallery": {
+    "title": "In pictures",
+    "description": "A few moments from the lessons in Rennes, activities with the students, the room, and the neighbourhood around it."
   }
 }

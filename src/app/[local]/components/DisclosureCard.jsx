@@ -39,12 +39,12 @@ const DisclosureCard = ({
             inside <summary> so tapping it still toggles the card. The rotation
             lives on an inner span so it does not fight the centring translate. */}
         <span
-          className="absolute left-1/2 -translate-x-1/2 bottom-3 z-10 flex items-center justify-center w-8 h-8 rounded-full bg-white/80 shadow"
+          className="absolute left-1/2 -translate-x-1/2 bottom-3 z-10 flex items-center justify-center w-8 h-8 rounded-full bg-veil-80 shadow"
           aria-hidden="true"
         >
           {/* Rotation lives on this inner span so it does not compose with the
               centring translate on the positioned wrapper above. */}
-          <span className="block text-black transition-transform duration-300 group-open:rotate-180">
+          <span className="block text-ink-max transition-transform duration-300 group-open:rotate-180">
             <ExpandIcon />
           </span>
         </span>
@@ -52,12 +52,12 @@ const DisclosureCard = ({
 
       {/* Fades in on open. motion-reduce opts out for anyone who has asked
           their system to minimise animation. */}
-      <ul className="mt-4 space-y-3 text-gray-700 pb-4 group-open:animate-disclosure-open motion-reduce:animate-none">
+      <ul className="mt-4 space-y-3 text-ink-700 pb-4 group-open:animate-disclosure-open motion-reduce:animate-none">
         <li>{children}</li>
       </ul>
     </details>
 
-    <div className="bg-gradient-to-r from-[#ffa45b] to-[#a3e4db] p-2 rounded-3xl shadow-lg flex items-center justify-center">
+    <div className="bg-gradient-to-r from-ember to-mint p-2 rounded-3xl shadow-lg flex items-center justify-center">
       <div className="relative w-[200px] h-[100px] rounded-2xl overflow-hidden">
         <Image
           src={imageSrc}

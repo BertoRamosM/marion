@@ -9,7 +9,7 @@ export async function generateMetadata({ params }) {
   const { local } = await params;
   const t = await getTranslations({ locale: local, namespace: 'Blog' });
 
-  const title = `${t('title')} | WestFrench Academy`;
+  const title = `${t('title')} | Westfrench Academy`;
   const description = t('subtitle');
   const url = `${SITE_URL}/${local}/blog`;
 
@@ -27,7 +27,7 @@ export async function generateMetadata({ params }) {
     },
     openGraph: {
       type: 'website',
-      siteName: 'WestFrench Academy',
+      siteName: 'Westfrench Academy',
       title,
       description,
       url,
@@ -53,27 +53,27 @@ export default async function BlogIndexPage({ params }) {
 
   return (
     <div className="min-h-screen flex flex-col">
-      <div className="top-0 left-0 right-0 z-50 bg-white shadow-md">
+      <div className="top-0 left-0 right-0 z-50 bg-surface shadow-md">
         <Header />
       </div>
 
       <main id="main-content" tabIndex={-1} className="flex-1 p-8 pb-20 sm:p-20">
         <div className="max-w-3xl mx-auto text-center pt-32 sm:pt-28">
-          <h1 className="text-4xl font-bold text-gray-900">
-            <span className="text-[#d24b06]">{t('title')}</span>
+          <h1 className="text-4xl font-bold text-ink-900">
+            <span className="text-rust-lg">{t('title')}</span>
           </h1>
-          <p className="text-lg text-gray-800 mt-4">{t('subtitle')}</p>
+          <p className="text-lg text-ink-800 mt-4">{t('subtitle')}</p>
 
           <Link
             href="/"
-            className="inline-block mt-8 border-2 border-[#ffa45b] text-[#c2410c] px-6 py-3 rounded-lg font-semibold hover:bg-[#ffa45b] hover:text-white transition duration-300"
+            className="inline-block mt-8 border-2 border-ember text-rust px-6 py-3 rounded-lg font-semibold hover:bg-ember hover:text-white transition duration-300"
           >
             ← {t('backToSite')}
           </Link>
         </div>
 
         {posts.length === 0 ? (
-          <p className="text-center text-lg text-gray-700 mt-16">{t('empty')}</p>
+          <p className="text-center text-lg text-ink-700 mt-16">{t('empty')}</p>
         ) : (
           <div className="mt-16 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {posts.map((post) => (

@@ -27,13 +27,24 @@ export default async function Home({ params }) {
 
   return (
     <div className="min-h-screen flex flex-col">
-      {/* Fixed Header and Banner */}
-      <div className="top-0 left-0 right-0 z-50 bg-white shadow-md">
+      {/* Fixed Header and Banner
+
+          z-[70] rather than z-50, and the number matters more than it looks.
+          This div is a flex item with a z-index, so it forms a stacking
+          context: everything inside it, including the full-screen mobile menu,
+          is confined to this one value no matter how high its own z-index
+          goes. At 50 the sticky social icons (60, a direct child of body) drew
+          on top of the open menu. 70 puts the whole header group above them,
+          which is what lets the menu cover them. The header bar itself never
+          overlaps the icons, so nothing is hidden by this.
+
+          Layer order is documented in StickySocialIcons. */}
+      <div className="top-0 left-0 right-0 z-[70] bg-surface shadow-md">
         <Header />
       </div>
 
       {/* Main Content */}
-      <main id="main-content" tabIndex={-1} className="flex-1 p-8 pb-20 gap-16 sm:p-20 items-center">
+      <main id="main-content" tabIndex={-1} className="flex-1 px-8 pt-4 pb-12 gap-16 sm:p-20 items-center">
         {/*
           Order is deliberate, for someone arriving from a search like
           "french classes in rennes":

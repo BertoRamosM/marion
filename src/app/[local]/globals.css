@@ -2,9 +2,265 @@
 @tailwind components;
 @tailwind utilities;
 
+/*
+ * ─────────────────────────────────────────────────────────────────────────
+ *  Colour palette
+ * ─────────────────────────────────────────────────────────────────────────
+ *
+ * Two palettes, one set of names. Components reference the names (as Tailwind
+ * classes, wired up in tailwind.config.js), so a scheme change happens here
+ * and nowhere else.
+ *
+ * The light values are exactly the hexes that used to be hardcoded across the
+ * components, so light mode renders identically to before.
+ *
+ * WHY THIS EXISTS
+ *
+ * A site that declares no dark support does not get shown as a light site to
+ * dark-mode visitors: it gets one invented for it. Chrome Auto Dark Mode and
+ * extensions like Dark Reader invert such pages algorithmically, which is what
+ * produced the broken rendering. Declaring the scheme and shipping a real dark
+ * palette replaces that guess with something designed.
+ *
+ * HOW THE SCHEME IS CHOSEN
+ *
+ * Entirely by the visitor's system setting, through the media query below.
+ * There is no toggle, no stored preference and no JavaScript: the browser
+ * applies the right palette before the first paint, which is both simpler and
+ * faster than anything script-driven could be.
+ */
+:root {
+  /*
+   * Declares support for both schemes. This is the standardised signal that
+   * stops browsers force-inverting the page, and it keeps native UI we do not
+   * style — <select> dropdowns, scrollbars, autofill, the text caret — in step
+   * with whichever palette is showing.
+   */
+  color-scheme: light dark;
+
+  /* Page */
+  --page-from: #f3f4f6;
+  --page-to: #e5e7eb;
+
+  /* Surfaces */
+  --surface: #ffffff;
+  --cream: #fff7f3;
+  --mist: #e5f8f6;
+  --field: #f5f5f4;
+  --paper: #f9f9f9;
+
+  /* Text */
+  --ink: #171717;
+  --ink-900: #111827;
+  --ink-800: #1f2937;
+  --ink-700: #374151;
+  --ink-600: #4b5563;
+  /* #6b7280 measured 3.90:1 on the darker end of the page gradient, under the
+     4.5 needed at 14px. This is the token behind the small print under the
+     section headings. */
+  --ink-500: #5c6572;
+  --ink-300: #d1d5db;
+  --ink-max: #000000;
+
+  /* Brand blues */
+  --brand: #006a8f;
+  --brand-deep: #00485f;
+  --brand-alt: #007ea7;
+  --teal-deep: #2c7a7b;
+
+  /* Mints */
+  --mint: #a3e4db;
+  --mint-soft: #8fded2;
+  --mint-vivid: #3fd0bd;
+  --field-line: #1f8a86;
+
+  /*
+   * Ink for content printed ON a fill that stays light in BOTH schemes:
+   * mint, the orange-to-mint banner, and the orange buttons.
+   *
+   * Deliberately absent from the dark block below: mint stays light in dark
+   * mode because ring-mint and the carousel dots sit on photographs, which do
+   * not change with the colour scheme. Anything printed on mint therefore
+   * needs a dark ink in BOTH schemes. Letting these follow the normal ink ramp
+   * turned every mint chip (the header, the CTA buttons, the section badges,
+   * the top banner) into light-on-light at 1.18:1.
+   *
+   * Values are the ones those elements already had, so light mode is
+   * untouched: on-mint is 7.02:1 on mint here and 5.80:1 once mint darkens
+   * slightly for dark mode; on-mint-ink reaches 10.3:1 there.
+   */
+  --on-mint: #00485f;
+  --on-mint-ink: #171717;
+  --on-mint-rust: #c2410c;
+
+  /*
+   * Backdrop for the "loading" state on a language flag.
+   *
+   * The alpha is baked in rather than written as bg-brand-deep/90 in the
+   * component. That utility silently produces nothing: these tokens are bare
+   * var() references, and Tailwind cannot inject an alpha channel into a
+   * variable it cannot parse. The overlay was fully transparent as a result,
+   * which is why the spinner looked like it was barely there — there was no
+   * backdrop behind it at all.
+   *
+   * Scheme-invariant, for the same reason as the on-mint inks above: it sits
+   * on a flag image inside the mint header bar, and neither changes with the
+   * colour scheme.
+   */
+  --veil-pending: rgb(0 72 95 / 0.92);
+
+  /*
+   * The orange buttons. White on this gradient measured 1.96:1 in light and
+   * 1.79:1 in dark, against a 4.5 requirement — the worst contrast on the
+   * site. Darkening the orange enough to carry white text would take it to
+   * roughly #a03500, which reads brown rather than orange, so the ink flips
+   * instead: 9.33:1 on the light end of the gradient, 7.22:1 on the dark end.
+   */
+  --on-ember: #171717;
+
+  /* Warm accents */
+  --ember: #ffa45b;
+  --ember-deep: #ff7c5b;
+  --ember-vivid: #ff7c3d;
+  /* #c2410c was 4.18:1 on the page gradient. Bold emphasis inside an 18px
+     paragraph misses the large-text exemption by 0.66px, so it needs the full
+     4.5. Same hue, ~9% darker in luminance — deliberately not shifted toward
+     yellow, which is what read as brown before. */
+  --rust: #b03a0a;
+  --rust-lg: #d24b06;
+
+  /* Status */
+  --danger-bg: #fef2f2;
+  --danger-line: #fca5a5;
+  /* Required-field asterisk. #ef4444 was 3.56:1 on the cream form card. */
+  --danger-mark: #b91c1c;
+  --danger-text: #991b1b;
+  --danger-text-strong: #7f1d1d;
+  --danger-detail: rgb(185 28 28 / 0.8);
+  /*
+   * Filled rating star — the same colour as the diamond in SectionDivider, so
+   * the two warm accents on the page match.
+   *
+   * KNOWN CONTRAST SHORTFALL, accepted deliberately. On the white review card
+   * this measures 1.96:1, under the 3:1 that applies to a 24px glyph. The
+   * options were all rejected on looks, and the numbers are unforgiving:
+   *
+   *   #ffa45b  1.96  chosen — matches the divider diamond
+   *   #e8961e  2.38  fails
+   *   #f59e0b  2.15  fails
+   *   #de7c00  3.00  the exact limit; visually almost identical to #d97706
+   *   #d97706  3.19  passes, read as too dark
+   *   #b45309  5.02  passes, reads bronze
+   *
+   * White cards leave no room for a light amber, so the only compliant routes
+   * are changing the backdrop (a dark chip was tried and rejected) or adding a
+   * visible numeric rating so the glyphs become genuine decoration.
+   *
+   * What keeps this defensible: the row carries role="img" and an aria-label
+   * with the rating, and every glyph is aria-hidden, so no information is
+   * available only through seeing the stars. The people affected are sighted
+   * low-vision users, who may not distinguish 4 stars from 5 — currently moot,
+   * since every review in the data is rated 5.
+   */
+  --star: #ffa45b;
+
+  /* White veils: raised panels on a coloured card */
+  --veil-10: rgb(255 255 255 / 0.1);
+  --veil-30: rgb(255 255 255 / 0.3);
+  --veil-50: rgb(255 255 255 / 0.5);
+  --veil-60: rgb(255 255 255 / 0.6);
+  --veil-70: rgb(255 255 255 / 0.7);
+  --veil-80: rgb(255 255 255 / 0.8);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    /*
+     * A deep blue-teal ground rather than neutral charcoal, so the palette
+     * still reads as this site and not as a generic dark theme. Surfaces keep
+     * the warm/cool split the light design has: cream stays warm, mist stays
+     * cool, both at the dark end.
+     */
+    --page-from: #0e1a20;
+    --page-to: #16252d;
+
+    --surface: #16242c;
+    --cream: #26201c;
+    --mist: #102a2f;
+    --field: #1e2b32;
+    --paper: #111d23;
+
+    /*
+     * Raised across the board from a first pass that came out muddier than
+     * intended. Still short of pure white — full-contrast text on a dark
+     * ground causes halation, where the glyphs bloom and get harder to read,
+     * not easier — but close enough that body copy reads as bright.
+     */
+    --ink: #f2f7f9;
+    --ink-900: #fbfdfe;
+    --ink-800: #f2f7f9;
+    --ink-700: #eaf1f5;
+    --ink-600: #e2ebf0;
+    --ink-500: #d9e4ea;
+    --ink-300: #48555e; /* empty rating stars: deliberately left dim */
+    --ink-max: #fbfdfe;
+
+    /*
+     * Note how little separates ink-500 from ink-900 here, compared with the
+     * light palette above. That is on purpose. In light mode a grey step down
+     * reads as "secondary" and stays perfectly legible; on a dark ground the
+     * same step reads as washed out and genuinely hard to read, which is what
+     * happened to the small print under the section headings. Dark mode gets
+     * a much flatter ramp: hierarchy comes from size and weight instead of
+     * from lightness. ink-300 is the deliberate exception, since unfilled
+     * rating stars are meant to recede.
+     */
+
+    /*
+     * Blues invert their relationship with the ground, so these lighten. Also
+     * raised: --brand carries the sticky social icons and most other icons
+     * (they stroke with currentColor), so this token is what makes them read
+     * clearly rather than sink into the page.
+     */
+    --brand: #8ad9f0;
+    --brand-deep: #c4ecf8;
+    --brand-alt: #7fd0e8;
+    --teal-deep: #9fdedd;
+
+    /* Mints stay light: see the note above. */
+    --mint: #86d3c7;
+    --mint-soft: #6fc3b7;
+    --mint-vivid: #3fd0bd;
+    --field-line: #4bb5af;
+
+    --ember: #ffc49a;
+    --ember-deep: #ffab92;
+    --ember-vivid: #ff7c3d; /* ambient blobs only; opacity does the work */
+    --rust: #ffb894;
+    --rust-lg: #ffa878;
+
+    --danger-bg: #2b1416;
+    --danger-line: #7d3a3c;
+    --danger-mark: #ff8a8a;
+    --danger-text: #ffb8b8;
+    --danger-text-strong: #ffcccc;
+    --danger-detail: rgb(255 160 160 / 0.85);
+    --star: #ffc49a; /* matches --ember in this scheme, as above */
+
+    /* A white veil that reads as a soft highlight on cream would be a glaring
+       block on a dark surface, so the alphas drop by roughly a factor of ten.
+       veil-30 is the exception: it sits on a photo and still has to be seen. */
+    --veil-10: rgb(255 255 255 / 0.04);
+    --veil-30: rgb(255 255 255 / 0.12);
+    --veil-50: rgb(255 255 255 / 0.05);
+    --veil-60: rgb(255 255 255 / 0.06);
+    --veil-70: rgb(255 255 255 / 0.07);
+    --veil-80: rgb(255 255 255 / 0.09);
+  }
+}
 
 body {
-  color: #171717;
+  color: var(--ink);
   /*
    * The site font, applied at the root rather than only on <main>.
    * The footer and the sticky social icons live outside <main>, so with
@@ -21,11 +277,11 @@ html {
  * Visible keyboard focus on everything interactive.
  *
  * :focus-visible rather than :focus, so it appears for keyboard users without
- * ringing every mouse click. Wrapped in :where() to keep specificity at zero —
+ * ringing every mouse click. Wrapped in :where() to keep specificity at zero:
  * any component that defines its own focus ring still wins.
  */
 :where(a, button, summary, input, select, textarea, [tabindex]):focus-visible {
-  outline: 3px solid #006a8f;
+  outline: 3px solid var(--brand);
   outline-offset: 2px;
 }
 
@@ -48,4 +304,3 @@ html {
 .skip-link:focus {
   transform: translateY(0);
 }
-

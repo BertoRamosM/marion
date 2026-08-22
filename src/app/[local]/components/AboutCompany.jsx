@@ -11,11 +11,11 @@ import { useTranslations } from 'next-intl';
 import DisclosureCard from './DisclosureCard';
 import SectionHeading from './SectionHeading';
 
-const TEAL = 'bg-[#e5f8f6] text-[#006a8f]';
-const CREAM = 'bg-[#fff7f3]';
+const TEAL = 'bg-mist text-brand';
+const CREAM = 'bg-cream';
 // Card titles are text-2xl (24px), which WCAG treats as large text (3:1),
 // so they can carry a brighter orange than the smaller inline text below.
-const CREAM_TITLE = 'text-[#d24b06]';
+const CREAM_TITLE = 'text-rust-lg';
 
 const AboutCompany = () => {
   const t = useTranslations("AboutCompany");
@@ -23,17 +23,17 @@ const AboutCompany = () => {
   const bold = (key) => <span className='font-bold'>{t(key)}</span>;
 
   return (
-    <div className="flex flex-col items-center justify-center py-16 px-0 sm:px-6 min-h-screen">
+    <div className="flex flex-col items-center justify-center py-8 sm:py-16 px-0 sm:px-6 sm:min-h-screen">
 
       <SectionHeading
         icon={<Heart />}
         label={tLabel('whyUs')}
-        title={<><span className="text-[#006a8f]">{t("text3")} </span>{t("text4")}</>}
+        title={<><span className="text-brand">{t("text3")} </span>{t("text4")}</>}
       >
         <p>
-          {t("text5")} <span className="font-bold text-[#c2410c]">{t("text6")}</span> {t("text7")}
+          {t("text5")} <span className="font-bold text-rust">{t("text6")}</span> {t("text7")}
         </p>
-        <p className="mt-2 text-sm text-gray-500">{t("text8")}</p>
+        <p className="mt-2 text-sm text-ink-500">{t("text8")}</p>
       </SectionHeading>
 
       {/* Content Sections
@@ -125,7 +125,11 @@ const AboutCompany = () => {
             {bold("text82")}
             {bold("text83")}
             {t("text84")}
-            {bold("text85")}!
+            {/* The "!" lives in the translations, not here. Hardcoded, it
+                picked up the JSX whitespace left by the empty text84/text85
+                fragments in English, rendering "lifestyle !" — correct
+                spacing in French, wrong in English and Spanish. */}
+            {bold("text85")}
           </DisclosureCard>
 
           <DisclosureCard

@@ -19,19 +19,19 @@ const SectionHeading = ({ icon, label, title, children }) => (
   <div className="max-w-3xl mx-auto text-center mb-12">
     <span
       aria-hidden="true"
-      className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-[#a3e4db] text-[#00485f] shadow-md ring-4 ring-white/70"
+      className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-mint text-on-mint shadow-md ring-4 ring-veil-70"
     >
       {icon}
     </span>
 
-    <p className="mt-4 text-xs font-bold uppercase tracking-[0.2em] text-[#006a8f]">
+    <p className="mt-4 text-xs font-bold uppercase tracking-[0.2em] text-brand">
       {label}
     </p>
 
-    <h2 className="mt-2 text-4xl font-bold text-gray-900">{title}</h2>
+    <h2 className="mt-2 text-4xl font-bold text-ink-900">{title}</h2>
 
     {children ? (
-      <div className="mt-4 text-lg text-gray-800">{children}</div>
+      <div className="mt-4 text-lg text-ink-800">{children}</div>
     ) : null}
   </div>
 );

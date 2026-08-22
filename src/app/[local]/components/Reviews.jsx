@@ -51,13 +51,24 @@ const SmallCarousel = ({ slides }) => {
     }
   };
 
+  /*
+   * The glyphs are decorative; the rating is announced by the wrapper's
+   * aria-label instead.
+   *
+   * Before this, the score existed only as five yellow characters with no
+   * text alternative, so a screen reader got either nothing useful or a
+   * literal "black star" five times. aria-hidden on each glyph plus one
+   * role="img" label on the container is the standard fix, and it also stops
+   * the stars being read out in the middle of the review text.
+   */
   const renderStars = (rating) => {
     const stars = [];
     for (let i = 1; i <= 5; i++) {
       stars.push(
         <span
           key={i}
-          className={rating >= i ? "text-yellow-400" : "text-gray-300"}
+          aria-hidden="true"
+          className={`text-2xl ${rating >= i ? "text-star" : "text-ink-300"}`}
         >
           ★
         </span>
@@ -73,11 +84,11 @@ const SmallCarousel = ({ slides }) => {
   // (which shifts whatever follows) gets much smaller. Matches the contact
   // form's width so the two sections line up.
   return (
-    <div className="w-full max-w-3xl mx-auto pb-20" id="reviews">
+    <div className="w-full max-w-3xl mx-auto pb-10 sm:pb-20" id="reviews">
       <SectionHeading
         icon={<FriendIcon />}
         label={tLabel("reviews")}
-        title={<span className="text-[#006a8f]">{t("title")}</span>}
+        title={<span className="text-brand">{t("title")}</span>}
       />
 
       {/* No fixed or minimum height: the container hugs whichever review is
@@ -99,10 +110,10 @@ const SmallCarousel = ({ slides }) => {
                 : "opacity-0 absolute top-0 left-0 pointer-events-none"
             }`}
           >
-            <div className="relative bg-white shadow-lg rounded-xl p-6 flex flex-col items-center text-center">
+            <div className="relative bg-surface shadow-lg rounded-xl p-6 flex flex-col items-center text-center">
               
               {/* Slide counter */}
-              <div className="absolute top-4 right-4 text-xs font-medium text-gray-700 bg-white/80 backdrop-blur-md px-3 py-1 rounded-full shadow-sm">
+              <div className="absolute top-4 right-4 text-xs font-medium text-ink-700 bg-veil-80 backdrop-blur-md px-3 py-1 rounded-full shadow-sm">
                 {formatNumber(currentIndex + 1)} / {formatNumber(slides.length)}
               </div>
 
@@ -115,15 +126,22 @@ const SmallCarousel = ({ slides }) => {
                 />
               </div>
 
-              <h3 className="font-semibold text-lg text-black">
+              <h3 className="font-semibold text-lg text-ink-max">
                 {slide.title}
               </h3>
 
-              <p className="text-gray-700 text-sm my-2 px-6">
+              <p className="text-ink-700 text-sm my-2 px-6">
                 {slide.text}
               </p>
 
-              <div className="flex space-x-1">
+              {/* Bare on the card, no chip. See the contrast note on --star
+                  in globals.css: this colour does not meet 3:1 on white, and
+                  that was accepted on purpose. */}
+              <div
+                className="flex space-x-1"
+                role="img"
+                aria-label={t("rating", { rating: slide.rating })}
+              >
                 {renderStars(slide.rating)}
               </div>
             </div>
@@ -133,7 +151,7 @@ const SmallCarousel = ({ slides }) => {
         {/* Pinned near the top of the card so they stay reachable no matter
             how tall the active review is.
 
-            They were bg-white/70 with a black glyph — sitting on a white card,
+            They were bg-veil-70 with a black glyph — sitting on a white card,
             which made them almost invisible, and hover:text-black/40 actually
             faded them further. Now a mint ring provides the contrast against
             white, matching the hero carousel's arrows, and hover fills the
@@ -141,7 +159,7 @@ const SmallCarousel = ({ slides }) => {
         <button
           onClick={prevSlide}
           aria-label="Previous Slide"
-          className="group absolute top-40 -left-2 sm:-left-4 -translate-y-1/2 z-10 flex h-11 w-11 items-center justify-center rounded-full bg-white text-[#006a8f] ring-4 ring-[#a3e4db] shadow-lg transition-all duration-300 hover:bg-[#a3e4db] hover:text-[#00485f] hover:scale-110"
+          className="group absolute top-40 -left-2 sm:-left-4 -translate-y-1/2 z-10 flex h-11 w-11 items-center justify-center rounded-full bg-surface text-brand ring-4 ring-mint shadow-lg transition-all duration-300 hover:bg-mint hover:text-brand-deep hover:scale-110"
         >
           <svg
             className="h-4 w-4"
@@ -162,7 +180,7 @@ const SmallCarousel = ({ slides }) => {
         <button
           onClick={nextSlide}
           aria-label="Next Slide"
-          className="group absolute top-40 -right-2 sm:-right-4 -translate-y-1/2 z-10 flex h-11 w-11 items-center justify-center rounded-full bg-white text-[#006a8f] ring-4 ring-[#a3e4db] shadow-lg transition-all duration-300 hover:bg-[#a3e4db] hover:text-[#00485f] hover:scale-110"
+          className="group absolute top-40 -right-2 sm:-right-4 -translate-y-1/2 z-10 flex h-11 w-11 items-center justify-center rounded-full bg-surface text-brand ring-4 ring-mint shadow-lg transition-all duration-300 hover:bg-mint hover:text-brand-deep hover:scale-110"
         >
           <svg
             className="h-4 w-4"

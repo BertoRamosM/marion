@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import { Link, usePathname } from '../../../i18n/routing';
+import { useLinkStatus } from 'next/link';
 
 import { useTranslations, useLocale } from "next-intl";
 import { UkFlag } from "../icons/UkFlag";
@@ -12,10 +13,58 @@ import { Banner } from "./Banner";
 
 import Image from "next/image";
 
+/*
+ * Spinner shown on a flag while its page is being fetched.
+ *
+ * Switching language cannot be made faster by prefetching: next-intl refuses
+ * to prefetch a locale-switching link, because the response carries a
+ * Set-Cookie that would change the visitor's language before they clicked.
+ * So the click genuinely has to wait for a round trip, and the only thing
+ * worth fixing is that it used to look like nothing had happened.
+ *
+ * useLinkStatus reports the pending state of the nearest ancestor Link, which
+ * is why this is a child component rather than logic in the map below.
+ */
+const FlagPending = () => {
+  const { pending } = useLinkStatus();
+  if (!pending) return null;
+
+  return (
+    <span
+      aria-hidden="true"
+      className="absolute inset-0 z-10 flex items-center justify-center rounded-full bg-veil-pending"
+    >
+      {/* Still legible as a busy state when animation is suppressed: the
+          tinted overlay and the ring remain, only the spinning stops. */}
+      <span className="h-5 w-5 animate-spin rounded-full border-[3px] border-mint border-t-transparent motion-reduce:animate-none" />
+    </span>
+  );
+};
+
+/*
+ * One source of truth for the navigation, used by both the desktop bar and the
+ * mobile menu.
+ *
+ * They used to be two hand-maintained copies of the same five links, which is
+ * how they drifted into an order that no longer matched the page. Mapping both
+ * from one array means they cannot disagree again.
+ *
+ * Order mirrors the section order in page.js: hero, Marion's bio, the two
+ * course offers, then contact.
+ */
+const NAV = [
+  { href: '/#default-carousel', key: 'home' },
+  { href: '/#about', key: 'about' },
+  { href: '/#courses', key: 'coursesRennes' },
+  { href: '/#online-courses', key: 'onlineCourses' },
+  { href: '/#contact', key: 'contact' },
+  // Blog is written and routed but deliberately not linked yet:
+  // { href: '/blog', key: 'nav' },
+];
+
 const Header = () => {
   const t = useTranslations("Header");
   const tA11y = useTranslations("A11y");
-  const tBlog = useTranslations("Blog");
   // Locale switching keeps you on the current page (e.g. a blog post)
   // instead of always jumping back to the home page.
   const pathname = usePathname();
@@ -53,7 +102,41 @@ const Header = () => {
     setIsModalOpen((prev) => !prev);
   };
 
+  /*
+   * Freeze the page while the menu is open.
+   *
+   * Without this the body scrolled behind the overlay, which is how the menu
+   * appeared to slide away: scrolling down triggered the header's hide
+   * animation, and the menu used to be a child of the element that animates.
+   * The menu now sits outside it (see the note on the fragment below), but the
+   * page must still not scroll underneath a full-screen menu.
+   *
+   * The previous inline value is restored rather than blanked, so this cannot
+   * clobber an overflow set by anything else.
+   */
+  useEffect(() => {
+    if (!isModalOpen) return;
+    const previous = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    return () => {
+      document.body.style.overflow = previous;
+    };
+  }, [isModalOpen]);
+
+  /*
+   * The menu is a sibling of the header bar, not a child of it.
+   *
+   * That bar is fixed and animates with translateY(-100%) when you scroll
+   * down. A transform also makes it the containing block for any fixed
+   * descendant, so while the menu lived inside it the overlay (a) slid off
+   * screen with the header on any downward scroll and (b) sized itself against
+   * the bar rather than the viewport, so inset-0 never covered the screen.
+   *
+   * Both stay inside page.js's z-[70] wrapper, which is what keeps the menu
+   * above the sticky social icons at z-60.
+   */
   return (
+    <>
     <div
       className={`fixed top-0 z-50 w-full transition-transform duration-300 ${isHidden ? "header-hidden" : ""
         }`}
@@ -62,11 +145,11 @@ const Header = () => {
 {/* Single row at every size. Stacking on phones (flex-col) pushed logo,
     menu button and flags onto three lines, costing ~90px of vertical space
     for content that fits comfortably side by side. */}
-<header className="flex items-center flex-row justify-between gap-2 sm:gap-4 py-1 sm:py-2 px-2 sm:px-20 bg-[#a3e4db] w-full text-center">
-        {/*  <h1 className="text-sm sm:text-base lg:text-4xl font-bold flex flex-col items-center text-center border-2 border-[#2c7a7b] p-4">
-          <span className="text-[#006a8f]">WestFrench</span>
+<header className="flex items-center flex-row justify-between gap-2 sm:gap-4 py-1 sm:py-2 px-2 sm:px-20 bg-mint text-on-mint-ink w-full text-center">
+        {/*  <h1 className="text-sm sm:text-base lg:text-4xl font-bold flex flex-col items-center text-center border-2 border-teal-deep p-4">
+          <span className="text-brand">Westfrench</span>
           <span
-            className={`text-[#2c7a7b]`}
+            className={`text-teal-deep`}
             style={{
               fontFamily: "var(--font-dancing-script)",
               marginTop: "-12px",
@@ -86,50 +169,27 @@ const Header = () => {
   priority
   className="py-1 w-20 h-auto sm:w-24 md:w-28 lg:w-32"
 />
-        <div className="hidden lg:flex gap-8 items-center font-bold">
-
-          <Link
-            href={"/#default-carousel"}
-            className="hover:text-[#ffa45b] transition duration-300"
-          >
-            {t("home")}
-          </Link>
-
-          <Link
-            href={"/#courses"}
-            className="hover:text-[#ffa45b] transition duration-300"
-          >
-            {t("coursesRennes")}
-          </Link>
-          <Link
-            href={"/#online-courses"}
-            className="hover:text-[#ffa45b] transition duration-300"
-          >
-            {t("onlineCourses")}
-          </Link>
-          <Link
-            href={"/#about"}
-            className="hover:text-[#ffa45b] transition duration-300"
-          >
-            {t("about")}
-          </Link>
-          {/* <Link
-            href={"/blog"}
-            prefetch={false}
-            className="hover:text-[#ffa45b] transition duration-300"
-          >
-            {tBlog("nav")}
-          </Link> */}
-          <Link
-            href={"/#contact"}
-            className="hover:text-[#ffa45b] transition duration-300"
-          >
-            {t("contact")}
-          </Link>
-        </div>
+        {/* <nav>, not a plain div: this was the only navigation on the site
+            with no landmark, so screen-reader users had nothing to jump to.
+            The mobile menu already used <nav>, but it only exists while
+            open. */}
+        <nav className="hidden lg:flex gap-8 items-center font-bold">
+          {NAV.map(({ href, key }) => (
+            <Link
+              key={href}
+              href={href}
+              className="hover:text-ember transition duration-300"
+            >
+              {t(key)}
+            </Link>
+          ))}
+        </nav>
         <button
           aria-label="toggle menu"
-          className="lg:hidden text-lg font-bold py-1 px-2 text-[#c2410c] border border-[#ffa45b] rounded-lg hover:bg-[#ffa45b] hover:text-white transition duration-300"
+          /* on-mint-ink, not on-mint-rust: the orange glyph measured 3.0:1
+             against the mint bar and 18px bold just misses the large-text
+             threshold, so it needed 4.5. Near-black takes it past 10:1. */
+          className="lg:hidden text-lg font-bold py-1 px-2 text-on-mint-ink border border-ember rounded-lg hover:bg-ember hover:text-white transition duration-300"
           onClick={toggleModal}
         >
           ☰
@@ -150,56 +210,47 @@ const Header = () => {
                 key={code}
                 href={pathname}
                 locale={code}
-                /* prefetch disabled: switching language is a deliberate, rare
-                   action, so there is no need to download the other locales
-                   up front. */
+                /* Not prefetchable by design — see FlagPending above. The
+                   prop is kept explicit so it is clear this is intentional
+                   rather than an oversight. */
                 prefetch={false}
                 aria-label={label}
                 aria-current={isActive ? 'true' : undefined}
                 title={isActive ? `${label} — ${tA11y('currentLanguage')}` : label}
                 className={`relative flex h-8 w-8 sm:h-9 sm:w-9 items-center justify-center overflow-hidden rounded-full shadow-sm transition-all duration-300 [&>svg]:h-full [&>svg]:w-full [&>svg]:object-cover ${
                   isActive
-                    ? 'ring-2 ring-[#006a8f] ring-offset-1 ring-offset-[#a3e4db] scale-105'
+                    ? 'ring-2 ring-brand ring-offset-1 ring-offset-mint scale-105'
                     : 'opacity-55 saturate-50 hover:opacity-100 hover:saturate-100 hover:scale-110'
                 }`}
               >
                 <Flag />
+                <FlagPending />
               </Link>
             );
           })}
         </div>
       </header>
+    </div>
 
+      {/* z-[100]: an overlay has to cover the sticky social icons, which sit
+          at 60. See the layer list in StickySocialIcons. */}
       {isModalOpen && (
-        <div className="fixed inset-0 bg-black bg-opacity-75 flex flex-col items-center justify-center text-black z-50">
-          {/* Explicitly white: the wrapper sets text-black, so the close
+        <div className="fixed inset-0 bg-black bg-opacity-75 flex flex-col items-center justify-center text-ink-max z-[100]">
+          {/* Explicitly white: the wrapper sets text-ink-max, so the close
               glyph was rendering black against a near-black overlay. */}
           <button
             aria-label="close menu"
-            className="absolute top-4 right-4 p-2 text-5xl leading-none font-bold text-white hover:text-[#ffa45b] transition duration-300"
+            className="absolute top-4 right-4 p-2 text-5xl leading-none font-bold text-white hover:text-ember transition duration-300"
             onClick={toggleModal}
           >
             ×
           </button>
           <nav className="flex flex-col gap-8 text-xl font-bold text-white">
-            <Link href={"/#default-carousel"} onClick={toggleModal}>
-              {t("home")}
-            </Link>
-            <Link href={"/#courses"} onClick={toggleModal}>
-              {t("coursesRennes")}
-            </Link>
-            <Link href={"/#online-courses"} onClick={toggleModal}>
-              {t("onlineCourses")}
-            </Link>
-            <Link href={"/#about"} onClick={toggleModal}>
-              {t("about")}
-            </Link>
-           {/*  <Link href={"/blog"} onClick={toggleModal} prefetch={false}>
-              {tBlog("nav")}
-            </Link> */}
-            <Link href={"/#contact"} onClick={toggleModal}>
-              {t("contact")}
-            </Link>
+            {NAV.map(({ href, key }) => (
+              <Link key={href} href={href} onClick={toggleModal}>
+                {t(key)}
+              </Link>
+            ))}
           </nav>
         </div>
       )}
@@ -209,7 +260,7 @@ const Header = () => {
           transform: translateY(-100%);
         }
       `}</style>
-    </div>
+    </>
   );
 };
 

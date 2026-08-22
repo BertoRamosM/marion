@@ -24,10 +24,10 @@ import EmailIcon from '../icons/EmailIcon';
  *     the 4.5 threshold.
  */
 const FIELD =
-  'w-full mt-2 p-3 rounded-lg bg-stone-100 border-2 border-[#1f8a86] text-gray-900 ' +
-  'placeholder:text-gray-600 shadow-sm transition-colors duration-200 ' +
-  'hover:border-[#006a8f] focus:border-[#006a8f] focus:outline-none ' +
-  'focus:ring-2 focus:ring-[#ffa45b]';
+  'w-full mt-2 p-3 rounded-lg bg-field border-2 border-field-line text-ink-900 ' +
+  'placeholder:text-ink-600 shadow-sm transition-colors duration-200 ' +
+  'hover:border-brand focus:border-brand focus:outline-none ' +
+  'focus:ring-2 focus:ring-ember';
 
 const ContactForm = () => {
   const [status, setStatus] = useState(null);
@@ -66,12 +66,12 @@ const ContactForm = () => {
   // the content no longer fills the viewport, so centring it inside a
   // full-height box would have re-added empty space above the form.
   return (
-    <div className="flex items-start justify-center px-0 sm:px-6 pt-8 pb-24" id="contact">
-      <div className="w-full max-w-3xl bg-[#fff7f3] p-8 rounded-3xl shadow-lg text-black">
+    <div className="flex items-start justify-center px-0 sm:px-6 pt-4 sm:pt-8 pb-12 sm:pb-24" id="contact">
+      <div className="w-full max-w-3xl bg-cream p-8 rounded-3xl shadow-lg text-ink-max">
         <SectionHeading
           icon={<EmailIcon />}
           label={tLabel('contact')}
-          title={<span className="text-[#d24b06]">{t('title')}</span>}
+          title={<span className="text-rust-lg">{t('title')}</span>}
         />
 
         <form
@@ -91,8 +91,8 @@ const ContactForm = () => {
 
           {/* Name */}
           <div>
-            <label htmlFor="name" className="block text-sm font-medium text-[#006a8f]">
-              {t('text1')} <span className="text-red-500">*</span>
+            <label htmlFor="name" className="block text-sm font-medium text-brand">
+              {t('text1')} <span className="text-danger-mark">*</span>
             </label>
             <input
               type="text"
@@ -106,8 +106,8 @@ const ContactForm = () => {
 
           {/* Email */}
           <div>
-            <label htmlFor="email" className="block text-sm font-medium text-[#006a8f]">
-              {t('text3')} <span className="text-red-500">*</span>
+            <label htmlFor="email" className="block text-sm font-medium text-brand">
+              {t('text3')} <span className="text-danger-mark">*</span>
             </label>
             <input
               type="email"
@@ -121,7 +121,7 @@ const ContactForm = () => {
 
           {/* Phone */}
           <div>
-            <label htmlFor="phone" className="block text-sm font-medium text-[#006a8f]">
+            <label htmlFor="phone" className="block text-sm font-medium text-brand">
               {t('text5')}
             </label>
             <input
@@ -135,7 +135,7 @@ const ContactForm = () => {
 
           {/* French Level */}
           <div>
-            <label htmlFor="frenchLevel" className="block text-sm font-medium text-[#006a8f]">
+            <label htmlFor="frenchLevel" className="block text-sm font-medium text-brand">
               {t('text7')}
             </label>
             <select
@@ -155,7 +155,7 @@ const ContactForm = () => {
 
           {/* Subject */}
           <div>
-            <label htmlFor="objet" className="block text-sm font-medium text-[#006a8f]">
+            <label htmlFor="objet" className="block text-sm font-medium text-brand">
               {t('text15')}
             </label>
             <input
@@ -169,8 +169,8 @@ const ContactForm = () => {
 
           {/* Message */}
           <div>
-            <label htmlFor="message" className="block text-sm font-medium text-[#006a8f]">
-              {t('text17')} <span className="text-red-500">*</span>
+            <label htmlFor="message" className="block text-sm font-medium text-brand">
+              {t('text17')} <span className="text-danger-mark">*</span>
             </label>
             <textarea
               id="message"
@@ -187,7 +187,7 @@ const ContactForm = () => {
             <button
             aria-label='send message'
               type="submit"
-              className="bg-gradient-to-tr from-[#ffa45b] to-[#ff7c5b] px-6 py-3 rounded-lg text-white font-semibold shadow hover:scale-105 transition-transform duration-300 ease-out"
+              className="bg-gradient-to-tr from-ember to-ember-deep px-6 py-3 rounded-lg text-on-ember font-semibold shadow hover:scale-105 transition-transform duration-300 ease-out"
               disabled={status === 'pending' || status === 'ok'}
             >
               {status === 'ok'
@@ -199,11 +199,11 @@ const ContactForm = () => {
 
             {/* GDPR asks that people be told how their data is used at the
                 point of collection, not only on a separate page. */}
-            <p className="mt-4 text-xs text-gray-600">
+            <p className="mt-4 text-xs text-ink-600">
               {tLegal('formNotice')}{' '}
               <Link
                 href="/mentions-legales"
-                className="text-[#006a8f] hover:text-[#c2410c] underline"
+                className="text-brand hover:text-rust underline"
               >
                 {tLegal('formNoticeLink')}
               </Link>
@@ -221,24 +221,24 @@ const ContactForm = () => {
           <div
             role="alert"
             aria-live="assertive"
-            className="mt-6 rounded-2xl border-2 border-red-300 bg-red-50 p-5 text-center shadow-lg"
+            className="mt-6 rounded-2xl border-2 border-danger-line bg-danger-bg p-5 text-center shadow-lg"
           >
-            <p className="text-lg font-bold text-red-800">
+            <p className="text-lg font-bold text-danger-text">
               {t('errorTitle')}
             </p>
-            <p className="mt-2 text-sm text-red-900">{t('errorHelp')}</p>
+            <p className="mt-2 text-sm text-danger-text-strong">{t('errorHelp')}</p>
 
             {/* The address as its own tappable block rather than an inline
                 link: if the form is broken, this is the only way through, so
                 it should be impossible to miss. */}
             <a
               href="mailto:marion.westfrench@gmail.com"
-              className="mt-3 inline-block break-all rounded-lg bg-white px-5 py-3 text-base font-bold text-red-800 underline decoration-2 underline-offset-2 shadow transition-transform duration-300 hover:scale-105"
+              className="mt-3 inline-block break-all rounded-lg bg-surface px-5 py-3 text-base font-bold text-danger-text underline decoration-2 underline-offset-2 shadow transition-transform duration-300 hover:scale-105"
             >
               marion.westfrench@gmail.com
             </a>
             {error && (
-              <p className="mt-3 text-xs text-red-700/80">
+              <p className="mt-3 text-xs text-danger-detail">
                 {t('errorMessage')}: {error}
               </p>
             )}
@@ -249,12 +249,12 @@ const ContactForm = () => {
           <div
             role="status"
             aria-live="polite"
-            className="mt-6 rounded-2xl border-2 border-[#a3e4db] bg-[#e5f8f6] p-5 text-center shadow-lg"
+            className="mt-6 rounded-2xl border-2 border-mint bg-mist p-5 text-center shadow-lg"
           >
-            <p className="text-lg font-bold text-[#00485f]">
+            <p className="text-lg font-bold text-brand-deep">
               {t('successTitle')}
             </p>
-            <p className="mt-2 text-sm text-[#006a8f]">
+            <p className="mt-2 text-sm text-brand">
               {t('successHelp')}
             </p>
           </div>

@@ -70,20 +70,20 @@ export default function InstagramGallery() {
       <div className="text-center">
         <h2
           id="instagram-heading"
-          className="flex items-center justify-center gap-3 text-3xl font-bold text-[#d24b06]"
+          className="flex items-center justify-center gap-3 text-3xl font-bold text-rust-lg"
         >
-          <span className="text-[#006a8f]">
+          <span className="text-brand">
             <Instagram />
           </span>
           {t("title")}
         </h2>
-        <p className="mt-3 text-gray-700">{t("subtitle")}</p>
+        <p className="mt-3 text-ink-700">{t("subtitle")}</p>
 
         <a
           href={PROFILE_URL}
           target="_blank"
           rel="noopener noreferrer"
-          className="mt-5 inline-flex items-center gap-2 rounded-lg bg-gradient-to-tr from-[#ffa45b] to-[#ff7c5b] px-6 py-3 font-semibold text-white shadow transition-transform duration-300 hover:scale-105"
+          className="mt-5 inline-flex items-center gap-2 rounded-lg bg-gradient-to-tr from-ember to-ember-deep px-6 py-3 font-semibold text-on-ember shadow transition-transform duration-300 hover:scale-105"
         >
           <Instagram />
           {t("cta")}

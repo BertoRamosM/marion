@@ -1,7 +1,7 @@
 {
   "Metadata": {
-    "title": "WestFrench Academy | Clases de francés en Rennes",
-    "description": "Clases de francés en Rennes para expatriados: grupos reducidos o clases particulares en línea. ¡Primera clase de prueba gratuita! Reserva con Marion."
+    "title": "Westfrench Academy | Clases de francés en Rennes",
+    "description": "Westfrench Academy ofrece clases de francés en Rennes para expatriados: grupos reducidos o clases particulares en línea. Prueba gratis con Marion."
   },
   "Schema": {
     "courseGroupName": "Clases de francés en grupos reducidos en Rennes",
@@ -10,7 +10,7 @@
     "courseOnlineDesc": "Clases particulares de francés en línea para preparar tu llegada al noroeste de Francia. Programa personalizado adaptado a tus necesidades y a tu futura región."
   },
   "A11y": {
-    "logo": "Logotipo de WestFrench Academy",
+    "logo": "Logotipo de Westfrench Academy",
     "marion": "Marion, profesora de francés como lengua extranjera en Rennes",
     "galleryItem": "Clases de francés para expatriados en Rennes — foto {number}",
     "blogImage": "Clases de francés para expatriados en Rennes",
@@ -53,13 +53,13 @@
     "text4": "Antes de ser profesora, fui guía turística y soy una apasionada por la historia de Bretaña y Normandía (de donde soy originaria).",
     "text5": "Como me gusta enseñar y estar en contacto con culturas de todo el mundo, decidí volver a estudiar para ser profesora y obtener el diploma DAEFLE (diploma de aptitud para la enseñanza del francés como lengua extranjera).",
     "text6": "Comencé dando clases de francés en un centro de idiomas en el sur de Francia a gente del mundo entero. ¡Me encantó esa experiencia y me animó a abrir mi propia escuela!",
-    "text7": "volví a Bretaña y ahora empiezo WestFrench Academy, un concepto único en Rennes."
+    "text7": "volví a Bretaña y ahora empiezo Westfrench Academy, un concepto único en Rennes."
   },
   "AboutCompany": {
-    "Marion": "WestFrench con Marion:",
+    "Marion": "Westfrench con Marion:",
     "text1": "Aprende francés rápidamente en mini-grupo con una profesora local.",
     "text2": "Elige el contenido de tus clases y conoce a otros expats.",
-    "text3": "WestFrench,",
+    "text3": "Westfrench,",
     "text4": "es la única escuela de francés en Rennes exclusiva para los expats.",
     "text5": "Te ofrezco un ",
     "text6": "lugar auténtico y familiar",
@@ -141,7 +141,7 @@
     "text82": "tradiciones bretonas, ",
     "text83": "la gastronomía ",
     "text84": "y el ",
-    "text85": "estilo de vida rennais",
+    "text85": "estilo de vida rennais!",
     "text86": "El barrio único y central del Colombier",
     "text87": "Las clases colectivas se imparten en la",
     "text88": "Maison des Associations, ",
@@ -202,7 +202,7 @@
     "text1": "Clases en mini-grupo en Rennes: únete a nuestra comunidad de expats",
     "text2": "Integrarse en un nuevo país puede ser todo un reto cuando no se domina el idioma. ¡Aprende francés rápidamente con una profesora que se parece a ti y haz nuevos amigos!",
     "text3": "¡Olvídate de las clases masificadas con cursos impersonales y estandarizados!",
-    "text4": "En WestFrench, te prometo:",
+    "text4": "En Westfrench, te prometo:",
     "text5": "Mini-grupos de 3 a 8 personas.",
     "text6": "Atención personalizada y tiempo de palabra equilibrado.",
     "text7": "Clases a medida según tus intereses y objetivos.",
@@ -237,7 +237,8 @@
     "text30": "*3 meses 24€/h, 6 meses 22€",
     "textWed1": " Miércoles",
     "textWed2": " Nivel A1 (principante):",
-    "textWed3": " 18:30 - 20:00"
+    "textWed3": " 18:30 - 20:00",
+    "bookPlace": "Reservar mi plaza"
   },
   "online": {
     "title": "Clases Individuales en línea:",
@@ -247,7 +248,7 @@
     "text4": "aprendizaje de francés desde ahora a distancia",
     "text5": "con Marion, a través de clases a medida adaptadas a tus necesidades y a tu nueva región.",
     "text6": "¡Olvídate de las aplicaciones inútiles y descontextualizadas para aprender vocabulario!",
-    "textWF": "En WestFrench, encontrarás:",
+    "textWF": "En Westfrench, encontrarás:",
     "text7": "Un programa de francés eficaz y a medida para aprender, en solo unas horas, a desenvolverte en las situaciones de comunicación más básicas según tus necesidades (por ejemplo: presentarse, conocer a los vecinos, realizar trámites administrativos, hacer compras, pedir en el restaurante, tomar una cita, llamar por teléfono, responder a un anuncio de vivienda o postular a una oferta de trabajo).",
     "text8": "Marion, una profesora local, cálida y comprensiva que conoce tu idioma",
     "text9": "Clases con enfoque cultural para conocer todo sobre tu futura ciudad y/o región (por ejemplo: si deseas mudarte próximamente a Nantes, descubrirás su historia, así como la gastronomía, los lugares culturales, el estilo de vida y los hermosos pueblos y viñedos de los alrededores).",
@@ -255,7 +256,8 @@
     "text11": "Precios para sesiones de 1h30.",
     "text12": "10 sesiones - 15h: ",
     "text13": "20 sesiones - 30h: ",
-    "text14": "* 10 sessions 35€/h, 20 sessions 30€/h"
+    "text14": "* 10 sessions 35€/h, 20 sessions 30€/h",
+    "bookPlace": "Reservar mi plaza"
   },
   "Reviews": {
     "title": "Estudiantes Satisfechos",
@@ -324,7 +326,8 @@
         "name": "Kristine Borsholm",
         "text": "¡Las mejores clases de francés que he tenido! Pasé de un nivel A1/A2 a B2 en un año gracias a Marion, que me ayudó muchísimo. ¡La recomiendo de verdad!"
       }
-    ]
+    ],
+    "rating": "Valoración: {rating} de 5"
   },
   "Blog": {
     "nav": "Blog",
@@ -340,7 +343,7 @@
   "Legal": {
     "nav": "Aviso legal",
     "backToSite": "Volver al sitio",
-    "metaDescription": "Aviso legal y política de privacidad de WestFrench Academy, clases de francés en Rennes.",
+    "metaDescription": "Aviso legal y política de privacidad de Westfrench Academy, clases de francés en Rennes.",
     "formNotice": "Tus datos se usan únicamente para responder a tu solicitud.",
     "formNoticeLink": "Más información"
   },
@@ -358,8 +361,13 @@
   "SectionLabel": {
     "courses": "Cursos en Rennes",
     "online": "Cursos en línea",
-    "whyUs": "Por qué WestFrench",
+    "whyUs": "Por qué Westfrench",
     "reviews": "Testimonios",
-    "contact": "Contacto"
+    "contact": "Contacto",
+    "gallery": "Galería"
+  },
+  "Gallery": {
+    "title": "En imágenes",
+    "description": "Algunos momentos de las clases en Rennes, actividades con los estudiantes, la sala y el barrio de alrededor."
   }
 }

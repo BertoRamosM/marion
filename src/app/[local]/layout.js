@@ -45,7 +45,7 @@ function buildJsonLd(locale, t, description) {
   const organization = {
     "@type": ["LocalBusiness", "EducationalOrganization"],
     "@id": orgId,
-    name: "WestFrench Academy",
+    name: "Westfrench Academy",
     url: pageUrl,
     logo: `${SITE_URL}/logos/logo-no-bg.png`,
     // The photo Google shows beside the search result, read from the
@@ -73,10 +73,29 @@ function buildJsonLd(locale, t, description) {
       latitude: 48.10542631895695,
       longitude: -1.674797659032797,
     },
+    /*
+     * Copied from the Google Business Profile, which Google treats as
+     * authoritative. Two blocks because the closing time differs: Tuesday and
+     * Thursday run late, the other three days do not.
+     *
+     * Saturday and Sunday are omitted rather than declared with zero hours —
+     * in schema.org an absent day means closed, and listing them explicitly
+     * adds noise without adding meaning.
+     *
+     * NOTE: Tuesday and Thursday closing at 19:30 contradicts the course
+     * schedule below, which has classes running 19:15–20:45 on exactly those
+     * two days. See the comment on courseSchedule.
+     */
     openingHoursSpecification: [
       {
         "@type": "OpeningHoursSpecification",
-        dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        dayOfWeek: ["Monday", "Wednesday", "Friday"],
+        opens: "09:30",
+        closes: "17:00",
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: ["Tuesday", "Thursday"],
         opens: "09:30",
         closes: "19:30",
       },
@@ -144,6 +163,17 @@ function buildJsonLd(locale, t, description) {
             addressCountry: "FR",
           },
         },
+        /*
+         * These times come from the schedule shown in the Courses section:
+         * 17:30–19:00 and 19:15–20:45, Tuesdays and Thursdays.
+         *
+         * They outlast the opening hours above, which say the business closes
+         * at 19:30 on those days. Both cannot be right, and Google can see
+         * both in the same graph. The class times are almost certainly the
+         * correct ones, since they are what the site advertises — which would
+         * mean the Google listing needs extending to 20:45 rather than these
+         * being trimmed.
+         */
         courseSchedule: {
           "@type": "Schedule",
           byDay: ["Tuesday", "Thursday"],
@@ -254,6 +284,25 @@ export async function generateMetadata({ params }) {
     verification: {
       google: "Ml98YqB2kA_XBnJ3KJ9IbevLRqu5R6STf5W4TjSJy3w",
     },
+    other: {
+      /*
+       * Tells Dark Reader to leave this page alone, because the site brings
+       * its own dark palette.
+       *
+       * This is the only lever a site has over that extension: there is no
+       * way to hand it our palette and have it use it. Without the lock a
+       * visitor already on our dark theme gets it inverted a second time,
+       * which is the mangled rendering this whole exercise started from.
+       *
+       * The trade: someone running a light OS with Dark Reader on now sees
+       * our light palette rather than a dark one. Our design wins over the
+       * extension's guess, which is the point, but it does mean they get
+       * light where they may have expected dark.
+       */
+      // Next omits a meta whose content is empty, so this carries a value.
+      // Dark Reader only tests for the tag name; the content is ignored.
+      "darkreader-lock": "true",
+    },
     robots: {
       index: true,
       follow: true,
@@ -270,7 +319,7 @@ export async function generateMetadata({ params }) {
     },
     openGraph: {
       type: "website",
-      siteName: "WestFrench Academy",
+      siteName: "Westfrench Academy",
       title,
       description,
       url,
@@ -294,7 +343,11 @@ export async function generateMetadata({ params }) {
 }
 
 export const viewport = {
-  themeColor: "#ffffff",
+  // Follows the system preference, exactly like the palette itself.
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
+    { media: "(prefers-color-scheme: dark)", color: "#16242c" },
+  ],
 };
 
 export default async function RootLayout({ children, params }) {
@@ -318,7 +371,7 @@ export default async function RootLayout({ children, params }) {
   return (
     <html lang={local}>
       <body
-        className={`${nunito.variable} antialiased bg-gradient-to-br from-gray-100 to-gray-200 text-pretty`}
+        className={`${nunito.variable} antialiased bg-gradient-to-br from-page-from to-page-to text-pretty`}
       >
         {/*
           First thing in the tab order. Without it a keyboard user has to tab
@@ -329,7 +382,7 @@ export default async function RootLayout({ children, params }) {
             there for why it is not done with utilities. */}
         <a
           href="#main-content"
-          className="skip-link rounded-lg bg-white px-5 py-3 font-bold text-[#00485f] shadow-lg"
+          className="skip-link rounded-lg bg-surface px-5 py-3 font-bold text-brand-deep shadow-lg"
         >
           {tA11y("skipToContent")}
         </a>
@@ -354,10 +407,10 @@ export default async function RootLayout({ children, params }) {
           aria-hidden="true"
           className="fixed inset-0 -z-10 overflow-hidden pointer-events-none"
         >
-          <div className="absolute top-[6%] -left-24 w-[28rem] h-[28rem] rounded-full bg-[#3fd0bd] opacity-25 blur-3xl" />
-          <div className="absolute top-[34%] -right-32 w-[32rem] h-[32rem] rounded-full bg-[#ff7c3d] opacity-20 blur-3xl" />
-          <div className="absolute top-[64%] -left-32 w-[30rem] h-[30rem] rounded-full bg-[#3fd0bd] opacity-20 blur-3xl" />
-          <div className="absolute bottom-[4%] -right-24 w-[26rem] h-[26rem] rounded-full bg-[#ff7c3d] opacity-25 blur-3xl" />
+          <div className="absolute top-[6%] -left-24 w-[28rem] h-[28rem] rounded-full bg-mint-vivid opacity-25 blur-3xl" />
+          <div className="absolute top-[34%] -right-32 w-[32rem] h-[32rem] rounded-full bg-ember-vivid opacity-20 blur-3xl" />
+          <div className="absolute top-[64%] -left-32 w-[30rem] h-[30rem] rounded-full bg-mint-vivid opacity-20 blur-3xl" />
+          <div className="absolute bottom-[4%] -right-24 w-[26rem] h-[26rem] rounded-full bg-ember-vivid opacity-25 blur-3xl" />
         </div>
 
         <NextIntlClientProvider messages={messages}>

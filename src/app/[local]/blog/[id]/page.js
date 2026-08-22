@@ -21,7 +21,7 @@ export async function generateMetadata({ params }) {
 
   if (!post) return {};
 
-  const title = `${post.title} | WestFrench Academy`;
+  const title = `${post.title} | Westfrench Academy`;
   const url = `${SITE_URL}/${local}/blog/${post.id}`;
   const image = post.image || '/og-image.jpg';
 
@@ -42,7 +42,7 @@ export async function generateMetadata({ params }) {
     },
     openGraph: {
       type: 'article',
-      siteName: 'WestFrench Academy',
+      siteName: 'Westfrench Academy',
       title,
       description: post.excerpt,
       url,
@@ -116,7 +116,7 @@ export default async function BlogPostPage({ params }) {
 
   return (
     <div className="min-h-screen flex flex-col">
-      <div className="top-0 left-0 right-0 z-50 bg-white shadow-md">
+      <div className="top-0 left-0 right-0 z-50 bg-surface shadow-md">
         <Header />
       </div>
 
@@ -128,25 +128,25 @@ export default async function BlogPostPage({ params }) {
       <main id="main-content" tabIndex={-1} className="flex-1 p-8 pb-20 sm:p-20">
         <article className="max-w-3xl mx-auto pt-32 sm:pt-28">
           {/* Breadcrumb */}
-          <nav className="text-sm text-gray-600 mb-6" aria-label="Breadcrumb">
-            <Link href="/" className="hover:text-[#c2410c] underline">
+          <nav className="text-sm text-ink-600 mb-6" aria-label="Breadcrumb">
+            <Link href="/" className="hover:text-rust underline">
               {t('breadcrumbHome')}
             </Link>
             <span className="mx-2">/</span>
-            <Link href="/blog" className="hover:text-[#c2410c] underline">
+            <Link href="/blog" className="hover:text-rust underline">
               {t('title')}
             </Link>
           </nav>
 
-          <h1 className="text-4xl font-bold text-[#d24b06]">{post.title}</h1>
+          <h1 className="text-4xl font-bold text-rust-lg">{post.title}</h1>
 
           {dateLabel && (
-            <p className="text-sm text-gray-600 mt-3">
+            <p className="text-sm text-ink-600 mt-3">
               {t('published')} <time dateTime={post.date}>{dateLabel}</time>
             </p>
           )}
 
-          <div className="mt-8 bg-[#fff7f3] p-8 rounded-3xl shadow-lg">
+          <div className="mt-8 bg-cream p-8 rounded-3xl shadow-lg">
             {/* Featured image sits at the top of the article body.
                 Left lazy on purpose: the heading above it is the LCP element,
                 so the text paints first and the image streams in after. */}
@@ -170,7 +170,7 @@ export default async function BlogPostPage({ params }) {
                 return (
                   <h2
                     key={index}
-                    className="text-2xl font-semibold text-[#d24b06] mt-8 first:mt-0"
+                    className="text-2xl font-semibold text-rust-lg mt-8 first:mt-0"
                   >
                     {parsed.text}
                   </h2>
@@ -196,7 +196,7 @@ export default async function BlogPostPage({ params }) {
               }
 
               return (
-                <p key={index} className="text-gray-800 mt-4 first:mt-0">
+                <p key={index} className="text-ink-800 mt-4 first:mt-0">
                   {parsed.text}
                 </p>
               );
@@ -207,13 +207,13 @@ export default async function BlogPostPage({ params }) {
           <div className="flex flex-wrap gap-4 justify-center mt-12">
             <Link
               href="/blog"
-              className="border-2 border-[#ffa45b] text-[#c2410c] px-6 py-3 rounded-lg font-semibold hover:bg-[#ffa45b] hover:text-white transition duration-300"
+              className="border-2 border-ember text-rust px-6 py-3 rounded-lg font-semibold hover:bg-ember hover:text-white transition duration-300"
             >
               ← {t('backToBlog')}
             </Link>
             <Link
               href="/"
-              className="bg-gradient-to-tr from-[#ffa45b] to-[#ff7c5b] px-6 py-3 rounded-lg text-white font-semibold shadow hover:scale-105 transition-transform duration-300 ease-out"
+              className="bg-gradient-to-tr from-ember to-ember-deep px-6 py-3 rounded-lg text-white font-semibold shadow hover:scale-105 transition-transform duration-300 ease-out"
             >
               {t('backToSite')}
             </Link>

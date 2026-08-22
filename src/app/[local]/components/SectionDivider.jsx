@@ -15,11 +15,11 @@
 const SectionDivider = () => (
   <div
     aria-hidden="true"
-    className="flex items-center justify-center gap-3 py-6 sm:py-8"
+    className="flex items-center justify-center gap-3 py-3 sm:py-8"
   >
-    <span className="h-px w-16 sm:w-32 bg-gradient-to-r from-transparent to-[#a3e4db]" />
-    <span className="h-2 w-2 rotate-45 rounded-[1px] bg-[#ffa45b]" />
-    <span className="h-px w-16 sm:w-32 bg-gradient-to-l from-transparent to-[#a3e4db]" />
+    <span className="h-px w-16 sm:w-32 bg-gradient-to-r from-transparent to-mint" />
+    <span className="h-2 w-2 rotate-45 rounded-[1px] bg-ember" />
+    <span className="h-px w-16 sm:w-32 bg-gradient-to-l from-transparent to-mint" />
   </div>
 );
 

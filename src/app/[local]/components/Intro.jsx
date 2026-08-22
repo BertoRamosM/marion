@@ -32,12 +32,12 @@ const Intro = () => {
 
   return (
     <section className="relative max-w-4xl mx-auto text-center pt-4 pb-12 px-4">
-      <h2 className="text-4xl font-bold text-gray-900 pt-14">
-        <span className="text-[#d24b06]">{t('Marion')} </span>
+      <h2 className="text-4xl font-bold text-ink-900 pt-14">
+        <span className="text-rust-lg">{t('Marion')} </span>
         {t('text1')}
       </h2>
 
-      <p className="text-lg text-gray-800 mt-4">{t('text2')}</p>
+      <p className="text-lg text-ink-800 mt-4">{t('text2')}</p>
 
       {/* No differentiator line here on purpose: text3/text4 ("the only French
           school in Rennes exclusively for expats") already heads the About
@@ -49,11 +49,11 @@ const Intro = () => {
             key={key}
             className={`flex items-center gap-2 rounded-full px-4 py-2 text-sm font-semibold shadow-sm ${
               highlight
-                ? 'bg-[#a3e4db] text-[#00485f]'
-                : 'bg-white/80 text-[#00485f]'
+                ? 'bg-mint text-on-mint'
+                : 'bg-veil-80 text-brand-deep'
             }`}
           >
-            <span className={highlight ? 'text-[#00485f]' : 'text-[#006a8f]'}>
+            <span className={highlight ? 'text-on-mint' : 'text-brand'}>
               <Icon />
             </span>
             {tIntro(key)}

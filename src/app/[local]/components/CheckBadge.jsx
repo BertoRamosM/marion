@@ -7,9 +7,9 @@
 const CheckBadge = () => (
   <span
     aria-hidden="true"
-    className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#a3e4db]"
+    className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-mint"
   >
-    <svg viewBox="0 0 12 10" fill="none" className="h-3 w-3 text-[#00485f]">
+    <svg viewBox="0 0 12 10" fill="none" className="h-3 w-3 text-on-mint">
       <path
         d="M1 5l3.5 3.5L11 1.5"
         stroke="currentColor"

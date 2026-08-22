@@ -153,7 +153,7 @@ const Carousel = () => {
                            light mint button with dark teal text is 7.02:1 and
                            pops against the dark overlay. Mint already appears
                            in the carousel arrow rings. */
-                        className="bg-[#a3e4db] hover:bg-[#8fded2] px-6 py-3 rounded-lg text-[#00485f] font-bold shadow-lg hover:scale-105 transition-all duration-300"
+                        className="bg-mint hover:bg-mint-soft px-6 py-3 rounded-lg text-on-mint font-bold shadow-lg hover:scale-105 transition-all duration-300"
                         aria-label="section button"
                       >
                         {t("button")}
@@ -181,7 +181,7 @@ const Carousel = () => {
           type="button"
           onClick={prevSlide}
           data-carousel-prev
-          className="absolute top-1/2 left-2 sm:left-4 z-30 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-white/30 text-[#a3e4db] ring-4 ring-[#a3e4db] transition-all duration-300 hover:bg-white/60 hover:scale-110 focus-visible:outline-none focus-visible:ring-[#006a8f]"
+          className="absolute bottom-4 left-2 sm:bottom-auto sm:top-1/2 sm:left-4 sm:-translate-y-1/2 z-30 flex h-9 w-9 sm:h-11 sm:w-11 items-center justify-center rounded-full bg-veil-30 text-mint ring-2 sm:ring-4 ring-mint transition-all duration-300 hover:bg-veil-60 hover:scale-110 focus-visible:outline-none focus-visible:ring-brand"
         >
           <svg className="h-4 w-4" viewBox="0 0 6 10" fill="none" aria-hidden="true">
             <path
@@ -199,7 +199,7 @@ const Carousel = () => {
           type="button"
           onClick={nextSlide}
           data-carousel-next
-          className="absolute top-1/2 right-2 sm:right-4 z-30 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-white/30 text-[#a3e4db] ring-4 ring-[#a3e4db] transition-all duration-300 hover:bg-white/60 hover:scale-110 focus-visible:outline-none focus-visible:ring-[#006a8f]"
+          className="absolute bottom-4 right-2 sm:bottom-auto sm:top-1/2 sm:right-4 sm:-translate-y-1/2 z-30 flex h-9 w-9 sm:h-11 sm:w-11 items-center justify-center rounded-full bg-veil-30 text-mint ring-2 sm:ring-4 ring-mint transition-all duration-300 hover:bg-veil-60 hover:scale-110 focus-visible:outline-none focus-visible:ring-brand"
         >
           <svg className="h-4 w-4" viewBox="0 0 6 10" fill="none" aria-hidden="true">
             <path
@@ -221,8 +221,8 @@ const Carousel = () => {
             type="button"
             className={`w-3 h-3 rounded-full ${
               index === currentIndex
-                ? "bg-[#a3e4db]"
-                : "bg-white"
+                ? "bg-mint"
+                : "bg-surface"
             }`}
             aria-current={
               index === currentIndex ? "true" : "false"

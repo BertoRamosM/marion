@@ -22,7 +22,7 @@ export async function generateMetadata({ params }) {
   const { local } = await params;
   const t = await getTranslations({ locale: local, namespace: 'Legal' });
 
-  const title = `${t('nav')} | WestFrench Academy`;
+  const title = `${t('nav')} | Westfrench Academy`;
   const url = `${SITE_URL}/${local}/mentions-legales`;
 
   return {
@@ -45,8 +45,8 @@ export async function generateMetadata({ params }) {
 
 const Section = ({ title, children }) => (
   <section className="mt-8">
-    <h2 className="text-2xl font-semibold text-[#006a8f]">{title}</h2>
-    <div className="mt-3 space-y-3 text-gray-800 text-sm leading-relaxed">
+    <h2 className="text-2xl font-semibold text-brand">{title}</h2>
+    <div className="mt-3 space-y-3 text-ink-800 text-sm leading-relaxed">
       {children}
     </div>
   </section>
@@ -61,7 +61,7 @@ export default async function LegalPage({ params }) {
 
   return (
     <div className="min-h-screen flex flex-col">
-      <div className="top-0 left-0 right-0 z-50 bg-white shadow-md">
+      <div className="top-0 left-0 right-0 z-50 bg-surface shadow-md">
         <Header />
       </div>
 
@@ -70,16 +70,16 @@ export default async function LegalPage({ params }) {
             sm:pt-16 the heading actually slipped behind the header on
             desktop, where the fixed chrome is ~152px tall. */}
         <article className="max-w-3xl mx-auto pt-32 sm:pt-28">
-          <h1 className="text-4xl font-bold text-[#d24b06]">
+          <h1 className="text-4xl font-bold text-rust-lg">
             Mentions légales &amp; politique de confidentialité
           </h1>
 
-          <div className="mt-8 bg-[#fff7f3] p-8 rounded-3xl shadow-lg">
+          <div className="mt-8 bg-cream p-8 rounded-3xl shadow-lg">
             <Section title="Éditeur du site">
               <p>
                 Le site westfrench-academy.com est édité par Marion Richard,
                 professeure de français langue étrangère, exerçant sous
-                l’enseigne <strong>WestFrench Academy</strong>.
+                l’enseigne <strong>Westfrench Academy</strong>.
               </p>
               <p>
                 Activité portée par la coopérative d’activités et d’emploi{' '}
@@ -99,7 +99,7 @@ export default async function LegalPage({ params }) {
                 Contact : 07 84 58 23 09 —{' '}
                 <a
                   href="mailto:marion.westfrench@gmail.com"
-                  className="text-[#006a8f] hover:text-[#c2410c] underline"
+                  className="text-brand hover:text-rust underline"
                 >
                   marion.westfrench@gmail.com
                 </a>
@@ -116,7 +116,7 @@ export default async function LegalPage({ params }) {
                 <strong>Alberto Ramos</strong> —{' '}
                 <a
                   href="mailto:albertramos902@gmail.com"
-                  className="text-[#006a8f] hover:text-[#c2410c] underline"
+                  className="text-brand hover:text-rust underline"
                 >
                   albertramos902@gmail.com
                 </a>
@@ -136,7 +136,7 @@ export default async function LegalPage({ params }) {
                   href="https://www.netlify.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-[#006a8f] hover:text-[#c2410c] underline"
+                  className="text-brand hover:text-rust underline"
                 >
                   netlify.com
                 </a>
@@ -163,7 +163,7 @@ export default async function LegalPage({ params }) {
               <p>
                 Les témoignages affichés sur ce site proviennent des avis
                 publiés par leurs auteurs sur la fiche Google Business Profile
-                de WestFrench Academy, ainsi que de retours transmis
+                de Westfrench Academy, ainsi que de retours transmis
                 directement à l’enseignante.
               </p>
               <p>
@@ -192,7 +192,7 @@ export default async function LegalPage({ params }) {
                 son témoignage en écrivant à{' '}
                 <a
                   href="mailto:marion.westfrench@gmail.com"
-                  className="text-[#006a8f] hover:text-[#c2410c] underline"
+                  className="text-brand hover:text-rust underline"
                 >
                   marion.westfrench@gmail.com
                 </a>
@@ -244,7 +244,7 @@ export default async function LegalPage({ params }) {
                 Pour exercer ces droits, écrivez à{' '}
                 <a
                   href="mailto:marion.westfrench@gmail.com"
-                  className="text-[#006a8f] hover:text-[#c2410c] underline"
+                  className="text-brand hover:text-rust underline"
                 >
                   marion.westfrench@gmail.com
                 </a>
@@ -254,7 +254,7 @@ export default async function LegalPage({ params }) {
                   href="https://www.cnil.fr"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-[#006a8f] hover:text-[#c2410c] underline"
+                  className="text-brand hover:text-rust underline"
                 >
                   www.cnil.fr
                 </a>
@@ -287,13 +287,13 @@ export default async function LegalPage({ params }) {
                   href="https://lightwidget.com/privacy"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-[#006a8f] hover:text-[#c2410c] underline"
+                  className="text-brand hover:text-rust underline"
                 >
                   politique de confidentialité de LightWidget
                 </a>
                 .
               </p>
-              <p className="text-gray-600">
+              <p className="text-ink-600">
                 Pour limiter cette collecte, la galerie est chargée uniquement
                 lorsque vous faites défiler la page jusqu’à elle : si vous ne
                 descendez pas jusqu’au bas du site, aucune requête n’est
@@ -305,7 +305,7 @@ export default async function LegalPage({ params }) {
             {/* Hardcoded on purpose: a generated date would always read
                 "updated today", which would be untrue. Bump it by hand
                 whenever this page actually changes. */}
-            <p className="mt-10 text-xs text-gray-500">
+            <p className="mt-10 text-xs text-ink-500">
               Dernière mise à jour : 21 août 2026
             </p>
           </div>
@@ -313,7 +313,7 @@ export default async function LegalPage({ params }) {
           <div className="flex justify-center mt-12">
             <Link
               href="/"
-              className="border-2 border-[#ffa45b] text-[#c2410c] px-6 py-3 rounded-lg font-semibold hover:bg-[#ffa45b] hover:text-white transition duration-300"
+              className="border-2 border-ember text-rust px-6 py-3 rounded-lg font-semibold hover:bg-ember hover:text-white transition duration-300"
             >
               ← {t('backToSite')}
             </Link>
