@@ -41,7 +41,18 @@ const Carousel = () => {
   const startInterval = useCallback(() => {
     return setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % slides.length);
-    }, 20000);
+      /*
+       * 10s, down from 20s. Three slides at 20s meant a visitor had to stay
+       * a full minute to see the third one, so almost nobody did — the copy on
+       * slides 2 and 3 was effort that went unread.
+       *
+       * Not faster than this on purpose: each slide is a heading, two
+       * paragraphs and a button, which takes most of 10s to read. Rotating
+       * sooner would interrupt people mid-sentence, which is worse than them
+       * missing a slide. Hover, focus and prefers-reduced-motion still pause
+       * it entirely.
+       */
+    }, 10000);
   }, [slides.length]);
 
   // Automatically rotate the carousel, unless the visitor is hovering or

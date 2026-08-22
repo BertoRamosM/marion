@@ -57,6 +57,10 @@ const NAV = [
   { href: '/#about', key: 'about' },
   { href: '/#courses', key: 'coursesRennes' },
   { href: '/#online-courses', key: 'onlineCourses' },
+  // A real page rather than an anchor, and the only non-anchor entry here.
+  // It sits before Contact on purpose: answering the question first is
+  // cheaper for everyone than answering it by email afterwards.
+  { href: '/faq', key: 'faq' },
   { href: '/#contact', key: 'contact' },
   // Blog is written and routed but deliberately not linked yet:
   // { href: '/blog', key: 'nav' },

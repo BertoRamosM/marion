@@ -36,6 +36,11 @@ module.exports = {
         )
       );
 
+      // FAQ. Higher priority than the legal page: it answers real search
+      // queries about levels, prices and schedule, which the home page cannot
+      // also rank for.
+      paths.push(entry(config.siteUrl, `/${locale}/faq`, 0.7, 'monthly'));
+
       // Legal notice
       paths.push(
         entry(config.siteUrl, `/${locale}/mentions-legales`, 0.3, 'yearly')

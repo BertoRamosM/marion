@@ -28,7 +28,8 @@
     "coursesRennes": "Cours à Rennes",
     "onlineCourses": "Cours en ligne",
     "about": "À propos",
-    "contact": "Contact"
+    "contact": "Contact",
+    "faq": "FAQ"
   },
   "Banner": {
     "title1": "Inscris-toi à ton premier cours d’essai gratuit  ",
@@ -53,7 +54,8 @@
     "text4": "Avant de devenir prof, j'étais guide touristique et je suis passionnée par l'histoire de la Bretagne et de la Normandie (dont je suis originaire).",
     "text5": "Comme j'aime transmettre et être en contact avec les cultures du monde entier, j'ai repris des études pour devenir professeure et j'ai passé le diplôme du DAEFLE (diplôme d'aptitude à l'enseignement du français langue étrangère).",
     "text6": "J'ai commencé à donner des cours de français dans un centre de langues du sud de la France à des expats venus des 4 coins du monde. J'ai adoré cette expérience qui m'a donné envie d'ouvrir ma propre école.",
-    "text7": "Je suis revenue en Bretagne et je lance maintenant Westfrench Academy, un concept unique à Rennes."
+    "text7": "Je suis revenue en Bretagne et je lance maintenant Westfrench Academy, un concept unique à Rennes.",
+    "credential": "Professeure diplômée DAEFLE"
   },
   "AboutCompany": {
     "Marion": "Westfrench avec Marion:",
@@ -327,7 +329,8 @@
         "text": "Les meilleurs cours de français que j’ai jamais eus ! Je suis passée d’un niveau A1/A2 à B2 en un an grâce à Marion, qui m’a beaucoup aidée. Je la recommande vraiment !"
       }
     ],
-    "rating": "Note : {rating} sur 5"
+    "rating": "Note : {rating} sur 5",
+    "googleLink": "Voir tous les avis sur Google"
   },
   "Blog": {
     "nav": "Blog",
@@ -369,5 +372,86 @@
   "Gallery": {
     "title": "En images",
     "description": "Quelques moments de cours à Rennes, des activités avec les apprenants, la salle, et le quartier autour."
+  },
+  "Faq": {
+    "nav": "Questions fréquentes",
+    "title": "Questions fréquentes",
+    "metaDescription": "Tout ce qu'il faut savoir avant de commencer : niveaux, horaires, tarifs, lieu des cours et cours d'essai gratuit à Rennes.",
+    "intro": "Les questions qu'on me pose le plus souvent. Si la tienne n'y est pas, écris-moi : je réponds à tout le monde.",
+    "stillQuestions": "Une autre question ?",
+    "contactCta": "Écris-moi",
+    "backToSite": "Retour au site",
+    "items": [
+      {
+        "q": "Quel est mon niveau de français ?",
+        "a": "Les cours en groupe couvrent les niveaux A1 à B2. Si tu ne sais pas où tu te situes, on en discute lors d'un court appel vidéo avant ton premier cours — il n'y a pas de test écrit à passer."
+      },
+      {
+        "q": "Je ne parle pas un mot de français. Je peux commencer ?",
+        "a": "Oui. Tu peux commencer sans aucune base : c'est le niveau A1, et il est prévu exactement pour ça."
+      },
+      {
+        "q": "Combien de personnes y a-t-il dans un groupe ?",
+        "a": "Entre 3 et 8 personnes, réparties par niveau. C'est assez petit pour que tu prennes la parole à chaque cours, ce qui est justement le but."
+      },
+      {
+        "q": "Où ont lieu les cours en présentiel ?",
+        "a": "À la Maison des Associations, 6 Cours des Alliés, 35000 Rennes."
+      },
+      {
+        "q": "Quels sont les horaires ?",
+        "a": "Les mardis et les jeudis, de 17h30 à 19h00 et de 19h15 à 20h45. Chaque créneau correspond à un niveau."
+      },
+      {
+        "q": "Combien de temps dure un cours ?",
+        "a": "Une heure trente."
+      },
+      {
+        "q": "Combien ça coûte ?",
+        "a": "En groupe à Rennes : 440 € pour 3 mois (12 séances) ou 810 € pour 6 mois (24 séances). En ligne, en cours particulier : 575 € pour 10 séances (15 h) ou 840 € pour 20 séances (30 h)."
+      },
+      {
+        "q": "Comment est-ce que je paie ?",
+        "a": "Par virement, par carte, et en plusieurs fois si tu préfères."
+      },
+      {
+        "q": "Le premier cours est vraiment gratuit ?",
+        "a": "Oui. Le premier cours d'essai est gratuit et sans engagement : pas de carte bancaire, pas d'inscription préalable."
+      },
+      {
+        "q": "Quelle différence entre les cours en groupe et les cours en ligne ?",
+        "a": "Les cours en groupe ont lieu à Rennes, en présentiel, avec 3 à 8 personnes de ton niveau. Les cours en ligne sont individuels : le rythme et le contenu s'adaptent entièrement à toi."
+      },
+      {
+        "q": "Est-ce que tu prépares au DELF et au DALF ?",
+        "a": "Oui, dans le cadre des cours particuliers en ligne."
+      },
+      {
+        "q": "Je n'habite pas à Rennes. Je peux quand même suivre des cours ?",
+        "a": "Oui, les cours en ligne individuels se suivent depuis n'importe où. Ils servent souvent à préparer une installation en France avant même d'arriver."
+      },
+      {
+        "q": "Que se passe-t-il si je manque un cours ?",
+        "a": "Une annulation doit être faite au moins 24 heures avant le cours, comme prévu dans le contrat signé avant le premier cours. Passé ce délai, la séance est perdue."
+      },
+      {
+        "q": "Est-ce que je peux annuler et être remboursé ?",
+        "a": "Tu disposes de 14 jours après la signature du contrat pour te rétracter. Passé ce délai, les séances réservées ne sont pas remboursées."
+      },
+      {
+        "q": "Marion est-elle diplômée ?",
+        "a": "Oui : Marion est titulaire du DAEFLE, le diplôme d'aptitude à l'enseignement du français langue étrangère, obtenu auprès de l'Alliance Française."
+      },
+      {
+        "q": "Quelles langues parle Marion ?",
+        "a": "Français, anglais, espagnol et catalan — utile quand on débute et qu'il faut parfois passer par une autre langue pour se comprendre."
+      },
+      {
+        "q": "Comment je m'inscris ?",
+        "a": "Par le formulaire de contact, par e-mail à marion.westfrench@gmail.com, ou sur WhatsApp. On fixe ensemble ton cours d'essai gratuit.",
+        "cta": true
+      }
+    ],
+    "signupCta": "Réserver mon cours d'essai"
   }
 }

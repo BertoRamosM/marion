@@ -24,6 +24,21 @@ const About = () => {
           {t("text1")}
         </h2>
 
+        {/*
+          The DAEFLE qualification, stated plainly.
+
+          It was in the structured data and buried mid-paragraph, which meant
+          Google could read it but a visitor skimming could not. It is the
+          strongest differentiator here — a state-recognised qualification to
+          teach French as a foreign language — so it gets to be a visible
+          claim rather than a detail.
+
+          Mint on on-mint ink is a measured pairing at 7.02:1.
+        */}
+        <p className="mt-4 inline-block rounded-full bg-mint px-4 py-1.5 text-sm font-bold text-on-mint shadow-sm">
+          {t("credential")}
+        </p>
+
         {/* space-y-4 instead of <br> tags: consistent rhythm, and every
             paragraph is a real <p> so the text has proper structure. */}
         <div className="pt-4 space-y-4 text-ink-800">

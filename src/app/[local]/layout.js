@@ -133,6 +133,13 @@ function buildJsonLd(locale, t, description) {
       name: "DAEFLE",
       description:
         "Diplôme d'aptitude à l'enseignement du français langue étrangère",
+      // Naming the awarding body is what turns this from a claimed acronym
+      // into a verifiable qualification, which is the whole point of putting
+      // a credential in structured data.
+      recognizedBy: {
+        "@type": "Organization",
+        name: "Alliance Française",
+      },
     },
     sameAs: ["https://www.linkedin.com/in/marionrichardfrenchteacher/"],
   };

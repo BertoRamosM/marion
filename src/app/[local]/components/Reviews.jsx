@@ -6,6 +6,12 @@ import { useTranslations } from "next-intl";
 import SectionHeading from "./SectionHeading";
 import FriendIcon from "../icons/FriendIcon";
 
+/*
+ * The Google Business Profile, in its stable ?cid= form — the same URL the
+ * organisation schema lists under sameAs.
+ */
+const GOOGLE_REVIEWS_URL = "https://maps.google.com/?cid=8809206434949443188";
+
 const SmallCarousel = ({ slides }) => {
   const t = useTranslations("Reviews");
   const tLabel = useTranslations("SectionLabel");
@@ -198,6 +204,24 @@ const SmallCarousel = ({ slides }) => {
           </svg>
         </button>
       </div>
+
+      {/*
+        One link for the section rather than one per card. All sixteen reviews
+        stay in the carousel; this just points at the source so a visitor can
+        verify them independently, which is worth more than any number of
+        testimonials we host ourselves. It also sends traffic to the Google
+        listing, and engagement there feeds local ranking.
+      */}
+      <p className="mt-6 text-center">
+        <a
+          href={GOOGLE_REVIEWS_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-sm font-semibold text-brand underline decoration-2 underline-offset-4 transition-colors duration-300 hover:text-rust"
+        >
+          {t("googleLink")}
+        </a>
+      </p>
     </div>
   );
 };

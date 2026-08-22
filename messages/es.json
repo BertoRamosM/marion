@@ -28,7 +28,8 @@
     "coursesRennes": "Cursos en Rennes",
     "onlineCourses": "Cursos en línea",
     "about": "Sobre mí",
-    "contact": "Contacto"
+    "contact": "Contacto",
+    "faq": "FAQ"
   },
   "Banner": {
     "title1": "Regístrate para tu primera clase de prueba gratuita",
@@ -53,7 +54,8 @@
     "text4": "Antes de ser profesora, fui guía turística y soy una apasionada por la historia de Bretaña y Normandía (de donde soy originaria).",
     "text5": "Como me gusta enseñar y estar en contacto con culturas de todo el mundo, decidí volver a estudiar para ser profesora y obtener el diploma DAEFLE (diploma de aptitud para la enseñanza del francés como lengua extranjera).",
     "text6": "Comencé dando clases de francés en un centro de idiomas en el sur de Francia a gente del mundo entero. ¡Me encantó esa experiencia y me animó a abrir mi propia escuela!",
-    "text7": "volví a Bretaña y ahora empiezo Westfrench Academy, un concepto único en Rennes."
+    "text7": "volví a Bretaña y ahora empiezo Westfrench Academy, un concepto único en Rennes.",
+    "credential": "Profesora titulada DAEFLE"
   },
   "AboutCompany": {
     "Marion": "Westfrench con Marion:",
@@ -327,7 +329,8 @@
         "text": "¡Las mejores clases de francés que he tenido! Pasé de un nivel A1/A2 a B2 en un año gracias a Marion, que me ayudó muchísimo. ¡La recomiendo de verdad!"
       }
     ],
-    "rating": "Valoración: {rating} de 5"
+    "rating": "Valoración: {rating} de 5",
+    "googleLink": "Ver todas las opiniones en Google"
   },
   "Blog": {
     "nav": "Blog",
@@ -369,5 +372,86 @@
   "Gallery": {
     "title": "En imágenes",
     "description": "Algunos momentos de las clases en Rennes, actividades con los estudiantes, la sala y el barrio de alrededor."
+  },
+  "Faq": {
+    "nav": "Preguntas frecuentes",
+    "title": "Preguntas frecuentes",
+    "metaDescription": "Todo lo que necesitas saber antes de empezar: niveles, horarios, precios, dónde son las clases y la clase de prueba gratuita en Rennes.",
+    "intro": "Las preguntas que me hacen más a menudo. Si la tuya no está, escríbeme: contesto a todo el mundo.",
+    "stillQuestions": "¿Otra pregunta?",
+    "contactCta": "Escríbeme",
+    "backToSite": "Volver al sitio",
+    "items": [
+      {
+        "q": "¿Cuál es mi nivel de francés?",
+        "a": "Las clases en grupo cubren los niveles A1 a B2. Si no sabes en qué punto estás, lo comentamos en una breve videollamada antes de tu primera clase: no hay ningún examen escrito."
+      },
+      {
+        "q": "No hablo una palabra de francés. ¿Puedo empezar?",
+        "a": "Sí. Puedes empezar sin ninguna base: para eso está exactamente el nivel A1."
+      },
+      {
+        "q": "¿Cuántas personas hay en un grupo?",
+        "a": "Entre 3 y 8, agrupadas por nivel. Lo bastante pequeño para que hables en cada clase, que es justamente la idea."
+      },
+      {
+        "q": "¿Dónde son las clases presenciales?",
+        "a": "En La Maison des Associations, 6 Cours des Alliés, 35000 Rennes."
+      },
+      {
+        "q": "¿Cuáles son los horarios?",
+        "a": "Los martes y los jueves, de 17:30 a 19:00 y de 19:15 a 20:45. Cada franja corresponde a un nivel."
+      },
+      {
+        "q": "¿Cuánto dura una clase?",
+        "a": "Una hora y media."
+      },
+      {
+        "q": "¿Cuánto cuesta?",
+        "a": "En grupo en Rennes: 440 € por 3 meses (12 sesiones) u 810 € por 6 meses (24 sesiones). Clases particulares en línea: 575 € por 10 sesiones (15 h) u 840 € por 20 sesiones (30 h)."
+      },
+      {
+        "q": "¿Cómo puedo pagar?",
+        "a": "Por transferencia, con tarjeta y en varios pagos si lo prefieres."
+      },
+      {
+        "q": "¿La primera clase es realmente gratuita?",
+        "a": "Sí. La primera clase de prueba es gratuita y sin compromiso: sin tarjeta bancaria y sin inscripción previa."
+      },
+      {
+        "q": "¿Qué diferencia hay entre las clases en grupo y las clases en línea?",
+        "a": "Las clases en grupo son presenciales en Rennes, con 3 a 8 personas de tu nivel. Las clases en línea son individuales: el ritmo y el contenido se adaptan por completo a ti."
+      },
+      {
+        "q": "¿Preparas para los exámenes DELF y DALF?",
+        "a": "Sí, en el marco de las clases particulares en línea."
+      },
+      {
+        "q": "No vivo en Rennes. ¿Puedo dar clases igualmente?",
+        "a": "Sí, las clases individuales en línea funcionan desde cualquier lugar. Se usan a menudo para preparar una mudanza a Francia antes de llegar."
+      },
+      {
+        "q": "¿Qué pasa si falto a una clase?",
+        "a": "Una cancelación debe hacerse al menos 24 horas antes de la clase, según el contrato firmado antes de la primera clase. Pasado ese plazo, la sesión se pierde."
+      },
+      {
+        "q": "¿Puedo cancelar y pedir un reembolso?",
+        "a": "Tienes 14 días después de firmar el contrato para desistir. Pasado ese plazo, las sesiones reservadas no se reembolsan."
+      },
+      {
+        "q": "¿Marion está titulada?",
+        "a": "Sí: Marion tiene el DAEFLE, el diploma francés para la enseñanza del francés como lengua extranjera, obtenido con la Alliance Française."
+      },
+      {
+        "q": "¿Qué idiomas habla Marion?",
+        "a": "Francés, inglés, español y catalán, algo útil cuando empiezas y a veces hace falta otro idioma para entenderse."
+      },
+      {
+        "q": "¿Cómo me inscribo?",
+        "a": "Por el formulario de contacto, por correo a marion.westfrench@gmail.com o por WhatsApp. Fijamos juntas tu clase de prueba gratuita.",
+        "cta": true
+      }
+    ],
+    "signupCta": "Reservar mi clase de prueba"
   }
 }

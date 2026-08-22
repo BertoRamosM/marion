@@ -19,6 +19,7 @@ const socialLink =
 const Footer = () => {
   const tBlog = useTranslations('Blog');
   const tLegal = useTranslations('Legal');
+  const tFaq = useTranslations('Faq');
 
   return (
     <footer className="relative overflow-hidden bg-paper">
@@ -161,6 +162,13 @@ const Footer = () => {
               © {new Date().getFullYear()} Westfrench Academy — Tous droits
               réservés.
             </span>
+            <span aria-hidden="true">·</span>
+            <Link
+              href="/faq"
+              className="text-brand hover:text-rust underline transition duration-300"
+            >
+              {tFaq('nav')}
+            </Link>
             <span aria-hidden="true">·</span>
             <Link
               href="/mentions-legales"
