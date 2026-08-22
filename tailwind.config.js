@@ -48,6 +48,7 @@ const tokens = {
   "on-mint": "var(--on-mint)",
   "on-ember": "var(--on-ember)",
   "veil-pending": "var(--veil-pending)",
+  scrim: "var(--scrim)",
   "on-mint-ink": "var(--on-mint-ink)",
   "on-mint-rust": "var(--on-mint-rust)",
 

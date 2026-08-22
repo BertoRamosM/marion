@@ -21,7 +21,8 @@
     "galleryDialog": "Galerie photos",
     "switchLanguage": "Passer en français",
     "currentLanguage": "Langue actuelle",
-    "skipToContent": "Aller au contenu principal"
+    "skipToContent": "Aller au contenu principal",
+    "loading": "Chargement…"
   },
   "Header": {
     "home": "Accueil",
@@ -198,7 +199,9 @@
     "errorTitle": "Ton message n’a pas pu être envoyé",
     "errorHelp": "Si tu vois ce message, écris-moi directement à :",
     "successTitle": "Message envoyé, merci !",
-    "successHelp": "Je te réponds dès que possible."
+    "successHelp": "Je te réponds dès que possible.",
+    "bookCallLead": "Tu préfères en parler de vive voix ? Réserve un appel vidéo de 15 minutes, on fait le point sur ton niveau.",
+    "bookCallCta": "Réserver un appel de 15 min"
   },
   "Courses": {
     "text1": "Cours en mini-groupe à Rennes: rejoins notre communauté d'expats",
@@ -452,6 +455,7 @@
         "cta": true
       }
     ],
-    "signupCta": "Réserver mon cours d'essai"
+    "signupCta": "Réserver mon cours d'essai",
+    "bookCallCta": "Réserver un appel de 15 min"
   }
 }

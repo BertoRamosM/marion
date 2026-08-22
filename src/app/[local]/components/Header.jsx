@@ -9,6 +9,12 @@ import { UkFlag } from "../icons/UkFlag";
 import { SpanishFlag } from "../icons/SpanishFlag";
 import { FrenchFlag } from "../icons/FrenchFlag";
 import { Banner } from "./Banner";
+import Up from "../icons/Up";
+import Heart from "../icons/Heart";
+import LocationIcon from "../icons/LocationIcon";
+import LaptopIcon from "../icons/LaptopIcon";
+import InfoIcon from "../icons/InfoIcon";
+import EmailIcon from "../icons/EmailIcon";
 
 
 import Image from "next/image";
@@ -52,18 +58,30 @@ const FlagPending = () => {
  * Order mirrors the section order in page.js: hero, Marion's bio, the two
  * course offers, then contact.
  */
+/*
+ * Each entry carries an icon, used by the mobile menu only — the desktop bar
+ * stays text-only, where six glyphs in a row would be noise rather than help.
+ *
+ * Four of the six reuse the exact icon the destination section already uses
+ * for its own heading: map-pin for the Rennes courses, laptop for online,
+ * mail for contact, info for the FAQ. So the menu reads as a set of shortcuts
+ * to places you have already seen, not a new set of symbols to learn.
+ *
+ * Accueil gets the up-arrow because that link goes to the top of the page,
+ * and À propos gets the heart, which is what Marion's own card uses.
+ */
 const NAV = [
-  { href: '/#default-carousel', key: 'home' },
-  { href: '/#about', key: 'about' },
-  { href: '/#courses', key: 'coursesRennes' },
-  { href: '/#online-courses', key: 'onlineCourses' },
+  { href: '/#default-carousel', key: 'home', Icon: Up },
+  { href: '/#about', key: 'about', Icon: Heart },
+  { href: '/#courses', key: 'coursesRennes', Icon: LocationIcon },
+  { href: '/#online-courses', key: 'onlineCourses', Icon: LaptopIcon },
   // A real page rather than an anchor, and the only non-anchor entry here.
   // It sits before Contact on purpose: answering the question first is
   // cheaper for everyone than answering it by email afterwards.
-  { href: '/faq', key: 'faq' },
-  { href: '/#contact', key: 'contact' },
+  { href: '/faq', key: 'faq', Icon: InfoIcon },
+  { href: '/#contact', key: 'contact', Icon: EmailIcon },
   // Blog is written and routed but deliberately not linked yet:
-  // { href: '/blog', key: 'nav' },
+  // { href: '/blog', key: 'nav', Icon: BookIcon },
 ];
 
 const Header = () => {
@@ -247,23 +265,65 @@ const Header = () => {
       {/* z-[100]: an overlay has to cover the sticky social icons, which sit
           at 60. See the layer list in StickySocialIcons. */}
       {isModalOpen && (
-        <div className="fixed inset-0 bg-black bg-opacity-75 flex flex-col items-center justify-center text-ink-max z-[100]">
-          {/* Explicitly white: the wrapper sets text-ink-max, so the close
-              glyph was rendering black against a near-black overlay. */}
-          <button
-            aria-label="close menu"
-            className="absolute top-4 right-4 p-2 text-5xl leading-none font-bold text-white hover:text-ember transition duration-300"
-            onClick={toggleModal}
-          >
-            ×
-          </button>
-          <nav className="flex flex-col gap-8 text-xl font-bold text-white">
-            {NAV.map(({ href, key }) => (
-              <Link key={href} href={href} onClick={toggleModal}>
-                {t(key)}
-              </Link>
-            ))}
-          </nav>
+        <div className="fixed inset-0 z-[100] flex items-center justify-center bg-scrim p-6">
+          {/*
+            A rounded surface card on a dimmed ground, rather than bare white
+            text on black. Every other panel on this site is a card — cream,
+            mint or white, rounded-3xl, shadow-lg — so the menu now belongs to
+            the same family instead of looking like a browser default.
+
+            The scrim is pinned dark in both schemes; see --scrim in
+            globals.css for why black-at-opacity does not work here.
+          */}
+          <div className="relative w-full max-w-sm rounded-3xl bg-surface p-6 shadow-lg">
+            {/* Circular, like the carousel and review arrows, rather than a
+                bare glyph. Mist ground keeps it legible in both schemes. */}
+            <button
+              aria-label="close menu"
+              className="absolute -top-3 -right-3 flex h-11 w-11 items-center justify-center rounded-full bg-mist text-brand shadow-md ring-2 ring-mint transition-all duration-300 hover:bg-mint hover:text-on-mint hover:scale-110"
+              onClick={toggleModal}
+            >
+              <svg
+                className="h-5 w-5"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2.5"
+                strokeLinecap="round"
+                aria-hidden="true"
+              >
+                <path d="M6 6l12 12M18 6L6 18" />
+              </svg>
+            </button>
+
+            <nav className="flex flex-col">
+              {NAV.map(({ href, key, Icon }, index) => (
+                <Link
+                  key={href}
+                  href={href}
+                  onClick={toggleModal}
+                  className={`flex items-center gap-4 rounded-2xl px-3 py-3 text-lg font-bold text-brand-deep transition-colors duration-200 hover:bg-mist ${
+                    // No opacity modifier: Tailwind cannot inject alpha into a
+                    // var() colour, and border-ink-300/60 silently resolved to a
+                    // near-white line in dark mode. The plain token is subtle in
+                    // both schemes on its own.
+                    index > 0 ? 'border-t border-ink-300' : ''
+                  }`}
+                >
+                  {/* Mint disc, the same chapter-marker motif SectionHeading
+                      uses, at a size that suits a list rather than a heading.
+                      aria-hidden: the link text already names the target. */}
+                  <span
+                    aria-hidden="true"
+                    className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-mint text-on-mint shadow-sm"
+                  >
+                    <Icon />
+                  </span>
+                  {t(key)}
+                </Link>
+              ))}
+            </nav>
+          </div>
         </div>
       )}
 

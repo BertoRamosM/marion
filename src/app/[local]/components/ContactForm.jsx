@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { useTranslations } from 'next-intl';
 import { Link } from '../../../i18n/routing';
 import SectionHeading from './SectionHeading';
+import { BOOKING_URL } from '../../../lib/site';
 import EmailIcon from '../icons/EmailIcon';
 
 /*
@@ -73,6 +74,29 @@ const ContactForm = () => {
           label={tLabel('contact')}
           title={<span className="text-rust-lg">{t('title')}</span>}
         />
+
+        {/*
+          Offered before the form, not after: someone who would rather talk
+          should not have to read past six fields to find out they can. It is a
+          different action from the form rather than a competing one — talk
+          instead of write — which is why both belong here.
+
+          Renders nothing while BOOKING_URL is empty, so this is inert until
+          the Cal.com event exists.
+        */}
+        {BOOKING_URL ? (
+          <div className="mb-8 rounded-2xl bg-mist p-5 text-center">
+            <p className="text-sm text-ink-800">{t('bookCallLead')}</p>
+            <a
+              href={BOOKING_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-3 inline-block rounded-lg bg-surface px-5 py-3 font-bold text-brand shadow ring-2 ring-brand transition-transform duration-300 ease-out hover:scale-105"
+            >
+              {t('bookCallCta')}
+            </a>
+          </div>
+        ) : null}
 
         <form
           className="space-y-6"

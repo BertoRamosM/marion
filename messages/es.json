@@ -21,7 +21,8 @@
     "galleryDialog": "Galería de fotos",
     "switchLanguage": "Cambiar a español",
     "currentLanguage": "Idioma actual",
-    "skipToContent": "Ir al contenido principal"
+    "skipToContent": "Ir al contenido principal",
+    "loading": "Cargando…"
   },
   "Header": {
     "home": "Inicio",
@@ -198,7 +199,9 @@
     "errorTitle": "No se ha podido enviar tu mensaje",
     "errorHelp": "Si ves este mensaje, escríbeme directamente a:",
     "successTitle": "¡Mensaje enviado, gracias!",
-    "successHelp": "Te responderé lo antes posible."
+    "successHelp": "Te responderé lo antes posible.",
+    "bookCallLead": "¿Prefieres hablarlo en directo? Reserva una videollamada de 15 minutos y vemos juntas tu nivel.",
+    "bookCallCta": "Reservar una llamada de 15 min"
   },
   "Courses": {
     "text1": "Clases en mini-grupo en Rennes: únete a nuestra comunidad de expats",
@@ -452,6 +455,7 @@
         "cta": true
       }
     ],
-    "signupCta": "Reservar mi clase de prueba"
+    "signupCta": "Reservar mi clase de prueba",
+    "bookCallCta": "Reservar una llamada de 15 min"
   }
 }

@@ -110,6 +110,19 @@
   --veil-pending: rgb(0 72 95 / 0.92);
 
   /*
+   * Backdrop behind the mobile menu.
+   *
+   * Scheme-invariant, like the inks above. The obvious choice — black at some
+   * opacity, or ink-max — inverts in dark mode, because ink-max is near-black
+   * in light and near-white in dark. A menu panel needs a dark ground behind
+   * it in both schemes, so this is pinned.
+   *
+   * Tinted toward the brand teal rather than neutral black, so the dimmed page
+   * behind still reads as part of this site.
+   */
+  --scrim: rgb(6 20 26 / 0.72);
+
+  /*
    * The orange buttons. White on this gradient measured 1.96:1 in light and
    * 1.79:1 in dark, against a 4.5 requirement — the worst contrast on the
    * site. Darkening the orange enough to carry white text would take it to
