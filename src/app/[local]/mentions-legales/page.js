@@ -264,8 +264,39 @@ export default async function LegalPage({ params }) {
 
             <Section title="Cookies et services tiers">
               <p>
-                Ce site n’utilise aucun cookie publicitaire, ni outil de mesure
-                d’audience, ni traceur déposé par nous-mêmes.
+                Ce site n’utilise aucun cookie publicitaire.
+              </p>
+              <p>
+                Ce site utilise <strong>Google Tag Manager</strong> et{' '}
+                <strong>Google Analytics</strong>, fournis par Google Ireland
+                Limited, afin de mesurer la fréquentation du site : nombre de
+                visiteurs, pages consultées, provenance des visites et langue
+                utilisée. Ces outils déposent des cookies sur votre appareil et
+                transmettent à Google des données de navigation, dont votre
+                adresse IP, susceptibles d’être transférées hors de l’Union
+                européenne.
+              </p>
+              <p>
+                Vous pouvez vous y opposer en configurant votre navigateur pour
+                refuser les cookies, ou en installant le{' '}
+                <a
+                  href="https://tools.google.com/dlpage/gaoptout"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-brand hover:text-rust underline"
+                >
+                  module de désactivation de Google Analytics
+                </a>
+                . Pour en savoir plus, consultez les{' '}
+                <a
+                  href="https://policies.google.com/technologies/cookies"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-brand hover:text-rust underline"
+                >
+                  règles de Google relatives aux cookies
+                </a>
+                .
               </p>
               <p>
                 La galerie Instagram affichée en bas de page est fournie par le

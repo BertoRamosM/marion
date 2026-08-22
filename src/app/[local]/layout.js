@@ -1,4 +1,5 @@
 import "./globals.css";
+import Script from "next/script";
 import Footer from "./components/Footer";
 import StickySocialIcons from "./components/StickySocialIcons";
 import { Nunito } from "next/font/google";
@@ -11,6 +12,25 @@ import {
 import { routing } from "../../i18n/routing";
 
 const SITE_URL = "https://www.westfrench-academy.com";
+
+/*
+ * Google Tag Manager container.
+ *
+ * Google's own instructions say to paste the loader as high in <head> as
+ * possible. That is deliberately not what happens here: a synchronous script
+ * in <head> blocks the first paint, and this site's whole performance story is
+ * that it went from a 5.7s to a ~50ms time-to-first-byte. next/script with
+ * strategy="afterInteractive" injects it once the page is interactive, which
+ * costs a fraction of a second of measurement accuracy and protects the thing
+ * visitors actually feel.
+ *
+ * The <noscript> iframe stays immediately after <body> opens, as Google asks.
+ *
+ * CONSENT: this container loads Google Analytics, which sets cookies and sends
+ * data to Google. In France the CNIL requires consent BEFORE that happens, and
+ * this site has no consent banner yet. See the note in mentions-legales.
+ */
+const GTM_ID = "GTM-5FG7Q9QC";
 const EMAIL = "marion.westfrench@gmail.com";
 const PHONE = "+33784582309";
 
@@ -380,6 +400,14 @@ export default async function RootLayout({ children, params }) {
       <body
         className={`${nunito.variable} antialiased bg-gradient-to-br from-page-from to-page-to text-pretty`}
       >
+        {/* Google Tag Manager, no-JavaScript fallback. Immediately after
+            <body> opens, per Google's instructions. dangerouslySetInnerHTML
+            because React does not render markup inside <noscript> otherwise. */}
+        <noscript
+          dangerouslySetInnerHTML={{
+            __html: `<iframe src="https://www.googletagmanager.com/ns.html?id=${GTM_ID}" height="0" width="0" style="display:none;visibility:hidden"></iframe>`,
+          }}
+        />
         {/*
           First thing in the tab order. Without it a keyboard user has to tab
           through the banner, logo, five nav links and three flags on every
@@ -425,6 +453,16 @@ export default async function RootLayout({ children, params }) {
           <StickySocialIcons />
           <Footer />
         </NextIntlClientProvider>
+
+        {/* Google Tag Manager loader. See the note on GTM_ID for why this is
+            afterInteractive rather than in <head>. */}
+        <Script id="gtm-loader" strategy="afterInteractive">
+          {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','${GTM_ID}');`}
+        </Script>
       </body>
     </html>
   );

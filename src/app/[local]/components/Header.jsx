@@ -149,7 +149,7 @@ const Header = () => {
 {/* Single row at every size. Stacking on phones (flex-col) pushed logo,
     menu button and flags onto three lines, costing ~90px of vertical space
     for content that fits comfortably side by side. */}
-<header className="flex items-center flex-row justify-between gap-2 sm:gap-4 py-1 sm:py-2 px-2 sm:px-20 bg-mint text-on-mint-ink w-full text-center">
+<header className="flex items-center flex-row justify-between gap-2 sm:gap-4 py-1 sm:py-2 px-2 sm:px-20 lg:px-8 xl:px-20 bg-mint text-on-mint-ink w-full text-center">
         {/*  <h1 className="text-sm sm:text-base lg:text-4xl font-bold flex flex-col items-center text-center border-2 border-teal-deep p-4">
           <span className="text-brand">Westfrench</span>
           <span
@@ -177,7 +177,15 @@ const Header = () => {
             with no landmark, so screen-reader users had nothing to jump to.
             The mobile menu already used <nav>, but it only exists while
             open. */}
-        <nav className="hidden lg:flex gap-8 items-center font-bold">
+        {/*
+          gap-5 until xl, and the header drops to px-8 over the same range.
+          Between 1024 and 1279 the nav becomes visible while the row still
+          carries 160px of padding, which left exactly zero pixels spare with
+          six items — "Cours à Rennes" and "Cours en ligne" were wrapping onto
+          two lines against neighbours that did not, so the bar read as ragged.
+          From xl up there is room for the original spacing, so it comes back.
+        */}
+        <nav className="hidden lg:flex gap-5 xl:gap-8 items-center font-bold">
           {NAV.map(({ href, key }) => (
             <Link
               key={href}
