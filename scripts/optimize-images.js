@@ -100,6 +100,8 @@ async function main() {
     `\nTotal: ${(before / 1024 / 1024).toFixed(2)}MB -> ${(after / 1024 / 1024).toFixed(2)}MB`
   );
 
+  await writeSizeManifest(dir);
+
   if (converted.length > 0) {
     const folder = '/' + TARGET.replace(/^public\//, '');
     console.log('\nUse these paths in blog.json:');
@@ -109,6 +111,42 @@ async function main() {
     console.log('\nThe original files were kept — delete them once you have');
     console.log('checked the .webp versions look right.');
   }
+}
+
+/*
+ * Records the real pixel size of every .webp in the folder.
+ *
+ * next/image needs true width and height to reserve the right box before the
+ * file loads. Without them an inline blog image has to be forced into a fixed
+ * container, which crops a portrait photo to a narrow strip — the same bug
+ * that hit the gallery when every photo was declared 300x300.
+ *
+ * Written here rather than read at build time so the Next build stays free of
+ * image decoding, and so the numbers update exactly when the images do.
+ */
+async function writeSizeManifest(dir) {
+  const folder = '/' + TARGET.replace(/^public\//, '');
+  const sizes = {};
+
+  for (const name of fs.readdirSync(dir)) {
+    if (path.extname(name).toLowerCase() !== '.webp') continue;
+    const { width, height } = await sharp(path.join(dir, name)).metadata();
+    if (width && height) sizes[`${folder}/${name}`] = { width, height };
+  }
+
+  const manifestPath = path.resolve('src/content/image-sizes.json');
+  const existing = fs.existsSync(manifestPath)
+    ? JSON.parse(fs.readFileSync(manifestPath, 'utf8'))
+    : {};
+
+  // Merge, so optimizing one folder never drops another folder's entries.
+  const merged = { ...existing, ...sizes };
+  const ordered = Object.fromEntries(Object.keys(merged).sort().map((k) => [k, merged[k]]));
+
+  fs.writeFileSync(manifestPath, JSON.stringify(ordered, null, 2) + '\n');
+  console.log(
+    `\nRecorded dimensions for ${Object.keys(sizes).length} image(s) in src/content/image-sizes.json`
+  );
 }
 
 main().catch((error) => {

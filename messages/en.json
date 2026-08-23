@@ -30,7 +30,8 @@
     "onlineCourses": "Online Courses",
     "about": "About",
     "contact": "Contact",
-    "faq": "FAQ"
+    "faq": "FAQ",
+    "blog": "Blog"
   },
   "Banner": {
     "title1": "Sign up for your first trial lesson for free",
@@ -199,9 +200,7 @@
     "errorTitle": "Your message could not be sent",
     "errorHelp": "If you are seeing this, please contact me directly at:",
     "successTitle": "Message sent, thank you!",
-    "successHelp": "I will get back to you as soon as I can.",
-    "bookCallLead": "Would you rather talk it through? Book a 15-minute video call and we will work out your level together.",
-    "bookCallCta": "Book a 15-min call"
+    "successHelp": "I will get back to you as soon as I can."
   },
   "Courses": {
     "text1": "Courses in a small group in Rennes: Join our expat community",
@@ -344,7 +343,15 @@
     "backToSite": "Back to the site",
     "published": "Published on",
     "empty": "No articles yet. Check back soon!",
-    "breadcrumbHome": "Home"
+    "breadcrumbHome": "Home",
+    "readNext": "Read next",
+    "newerPost": "Newer",
+    "olderPost": "Older",
+    "byAuthor": "By",
+    "writtenBy": "Written by",
+    "authorRole": "teacher of French as a foreign language in Rennes.",
+    "readingTime": "{minutes} min read",
+    "updatedOn": "Updated"
   },
   "Legal": {
     "nav": "Legal notice",
@@ -455,7 +462,6 @@
         "cta": true
       }
     ],
-    "signupCta": "Book my trial lesson",
-    "bookCallCta": "Book a 15-min call"
+    "signupCta": "Book my trial lesson"
   }
 }

@@ -9,12 +9,14 @@ import { UkFlag } from "../icons/UkFlag";
 import { SpanishFlag } from "../icons/SpanishFlag";
 import { FrenchFlag } from "../icons/FrenchFlag";
 import { Banner } from "./Banner";
+import NavPending from "./NavPending";
 import Up from "../icons/Up";
 import Heart from "../icons/Heart";
 import LocationIcon from "../icons/LocationIcon";
 import LaptopIcon from "../icons/LaptopIcon";
 import InfoIcon from "../icons/InfoIcon";
 import EmailIcon from "../icons/EmailIcon";
+import BookIcon from "../icons/BookIcon";
 
 
 import Image from "next/image";
@@ -79,9 +81,9 @@ const NAV = [
   // It sits before Contact on purpose: answering the question first is
   // cheaper for everyone than answering it by email afterwards.
   { href: '/faq', key: 'faq', Icon: InfoIcon },
+  { href: '/blog', key: 'blog', Icon: BookIcon },
+  // Contact stays last: it is the action, everything above it is information.
   { href: '/#contact', key: 'contact', Icon: EmailIcon },
-  // Blog is written and routed but deliberately not linked yet:
-  // { href: '/blog', key: 'nav', Icon: BookIcon },
 ];
 
 const Header = () => {
@@ -180,6 +182,11 @@ const Header = () => {
             Academy
           </span>
         </h1> */}
+{/* No lg:w-32: the logo, not the links, was setting the header height.
+    At 128px wide it rendered 84px tall, which with the row padding made a
+    108px bar on top of the 44px announcement strip. Holding it at md:w-28
+    from md upward takes the row to 97px, and frees 16px of horizontal room
+    for the nav as a side effect. */}
 {/* 326x213 matches the real file. The previous 150x180 declared a portrait
     box, so the browser reserved ~200px of height and then collapsed to ~104px
     once the image loaded — a visible jump in a fixed header. */}
@@ -189,7 +196,7 @@ const Header = () => {
   width={326}
   height={213}
   priority
-  className="py-1 w-20 h-auto sm:w-24 md:w-28 lg:w-32"
+  className="py-1 w-20 h-auto sm:w-24 md:w-28"
 />
         {/* <nav>, not a plain div: this was the only navigation on the site
             with no landmark, so screen-reader users had nothing to jump to.
@@ -211,6 +218,7 @@ const Header = () => {
               className="hover:text-ember transition duration-300"
             >
               {t(key)}
+              <NavPending />
             </Link>
           ))}
         </nav>
@@ -219,7 +227,7 @@ const Header = () => {
           /* on-mint-ink, not on-mint-rust: the orange glyph measured 3.0:1
              against the mint bar and 18px bold just misses the large-text
              threshold, so it needed 4.5. Near-black takes it past 10:1. */
-          className="lg:hidden text-lg font-bold py-1 px-2 text-on-mint-ink border border-ember rounded-lg hover:bg-ember hover:text-white transition duration-300"
+          className="lg:hidden text-lg font-bold py-1 px-2 text-on-mint-ink border border-ember rounded-lg hover:bg-ember hover:text-on-ember transition duration-300"
           onClick={toggleModal}
         >
           ☰
@@ -320,6 +328,7 @@ const Header = () => {
                     <Icon />
                   </span>
                   {t(key)}
+                  <NavPending />
                 </Link>
               ))}
             </nav>

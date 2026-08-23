@@ -2,14 +2,65 @@ import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import Header from '../../components/Header';
+import NavPending from '../../components/NavPending';
 import { Link, routing } from '../../../../i18n/routing';
 import {
   getPost,
   getPostIds,
   parseBlock,
   formatDate,
+  getAdjacentPosts,
 } from '../../../../lib/blog';
 import { SITE_URL } from '../../../../lib/site';
+
+/*
+ * Links inside the article prose. Underlined rather than colour-only, so they
+ * are still identifiable without relying on hue.
+ */
+const LINK_IN_PROSE =
+  'font-semibold text-brand underline decoration-2 underline-offset-2 transition-colors duration-300 hover:text-rust';
+
+/*
+ * Google shows roughly 60 characters of a title and 155 of a description.
+ *
+ * The suffix is dropped rather than the article title truncated: a title cut
+ * mid-word is worse than one without the brand on the end, and Google often
+ * appends the site name itself anyway.
+ */
+/*
+ * The byline appears twice — under the title and again at the end — and both
+ * link to the About section on the home page.
+ *
+ * Two reasons beyond the obvious. A named, qualified author is the signal
+ * Google looks for on advice content, and the article's schema already points
+ * author at Marion's Person entity, so the visible byline and the structured
+ * data now say the same thing. And it adds internal links from the post to the
+ * page it is really selling, which is most of what a blog does for search.
+ */
+const AUTHOR_NAME = 'Marion Richard';
+
+const TITLE_SUFFIX = ' | Westfrench Academy';
+const TITLE_BUDGET = 60;
+const DESCRIPTION_BUDGET = 155;
+
+function pageTitle(postTitle) {
+  return postTitle.length + TITLE_SUFFIX.length <= TITLE_BUDGET
+    ? postTitle + TITLE_SUFFIX
+    : postTitle;
+}
+
+/*
+ * Trims only the copy handed to search engines. The full excerpt stays on the
+ * index card, where there is room for it — this way the author's text is never
+ * rewritten to fit a meta tag. Cuts on a word boundary, which Google's own
+ * truncation does not.
+ */
+function metaDescription(excerpt) {
+  if (excerpt.length <= DESCRIPTION_BUDGET) return excerpt;
+  const cut = excerpt.slice(0, DESCRIPTION_BUDGET);
+  const lastSpace = cut.lastIndexOf(' ');
+  return (lastSpace > 0 ? cut.slice(0, lastSpace) : cut).replace(/[\s,;:.]+$/, '') + '…';
+}
 
 export function generateStaticParams() {
   return getPostIds().map((id) => ({ id }));
@@ -21,13 +72,13 @@ export async function generateMetadata({ params }) {
 
   if (!post) return {};
 
-  const title = `${post.title} | Westfrench Academy`;
+  const title = pageTitle(post.title);
   const url = `${SITE_URL}/${local}/blog/${post.id}`;
   const image = post.image || '/og-image.jpg';
 
   return {
     title,
-    description: post.excerpt,
+    description: metaDescription(post.excerpt),
     alternates: {
       canonical: url,
       languages: {
@@ -44,7 +95,7 @@ export async function generateMetadata({ params }) {
       type: 'article',
       siteName: 'Westfrench Academy',
       title,
-      description: post.excerpt,
+      description: metaDescription(post.excerpt),
       url,
       locale: local,
       publishedTime: post.date || undefined,
@@ -53,7 +104,7 @@ export async function generateMetadata({ params }) {
     twitter: {
       card: 'summary_large_image',
       title,
-      description: post.excerpt,
+      description: metaDescription(post.excerpt),
       images: [image],
     },
   };
@@ -65,12 +116,20 @@ export default async function BlogPostPage({ params }) {
   // Static rendering — see layout.js.
   setRequestLocale(local);
   const post = getPost(id, local);
+  const { newer, older } = getAdjacentPosts(id, local);
 
   if (!post) notFound();
 
   const t = await getTranslations({ locale: local, namespace: 'Blog' });
   const tA11y = await getTranslations({ locale: local, namespace: 'A11y' });
   const dateLabel = formatDate(post.date, local);
+  /*
+   * Shown only when it actually differs from the publication date. "Updated" on
+   * the day of publishing is noise, and a visible date is what lets a reader
+   * verify the dateModified the schema below claims.
+   */
+  const updatedLabel =
+    post.updated && post.updated !== post.date ? formatDate(post.updated, local) : '';
   const postUrl = `${SITE_URL}/${local}/blog/${post.id}`;
   // A gallery fallback needs a generic description, not the post's own.
   const featuredAlt = post.imageIsFallback ? tA11y('blogImage') : post.imageAlt;
@@ -82,9 +141,15 @@ export default async function BlogPostPage({ params }) {
         '@type': 'BlogPosting',
         '@id': `${postUrl}#article`,
         headline: post.title,
+        // Full excerpt here, not the trimmed one: schema.org sets no
+        // length limit, so cutting it would drop information for nothing.
         description: post.excerpt,
         datePublished: post.date || undefined,
-        dateModified: post.date || undefined,
+        dateModified: post.updated || post.date || undefined,
+        wordCount: post.wordCount || undefined,
+        // ISO 8601 duration, and the same number the byline shows, so the
+        // visible page and the structured data cannot drift apart.
+        timeRequired: `PT${post.readingMinutes}M`,
         inLanguage: local,
         mainEntityOfPage: { '@type': 'WebPage', '@id': postUrl },
         // encodeURI matters here: gallery filenames contain spaces, and an
@@ -116,7 +181,12 @@ export default async function BlogPostPage({ params }) {
 
   return (
     <div className="min-h-screen flex flex-col">
-      <div className="top-0 left-0 right-0 z-50 bg-surface shadow-md">
+      {/* z-[70], matching every other page. This wrapper is a flex item
+          with a z-index, so it forms a stacking context and caps everything
+          inside it — including the full-screen mobile menu. At z-50 the sticky
+          social icons (z-60) drew over the open menu. See the layer list in
+          StickySocialIcons. */}
+      <div className="top-0 left-0 right-0 z-[70] bg-surface shadow-md">
         <Header />
       </div>
 
@@ -131,20 +201,41 @@ export default async function BlogPostPage({ params }) {
           <nav className="text-sm text-ink-600 mb-6" aria-label="Breadcrumb">
             <Link href="/" className="hover:text-rust underline">
               {t('breadcrumbHome')}
+              <NavPending />
             </Link>
             <span className="mx-2">/</span>
             <Link href="/blog" className="hover:text-rust underline">
               {t('title')}
+              <NavPending />
             </Link>
           </nav>
 
           <h1 className="text-4xl font-bold text-rust-lg">{post.title}</h1>
 
-          {dateLabel && (
-            <p className="text-sm text-ink-600 mt-3">
-              {t('published')} <time dateTime={post.date}>{dateLabel}</time>
-            </p>
-          )}
+          <p className="text-sm text-ink-600 mt-3">
+            {dateLabel && (
+              <>
+                {t('published')} <time dateTime={post.date}>{dateLabel}</time>
+                <span aria-hidden="true"> · </span>
+              </>
+            )}
+            {t('byAuthor')}{' '}
+            <Link href="/#about" className={LINK_IN_PROSE}>
+              {AUTHOR_NAME}
+              <NavPending />
+            </Link>
+            <span aria-hidden="true"> · </span>
+            {t('readingTime', { minutes: post.readingMinutes })}
+            {updatedLabel && (
+              <>
+                <span aria-hidden="true"> · </span>
+                <span className="italic">
+                  {t('updatedOn')}{' '}
+                  <time dateTime={post.updated}>{updatedLabel}</time>
+                </span>
+              </>
+            )}
+          </p>
 
           <div className="mt-8 bg-cream p-8 rounded-3xl shadow-lg">
             {/* Featured image sits at the top of the article body.
@@ -178,6 +269,25 @@ export default async function BlogPostPage({ params }) {
               }
 
               if (parsed.type === 'image') {
+                // With real dimensions the image sizes itself, so a portrait
+                // photo stays portrait instead of being cropped to a strip by
+                // a fixed landscape box. The fixed box below is the fallback
+                // for an image missing from the manifest.
+                if (parsed.width && parsed.height) {
+                  return (
+                    <Image
+                      key={index}
+                      src={parsed.src}
+                      alt={parsed.alt}
+                      width={parsed.width}
+                      height={parsed.height}
+                      sizes="(max-width: 768px) 100vw, 700px"
+                      className="w-full h-auto rounded-2xl mt-8 shadow"
+                      loading="lazy"
+                    />
+                  );
+                }
+
                 return (
                   <div
                     key={index}
@@ -195,27 +305,140 @@ export default async function BlogPostPage({ params }) {
                 );
               }
 
-              return (
+                return (
                 <p key={index} className="text-ink-800 mt-4 first:mt-0">
-                  {parsed.text}
+                  {parsed.parts.map((part, partIndex) => {
+                    if (part.type !== 'link') return part.text;
+
+                    // An absolute URL leaves the site, so it gets a plain
+                    // anchor with the usual new-tab safety. Everything else
+                    // goes through the localised Link.
+                    if (/^https?:\/\//.test(part.href)) {
+                      return (
+                        <a
+                          key={partIndex}
+                          href={part.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className={LINK_IN_PROSE}
+                        >
+                          {part.text}
+                        </a>
+                      );
+                    }
+
+                    return (
+                      <Link
+                        key={partIndex}
+                        href={part.href}
+                        className={LINK_IN_PROSE}
+                      >
+                        {part.text}
+                        <NavPending />
+                      </Link>
+                    );
+                  })}
                 </p>
               );
             })}
           </div>
 
+            {/*
+              Closing byline. The photo is the one the About section uses, so a
+              reader arriving from search meets the person before being asked to
+              trust the advice.
+            */}
+            <aside className="mt-12 flex flex-col items-center gap-5 rounded-3xl bg-mist p-6 text-center sm:flex-row sm:text-left">
+              <div className="relative h-20 w-20 shrink-0 overflow-hidden rounded-full ring-4 ring-veil-70">
+                <Image
+                  src="/about/Marion.webp"
+                  alt={tA11y('marion')}
+                  fill
+                  sizes="80px"
+                  className="object-cover"
+                />
+              </div>
+              <p className="text-ink-800">
+                {t('writtenBy')}{' '}
+                <Link
+                  href="/#about"
+                  className="font-bold text-brand underline decoration-2 underline-offset-2 transition-colors duration-300 hover:text-rust"
+                >
+                  {AUTHOR_NAME}
+                  <NavPending />
+                </Link>
+                , {t('authorRole')}
+              </p>
+            </aside>
+
+            {/*
+            What to read next.
+
+            Renders only when there is somewhere to go, so with a single
+            published article the whole block is absent rather than showing a
+            dead button. Each side is labelled with the article's own title
+            rather than a bare "next", so the reader can decide whether they
+            actually want it.
+
+            newer/older rather than previous/next: in a list sorted by date,
+            "next article" can mean either the next one down the page or the
+            next one published. These cannot be misread.
+          */}
+          {newer || older ? (
+            <nav className="mt-12 border-t border-ink-300 pt-8">
+            <h2 className="text-sm font-bold uppercase tracking-[0.2em] text-brand">
+              {t('readNext')}
+            </h2>
+
+            <div className="mt-4 grid gap-4 sm:grid-cols-2">
+              {newer ? (
+              <Link
+                href={`/blog/${newer.id}`}
+                className="rounded-2xl bg-cream p-5 shadow-sm transition-transform duration-300 hover:scale-[1.02]"
+              >
+                <span className="text-xs font-bold uppercase tracking-wide text-ink-600">
+                ← {t('newerPost')}
+                </span>
+                <span className="mt-2 block font-bold text-brand-deep">
+                {newer.title}
+                <NavPending />
+                </span>
+              </Link>
+              ) : null}
+
+              {older ? (
+              <Link
+                href={`/blog/${older.id}`}
+                className="rounded-2xl bg-cream p-5 shadow-sm transition-transform duration-300 hover:scale-[1.02] sm:text-right"
+              >
+                <span className="text-xs font-bold uppercase tracking-wide text-ink-600">
+                {t('olderPost')} →
+                </span>
+                <span className="mt-2 block font-bold text-brand-deep">
+                {older.title}
+                <NavPending />
+                </span>
+              </Link>
+              ) : null}
+            </div>
+            </nav>
+          ) : null}
+
           {/* Navigation back */}
           <div className="flex flex-wrap gap-4 justify-center mt-12">
             <Link
               href="/blog"
-              className="border-2 border-ember text-rust px-6 py-3 rounded-lg font-semibold hover:bg-ember hover:text-white transition duration-300"
+              className="border-2 border-ember text-rust px-6 py-3 rounded-lg font-semibold hover:bg-ember hover:text-on-ember transition duration-300"
             >
               ← {t('backToBlog')}
+              <NavPending />
             </Link>
             <Link
               href="/"
-              className="bg-gradient-to-tr from-ember to-ember-deep px-6 py-3 rounded-lg text-white font-semibold shadow hover:scale-105 transition-transform duration-300 ease-out"
+              className="bg-gradient-to-tr from-ember to-ember-deep px-6 py-3 rounded-lg text-on-ember font-semibold shadow hover:scale-105 transition-transform duration-300 ease-out"
             >
               {t('backToSite')}
+              <NavPending />
             </Link>
           </div>
         </article>

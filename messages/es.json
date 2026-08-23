@@ -30,7 +30,8 @@
     "onlineCourses": "Cursos en línea",
     "about": "Sobre mí",
     "contact": "Contacto",
-    "faq": "FAQ"
+    "faq": "FAQ",
+    "blog": "Blog"
   },
   "Banner": {
     "title1": "Regístrate para tu primera clase de prueba gratuita",
@@ -199,9 +200,7 @@
     "errorTitle": "No se ha podido enviar tu mensaje",
     "errorHelp": "Si ves este mensaje, escríbeme directamente a:",
     "successTitle": "¡Mensaje enviado, gracias!",
-    "successHelp": "Te responderé lo antes posible.",
-    "bookCallLead": "¿Prefieres hablarlo en directo? Reserva una videollamada de 15 minutos y vemos juntas tu nivel.",
-    "bookCallCta": "Reservar una llamada de 15 min"
+    "successHelp": "Te responderé lo antes posible."
   },
   "Courses": {
     "text1": "Clases en mini-grupo en Rennes: únete a nuestra comunidad de expats",
@@ -344,7 +343,15 @@
     "backToSite": "Volver al sitio",
     "published": "Publicado el",
     "empty": "Todavía no hay artículos. ¡Vuelve pronto!",
-    "breadcrumbHome": "Inicio"
+    "breadcrumbHome": "Inicio",
+    "readNext": "Para leer después",
+    "newerPost": "Más reciente",
+    "olderPost": "Más antiguo",
+    "byAuthor": "Por",
+    "writtenBy": "Escrito por",
+    "authorRole": "profesora de francés como lengua extranjera en Rennes.",
+    "readingTime": "{minutes} min de lectura",
+    "updatedOn": "Actualizado el"
   },
   "Legal": {
     "nav": "Aviso legal",
@@ -455,7 +462,6 @@
         "cta": true
       }
     ],
-    "signupCta": "Reservar mi clase de prueba",
-    "bookCallCta": "Reservar una llamada de 15 min"
+    "signupCta": "Reservar mi clase de prueba"
   }
 }

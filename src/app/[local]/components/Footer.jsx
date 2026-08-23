@@ -9,6 +9,7 @@ import Heart from '../icons/Heart';
 import LocationIcon from '../icons/LocationIcon';
 import Image from 'next/image';
 import { useTranslations } from 'next-intl';
+import NavPending from './NavPending';
 import { Link } from '../../../i18n/routing';
 
 // Social links lift slightly on hover — same playful feel as the buttons
@@ -79,14 +80,6 @@ const Footer = () => {
               marion.westfrench@gmail.com
             </a>
           </p>
-
-          {/*   <Link
-            href="/blog"
-            prefetch={false}
-            className="text-brand hover:text-ember underline font-semibold transition duration-300"
-          >
-            {tBlog('nav')}
-          </Link> */}
         </div>
 
         {/* Socials */}
@@ -164,10 +157,19 @@ const Footer = () => {
             </span>
             <span aria-hidden="true">·</span>
             <Link
+              href="/blog"
+              className="text-brand hover:text-rust underline transition duration-300"
+            >
+              {tBlog('nav')}
+              <NavPending />
+            </Link>
+            <span aria-hidden="true">·</span>
+            <Link
               href="/faq"
               className="text-brand hover:text-rust underline transition duration-300"
             >
               {tFaq('nav')}
+              <NavPending />
             </Link>
             <span aria-hidden="true">·</span>
             <Link
@@ -175,6 +177,7 @@ const Footer = () => {
               className="text-brand hover:text-rust underline transition duration-300"
             >
               {tLegal('nav')}
+              <NavPending />
             </Link>
           </p>
           <p className="flex items-center gap-2">

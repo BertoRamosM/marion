@@ -10,6 +10,7 @@ post — no code changes needed. Pages appear automatically at
 |-----------|----------|-------|
 | `id`      | yes      | Becomes the URL. Use a keyword slug, not a number (see below). |
 | `date`    | yes      | `YYYY-MM-DD`. Controls sort order — newest first. |
+| `updated` | no       | `YYYY-MM-DD`. Set this when you revise a published post — see below. |
 | `image`   | no       | Featured image path, e.g. `/blog/rennes.webp`. Leave `""` to auto-pick a gallery photo (see below). |
 | `fr` / `en` / `es` | at least `fr` | Per-locale content. |
 
@@ -24,6 +25,29 @@ Inside each locale object:
 
 Only `fr` is required. A missing `en` or `es` falls back to French rather than
 rendering blank, so a post can go live before it is translated.
+
+## Revising a published post
+
+Add `"updated": "YYYY-MM-DD"` when you make a real change to a post that is
+already live. Two things then happen:
+
+- The article shows a small "Mis à jour le …" note next to the byline.
+- Its structured data reports that date as `dateModified`.
+
+That second one is the point. Google treats freshness as a ranking signal but
+reads `dateModified`, so without this field an edit is invisible to search.
+
+It is deliberately separate from `date`, which still controls sort order — so
+fixing a typo does not push an old post back to the top of the index.
+
+Leave it out for a typo or a small wording change. It is for revisions a reader
+would want to know about.
+
+## Reading time is automatic
+
+The "8 min de lecture" label is counted from the article's own words at 200 words
+a minute, per locale, and is also published as `timeRequired` in the structured
+data. Nothing to set.
 
 ## Content blocks
 

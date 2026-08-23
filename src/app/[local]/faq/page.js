@@ -1,7 +1,8 @@
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import Header from '../components/Header';
+import NavPending from '../components/NavPending';
 import { Link, routing } from '../../../i18n/routing';
-import { SITE_URL, BOOKING_URL } from '../../../lib/site';
+import { SITE_URL } from '../../../lib/site';
 import Up from '../icons/Up';
 import Heart from '../icons/Heart';
 import GroupIcon from '../icons/GroupIcon';
@@ -162,37 +163,13 @@ export default async function FaqPage({ params }) {
                     back up to find the form. The flag lives in the
                     translations so the copy and its call to action stay
                     together, and the schema below ignores it. */}
-                {/*
-                  With a booking link configured, booking the call IS the
-                  answer to "how do I sign up", so it takes the loud button and
-                  the contact form drops to a quiet alternative underneath.
-                  Without one, the form keeps the loud button as before.
-                */}
-                {cta && BOOKING_URL ? (
-                  <div className="mt-5">
-                    <a
-                      href={BOOKING_URL}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-block rounded-lg bg-gradient-to-tr from-ember to-ember-deep px-6 py-3 font-semibold text-on-ember shadow transition-transform duration-300 ease-out hover:scale-105"
-                    >
-                      {t('bookCallCta')}
-                    </a>
-                    <p className="mt-3 text-sm text-ink-800">
-                      <Link
-                        href="/#contact"
-                        className="font-semibold text-brand underline decoration-2 underline-offset-4 transition-colors duration-300 hover:text-rust"
-                      >
-                        {t('signupCta')}
-                      </Link>
-                    </p>
-                  </div>
-                ) : cta ? (
+                {cta ? (
                   <Link
                     href="/#contact"
                     className="mt-5 inline-block rounded-lg bg-gradient-to-tr from-ember to-ember-deep px-6 py-3 font-semibold text-on-ember shadow transition-transform duration-300 ease-out hover:scale-105"
                   >
                     {t('signupCta')}
+                    <NavPending />
                   </Link>
                 ) : null}
               </section>
@@ -210,6 +187,7 @@ export default async function FaqPage({ params }) {
               className="font-semibold text-brand underline decoration-2 underline-offset-4 transition-colors duration-300 hover:text-rust"
             >
               {t('contactCta')}
+              <NavPending />
             </Link>
           </p>
 
@@ -219,6 +197,7 @@ export default async function FaqPage({ params }) {
               className="text-brand hover:text-rust underline transition duration-300"
             >
               ← {t('backToSite')}
+              <NavPending />
             </Link>
           </p>
         </article>

@@ -1,5 +1,6 @@
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import Header from '../components/Header';
+import NavPending from '../components/NavPending';
 import { Link, routing } from '../../../i18n/routing';
 import { SITE_URL } from '../../../lib/site';
 
@@ -61,7 +62,12 @@ export default async function LegalPage({ params }) {
 
   return (
     <div className="min-h-screen flex flex-col">
-      <div className="top-0 left-0 right-0 z-50 bg-surface shadow-md">
+      {/* z-[70], matching every other page. This wrapper is a flex item
+          with a z-index, so it forms a stacking context and caps everything
+          inside it — including the full-screen mobile menu. At z-50 the sticky
+          social icons (z-60) drew over the open menu. See the layer list in
+          StickySocialIcons. */}
+      <div className="top-0 left-0 right-0 z-[70] bg-surface shadow-md">
         <Header />
       </div>
 
@@ -344,9 +350,10 @@ export default async function LegalPage({ params }) {
           <div className="flex justify-center mt-12">
             <Link
               href="/"
-              className="border-2 border-ember text-rust px-6 py-3 rounded-lg font-semibold hover:bg-ember hover:text-white transition duration-300"
+              className="border-2 border-ember text-rust px-6 py-3 rounded-lg font-semibold hover:bg-ember hover:text-on-ember transition duration-300"
             >
               ← {t('backToSite')}
+              <NavPending />
             </Link>
           </div>
         </article>
