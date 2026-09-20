@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import { Link, usePathname } from '../../../i18n/routing';
-import { offerHref } from '../../../lib/routes';
+import { offerHref, offerFromSlug } from '../../../lib/routes';
 import { useLinkStatus } from 'next/link';
 
 import { useTranslations, useLocale } from "next-intl";
@@ -97,6 +97,29 @@ const resolveNav = (locale) =>
   NAV.map((item) =>
     item.offer ? { ...item, href: offerHref(item.offer, locale) } : item
   );
+
+/*
+ * The path to switch to when the visitor picks another language.
+ *
+ * For almost every page this is just the current path: /faq, /blog and
+ * /mentions-legales are spelled the same in all three languages, so
+ * next-intl only has to swap the locale prefix.
+ *
+ * The two offer pages are not. Their slug is translated, so keeping the
+ * path and changing only the prefix produces /en/cours-de-francais-rennes —
+ * a URL that deliberately 404s, because the English page lives at
+ * /en/french-classes-rennes. That is exactly what the flags used to do: the
+ * language switcher was the one place on the site that could build a
+ * mismatched slug, and it did it on every offer page.
+ *
+ * usePathname here is next-intl's, which returns the path WITHOUT the
+ * locale prefix — so "/cours-de-francais-rennes", which is what
+ * offerFromSlug expects.
+ */
+const localisedPath = (pathname, fromLocale, toLocale) => {
+  const offer = offerFromSlug(pathname.replace(/^\//, ''), fromLocale);
+  return offer ? offerHref(offer, toLocale) : pathname;
+};
 
 const Header = () => {
   const t = useTranslations("Header");
@@ -262,7 +285,7 @@ const Header = () => {
             return (
               <Link
                 key={code}
-                href={pathname}
+                href={localisedPath(pathname, locale, code)}
                 locale={code}
                 /* Not prefetchable by design — see FlagPending above. The
                    prop is kept explicit so it is clear this is intentional
