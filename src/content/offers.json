@@ -1,0 +1,12 @@
+{
+  "rennes": {
+    "fr": "cours-de-francais-rennes",
+    "en": "french-classes-rennes",
+    "es": "clases-de-frances-rennes"
+  },
+  "online": {
+    "fr": "cours-de-francais-en-ligne",
+    "en": "online-french-lessons",
+    "es": "clases-de-frances-online"
+  }
+}

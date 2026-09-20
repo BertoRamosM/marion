@@ -4,9 +4,11 @@ import InfoIcon from '../icons/InfoIcon';
 import EuroIcon from '../icons/EuroIcon';
 import CalendarIcon from '../icons/CalendarIcon';
 import { Link } from '../../../i18n/routing';
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
+import { offerHref } from '../../../lib/routes';
 import CheckBadge from './CheckBadge';
 import SectionHeading from './SectionHeading';
+import NavPending from './NavPending';
 
 // The eleven promises used to sit in two separate cream boxes, the second of
 // which had no heading and read as an orphan. They are one list now.
@@ -37,6 +39,8 @@ const PRICES = ['text27', 'text28'];
 const Courses = () => {
   const t = useTranslations("Courses");
   const tLabel = useTranslations('SectionLabel');
+  const tHeader = useTranslations('Header');
+  const locale = useLocale();
 
   return (
     <div className="flex flex-col items-center justify-center py-8 sm:py-16 px-0 sm:px-6 sm:min-h-screen" id="courses">
@@ -178,6 +182,19 @@ const Courses = () => {
                 className="block w-full rounded-lg bg-gradient-to-tr from-ember to-ember-deep px-6 py-3 text-center font-semibold text-on-ember shadow transition-transform duration-300 ease-out hover:scale-105"
               >
                 {t('bookPlace')}
+              </Link>
+              {/* The section above carries the whole offer, so this is a
+                  quiet text link rather than a second button. It is here so
+                  the offer's own page is reachable from the home page: for a
+                  visitor who wants a single URL to bookmark or send to a
+                  partner, and for a crawler, which reads the anchor text as a
+                  statement about what that page is for. */}
+              <Link
+                href={offerHref('rennes', locale)}
+                className="mt-4 block text-center text-sm font-semibold text-brand underline decoration-2 underline-offset-2 transition-colors duration-300 hover:text-rust"
+              >
+                {tHeader('coursesRennes')}
+                <NavPending />
               </Link>
             </div>
           </div>

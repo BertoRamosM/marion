@@ -10,8 +10,8 @@ import {
   setRequestLocale,
 } from "next-intl/server";
 import { routing } from "../../i18n/routing";
-
-const SITE_URL = "https://www.westfrench-academy.com";
+import { buildOrganization, buildPerson } from "../../lib/schema";
+import { SITE_URL } from "../../lib/site";
 
 /*
  * Google Tag Manager container.
@@ -27,12 +27,15 @@ const SITE_URL = "https://www.westfrench-academy.com";
  * The <noscript> iframe stays immediately after <body> opens, as Google asks.
  *
  * CONSENT: this container loads Google Analytics, which sets cookies and sends
- * data to Google. In France the CNIL requires consent BEFORE that happens, and
- * this site has no consent banner yet. See the note in mentions-legales.
+ * data to Google. In France, Article 82 of the Loi Informatique et Libertés
+ * requires consent BEFORE that happens, and this site has no consent banner.
+ * A working consent gate was built and then removed at the owner's request:
+ * the decision on record is to keep GA ungated and accept the risk. The
+ * compliant alternative that needs no banner is a cookieless analytics tool
+ * (Netlify Analytics is server-side and needs no code at all), which would
+ * mean deleting everything in this block. See the note in mentions-legales.
  */
 const GTM_ID = "GTM-5FG7Q9QC";
-const EMAIL = "marion.westfrench@gmail.com";
-const PHONE = "+33784582309";
 
 /*
  * One font for the whole site.
@@ -52,232 +55,22 @@ const nunito = Nunito({
 });
 
 /**
- * Builds the structured data graph for a given locale.
+ * The site-wide half of the structured-data graph.
  *
- * Entities are linked by @id so search engines can tell that the
- * organisation, the teacher and the two courses all belong together.
+ * The organisation and the teacher, and nothing else. The two Course
+ * entities used to be declared here too, which put them on the legal
+ * notice, the FAQ and every blog post, and gave both of them a url that
+ * resolved to the same document. Each one now lives on the page that
+ * sells it — see src/lib/schema.js — and they stay joined to these two by
+ * @id rather than by sharing a page.
  */
-function buildJsonLd(locale, t, description) {
-  const orgId = `${SITE_URL}/#organization`;
-  const personId = `${SITE_URL}/#marion`;
-  const pageUrl = `${SITE_URL}/${locale}`;
-
-  const organization = {
-    "@type": ["LocalBusiness", "EducationalOrganization"],
-    "@id": orgId,
-    name: "Westfrench Academy",
-    url: pageUrl,
-    logo: `${SITE_URL}/logos/logo-no-bg.png`,
-    // The photo Google shows beside the search result, read from the
-    // organisation entity. Supplied at several aspect ratios because Google
-    // asks for that and picks whichever fits the layout it renders.
-    image: [
-      `${SITE_URL}/og-photo-16x9.jpg`,
-      `${SITE_URL}/og-photo-4x3.jpg`,
-      `${SITE_URL}/og-photo.jpg`,
-    ],
-    description,
-    telephone: PHONE,
-    email: EMAIL,
-    founder: { "@id": personId },
-    address: {
-      "@type": "PostalAddress",
-      streetAddress: "6 Cours des Alliés",
-      addressLocality: "Rennes",
-      addressRegion: "Bretagne",
-      postalCode: "35000",
-      addressCountry: "FR",
-    },
-    geo: {
-      "@type": "GeoCoordinates",
-      latitude: 48.10542631895695,
-      longitude: -1.674797659032797,
-    },
-    /*
-     * Copied from the Google Business Profile, which Google treats as
-     * authoritative. Two blocks because the closing time differs: Tuesday and
-     * Thursday run late, the other three days do not.
-     *
-     * Saturday and Sunday are omitted rather than declared with zero hours —
-     * in schema.org an absent day means closed, and listing them explicitly
-     * adds noise without adding meaning.
-     *
-     * NOTE: Tuesday and Thursday closing at 19:30 contradicts the course
-     * schedule below, which has classes running 19:15–20:45 on exactly those
-     * two days. See the comment on courseSchedule.
-     */
-    openingHoursSpecification: [
-      {
-        "@type": "OpeningHoursSpecification",
-        dayOfWeek: ["Monday", "Wednesday", "Friday"],
-        opens: "09:30",
-        closes: "17:00",
-      },
-      {
-        "@type": "OpeningHoursSpecification",
-        dayOfWeek: ["Tuesday", "Thursday"],
-        opens: "09:30",
-        closes: "19:30",
-      },
-    ],
-    areaServed: [
-      { "@type": "City", name: "Rennes" },
-      { "@type": "AdministrativeArea", name: "Ille-et-Vilaine" },
-      { "@type": "AdministrativeArea", name: "Bretagne" },
-      { "@type": "Country", name: "France" },
-    ],
-    knowsLanguage: ["fr", "en", "es", "ca"],
-    priceRange: "€€",
-    sameAs: [
-      // Google Business Profile listing. Included so Google can tie this
-      // website and the Maps listing together as one entity. The ?cid= form is
-      // the stable canonical URL; the long /maps/place/... one carries session
-      // parameters that change.
-      "https://maps.google.com/?cid=8809206434949443188",
-      "https://www.instagram.com/westfrench_academy/",
-      "https://www.facebook.com/p/WestFrench-Academy-Marion-61571846455654/",
-      "https://www.linkedin.com/in/marionrichardfrenchteacher/",
-    ],
-  };
-
-  const person = {
-    "@type": "Person",
-    "@id": personId,
-    name: "Marion Richard",
-    jobTitle: "Professeure de français langue étrangère",
-    description: t("marion"),
-    worksFor: { "@id": orgId },
-    knowsLanguage: ["fr", "en", "es", "ca"],
-    hasCredential: {
-      "@type": "EducationalOccupationalCredential",
-      name: "DAEFLE",
-      description:
-        "Diplôme d'aptitude à l'enseignement du français langue étrangère",
-      // Naming the awarding body is what turns this from a claimed acronym
-      // into a verifiable qualification, which is the whole point of putting
-      // a credential in structured data.
-      recognizedBy: {
-        "@type": "Organization",
-        name: "Alliance Française",
-      },
-    },
-    sameAs: ["https://www.linkedin.com/in/marionrichardfrenchteacher/"],
-  };
-
-  const groupCourse = {
-    "@type": "Course",
-    "@id": `${SITE_URL}/#course-group`,
-    name: t("courseGroupName"),
-    description: t("courseGroupDesc"),
-    url: `${pageUrl}#courses`,
-    provider: { "@id": orgId },
-    inLanguage: locale,
-    teaches: "French as a foreign language",
-    educationalLevel: ["A1", "A2", "B1", "B2"],
-    hasCourseInstance: [
-      {
-        "@type": "CourseInstance",
-        courseMode: "Onsite",
-        courseWorkload: "PT1H30M",
-        location: {
-          "@type": "Place",
-          name: "La Maison des Associations",
-          address: {
-            "@type": "PostalAddress",
-            streetAddress: "6 Cours des Alliés",
-            addressLocality: "Rennes",
-            postalCode: "35000",
-            addressCountry: "FR",
-          },
-        },
-        /*
-         * These times come from the schedule shown in the Courses section:
-         * 17:30–19:00 and 19:15–20:45, Tuesdays and Thursdays.
-         *
-         * They outlast the opening hours above, which say the business closes
-         * at 19:30 on those days. Both cannot be right, and Google can see
-         * both in the same graph. The class times are almost certainly the
-         * correct ones, since they are what the site advertises — which would
-         * mean the Google listing needs extending to 20:45 rather than these
-         * being trimmed.
-         */
-        courseSchedule: {
-          "@type": "Schedule",
-          byDay: ["Tuesday", "Thursday"],
-          startTime: "17:30",
-          endTime: "20:45",
-          repeatFrequency: "P1W",
-          duration: "PT1H30M",
-        },
-        instructor: { "@id": personId },
-        maximumAttendeeCapacity: 8,
-      },
-    ],
-    offers: [
-      {
-        "@type": "Offer",
-        name: "3 mois – 12 sessions",
-        price: "440",
-        priceCurrency: "EUR",
-        category: "Paid",
-        availability: "https://schema.org/InStock",
-        url: `${pageUrl}#courses`,
-      },
-      {
-        "@type": "Offer",
-        name: "6 mois – 24 sessions",
-        price: "810",
-        priceCurrency: "EUR",
-        category: "Paid",
-        availability: "https://schema.org/InStock",
-        url: `${pageUrl}#courses`,
-      },
-    ],
-  };
-
-  const onlineCourse = {
-    "@type": "Course",
-    "@id": `${SITE_URL}/#course-online`,
-    name: t("courseOnlineName"),
-    description: t("courseOnlineDesc"),
-    url: `${pageUrl}#online-courses`,
-    provider: { "@id": orgId },
-    inLanguage: locale,
-    teaches: "French as a foreign language",
-    hasCourseInstance: [
-      {
-        "@type": "CourseInstance",
-        courseMode: "Online",
-        courseWorkload: "PT1H30M",
-        instructor: { "@id": personId },
-        maximumAttendeeCapacity: 1,
-      },
-    ],
-    offers: [
-      {
-        "@type": "Offer",
-        name: "10 sessions – 15h",
-        price: "575",
-        priceCurrency: "EUR",
-        category: "Paid",
-        availability: "https://schema.org/InStock",
-        url: `${pageUrl}#online-courses`,
-      },
-      {
-        "@type": "Offer",
-        name: "20 sessions – 30h",
-        price: "840",
-        priceCurrency: "EUR",
-        category: "Paid",
-        availability: "https://schema.org/InStock",
-        url: `${pageUrl}#online-courses`,
-      },
-    ],
-  };
-
+function buildJsonLd(locale, description, teacherDescription) {
   return {
     "@context": "https://schema.org",
-    "@graph": [organization, person, groupCourse, onlineCourse],
+    "@graph": [
+      buildOrganization(locale, description),
+      buildPerson(teacherDescription),
+    ],
   };
 }
 
@@ -386,14 +179,10 @@ export default async function RootLayout({ children, params }) {
   setRequestLocale(local);
 
   const messages = await getMessages();
-  const tSchema = await getTranslations({ locale: local, namespace: "Schema" });
   const tA11y = await getTranslations({ locale: local, namespace: "A11y" });
   const tMeta = await getTranslations({ locale: local, namespace: "Metadata" });
 
-  // One translator surface for the graph builder, so it can pull from
-  // both the Schema namespace and the teacher description in A11y.
-  const t = (key) => (key === "marion" ? tA11y(key) : tSchema(key));
-  const jsonLd = buildJsonLd(local, t, tMeta("description"));
+  const jsonLd = buildJsonLd(local, tMeta("description"), tA11y("marion"));
 
   return (
     <html lang={local}>

@@ -7,7 +7,7 @@
     "courseGroupName": "Small-group French lessons in Rennes",
     "courseGroupDesc": "French classes in small groups of 3 to 8 people in Rennes, organised by level (A1, A2, B1, B2) and designed for expats. 90-minute sessions, friendly atmosphere and cultural immersion.",
     "courseOnlineName": "Private online French lessons",
-    "courseOnlineDesc": "One-to-one online French lessons to prepare for your move to northwest France. A tailor-made programme adapted to your needs and your future region."
+    "courseOnlineDesc": "One-to-one online French lessons to prepare for your move to France. A tailor-made programme adapted to your needs and your future region."
   },
   "A11y": {
     "logo": "Westfrench Academy logo",
@@ -42,7 +42,7 @@
     "subtitle1": "Do you live in Rennes and want to progress in French quickly and while having fun?",
     "text1": "Join my tailor-made courses, adapted to your level and interests: small class, friendly atmosphere, and meet other expats!",
     "title2": "Individual online French lessons",
-    "subtitle2": "Planning to move to the northwest of France?",
+    "subtitle2": "Planning to move to France?",
     "text2": "Prepare yourself before your arrival with a local teacher through tailor-made lessons focused on your future region and quickly reach an initial level of French!",
     "button": "This way",
     "title3": "What Students Say",
@@ -150,7 +150,7 @@
     "text87": "The courses take place at ",
     "text88": "La Maison des Associations, ",
     "text89": "a futuristic building located just next to the Charles de Gaulle metro (line A) and Combier (line B). The Colombier district is a testament to 1970s urban planning and is also Rennes' most cultural area. The Maison des Associations hosts concerts, conferences, and dozens of sports and cultural activities throughout the year. The Champs Libres building next door has the largest library in Rennes, the Brittany Museum, and several community spaces.",
-    "text90": "Online courses for those who are moving soon to the Northwest",
+    "text90": "Online courses for those who are moving soon to France",
     "text91": "If you don't live in France yet ",
     "text92": "but would like to move soon ",
     "text93": "to Rennes, Nantes, Brittany, or Normandy, ",
@@ -246,7 +246,7 @@
   },
   "online": {
     "title": "Individual Online Courses:",
-    "text1": "Prepare for your arrival in Northwest of France",
+    "text1": "Prepare for your arrival in France",
     "text2": "Moving to a French city where you don’t know anyone and can’t communicate in basic situations can be a huge source of stress.",
     "text3": "Start your",
     "text4": "French learning journey now from afar",
@@ -329,6 +329,10 @@
       {
         "name": "Kristine Borsholm",
         "text": "The best French lessons I have ever had! I went from an A1/A2 level to B2 in one year thanks to Marion, who helped me enormously. I really do recommend her!"
+      },
+      {
+        "name": "Qinyan Zhang",
+        "text": "I’ve been learning French with Marion since April 2025, and I’ve actually just finished a package of 20 private lessons (30 hours in total). If I had to sum up the whole experience in one sentence, it would simply be: everything has been amazing!\n\nMarion is an incredibly professional, friendly and attentive teacher. She always knows how to design lessons around my interests and needs, so they’re not only perfectly suited to me but also genuinely fun. During our lessons, she constantly encourages me to speak and is always there to help when I suddenly run out of words (which, as a language learner, happens very often). Outside class, she also regularly corrects my writing and gives me amazing feedback.\n\nWith her help, my French has gradually gone from an intermediate B2 level to an advanced C1/C2 level. But what matters most to me is that Marion hasn’t only helped me with my grammar/vocabulary/etc., she has also made me feel that learning French is no longer something I have to do alone. She’s an amazing teacher, but she also feels like a friend. We often recommend books, films and TV shows to each other, share our travel experiences, and talk about our vacation plans. Talking to her always feels so natural and warm.\n\nAnd to all the expats in Rennes who are thinking about learning French: stop hesitating! If you’ve somehow come across WestFrench Academy, consider yourself lucky — just like I was back then, hahaha. I honestly miss those days last year when I could meet Marion in person every week in Rennes, as well as all the sorties she organized — picnics, board games, dinners, language exchanges… Those were such wonderful times!\n\nFinally, I can genuinely say that Marion is the best French teacher I’ve ever had, or actually, probably the best foreign-language teacher I’ve ever had (and coming from a Chinese person who has studied English, Spanish, Japanese and French, I think I’ve met my fair share of language teachers by now).\n\nSo if you’re looking for a French teacher who is professional, fun, and attentive to her students, Marion is definitely the one!"
       }
     ],
     "rating": "Rating: {rating} out of 5",

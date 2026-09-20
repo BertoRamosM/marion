@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import { Link, usePathname } from '../../../i18n/routing';
+import { offerHref } from '../../../lib/routes';
 import { useLinkStatus } from 'next/link';
 
 import { useTranslations, useLocale } from "next-intl";
@@ -75,16 +76,27 @@ const FlagPending = () => {
 const NAV = [
   { href: '/#default-carousel', key: 'home', Icon: Up },
   { href: '/#about', key: 'about', Icon: Heart },
-  { href: '/#courses', key: 'coursesRennes', Icon: LocationIcon },
-  { href: '/#online-courses', key: 'onlineCourses', Icon: LaptopIcon },
-  // A real page rather than an anchor, and the only non-anchor entry here.
-  // It sits before Contact on purpose: answering the question first is
+  // These two carry an offer key rather than an href: each is a real page
+  // now, and its slug is translated, so the URL cannot be written here.
+  // resolveNav below turns the key into the current locale's path.
+  { offer: 'rennes', key: 'coursesRennes', Icon: LocationIcon },
+  { offer: 'online', key: 'onlineCourses', Icon: LaptopIcon },
+  // Sits before Contact on purpose: answering the question first is
   // cheaper for everyone than answering it by email afterwards.
   { href: '/faq', key: 'faq', Icon: InfoIcon },
   { href: '/blog', key: 'blog', Icon: BookIcon },
   // Contact stays last: it is the action, everything above it is information.
   { href: '/#contact', key: 'contact', Icon: EmailIcon },
 ];
+
+/**
+ * Swaps each offer key for the path that offer has in this language.
+ * Entries that already carry an href pass through untouched.
+ */
+const resolveNav = (locale) =>
+  NAV.map((item) =>
+    item.offer ? { ...item, href: offerHref(item.offer, locale) } : item
+  );
 
 const Header = () => {
   const t = useTranslations("Header");
@@ -93,6 +105,7 @@ const Header = () => {
   // instead of always jumping back to the home page.
   const pathname = usePathname();
   const locale = useLocale();
+  const nav = resolveNav(locale);
   const [isHidden, setIsHidden] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -196,6 +209,9 @@ const Header = () => {
   width={326}
   height={213}
   priority
+  /* Widest it ever draws is md:w-28, i.e. 112px. Undeclared, it asked
+     for the 384px variant on every page load. */
+  sizes="112px"
   className="py-1 w-20 h-auto sm:w-24 md:w-28"
 />
         {/* <nav>, not a plain div: this was the only navigation on the site
@@ -211,7 +227,7 @@ const Header = () => {
           From xl up there is room for the original spacing, so it comes back.
         */}
         <nav className="hidden lg:flex gap-5 xl:gap-8 items-center font-bold">
-          {NAV.map(({ href, key }) => (
+          {nav.map(({ href, key }) => (
             <Link
               key={href}
               href={href}
@@ -305,7 +321,7 @@ const Header = () => {
             </button>
 
             <nav className="flex flex-col">
-              {NAV.map(({ href, key, Icon }, index) => (
+              {nav.map(({ href, key, Icon }, index) => (
                 <Link
                   key={href}
                   href={href}

@@ -193,7 +193,7 @@ const Gallery = () => {
                 height={image.height}
                 loading="lazy"
                 className="w-full h-auto rounded-lg"
-                sizes="(max-width: 640px) 45vw, (max-width: 768px) 30vw, 17vw"
+                sizes="(max-width: 640px) 45vw, (max-width: 768px) 30vw, 14vw"
               />
             </button>
           </div>
@@ -236,11 +236,13 @@ const Gallery = () => {
 
           {/* object-contain so tall photos are never cropped */}
           <div className="relative w-full h-full max-w-5xl max-h-[80vh]">
+            {/* Capped at the container's own max-w-5xl rather than 100vw:
+                the dialog is full width, the image inside it is not. */}
             <Image
               src={images[openIndex].src}
               alt={t("galleryItem", { number: openIndex + 1 })}
               fill
-              sizes="100vw"
+              sizes="(max-width: 1024px) 100vw, 1024px"
               className="object-contain select-none"
             />
           </div>

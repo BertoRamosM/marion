@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { usePathname } from 'next/navigation';
 import { useTranslations } from 'next-intl';
 import { Link } from '../../../i18n/routing';
 import SectionHeading from './SectionHeading';
@@ -30,10 +31,31 @@ const FIELD =
   'hover:border-brand focus:border-brand focus:outline-none ' +
   'focus:ring-2 focus:ring-ember';
 
-const ContactForm = () => {
+/*
+ * @param scope  Optional label appended to the heading, so the two offer
+ *               pages say which course you are writing about. Passed in
+ *               rather than derived here, because the caller already knows
+ *               and this component is also used with no scope at all on the
+ *               home page.
+ */
+const ContactForm = ({ scope }) => {
   const [status, setStatus] = useState(null);
   const [error, setError] = useState(null);
   const t = useTranslations('Contact');
+  /*
+   * The page this form was submitted from, sent along as a hidden field.
+   *
+   * Derived rather than passed: it works on every page that renders this
+   * form, including any added later, and it carries the locale too — so a
+   * submission reads "/es/clases-de-frances-online" and Marion knows both
+   * which course and which language without asking.
+   *
+   * It changes nothing about how the form behaves: same action, same
+   * validation, same success and error handling. Netlify only records
+   * fields declared in public/__forms.html, so "source" is declared there
+   * too.
+   */
+  const pathname = usePathname();
   const tLegal = useTranslations('Legal');
   const tLabel = useTranslations('SectionLabel');
 
@@ -72,7 +94,12 @@ const ContactForm = () => {
         <SectionHeading
           icon={<EmailIcon />}
           label={tLabel('contact')}
-          title={<span className="text-rust-lg">{t('title')}</span>}
+          title={
+            <span className="text-rust-lg">
+              {t('title')}
+              {scope ? ` — ${scope}` : ''}
+            </span>
+          }
         />
 
         <form
@@ -84,6 +111,7 @@ const ContactForm = () => {
           onSubmit={handleFormSubmit}
         >
           <input type="hidden" name="form-name" value="contact" />
+          <input type="hidden" name="source" value={pathname} />
           <p hidden>
             <label>
               Don&apos;t fill this out if you&apos;re human: <input name="bot-field" />

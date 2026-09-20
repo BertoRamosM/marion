@@ -7,7 +7,7 @@
     "courseGroupName": "Cours de français en mini-groupe à Rennes",
     "courseGroupDesc": "Cours de français en petits groupes de 3 à 8 personnes à Rennes, par niveau (A1, A2, B1, B2), conçus pour les expatriés. Sessions d'1h30, ambiance conviviale et immersion culturelle.",
     "courseOnlineName": "Cours de français individuels en ligne",
-    "courseOnlineDesc": "Cours particuliers de français en ligne pour préparer votre installation dans le nord-ouest de la France. Programme sur-mesure adapté à vos besoins et à votre future région."
+    "courseOnlineDesc": "Cours particuliers de français en ligne pour préparer votre installation en France. Programme sur-mesure adapté à vos besoins et à votre future région."
   },
   "A11y": {
     "logo": "Logo de Westfrench Academy",
@@ -42,7 +42,7 @@
     "subtitle1": "Tu habites à Rennes et tu veux progresser en français rapidement et en t’amusant ?",
     "text1": "Rejoins mes cours sur-mesure adaptés à ton niveau et à tes centres d’intérêts : petite classe, ambiance conviviale et rencontre avec d’autres expats !",
     "title2": "Cours de français individuels en ligne",
-    "subtitle2": "Tu prévois de t’installer dans le nord-ouest de la France ?",
+    "subtitle2": "Tu prévois de t’installer en France ?",
     "text2": "Prépare-toi avant ton arrivée avec une prof locale grâce à des cours sur-mesure sur ta future région et atteins rapidement un premier niveau de français !",
     "button": " C'est par là",
     "title3": "Ce que disent nos élèves",
@@ -150,7 +150,7 @@
     "text87": "Les cours collectifs sont donnés à la ",
     "text88": "Maison des Associations, ",
     "text89": "un bâtiment futuriste situé à deux pas des métros Charles de Gaulle (ligne A) et Combier (ligne B). Le quartier Colombier est le témoin de l'urbanisme des années 70 et c'est aussi le quartier le plus culturel de Rennes. La Maison des Associations propose des concerts, des conférences, et des dizaines d'activités sportives et culturelles tout au long de l'année. Le bâtiment des Champs Libres se trouve juste à côté et contient la plus grande bibliothèque de Rennes, le musée de Bretagne et des sciences ainsi que plusieurs espaces collectifs.",
-    "text90": "Des cours en ligne pour ceux qui s'installent bientôt dans le Nord-Ouest ",
+    "text90": "Des cours en ligne pour ceux qui s'installent bientôt en France ",
     "text91": "Si tu ne vis pas encore en France ",
     "text92": "mais que tu aimerais t'installer prochainement ",
     "text93": "à Rennes, Nantes, en Bretagne ou en Normandie, ",
@@ -246,7 +246,7 @@
   },
   "online": {
     "title": "Cours Individuels en ligne:",
-    "text1": "prépare ton arrivée dans le nord-ouest de la France",
+    "text1": "prépare ton arrivée en France",
     "text2": " S'installer dans une ville française où on ne connaît personne et sans pouvoir communiquer dans des situations basiques peut être une grande source de stress.",
     "text3": "Commence ton",
     "text4": "apprentissage du français dès maintenant à distance",
@@ -329,6 +329,10 @@
       {
         "name": "Kristine Borsholm",
         "text": "Les meilleurs cours de français que j’ai jamais eus ! Je suis passée d’un niveau A1/A2 à B2 en un an grâce à Marion, qui m’a beaucoup aidée. Je la recommande vraiment !"
+      },
+      {
+        "name": "Qinyan Zhang",
+        "text": "J’apprends le français avec Marion depuis avril 2025, et je viens justement de terminer un forfait de 20 cours particuliers (30 heures au total). S’il fallait résumer toute cette expérience en une phrase, ce serait tout simplement : tout a été formidable !\n\nMarion est une professeure incroyablement professionnelle, chaleureuse et attentive. Elle sait toujours construire les cours autour de mes centres d’intérêt et de mes besoins, si bien qu’ils sont non seulement parfaitement adaptés, mais aussi vraiment amusants. Pendant les cours, elle m’encourage sans cesse à parler et elle est toujours là quand les mots me manquent d’un coup (ce qui, quand on apprend une langue, arrive très souvent). En dehors des cours, elle corrige aussi régulièrement mes écrits et me donne des retours formidables.\n\nGrâce à elle, mon français est progressivement passé d’un niveau intermédiaire B2 à un niveau avancé C1/C2. Mais ce qui compte le plus pour moi, c’est que Marion ne m’a pas seulement aidée en grammaire, en vocabulaire, etc. : elle m’a aussi fait sentir qu’apprendre le français n’est plus quelque chose à affronter en solitaire. C’est une professeure formidable, mais c’est aussi comme une amie. Nous nous recommandons souvent des livres, des films et des séries, nous partageons nos expériences de voyage et nous parlons de nos projets de vacances. Discuter avec elle est toujours si naturel et si chaleureux.\n\nEt à tous les expats de Rennes qui songent à apprendre le français : arrêtez d’hésiter ! Si vous êtes tombé sur WestFrench Academy, estimez-vous chanceux — comme moi à l’époque, hahaha. Les jours de l’année dernière où je pouvais retrouver Marion en personne chaque semaine à Rennes me manquent vraiment, tout comme les sorties qu’elle organisait — pique-niques, jeux de société, dîners, échanges linguistiques… C’étaient des moments merveilleux !\n\nEnfin, je peux sincèrement dire que Marion est la meilleure professeure de français que j’aie jamais eue — en fait, probablement la meilleure professeure de langue étrangère que j’aie jamais eue (et venant d’une personne chinoise qui a étudié l’anglais, l’espagnol, le japonais et le français, je pense avoir croisé un bon nombre de professeurs de langues).\n\nAlors si vous cherchez une professeure de français professionnelle, amusante et attentive à ses élèves, Marion est vraiment celle qu’il vous faut !"
       }
     ],
     "rating": "Note : {rating} sur 5",

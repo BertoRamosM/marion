@@ -124,11 +124,15 @@ const SmallCarousel = ({ slides }) => {
               </div>
 
               <div className="w-20 h-20 relative mb-4">
+                {/* 80px, matching the w-20 box. Without an explicit sizes
+                    a fill image defaults to 100vw, so all sixteen avatars
+                    asked for a viewport-wide variant of a 90px source. */}
                 <Image
                   src={slide.image}
                   alt={slide.title}
                   className="rounded-full object-cover"
                   fill
+                  sizes="80px"
                 />
               </div>
 
@@ -136,9 +140,18 @@ const SmallCarousel = ({ slides }) => {
                 {slide.title}
               </h3>
 
-              <p className="text-ink-700 text-sm my-2 px-6">
-                {slide.text}
-              </p>
+              {/* Split on blank lines so a multi-paragraph review keeps its
+                  paragraphs. Most reviews are a single block and come out of
+                  this as one <p>, exactly as before. */}
+              <div className="text-ink-700 text-sm my-2 px-6">
+                {String(slide.text)
+                  .split(/\n\s*\n/)
+                  .map((paragraph, i) => (
+                    <p key={i} className="mt-3 first:mt-0">
+                      {paragraph}
+                    </p>
+                  ))}
+              </div>
 
               {/* Bare on the card, no chip. See the contrast note on --star
                   in globals.css: this colour does not meet 3:1 on white, and
@@ -249,6 +262,7 @@ const REVIEW_META = [
   { image: "/reviews/pic13.png", rating: 5 },
   { image: "/reviews/pic15.png", rating: 5 },
   { image: "/reviews/pic16.png", rating: 5 },
+  { image: "/reviews/pic17.png", rating: 5 },
 ];
 
 export default function CarouselWrapper() {

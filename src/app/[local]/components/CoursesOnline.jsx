@@ -2,10 +2,12 @@ import React from 'react';
 import InfoIcon from '../icons/InfoIcon';
 import EuroIcon from '../icons/EuroIcon';
 import LaptopIcon from '../icons/LaptopIcon';
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
+import { offerHref } from '../../../lib/routes';
 import { Link } from '../../../i18n/routing';
 import CheckBadge from './CheckBadge';
 import SectionHeading from './SectionHeading';
+import NavPending from './NavPending';
 
 // The four benefits previously sat in two separate cards, the second without a
 // heading — the same orphan-box problem the in-person section had. One list now.
@@ -21,6 +23,8 @@ const PRICES = [
 const OnlineCourses = () => {
   const t = useTranslations("online");
   const tLabel = useTranslations("SectionLabel");
+  const tHeader = useTranslations("Header");
+  const locale = useLocale();
 
   return (
     <div className="flex flex-col items-center justify-center py-8 sm:py-16 px-0 sm:px-6 sm:min-h-screen" id='online-courses'>
@@ -101,6 +105,15 @@ const OnlineCourses = () => {
               {t("bookPlace")}
             </Link>
           </div>
+
+          {/* See the note on the same link in Courses.jsx. */}
+          <Link
+            href={offerHref('online', locale)}
+            className="mt-4 block text-center text-sm font-semibold text-brand underline decoration-2 underline-offset-2 transition-colors duration-300 hover:text-rust"
+          >
+            {tHeader('onlineCourses')}
+            <NavPending />
+          </Link>
         </div>
       </div>
     </div>

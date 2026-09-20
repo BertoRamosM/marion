@@ -20,6 +20,13 @@
       <input type="tel" name="phone" />
       <input type="text" name="objet" />
       <input type="text" name="message" required />
+      <!-- Which page the form was sent from, e.g. "/fr/cours-de-francais-rennes".
+           Filled in automatically, never shown to or editable by the visitor.
+           It has to be declared here or Netlify drops it: this file is the
+           form definition Netlify reads at deploy time, and it records only
+           the fields it finds in it. Not required, so an older cached page
+           that submits without it still goes through. -->
+      <input type="text" name="source" />
       <button type="submit">Send Message</button>
     </form>
   </body>

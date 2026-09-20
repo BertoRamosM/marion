@@ -7,7 +7,7 @@
     "courseGroupName": "Clases de francés en grupos reducidos en Rennes",
     "courseGroupDesc": "Clases de francés en grupos reducidos de 3 a 8 personas en Rennes, por nivel (A1, A2, B1, B2), diseñadas para expatriados. Sesiones de 1h30, ambiente agradable e inmersión cultural.",
     "courseOnlineName": "Clases de francés individuales en línea",
-    "courseOnlineDesc": "Clases particulares de francés en línea para preparar tu llegada al noroeste de Francia. Programa personalizado adaptado a tus necesidades y a tu futura región."
+    "courseOnlineDesc": "Clases particulares de francés en línea para preparar tu llegada a Francia. Programa personalizado adaptado a tus necesidades y a tu futura región."
   },
   "A11y": {
     "logo": "Logotipo de Westfrench Academy",
@@ -42,7 +42,7 @@
     "subtitle1": "¿Vives en Rennes y quieres mejorar tu francés rápidamente mientras te diviertes?",
     "text1": "Únete a mis clases personalizadas, adaptadas a tu nivel e intereses: clases pequeñas, ambiente amigable y encuentro con otros expats.",
     "title2": "Clases de francés individuales en línea",
-    "subtitle2": "¿Estás planeando mudarte al noroeste de Francia?",
+    "subtitle2": "¿Estás planeando mudarte a Francia?",
     "text2": "¡Prepárate antes de tu llegada con una profesora local a través de clases personalizadas sobre tu futura región y alcanza rápidamente un nivel básico o avanzado de francés!",
     "button": "Aquí",
     "title3": "Lo que dicen los estudiantes",
@@ -150,7 +150,7 @@
     "text87": "Las clases colectivas se imparten en la",
     "text88": "Maison des Associations, ",
     "text89": "un edificio futurista ubicado a pocos pasos de las estaciones de metro Charles de Gaulle (línea A) y Colombier (línea B). El barrio Colombier es un testimonio del urbanismo de los años 70 y también es el barrio más cultural de Rennes. La Maison des Associations ofrece conciertos, conferencias y decenas de actividades deportivas y culturales durante todo el año. El edificio de Les Champs Libres se encuentra justo al lado y alberga la biblioteca más grande de Rennes, el museo de Bretaña y de ciencias, así como varios espacios colectivos.",
-    "text90": "Cursos en línea para quienes se mudan pronto al Noroeste",
+    "text90": "Cursos en línea para quienes se mudan pronto a Francia",
     "text91": "Si aún no vives en Francia ",
     "text92": "pero planeas mudarte pronto ",
     "text93": "a Rennes, Nantes, Bretaña o Normandía, ",
@@ -246,7 +246,7 @@
   },
   "online": {
     "title": "Clases Individuales en línea:",
-    "text1": "prepara tu llegada al noroeste de Francia",
+    "text1": "prepara tu llegada a Francia",
     "text2": "Instalarse en una ciudad francesa sin conocer a nadie y sin poder comunicarse en situaciones básicas puede ser una gran fuente de estrés.",
     "text3": "Comienza tu",
     "text4": "aprendizaje de francés desde ahora a distancia",
@@ -329,6 +329,10 @@
       {
         "name": "Kristine Borsholm",
         "text": "¡Las mejores clases de francés que he tenido! Pasé de un nivel A1/A2 a B2 en un año gracias a Marion, que me ayudó muchísimo. ¡La recomiendo de verdad!"
+      },
+      {
+        "name": "Qinyan Zhang",
+        "text": "Aprendo francés con Marion desde abril de 2025 y acabo de terminar un paquete de 20 clases particulares (30 horas en total). Si tuviera que resumir toda la experiencia en una frase, sería simplemente: ¡todo ha sido increíble!\n\nMarion es una profesora increíblemente profesional, cercana y atenta. Siempre sabe diseñar las clases en torno a mis intereses y necesidades, así que no solo se ajustan perfectamente a mí, sino que además son realmente divertidas. Durante las clases me anima constantemente a hablar y siempre está ahí cuando de repente me quedo sin palabras (algo que, cuando aprendes un idioma, pasa muy a menudo). Fuera de clase, también corrige mis textos con regularidad y me da unos comentarios buenísimos.\n\nCon su ayuda, mi francés ha pasado poco a poco de un nivel intermedio B2 a un nivel avanzado C1/C2. Pero lo que más me importa es que Marion no solo me ha ayudado con la gramática, el vocabulario, etc.: también me ha hecho sentir que aprender francés ya no es algo que tenga que afrontar en solitario. Es una profesora estupenda, pero también se siente como una amiga. A menudo nos recomendamos libros, películas y series, compartimos nuestras experiencias de viaje y hablamos de nuestros planes de vacaciones. Hablar con ella siempre resulta natural y cálido.\n\nY a todos los expats de Rennes que estén pensando en aprender francés: ¡dejad de dudar! Si habéis dado con WestFrench Academy, consideraos afortunados, como lo fui yo en su momento, jajaja. Echo muchísimo de menos aquellos días del año pasado en los que podía ver a Marion en persona cada semana en Rennes, y también todas las salidas que organizaba: picnics, juegos de mesa, cenas, intercambios de idiomas… ¡Fueron momentos maravillosos!\n\nPor último, puedo decir sinceramente que Marion es la mejor profesora de francés que he tenido nunca o, mejor dicho, probablemente la mejor profesora de idiomas que he tenido nunca (y viniendo de una persona china que ha estudiado inglés, español, japonés y francés, creo que he conocido a unos cuantos profesores de idiomas).\n\n¡Así que si buscas una profesora de francés profesional, divertida y atenta con sus alumnos, Marion es sin duda la indicada!"
       }
     ],
     "rating": "Valoración: {rating} de 5",

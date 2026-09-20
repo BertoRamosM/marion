@@ -8,9 +8,10 @@ import EmailIcon from '../icons/EmailIcon';
 import Heart from '../icons/Heart';
 import LocationIcon from '../icons/LocationIcon';
 import Image from 'next/image';
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
 import NavPending from './NavPending';
 import { Link } from '../../../i18n/routing';
+import { offerHref } from '../../../lib/routes';
 
 // Social links lift slightly on hover — same playful feel as the buttons
 // elsewhere on the page.
@@ -21,6 +22,8 @@ const Footer = () => {
   const tBlog = useTranslations('Blog');
   const tLegal = useTranslations('Legal');
   const tFaq = useTranslations('Faq');
+  const tHeader = useTranslations('Header');
+  const locale = useLocale();
 
   return (
     <footer className="relative overflow-hidden bg-paper">
@@ -48,6 +51,8 @@ const Footer = () => {
             alt="Westfrench logo"
             width={326}
             height={213}
+            /* w-40, so 160px. See the same note in Header. */
+            sizes="160px"
             className="w-40 h-auto"
           />
           <p className="text-ink-700 mt-4 text-sm leading-relaxed">
@@ -155,6 +160,22 @@ const Footer = () => {
               © {new Date().getFullYear()} Westfrench Academy — Tous droits
               réservés.
             </span>
+            <span aria-hidden="true">·</span>
+            <Link
+              href={offerHref('rennes', locale)}
+              className="text-brand hover:text-rust underline transition duration-300"
+            >
+              {tHeader('coursesRennes')}
+              <NavPending />
+            </Link>
+            <span aria-hidden="true">·</span>
+            <Link
+              href={offerHref('online', locale)}
+              className="text-brand hover:text-rust underline transition duration-300"
+            >
+              {tHeader('onlineCourses')}
+              <NavPending />
+            </Link>
             <span aria-hidden="true">·</span>
             <Link
               href="/blog"
