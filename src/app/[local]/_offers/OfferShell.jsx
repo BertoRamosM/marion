@@ -26,6 +26,7 @@ export default function OfferShell({
   lead,
   otherOffer,
   backLabel,
+  offerKey,
   children,
 }) {
   return (
@@ -80,7 +81,7 @@ export default function OfferShell({
             button now anchors to.
           */}
           <SectionDivider />
-          <ContactForm scope={breadcrumbLabel} />
+          <ContactForm scope={breadcrumbLabel} course={offerKey} />
 
           {/*
             Out to the other offer, and back home.

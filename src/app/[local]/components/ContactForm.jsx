@@ -1,7 +1,6 @@
 'use client';
 
 import { useState } from 'react';
-import { usePathname } from 'next/navigation';
 import { useTranslations } from 'next-intl';
 import { Link } from '../../../i18n/routing';
 import SectionHeading from './SectionHeading';
@@ -32,31 +31,20 @@ const FIELD =
   'focus:ring-2 focus:ring-ember';
 
 /*
- * @param scope  Optional label appended to the heading, so the two offer
- *               pages say which course you are writing about. Passed in
- *               rather than derived here, because the caller already knows
- *               and this component is also used with no scope at all on the
- *               home page.
+ * @param scope   Optional label appended to the heading, so the two offer
+ *                pages say which course you are writing about. Passed in
+ *                rather than derived here, because the caller already knows,
+ *                and the home page passes nothing.
+ * @param course  Which option the course dropdown starts on: "rennes",
+ *                "online", or nothing for the home page, where the visitor
+ *                has not signalled either yet.
  */
-const ContactForm = ({ scope }) => {
+const ContactForm = ({ scope, course }) => {
   const [status, setStatus] = useState(null);
   const [error, setError] = useState(null);
   const t = useTranslations('Contact');
-  /*
-   * The page this form was submitted from, sent along as a hidden field.
-   *
-   * Derived rather than passed: it works on every page that renders this
-   * form, including any added later, and it carries the locale too — so a
-   * submission reads "/es/clases-de-frances-online" and Marion knows both
-   * which course and which language without asking.
-   *
-   * It changes nothing about how the form behaves: same action, same
-   * validation, same success and error handling. Netlify only records
-   * fields declared in public/__forms.html, so "source" is declared there
-   * too.
-   */
-  const pathname = usePathname();
   const tLegal = useTranslations('Legal');
+  const tHeader = useTranslations('Header');
   const tLabel = useTranslations('SectionLabel');
 
   const handleFormSubmit = async (event) => {
@@ -111,7 +99,6 @@ const ContactForm = ({ scope }) => {
           onSubmit={handleFormSubmit}
         >
           <input type="hidden" name="form-name" value="contact" />
-          <input type="hidden" name="source" value={pathname} />
           <p hidden>
             <label>
               Don&apos;t fill this out if you&apos;re human: <input name="bot-field" />
@@ -160,6 +147,39 @@ const ContactForm = ({ scope }) => {
               className={FIELD}
               placeholder={t('text6')}
             />
+          </div>
+
+          {/*
+            Which course the enquiry is about.
+
+            This replaced a hidden field that recorded the page instead. A
+            visible control is better than inferring it: someone reading the
+            Rennes page may well want the online lessons, and now they can
+            say so rather than being silently labelled by where they stood.
+
+            The offer pages start it on their own course, so for most people
+            it is already right and needs no thought. The home page starts it
+            on "I do not know", which is the honest default there and is the
+            same option the level field already offers.
+
+            Values are stable keys rather than the visible labels, so all
+            three languages land in one column in Netlify as "rennes" or
+            "online" rather than six different strings.
+          */}
+          <div>
+            <label htmlFor="course" className="block text-sm font-medium text-brand">
+              {t('course')}
+            </label>
+            <select
+              id="course"
+              name="course"
+              defaultValue={course || ''}
+              className={FIELD}
+            >
+              <option value="">{t('text8')}</option>
+              <option value="rennes">{tHeader('coursesRennes')}</option>
+              <option value="online">{tHeader('onlineCourses')}</option>
+            </select>
           </div>
 
           {/* French Level */}

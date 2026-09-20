@@ -167,6 +167,7 @@ export default async function OfferPage({ params }) {
       title={tSchema(copy.nameKey)}
       lead={tLead(copy.leadKey)}
       backLabel={tBlog('backToSite')}
+      offerKey={offer}
       otherOffer={{
         href: offerHref(other, local),
         label: tHeader(COPY[other].navKey),

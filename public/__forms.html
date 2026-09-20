@@ -20,13 +20,14 @@
       <input type="tel" name="phone" />
       <input type="text" name="objet" />
       <input type="text" name="message" required />
-      <!-- Which page the form was sent from, e.g. "/fr/cours-de-francais-rennes".
-           Filled in automatically, never shown to or editable by the visitor.
+      <!-- Which course the enquiry is about: "rennes", "online", or empty when
+           the visitor left it on "I don't know". Chosen from a dropdown on the
+           form; the offer pages start it on their own course.
            It has to be declared here or Netlify drops it: this file is the
            form definition Netlify reads at deploy time, and it records only
            the fields it finds in it. Not required, so an older cached page
            that submits without it still goes through. -->
-      <input type="text" name="source" />
+      <input type="text" name="course" />
       <button type="submit">Send Message</button>
     </form>
   </body>
