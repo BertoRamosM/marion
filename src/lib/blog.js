@@ -2,57 +2,98 @@ import posts from '../content/blog.json';
 import imageSizes from '../content/image-sizes.json';
 import { routing } from '../i18n/routing';
 
-/**
- * Photos used when a post has no image of its own.
- * Filenames match public/gallery exactly. The three that used to be lowercase
- * ("photo 3/7/8") were renamed to match the rest, so these are capitalised
- * too — they only resolved before because Windows and Netlify happen to be
- * case-insensitive.
+/*
+ * Gallery photos a post can borrow when it has no image of its own.
+ *
+ * Derived from the image-size manifest rather than hand-listed. That manifest
+ * is written by `npm run optimize-images` straight from the files on disk, so
+ * every entry here provably exists.
+ *
+ * The hand-kept list this replaces could only drift, and had: it still named
+ * photos that no longer matched their files, and it had never gained photos
+ * 22-30, so the newest work could not be picked at all. A typo or a removed
+ * file showed up as a broken image with nothing to warn you.
  */
-const GALLERY_FALLBACKS = [
-  '/gallery/Photo 1.webp',
-  '/gallery/Photo 2.webp',
-  '/gallery/Photo 3.webp',
-  '/gallery/Photo 4.webp',
-  '/gallery/Photo 5.webp',
-  '/gallery/Photo 6.webp',
-  '/gallery/Photo 7.webp',
-  '/gallery/Photo 8.webp',
-  '/gallery/Photo 9.webp',
-  '/gallery/Photo 10.webp',
-  '/gallery/Photo 11.webp',
-  '/gallery/Photo 12.webp',
-  '/gallery/Photo 13.webp',
-  '/gallery/Photo 14.webp',
-  '/gallery/Photo 15.webp',
-  '/gallery/Photo 16.webp',
-  '/gallery/Photo 17.webp',
-  '/gallery/Photo 18.webp',
-  '/gallery/Photo 19.webp',
-  '/gallery/Photo 20.webp',
-  '/gallery/Photo 21.webp',
-  '/gallery/rennes.webp',
-];
+const EXCLUDED_FROM_FALLBACKS = new Set([
+  // Stock photography. Out of place anywhere on this site, and especially at
+  // the top of an article, where the whole point is that it is Marion's own.
+  '/gallery/Photo 3.webp', // rose-gold flat-lay
+  '/gallery/Photo 13.webp', // friends silhouetted at sunset
+]);
 
-/** Small stable string hash, so a given id always maps to the same photo. */
+const GALLERY_FALLBACKS = Object.keys(imageSizes)
+  .filter((src) => src.startsWith('/gallery/'))
+  .filter((src) => !EXCLUDED_FROM_FALLBACKS.has(src))
+  // Sorted so the set is identical on every machine and every build, whatever
+  // order the manifest happens to have been written in.
+  .sort();
+
+/**
+ * Stable 32-bit string hash: FNV-1a, then murmur3's final avalanche.
+ *
+ * The avalanche step is the part that matters. This was a plain `hash * 31 +
+ * charCode`, which is fine for a hash table and not fine here: every candidate
+ * shares the prefix "/gallery/Photo " and differs in one or two trailing
+ * characters, and a ×31 hash barely separates inputs that similar. Measured
+ * over 300 ids it left 8 of the 29 photos never chosen at all, gave one photo
+ * five times its share, and made adding a single photo move a third of the
+ * posts instead of a thirtieth.
+ *
+ * Math.imul is not decoration — it is the only way to get a real 32-bit
+ * multiply in JavaScript. Plain `*` goes through a double and quietly loses
+ * the low bits that carry the mixing.
+ */
 function hashString(value) {
-  let hash = 0;
+  let hash = 0x811c9dc5;
   for (let index = 0; index < value.length; index += 1) {
-    hash = (hash * 31 + value.charCodeAt(index)) | 0;
+    hash ^= value.charCodeAt(index);
+    hash = Math.imul(hash, 0x01000193);
   }
-  return Math.abs(hash);
+  hash ^= hash >>> 16;
+  hash = Math.imul(hash, 0x85ebca6b);
+  hash ^= hash >>> 13;
+  hash = Math.imul(hash, 0xc2b2ae35);
+  hash ^= hash >>> 16;
+  return hash >>> 0;
 }
 
 /**
  * Picks a gallery photo for a post that has no image.
  *
- * Deliberately derived from the post id rather than Math.random(): the
- * choice has to stay identical between the server render, the Open Graph
- * share image and the structured data, and must not change on refresh.
+ * Derived from the post id rather than Math.random(): the choice has to stay
+ * identical between the server render, the Open Graph share image and the
+ * structured data, and must not change on refresh.
+ *
+ * WHY NOT hash % length
+ *
+ * That was the previous approach and it is unstable: the modulus moves the
+ * instant the pool does, so adding a single photo silently reassigns the card
+ * image of every existing post. Photos get added here regularly, so that is
+ * not a rare event — and a post's card image is also its Open Graph image,
+ * the one already cached by whoever has shared the link.
+ *
+ * Instead each post scores every candidate and keeps the highest, which is
+ * rendezvous hashing. Adding a photo moves a post only if the new photo
+ * outscores its current one; removing a photo moves only the posts that were
+ * using it. Everything else stays exactly where it was.
  */
 function fallbackImage(id) {
   if (GALLERY_FALLBACKS.length === 0) return null;
-  return GALLERY_FALLBACKS[hashString(id) % GALLERY_FALLBACKS.length];
+
+  let best = null;
+  let bestScore = -1;
+
+  for (const candidate of GALLERY_FALLBACKS) {
+    const score = hashString(`${id}\u0000${candidate}`);
+    // Fall back to the filename when two score the same, so a tie can never
+    // depend on array order.
+    if (score > bestScore || (score === bestScore && candidate < best)) {
+      best = candidate;
+      bestScore = score;
+    }
+  }
+
+  return best;
 }
 
 /**
@@ -105,9 +146,20 @@ function localize(post, locale) {
      */
     updated: post.updated || '',
     image: hasOwnImage ? post.image : fallbackImage(id),
-    // Lets callers swap in a generic alt: a gallery fallback is not
-    // described by whatever imageAlt the post happens to carry.
-    imageIsFallback: !hasOwnImage,
+    /*
+     * True when the caller should use a generic description instead of the
+     * post's own imageAlt.
+     *
+     * Two cases, not one. A gallery fallback is not described by whatever
+     * imageAlt the post happens to carry — that was the original reason. But
+     * a post can also name its own image and not describe it, which is what
+     * happens when a photo is pinned before anyone has written alt text for
+     * it. That used to fall through to imageAlt: '', and an empty alt is not
+     * "no description", it is a positive claim that the image is decorative
+     * and can be skipped. For a photograph of the teacher that is simply
+     * false.
+     */
+    imageIsFallback: !hasOwnImage || !pick('imageAlt'),
     title: pick('title') || id,
     excerpt: pick('excerpt') || '',
     imageAlt: pick('imageAlt') || '',

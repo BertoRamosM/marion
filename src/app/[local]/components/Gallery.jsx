@@ -37,9 +37,7 @@ import CameraIcon from "../icons/CameraIcon";
  */
 const images = [
   { src: "/gallery/Photo 15.webp", width: 1201, height: 1140 },
-  { src: "/gallery/Photo 3.webp", width: 1600, height: 1200 },
   { src: "/gallery/Photo 8.webp", width: 1600, height: 2400 },
-  { src: "/gallery/Photo 2.webp", width: 1600, height: 1067 },
   { src: "/gallery/Photo 25.webp", width: 1600, height: 1579 },
   { src: "/gallery/Photo 17.webp", width: 1600, height: 1200 },
   { src: "/gallery/Photo 29.webp", width: 1600, height: 1873 },
@@ -58,7 +56,6 @@ const images = [
   { src: "/gallery/Photo 11.webp", width: 1600, height: 1067 },
   { src: "/gallery/Photo 23.webp", width: 1600, height: 1773 },
   { src: "/gallery/Photo 19.webp", width: 1600, height: 1200 },
-  { src: "/gallery/Photo 5.webp", width: 1600, height: 1200 },
   { src: "/gallery/Photo 24.webp", width: 1600, height: 1386 },
   { src: "/gallery/Photo 21.webp", width: 1600, height: 1725 },
   { src: "/gallery/Photo 7.webp", width: 1600, height: 2400 },
