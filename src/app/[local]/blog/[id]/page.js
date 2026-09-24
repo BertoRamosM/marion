@@ -390,32 +390,49 @@ export default async function BlogPostPage({ params }) {
               {t('readNext')}
             </h2>
 
+            {/*
+              Laid out the way the archive reads in time: older on the left,
+              newer on the right.
+
+              So the left card is the article published BEFORE this one and the
+              right card the one published AFTER, and the arrows point the same
+              way — back on the left, forward on the right. It matches how
+              people expect previous/next to sit, and it matches the direction
+              a timeline runs.
+
+              Both cards are pinned to a column rather than being left to flow.
+              A grid places children in order, so without that the surviving
+              card on the first or last article slides into whichever column
+              comes first, which puts it under the wrong heading and points its
+              arrow into empty space. The empty column is the point: it says
+              there is nothing further that way.
+            */}
             <div className="mt-4 grid gap-4 sm:grid-cols-2">
-              {newer ? (
+              {older ? (
               <Link
-                href={`/blog/${newer.id}`}
-                className="rounded-2xl bg-cream p-5 shadow-sm transition-transform duration-300 hover:scale-[1.02]"
+                href={`/blog/${older.id}`}
+                className="rounded-2xl bg-cream p-5 shadow-sm transition-transform duration-300 hover:scale-[1.02] sm:col-start-1"
               >
                 <span className="text-xs font-bold uppercase tracking-wide text-ink-600">
-                ← {t('newerPost')}
+                ← {t('olderPost')}
                 </span>
                 <span className="mt-2 block font-bold text-brand-deep">
-                {newer.title}
+                {older.title}
                 <NavPending />
                 </span>
               </Link>
               ) : null}
 
-              {older ? (
+              {newer ? (
               <Link
-                href={`/blog/${older.id}`}
-                className="rounded-2xl bg-cream p-5 shadow-sm transition-transform duration-300 hover:scale-[1.02] sm:text-right"
+                href={`/blog/${newer.id}`}
+                className="rounded-2xl bg-cream p-5 shadow-sm transition-transform duration-300 hover:scale-[1.02] sm:col-start-2 sm:text-right"
               >
                 <span className="text-xs font-bold uppercase tracking-wide text-ink-600">
-                {t('olderPost')} →
+                {t('newerPost')} →
                 </span>
                 <span className="mt-2 block font-bold text-brand-deep">
-                {older.title}
+                {newer.title}
                 <NavPending />
                 </span>
               </Link>

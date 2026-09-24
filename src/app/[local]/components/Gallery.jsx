@@ -100,6 +100,36 @@ const Gallery = () => {
   const [openIndex, setOpenIndex] = useState(null);
   const isOpen = openIndex !== null;
 
+  /*
+   * Whether the full-size photo has arrived, and whether it has been long
+   * enough to be worth saying so.
+   *
+   * Two pieces of state rather than one, because a spinner that appears the
+   * instant the overlay opens is worse than none: most of these photos are
+   * already in the browser cache from the thumbnail grid, or arrive in well
+   * under a tenth of a second, and a spinner that flashes for one frame reads
+   * as a glitch. So `loaded` tracks the image and `showSpinner` only becomes
+   * true once the load has actually taken a noticeable moment.
+   */
+  const [loaded, setLoaded] = useState(false);
+  const [showSpinner, setShowSpinner] = useState(false);
+
+  // Every open, and every arrow press, starts a new load.
+  useEffect(() => {
+    if (isOpen) setLoaded(false);
+  }, [openIndex, isOpen]);
+
+  useEffect(() => {
+    if (!isOpen || loaded) {
+      setShowSpinner(false);
+      return;
+    }
+    // Long enough that a fast load never shows one, short enough that a slow
+    // one does not feel like nothing happened.
+    const timer = setTimeout(() => setShowSpinner(true), 150);
+    return () => clearTimeout(timer);
+  }, [isOpen, openIndex, loaded]);
+
   const touchStartX = useRef(0);
   const touchEndX = useRef(0);
   // Set when a swipe fires, so the trailing click does not also close the overlay.
@@ -327,16 +357,49 @@ const Gallery = () => {
           />
 
           {/* object-contain so tall photos are never cropped */}
-          <div className="relative w-full h-full max-w-5xl max-h-[80vh]">
+          <div
+            className="relative w-full h-full max-w-5xl max-h-[80vh]"
+            aria-busy={!loaded}
+          >
             {/* Capped at the container's own max-w-5xl rather than 100vw:
                 the dialog is full width, the image inside it is not. */}
+            {/* key forces a fresh <img> per photo, so onLoad fires again on
+                every arrow press instead of only for the first one. */}
+            {/* loading="eager", not next/image's lazy default. This image is
+                the entire point of the overlay and is on screen the moment it
+                mounts, so there is nothing to defer — and deferring it is what
+                makes the spinner sit there longer than it needs to. */}
             <Image
+              key={openIndex}
               src={images[openIndex].src}
               alt={t("galleryItem", { number: openIndex + 1 })}
               fill
+              loading="eager"
               sizes="(max-width: 1024px) 100vw, 1024px"
               className="object-contain select-none"
+              onLoad={() => setLoaded(true)}
             />
+
+            {/*
+              Shown only once the load has been slow enough to notice — see
+              the note on showSpinner above.
+
+              Same motif as the spinner in the header's language switcher: a
+              mint ring with one quarter cut away. motion-reduce stops the
+              rotation but keeps the ring, so it still reads as a busy state
+              for someone who has asked for less animation.
+
+              aria-hidden because the container already carries aria-busy,
+              which is what a screen reader acts on; this is the visual half.
+            */}
+            {showSpinner && (
+              <span
+                aria-hidden="true"
+                className="pointer-events-none absolute inset-0 flex items-center justify-center"
+              >
+                <span className="h-12 w-12 animate-spin rounded-full border-4 border-mint border-t-transparent motion-reduce:animate-none" />
+              </span>
+            )}
           </div>
 
           <ArrowButton
