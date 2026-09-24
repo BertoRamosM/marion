@@ -30,17 +30,43 @@ const Footer = () => {
       {/* Brand gradient hairline, echoing the banner at the top of the page */}
       <div className="h-2 w-full bg-gradient-to-r from-ember via-mint to-ember" />
 
-      {/* Blurred blobs — same decorative motif as the About card, but with
-          more saturated tones and higher opacity so the colour actually reads.
-          Kept in the corners with negative offsets so they tint the edges
-          rather than washing out the text in the middle. */}
+      {/*
+        Blurred blobs — same decorative motif as the About card, kept in the
+        corners with negative offsets so they tint the edges rather than
+        washing out the text in the middle.
+
+        These were opacity-70 and opacity-60, chosen so the colour would
+        actually read. That failed WCAG AA: Lighthouse flagged the footer
+        address and the "Fait avec … à Rennes" line, and measuring every
+        ink level against both blobs over --paper showed why —
+
+                          mint@0.70      ember@0.60
+          light  ink-500     3.63           3.26
+          light  ink-600     4.65           4.17
+          light  ink-700     6.34           5.69
+          dark   ink-500     2.64           4.19
+          dark   ink-600     2.83           4.49
+          dark   ink-700     2.99           4.75     (AA body text needs 4.5)
+
+        Dark mode was the worse half and the one nobody had looked at: a
+        bright blob over the near-black paper lifts the background far more
+        than it lifts the text, so all three ink levels sat under 3:1.
+
+        At 0.30 and 0.20 every combination clears 4.5 with room to spare —
+        worst case 4.62 (light ink-500 on mint) and 4.70 (light ink-500 on
+        ember). That is the same range the ambient blobs in layout.js already
+        use, and for the same stated reason: they sit behind body text.
+
+        The colour is subtler than it was. That is the trade, and it is the
+        right way round — the tint is decoration, the address is information.
+      */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute -top-16 -left-16 w-64 h-64 rounded-full bg-mint-vivid opacity-70 blur-3xl"
+        className="pointer-events-none absolute -top-16 -left-16 w-64 h-64 rounded-full bg-mint-vivid opacity-30 blur-3xl"
       />
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute -bottom-24 -right-16 w-72 h-72 rounded-full bg-ember-vivid opacity-60 blur-3xl"
+        className="pointer-events-none absolute -bottom-24 -right-16 w-72 h-72 rounded-full bg-ember-vivid opacity-20 blur-3xl"
       />
 
       <div className="relative max-w-7xl mx-auto px-6 py-12 grid gap-10 md:grid-cols-3 items-start">

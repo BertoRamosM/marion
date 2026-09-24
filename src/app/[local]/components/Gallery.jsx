@@ -66,6 +66,19 @@ const images = [
   { src: "/gallery/Photo 10.webp", width: 1600, height: 1067 },
 ];
 
+/*
+ * The magnifier drawn inside each tile's badge, as a data URI.
+ *
+ * Inline rather than a file in public/: it is under 300 bytes, so a separate
+ * request would cost far more than it saves, and it cannot go missing. White
+ * stroke, because it only ever sits on the dark scrim disc.
+ *
+ * The '#' in a colour has to be written %23 — a raw one starts the fragment
+ * and the browser silently drops the rest of the SVG.
+ */
+const MAGNIFIER =
+  "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='11' cy='11' r='7'/%3E%3Cpath d='M20 20l-3.6-3.6M11 8.5v5M8.5 11h5'/%3E%3C/svg%3E\")";
+
 /** Circular arrow button, styled to match the hero carousel controls. */
 const ArrowButton = ({ direction, onClick, label, className }) => (
   <button
@@ -289,8 +302,14 @@ const Gallery = () => {
               />
 
               {/*
-                The always-on cue. Small enough not to crowd a 96px tile, and
-                it turns mint on hover like every other control here.
+                The always-on cue: one element per tile, not four.
+
+                The magnifier is a background-image rather than an inline
+                <svg><circle/><path/>, which is the same picture for a quarter
+                of the nodes. Across 28 tiles that is 112 elements versus 28 —
+                7% of the page's entire DOM spent on a decorative icon that
+                never changes. background-color still shows through behind a
+                transparent background-image, so the disc costs nothing extra.
 
                 bg-scrim, not one of the veils. The white veils are tuned for
                 raised panels on a cream card and drop to 4-9% opacity in dark
@@ -299,24 +318,17 @@ const Gallery = () => {
                 overridden by the dark theme, so it stays a solid dark disc in
                 both, which is what a badge sitting on an unpredictable photo
                 needs. See the veil comments in globals.css.
+
+                Hover only scales it. It used to turn mint too, but the icon is
+                baked white into the image now and white on mint is not legible
+                — a fixed dark disc is the one state that is readable over
+                every photo in the grid.
               */}
               <span
                 aria-hidden="true"
-                className="pointer-events-none absolute bottom-1 right-1 flex h-6 w-6 items-center justify-center rounded-full bg-scrim text-white shadow-sm transition-all duration-300 group-hover:bg-mint group-hover:text-on-mint group-hover:scale-110 motion-reduce:transition-none"
-              >
-                <svg
-                  className="h-3.5 w-3.5"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <circle cx="11" cy="11" r="7" />
-                  <path d="M20 20l-3.6-3.6M11 8.5v5M8.5 11h5" />
-                </svg>
-              </span>
+                style={{ backgroundImage: MAGNIFIER }}
+                className="pointer-events-none absolute bottom-1 right-1 h-6 w-6 rounded-full bg-scrim bg-center bg-no-repeat shadow-sm transition-transform duration-300 group-hover:scale-110 motion-reduce:transition-none"
+              />
             </button>
           </div>
         ))}
