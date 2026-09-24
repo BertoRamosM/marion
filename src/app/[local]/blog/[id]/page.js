@@ -238,18 +238,41 @@ export default async function BlogPostPage({ params }) {
           </p>
 
           <div className="mt-8 bg-cream p-8 rounded-3xl shadow-lg">
-            {/* Featured image sits at the top of the article body.
-                Left lazy on purpose: the heading above it is the LCP element,
-                so the text paints first and the image streams in after. */}
+            {/*
+              Featured image, at the top of the article body.
+
+              priority, not lazy. This was lazy on the reasoning that the
+              heading above it is the LCP element and the text should paint
+              first — but that turned out not to be true on a phone. Lighthouse
+              measures this image as the LCP element and reported it twice
+              over: "LCP resources should not use loading=lazy" and
+              "fetchpriority=high should be applied", with LCP at 5.9s on a
+              throttled Moto G. A lazy LCP image cannot even begin loading
+              until layout has decided it is near the viewport, which on a slow
+              connection is exactly the delay the metric measures.
+
+              priority gives it eager loading, fetchpriority=high, and a
+              preload hint in the document head.
+
+              sizes is the real rendered width, not 100vw. The article is
+              max-w-3xl inside main's p-8, and the image sits inside a card
+              with p-8 of its own, so on a phone it draws at 100vw - 128px —
+              measured at 284px in a 412px viewport, i.e. 69vw. Declaring
+              100vw had the browser fetching a 750px file for a 284px slot.
+            */}
             {post.image && (
               <div className="relative w-full h-[220px] sm:h-[340px] rounded-2xl overflow-hidden mb-8">
                 <Image
                   src={post.image}
                   alt={featuredAlt}
                   fill
-                  sizes="(max-width: 768px) 100vw, 700px"
+                  sizes="(max-width: 768px) calc(100vw - 128px), 700px"
                   className="object-cover"
-                  loading="lazy"
+                  priority
+                  /* Explicit, because Lighthouse checks for the attribute by
+                     name under "LCP request discovery" and priority alone did
+                     not emit it here. Same as the hero carousel slide. */
+                  fetchPriority="high"
                 />
               </div>
             )}
@@ -281,7 +304,9 @@ export default async function BlogPostPage({ params }) {
                       alt={parsed.alt}
                       width={parsed.width}
                       height={parsed.height}
-                      sizes="(max-width: 768px) 100vw, 700px"
+                      /* Real rendered width, not 100vw — see the note on
+                         the featured image above. */
+                      sizes="(max-width: 768px) calc(100vw - 128px), 700px"
                       className="w-full h-auto rounded-2xl mt-8 shadow"
                       loading="lazy"
                     />
@@ -297,7 +322,7 @@ export default async function BlogPostPage({ params }) {
                       src={parsed.src}
                       alt={parsed.alt}
                       fill
-                      sizes="(max-width: 768px) 100vw, 700px"
+                      sizes="(max-width: 768px) calc(100vw - 128px), 700px"
                       className="object-cover"
                       loading="lazy"
                     />

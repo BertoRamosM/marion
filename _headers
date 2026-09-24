@@ -35,7 +35,16 @@
 /robots.txt
   Cache-Control: public, max-age=3600, must-revalidate
 
-# Optional: cache favicon and logos for 1 year
+# Cache favicon, logos and carousel stills for 1 year.
+#
+# /logos/* rather than /logo-no-bg.png: the file is at /logos/logo-no-bg.png,
+# so the old rule matched nothing and the logo was served with no cache header
+# at all. It matters more now that the logo is sent straight through instead of
+# via /_next/image, which was supplying its own caching.
+#
+# /carousel/* covers the pre-cropped wide hero stills, which are referenced
+# directly by the <picture> source and never change once deployed.
 /favicon.ico
-/logo-no-bg.png
+/logos/*
+/carousel/*
   Cache-Control: public, max-age=31536000, immutable

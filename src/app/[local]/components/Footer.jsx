@@ -77,8 +77,8 @@ const Footer = () => {
             alt="Westfrench logo"
             width={326}
             height={213}
-            /* w-40, so 160px. See the same note in Header. */
-            sizes="160px"
+            /* Served as-is, not through the optimiser. See Header. */
+            unoptimized
             className="w-40 h-auto"
           />
           <p className="text-ink-700 mt-4 text-sm leading-relaxed">

@@ -234,7 +234,12 @@ const Header = () => {
   priority
   /* Widest it ever draws is md:w-28, i.e. 112px. Undeclared, it asked
      for the 384px variant on every page load. */
-  sizes="112px"
+
+  /* unoptimized: this is a flat-colour logo with alpha, and WebP
+     encodes it WORSE than PNG (21.5KB vs 9.7KB measured). Sending the
+     palettised PNG straight through is smaller, needs no transform, and
+     is cached for a year by _headers. */
+  unoptimized
   className="py-1 w-20 h-auto sm:w-24 md:w-28"
 />
         {/* <nav>, not a plain div: this was the only navigation on the site
