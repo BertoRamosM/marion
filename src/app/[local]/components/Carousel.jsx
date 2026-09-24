@@ -12,6 +12,29 @@ const Carousel = () => {
     {
       type: "image",
       content: "/carousel/red_wall.webp",
+      /*
+       * A second, pre-cropped copy of the same photo for wide screens.
+       *
+       * The slide box has a fixed height and a fluid width, so its shape
+       * changes completely across breakpoints: 0.62 on a phone, 0.99 on a
+       * tablet, 1.96 on a desktop. This photo is portrait (0.75), which fits
+       * the first two and not the third — on a desktop object-cover was
+       * throwing away 62% of its height, so the browser downloaded 175KB to
+       * display the middle 38% of it.
+       *
+       * One file cannot fix that: a landscape crop would cut ~68% of the
+       * width on a phone. So there are two, and the browser picks by media
+       * query — which is what <picture> is for.
+       *
+       * The crop keeps the carved figure, the arched door head and the
+       * "Maison TI KOZ de 1505" plaque; above is plain beam and below is
+       * doorstep. See the note on the <picture> in the render below.
+       */
+      wide: {
+        srcSet:
+          "/carousel/red_wall-wide-1280.webp 1280w, /carousel/red_wall-wide-1920.webp 1920w",
+        media: "(min-width: 1024px)",
+      },
       title: t("title1"),
       text: t("subtitle1"),
       sub: t("text1"),
@@ -118,21 +141,50 @@ const Carousel = () => {
                 the initial page load and competing with the LCP image.
               */}
               {(isActive || index === 0) && (
-                <Image
-                  src={slide.content}
-                  alt={slide.title}
-                  fill
-                  className="block w-full h-full object-cover"
-                  sizes="(max-width: 640px) 100vw, calc(100vw - 160px)"
-                  priority={index === 0}
-                  fetchPriority={index === 0 ? "high" : "auto"}
-                  placeholder={index === 0 ? "blur" : "empty"}
-                  blurDataURL={
-                    index === 0
-                      ? "data:image/webp;base64,UklGRngAAABXRUJQVlA4IGwAAACQBACdASoQABUAPu1iqk4ppaQiMAgBMB2JbACdMoRwACWecdiNk6fGWX1lwYwA/tzm/GnoguWGnCVWoBWrliMcJ+t3mOUelIbKuT+2MY+kidkWN9/NcsH2/W1m9dh8eaXgNj9kZYher6oAAAA="
-                      : undefined
-                  }
-                />
+                /*
+                  <picture> wrapping next/image, so a slide can offer a
+                  differently cropped file to wide screens.
+
+                  next/image renders a bare <img> in fill mode, which is
+                  exactly what <picture> wants as its last child: the browser
+                  takes the first <source> whose media matches, and falls back
+                  to the <img> and its own generated srcset otherwise. So
+                  narrow screens keep the responsive pipeline untouched, and
+                  only wide ones are handed the pre-cropped file.
+
+                  The cropped files are plain static assets rather than going
+                  through /_next/image — they are already the right shape and
+                  size, and _headers caches /carousel/* for a year, so this
+                  also drops a per-request transform.
+
+                  Slides without a `wide` get no <source> and behave exactly as
+                  before.
+                */
+                <picture>
+                  {slide.wide && (
+                    <source
+                      media={slide.wide.media}
+                      srcSet={slide.wide.srcSet}
+                      sizes="calc(100vw - 160px)"
+                      type="image/webp"
+                    />
+                  )}
+                  <Image
+                    src={slide.content}
+                    alt={slide.title}
+                    fill
+                    className="block w-full h-full object-cover"
+                    sizes="(max-width: 640px) 100vw, calc(100vw - 160px)"
+                    priority={index === 0}
+                    fetchPriority={index === 0 ? "high" : "auto"}
+                    placeholder={index === 0 ? "blur" : "empty"}
+                    blurDataURL={
+                      index === 0
+                        ? "data:image/webp;base64,UklGRngAAABXRUJQVlA4IGwAAACQBACdASoQABUAPu1iqk4ppaQiMAgBMB2JbACdMoRwACWecdiNk6fGWX1lwYwA/tzm/GnoguWGnCVWoBWrliMcJ+t3mOUelIbKuT+2MY+kidkWN9/NcsH2/W1m9dh8eaXgNj9kZYher6oAAAA="
+                        : undefined
+                    }
+                  />
+                </picture>
               )}
 
               {/* Dark Overlay + Text */}
