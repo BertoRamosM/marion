@@ -20,27 +20,50 @@ import CameraIcon from "../icons/CameraIcon";
  *
  * With the true ratio declared up front the columns are balanced correctly on
  * the first pass and nothing shifts.
+ *
+ * ORDER: shuffled once, on purpose, and not numeric — do not "tidy" it back.
+ * Photos 22-30 were added in one batch and sat as a block at the end, which is
+ * the part of a 28-photo grid fewest people reach, so the newest work was the
+ * least seen. They are interleaved now.
+ *
+ * Shuffled once rather than per visit, because per visit cannot be done here
+ * without giving something up: these pages are static HTML built at deploy
+ * time, so a per-request order would mean server-rendering the home page and
+ * losing that; shuffling during render makes the client's order disagree with
+ * the server's, which is a hydration error; and shuffling in an effect
+ * reorders 28 lazy images after first paint, which is a visible jump and a
+ * large relayout. A fresh order each deploy is free, and nobody sees this page
+ * often enough to notice it is fixed.
  */
 const images = [
-  { src: "/gallery/Photo 1.webp", width: 1600, height: 1067 },
-  { src: "/gallery/Photo 2.webp", width: 1600, height: 1067 },
-  { src: "/gallery/Photo 3.webp", width: 1600, height: 1200 },
-  { src: "/gallery/Photo 10.webp", width: 1600, height: 1067 },
-  { src: "/gallery/Photo 11.webp", width: 1600, height: 1067 },
-  { src: "/gallery/rennes.webp", width: 1600, height: 1216 },
   { src: "/gallery/Photo 15.webp", width: 1201, height: 1600 },
-  { src: "/gallery/Photo 16.webp", width: 1600, height: 1200 },
-  { src: "/gallery/Photo 17.webp", width: 1600, height: 1200 },
-  { src: "/gallery/Photo 18.webp", width: 1600, height: 2133 },
-  { src: "/gallery/Photo 19.webp", width: 1600, height: 1200 },
-  { src: "/gallery/Photo 20.webp", width: 1600, height: 2133 },
-  { src: "/gallery/Photo 21.webp", width: 1600, height: 1725 },
-  { src: "/gallery/Photo 4.webp", width: 1600, height: 842 },
-  { src: "/gallery/Photo 5.webp", width: 1600, height: 1200 },
-  { src: "/gallery/Photo 6.webp", width: 1600, height: 2400 },
-  { src: "/gallery/Photo 7.webp", width: 1600, height: 2400 },
+  { src: "/gallery/Photo 3.webp", width: 1600, height: 1200 },
   { src: "/gallery/Photo 8.webp", width: 1600, height: 2400 },
+  { src: "/gallery/Photo 2.webp", width: 1600, height: 1067 },
+  { src: "/gallery/Photo 25.webp", width: 1600, height: 2133 },
+  { src: "/gallery/Photo 17.webp", width: 1600, height: 1200 },
+  { src: "/gallery/Photo 29.webp", width: 1600, height: 2133 },
+  { src: "/gallery/Photo 4.webp", width: 1600, height: 842 },
+  { src: "/gallery/rennes.webp", width: 1600, height: 1216 },
   { src: "/gallery/Photo 9.webp", width: 1600, height: 2400 },
+  { src: "/gallery/Photo 26.webp", width: 1600, height: 2133 },
+  { src: "/gallery/Photo 22.webp", width: 1600, height: 2133 },
+  { src: "/gallery/Photo 16.webp", width: 1600, height: 1200 },
+  { src: "/gallery/Photo 1.webp", width: 1600, height: 1067 },
+  { src: "/gallery/Photo 18.webp", width: 1600, height: 2133 },
+  { src: "/gallery/Photo 6.webp", width: 1600, height: 2400 },
+  { src: "/gallery/Photo 27.webp", width: 1600, height: 2133 },
+  { src: "/gallery/Photo 20.webp", width: 1600, height: 2133 },
+  { src: "/gallery/Photo 30.webp", width: 1600, height: 2133 },
+  { src: "/gallery/Photo 11.webp", width: 1600, height: 1067 },
+  { src: "/gallery/Photo 23.webp", width: 1600, height: 2133 },
+  { src: "/gallery/Photo 19.webp", width: 1600, height: 1200 },
+  { src: "/gallery/Photo 5.webp", width: 1600, height: 1200 },
+  { src: "/gallery/Photo 24.webp", width: 1600, height: 2133 },
+  { src: "/gallery/Photo 21.webp", width: 1600, height: 1725 },
+  { src: "/gallery/Photo 7.webp", width: 1600, height: 2400 },
+  { src: "/gallery/Photo 28.webp", width: 1600, height: 2133 },
+  { src: "/gallery/Photo 10.webp", width: 1600, height: 1067 },
 ];
 
 /** Circular arrow button, styled to match the hero carousel controls. */
@@ -177,14 +200,46 @@ const Gallery = () => {
         {tGallery("description")}
       </SectionHeading>
 
-      <div className="columns-2 gap-4 space-y-4 w-full md:w-2/3 mx-auto sm:columns-3 md:columns-4">
+      {/*
+        Denser than it was, because the gallery grew from 19 photos to 28.
+
+        At the old two-to-four columns that was roughly 2,400px of gallery on a
+        phone — more scrolling than the rest of the home page put together, for
+        a section that is a visual breather rather than something to read. One
+        extra column at every breakpoint, and a wider container from md up,
+        roughly halves the height without making any single photo too small to
+        recognise: tiles land around 100px on a phone and 165px on a desktop,
+        and every one of them opens full-size in the lightbox anyway.
+
+        gap and space-y drop from 4 to 3 to match the smaller tiles.
+      */}
+      <div className="columns-3 gap-3 space-y-3 w-full md:w-3/4 lg:w-5/6 mx-auto sm:columns-4 md:columns-5 lg:columns-6">
         {images.map((image, index) => (
-          <div key={image.src} className="break-inside-avoid mb-4">
+          <div key={image.src} className="break-inside-avoid mb-3">
+            {/*
+              Telling people these open.
+
+              Before this the only hint was cursor-zoom-in, which a touch
+              device has no way to show — so on a phone, where most of this
+              traffic is, twenty-eight photos looked like a plain contact
+              sheet and the lightbox went undiscovered.
+
+              Three cues, deliberately layered so no one is left out:
+                - a magnifier badge on every tile, always visible, which is
+                  the only one a touch user gets
+                - a scrim and a slight zoom on hover and on keyboard focus
+                - title, so a desktop hover also gets the native tooltip
+
+              title reuses A11y.galleryOpen — "Agrandir la photo 3" — which the
+              aria-label already uses, so the tooltip and the screen reader say
+              the same thing and no new wording was needed.
+            */}
             <button
               type="button"
               onClick={() => setOpenIndex(index)}
               aria-label={t("galleryOpen", { number: index + 1 })}
-              className="block w-full rounded-lg cursor-zoom-in focus:outline-none focus:ring-4 focus:ring-mint"
+              title={t("galleryOpen", { number: index + 1 })}
+              className="group relative block w-full overflow-hidden rounded-lg cursor-zoom-in focus:outline-none focus:ring-4 focus:ring-mint"
             >
               <Image
                 src={image.src}
@@ -192,9 +247,46 @@ const Gallery = () => {
                 width={image.width}
                 height={image.height}
                 loading="lazy"
-                className="w-full h-auto rounded-lg"
-                sizes="(max-width: 640px) 45vw, (max-width: 768px) 30vw, 14vw"
+                className="w-full h-auto rounded-lg transition-transform duration-300 ease-out group-hover:scale-105 motion-reduce:transition-none motion-reduce:group-hover:scale-100"
+                sizes="(max-width: 640px) 32vw, (max-width: 768px) 24vw, (max-width: 1024px) 15vw, 13vw"
               />
+
+              {/* Darkens on hover/focus so the badge below stays legible over
+                  a pale photo. pointer-events-none so it never eats the click. */}
+              <span
+                aria-hidden="true"
+                className="pointer-events-none absolute inset-0 rounded-lg bg-scrim opacity-0 transition-opacity duration-300 group-hover:opacity-30 group-focus-visible:opacity-30"
+              />
+
+              {/*
+                The always-on cue. Small enough not to crowd a 96px tile, and
+                it turns mint on hover like every other control here.
+
+                bg-scrim, not one of the veils. The white veils are tuned for
+                raised panels on a cream card and drop to 4-9% opacity in dark
+                mode — veil-50 renders at 5% there, which is a white icon on
+                nothing. --scrim is the one token defined once and never
+                overridden by the dark theme, so it stays a solid dark disc in
+                both, which is what a badge sitting on an unpredictable photo
+                needs. See the veil comments in globals.css.
+              */}
+              <span
+                aria-hidden="true"
+                className="pointer-events-none absolute bottom-1 right-1 flex h-6 w-6 items-center justify-center rounded-full bg-scrim text-white shadow-sm transition-all duration-300 group-hover:bg-mint group-hover:text-on-mint group-hover:scale-110 motion-reduce:transition-none"
+              >
+                <svg
+                  className="h-3.5 w-3.5"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <circle cx="11" cy="11" r="7" />
+                  <path d="M20 20l-3.6-3.6M11 8.5v5M8.5 11h5" />
+                </svg>
+              </span>
             </button>
           </div>
         ))}
