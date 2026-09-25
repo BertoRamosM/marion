@@ -182,12 +182,27 @@ const Carousel = () => {
                       type="image/webp"
                     />
                   )}
+                  {/*
+                    sizes says 100vw - 32px below 640px, not 100vw.
+
+                    <main> carries px-4 on phones, so this image is never the
+                    full viewport width — on a 412px screen it draws at 380px.
+                    Claiming 100vw asks the browser to pick a variant for 412px
+                    it will then scale down.
+
+                    quality 65 rather than the default 75. This is a backdrop:
+                    a dark overlay and the headline sit on top of it, so the
+                    detail 75 preserves is detail nobody looks at. 91KB -> 81KB
+                    at the 750w variant a phone actually fetches, and this is
+                    the LCP image, so those bytes are on the critical path.
+                  */}
                   <Image
                     src={slide.content}
                     alt={slide.title}
                     fill
+                    quality={65}
                     className="block w-full h-full object-cover"
-                    sizes="(max-width: 640px) 100vw, calc(100vw - 160px)"
+                    sizes="(max-width: 640px) calc(100vw - 32px), calc(100vw - 160px)"
                     priority={index === 0}
                     fetchPriority={index === 0 ? "high" : "auto"}
                     placeholder={index === 0 ? "blur" : "empty"}
