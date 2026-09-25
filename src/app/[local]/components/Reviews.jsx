@@ -219,7 +219,71 @@ const SmallCarousel = ({ slides }) => {
       </div>
 
       {/*
-        One link for the section rather than one per card. All sixteen reviews
+        Every reviewer's face, under the one being read.
+
+        The problem this solves: seventeen reviews were showing one at a time,
+        so a visitor saw exactly one and had no way of knowing there were
+        sixteen more. Social proof works by volume, and all of the volume was
+        hidden behind an arrow most people never press.
+
+        Why faces rather than three reviews side by side, which was the
+        obvious fix: these reviews vary enormously in length — the longest is
+        around 450 words — and this component's own note above records that
+        height variance is exactly what forced the section to be moved once
+        already. Three to a row would mean permanently truncating the best
+        testimonial on the site, and an expand control needs wording nobody
+        has written. A row of faces shows seventeen at a glance, costs no
+        height, and truncates nothing.
+
+        Each one is a real button: it jumps the carousel to that review. The
+        accessible name is the reviewer's own name, which already exists, so
+        this adds no copy. aria-current marks the one on screen.
+      */}
+      {/*
+        max-w-md, narrower than the card above it, so the row wraps evenly.
+
+        Left at the card's full width the strip fitted sixteen of the
+        seventeen faces and pushed the last one onto a line of its own, which
+        read as a mistake. At 448px it takes nine per row, so seventeen splits
+        9 + 8 on a desktop and 6 + 6 + 5 on a phone — no orphan either way.
+
+        Worth knowing when reviews are added: this is a flex wrap, so the
+        split follows the count. Nineteen would strand one again, and the fix
+        is to nudge this width rather than to shrink the avatars, which are
+        40px so the tap target clears 44px.
+      */}
+      <ul className="mt-8 mx-auto flex max-w-md flex-wrap items-center justify-center gap-2">
+        {slides.map((slide, index) => {
+          const isActive = index === currentIndex;
+          return (
+            <li key={slide.title + index}>
+              <button
+                type="button"
+                onClick={() => setCurrentIndex(index)}
+                aria-label={slide.title}
+                aria-current={isActive ? "true" : undefined}
+                title={slide.title}
+                className={`relative block h-10 w-10 overflow-hidden rounded-full shadow-sm transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-ember focus:ring-offset-2 focus:ring-offset-paper ${
+                  isActive
+                    ? "ring-2 ring-brand ring-offset-2 ring-offset-paper scale-110"
+                    : "opacity-60 saturate-50 hover:opacity-100 hover:saturate-100 hover:scale-110"
+                }`}
+              >
+                <Image
+                  src={slide.image}
+                  alt=""
+                  fill
+                  sizes="40px"
+                  className="object-cover"
+                />
+              </button>
+            </li>
+          );
+        })}
+      </ul>
+
+      {/*
+        One link for the section rather than one per card. All the reviews
         stay in the carousel; this just points at the source so a visitor can
         verify them independently, which is worth more than any number of
         testimonials we host ourselves. It also sends traffic to the Google

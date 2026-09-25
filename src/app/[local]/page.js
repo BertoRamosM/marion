@@ -44,7 +44,22 @@ export default async function Home({ params }) {
       </div>
 
       {/* Main Content */}
-      <main id="main-content" tabIndex={-1} className="flex-1 px-8 pt-4 pb-12 gap-16 sm:p-20 items-center">
+      {/*
+        px-4 on phones, not px-8.
+
+        At px-8 this took 32px off each side, so on a 375px screen the content
+        ran at 311px — 17% of the display spent on empty margin. Every section
+        inherits it, which is why the ones that set their own px-0
+        (AboutCompany, ContactForm) looked no wider: the gutter was never
+        theirs to give back.
+
+        16px is the usual phone gutter and leaves those cards at 343px.
+        Horizontal padding steps up rather than jumping
+        straight to 80px: sm:p-20 gave every screen from 640px the same 80px
+        gutter, 25% of a 640px tablet. sm:px-8 / lg:px-20 keeps 80px where
+        there is room for it. Vertical spacing is unchanged.
+      */}
+      <main id="main-content" tabIndex={-1} className="flex-1 px-4 pt-4 pb-12 gap-16 sm:px-8 sm:py-20 lg:px-20 items-center">
         {/*
           Order is deliberate, for someone arriving from a search like
           "french classes in rennes":

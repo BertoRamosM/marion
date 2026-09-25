@@ -71,11 +71,21 @@ export default async function LegalPage({ params }) {
         <Header />
       </div>
 
-      <main id="main-content" tabIndex={-1} className="flex-1 p-8 pb-20 sm:p-20">
+      {/*
+        px-4 rather than p-8 on phones: 32px a side was 17% of a 375px screen
+        spent on empty margin. pt-4 because the wrapper below carries the
+        header clearance.
+
+        Horizontal padding then steps up instead of jumping straight to 80px:
+        sm:p-20 gave every screen from 640px the same 80px gutter, which is
+        25% of a 640px tablet. sm:px-8 / lg:px-20 keeps 80px where there is
+        room for it. Vertical spacing is unchanged.
+      */}
+      <main id="main-content" tabIndex={-1} className="flex-1 px-4 pt-4 pb-20 sm:px-8 sm:py-20 lg:px-20">
         {/* Clears the fixed banner + header with room to breathe. At
             sm:pt-16 the heading actually slipped behind the header on
             desktop, where the fixed chrome is ~152px tall. */}
-        <article className="max-w-3xl mx-auto pt-32 sm:pt-28">
+        <article className="max-w-3xl mx-auto pt-28 sm:pt-24">
           <h1 className="text-4xl font-bold text-rust-lg">
             Mentions légales &amp; politique de confidentialité
           </h1>

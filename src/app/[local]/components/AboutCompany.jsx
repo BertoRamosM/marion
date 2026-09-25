@@ -61,7 +61,7 @@ const AboutCompany = () => {
             titleClassName={CREAM_TITLE}
             icon={<GroupIcon />}
             title={t("text18")}
-            imageSrc="/gallery/Photo 5.webp"
+            imageSrc="/gallery/Photo 28.webp"
           >
             {t("text19")} {bold("text20")} {t("text21")} {bold("text22")} {t("text23")} {bold("text24")}
           </DisclosureCard>
@@ -71,7 +71,7 @@ const AboutCompany = () => {
             titleClassName={CREAM_TITLE}
             icon={<FriendIcon />}
             title={t("text25")}
-            imageSrc="/gallery/Photo 13.webp"
+            imageSrc="/gallery/Photo 17.webp"
           >
             {t("text26")} {bold("text27")} {t("text28")} {t("text29")} {bold("text30")} {t("text31")}{bold("text32")} {t("text33")} {t("text34")}{bold("text35")} {t("text36")} {t("text37")}{bold("text38")} {t("text39")}
           </DisclosureCard>
@@ -80,7 +80,7 @@ const AboutCompany = () => {
             cardClassName={TEAL}
             icon={<Needle />}
             title={t("text40")}
-            imageSrc="/gallery/Photo 14.webp"
+            imageSrc="/gallery/Photo 25.webp"
           >
             {bold("text41")} {t("text42")} {bold("text43")} {t("text44")} {bold("text45")} {t("text46")} {bold("text47")} {t("text48")} {bold("text49")} {t("text50")} {bold("text51")} {t("text52")}{bold("text53")} {t("text54")}
           </DisclosureCard>
@@ -89,7 +89,7 @@ const AboutCompany = () => {
             cardClassName={TEAL}
             icon={<Up />}
             title={t("text55")}
-            imageSrc="/gallery/Photo 7.webp"
+            imageSrc="/gallery/Photo 16.webp"
           >
             {t("text56")}
             {bold("text57")}
@@ -111,7 +111,7 @@ const AboutCompany = () => {
             titleClassName={CREAM_TITLE}
             icon={<World />}
             title={t("text72")}
-            imageSrc="/about/Marion2.webp"
+            imageSrc="/gallery/Photo 18.webp"
           >
             {t("text73")}
             {bold("text74")}
@@ -137,7 +137,7 @@ const AboutCompany = () => {
             titleClassName={CREAM_TITLE}
             icon={<Building />}
             title={t("text86")}
-            imageSrc="/about/Marion4.webp"
+            imageSrc="/gallery/Photo 4.webp"
           >
             {t("text87")}
             {bold("text88")}
@@ -150,7 +150,7 @@ const AboutCompany = () => {
             cardClassName={TEAL}
             icon={<LaptopIcon />}
             title={t("text90")}
-            imageSrc="/about/Marion3.webp"
+            imageSrc="/gallery/Photo 10.webp"
           >
             {bold("text91")}
             {t("text92")}

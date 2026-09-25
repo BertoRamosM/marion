@@ -24,6 +24,8 @@ const PRICES = [
 
 export default function OnlineOffer() {
   const t = useTranslations('online');
+  const tFaq = useTranslations('Faq');
+  const tIntro = useTranslations('Intro');
 
   return (
     <>
@@ -86,13 +88,17 @@ export default function OnlineOffer() {
         {/* Bare "#contact" on a plain <a>: the form is on this page, so this
             is a scroll rather than a navigation. See the note on the same
             button in RennesOffer. */}
-        <div className="mt-6 flex justify-center">
+        {/* See the note on the same pair in RennesOffer. */}
+        <div className="mt-6 flex flex-col items-center">
           <a
             href="#contact"
             className="block w-full max-w-xs rounded-lg bg-gradient-to-tr from-ember to-ember-deep px-6 py-3 text-center font-semibold text-on-ember shadow transition-transform duration-300 ease-out hover:scale-105"
           >
-            {t('bookPlace')}
+            {tFaq('signupCta')}
           </a>
+          <p className="mt-2 text-center text-sm font-semibold text-rust">
+            {tIntro('trial')}
+          </p>
         </div>
       </section>
     </>

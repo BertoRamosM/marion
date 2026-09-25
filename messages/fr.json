@@ -365,6 +365,10 @@
     "formNotice": "Vos données servent uniquement à répondre à votre demande.",
     "formNoticeLink": "En savoir plus"
   },
+  "NotFound": {
+    "title": "Page introuvable",
+    "body": "Cette page n'existe pas ou a été déplacée. Voici par où continuer :"
+  },
   "Instagram": {
     "title": "Suis-moi sur Instagram",
     "subtitle": "Un aperçu de la vie des cours et de Rennes.",
@@ -387,6 +391,33 @@
   "Gallery": {
     "title": "En images",
     "description": "Quelques moments de cours à Rennes, des activités avec les apprenants, la salle, et le quartier autour."
+  },
+  "GalleryAlt": {
+    "picnic": "Une douzaine d'apprenants attablés pour un pique-nique sous un arbre, assiettes et boissons sur la table",
+    "marionShelf": "Marion, souriante, derrière un rayonnage de la médiathèque",
+    "worksheetsPair": "Deux participantes, feuille d'activité en main, lors d'un atelier de conversation",
+    "pizzeria": "Dix apprenants attablés autour de pizzas lors d'une sortie au restaurant",
+    "conversationCards": "Deux participants en pleine conversation, cartes de sujets posées sur la table",
+    "venue": "L'entrée de la Maison des associations à Rennes, où ont lieu les cours en présentiel",
+    "rennesHouses": "Illustration de maisons à pans de bois rennaises avec leurs commerces en rez-de-chaussée",
+    "marionLibrary": "Marion dans la médiathèque, rayonnages et verrière en arrière-plan",
+    "woodenWallPair": "Deux participants échangent, feuille à la main, devant un mur en bois clair",
+    "apero": "Une vingtaine de personnes debout, verre à la main, lors d'un apéro franco-anglais",
+    "boardGames": "Six apprenants attablés dans un bar à jeux de société, étagères de jeux au mur",
+    "marionDisplays": "Marion devant les présentoirs de la médiathèque",
+    "cafeTerrace": "Sept apprenants attablés en terrasse d'un café rennais",
+    "marionOutdoors": "Marion en extérieur, devant un bâtiment en brique",
+    "conversationGame": "Deux participants échangent, feuille d'activité en main, pendant un jeu de conversation",
+    "cardGame": "Des apprenants réunis autour d'un jeu de cartes sur une table de pique-nique",
+    "workshopPair": "Deux participantes discutent lors d'un atelier",
+    "marionSeated": "Marion assise en tailleur devant les rayonnages d'une bibliothèque",
+    "comparingAnswers": "Deux participants comparent leurs réponses pendant une activité",
+    "cafeCoffees": "Huit apprenants autour de cafés en terrasse",
+    "groupGame": "Des participants remplissent leur feuille d'activité pendant un jeu de groupe",
+    "vocabularyCards": "Deux apprenants travaillent le vocabulaire avec des cartes, en petit groupe",
+    "marionSmiling": "Marion souriante dans la médiathèque",
+    "classroomPair": "Deux apprenants souriants dans la salle de cours, tableau blanc derrière eux",
+    "marionFacade": "Marion devant la façade colorée d'un bâtiment rennais"
   },
   "Faq": {
     "nav": "Questions fréquentes",

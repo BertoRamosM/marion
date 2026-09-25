@@ -106,13 +106,26 @@ const Carousel = () => {
     );
   };
 
-  // Top padding clears the fixed banner + header. pt-48 was sized for the old
-  // three-row mobile header (~182px of fixed chrome); that header is now a
-  // single 68px row, so the large padding just left a blank gap under it.
+  /*
+   * Top padding clears the fixed banner + header, which are out of flow and
+   * so contribute no height of their own. pt-48 was sized for the old
+   * three-row mobile header (~182px of fixed chrome); that header is now a
+   * single row.
+   *
+   * Retuned with the logo, measured against the bar at each breakpoint:
+   *
+   *   375px   bar  96px   pt-20 (80)  -> flush. It was -8px before, i.e. the
+   *                                     hero was genuinely tucked under the bar.
+   *   768px   bar 123px   sm:pt-24 (96) -> 53px clear
+   *   1024px+ bar 123px   lg:pt-20 (80) -> 37px clear
+   *
+   * These two have to move together. The bar is fixed, so trimming it alone
+   * does not lift anything — it just widens the gap underneath.
+   */
   return (
     <div
       id="default-carousel"
-      className="relative w-full pt-20 sm:pt-28 lg:pt-24"
+      className="relative w-full pt-28 sm:pt-24 lg:pt-20"
       data-carousel="slide"
       onMouseEnter={pause}
       onMouseLeave={resume}
@@ -204,23 +217,36 @@ const Carousel = () => {
                     {slide.sub}
                   </p>
 
+                  {/*
+                    One element, not a <button> inside a <Link>.
+
+                    That nesting is invalid HTML — interactive content cannot
+                    sit inside a link — and it behaved like it: keyboard users
+                    got two focus stops for one control, and screen readers
+                    announced the site's primary call to action twice, once as
+                    a link and once as a button.
+
+                    The two aria-labels went with it. They said "section link"
+                    and "section button", which overrode the visible wording
+                    with something meaningless; without them the accessible
+                    name is the label itself, which is what it should always
+                    have been.
+
+                    inline-block because <a> is inline by default and the
+                    <button> it replaces was not — without it the padding
+                    would not reserve height and the 132x48 target collapses.
+                  */}
                   {slide.link && (
                     <Link
                       href={slide.link}
-                      aria-label="section link"
+                      /* Was white text on the light orange gradient: only
+                         1.96:1, which read as washed out over the photo. A
+                         light mint button with dark teal text is 7.02:1 and
+                         pops against the dark overlay. Mint already appears
+                         in the carousel arrow rings. */
+                      className="inline-block bg-mint hover:bg-mint-soft px-6 py-3 rounded-lg text-on-mint font-bold shadow-lg hover:scale-105 transition-all duration-300"
                     >
-                      <button
-                        type="button"
-                        /* Was white text on the light orange gradient: only
-                           1.96:1, which read as washed out over the photo. A
-                           light mint button with dark teal text is 7.02:1 and
-                           pops against the dark overlay. Mint already appears
-                           in the carousel arrow rings. */
-                        className="bg-mint hover:bg-mint-soft px-6 py-3 rounded-lg text-on-mint font-bold shadow-lg hover:scale-105 transition-all duration-300"
-                        aria-label="section button"
-                      >
-                        {t("button")}
-                      </button>
+                      {t("button")}
                     </Link>
                   )}
                 </div>
@@ -276,23 +302,38 @@ const Carousel = () => {
         </button>
       </div>
 
-      {/* Slider Indicators */}
-      <div className="absolute z-30 flex -translate-x-1/2 bottom-5 left-1/2 space-x-3">
+      {/*
+        Slider Indicators.
+
+        The dots stay 12px, but each button is now a 24px box with the dot
+        centred inside it. At w-3 h-3 the button *was* the dot: a 12x12 target,
+        half the 24x24 floor WCAG 2.2 sets in SC 2.5.8 (Target Size Minimum,
+        Level AA) and genuinely fiddly to hit on a phone.
+
+        space-x-3 drops to space-x-1 so the row stays the same overall width —
+        the padding that grew each target absorbs the gap it replaces.
+      */}
+      <div className="absolute z-30 flex -translate-x-1/2 bottom-5 left-1/2 space-x-1">
         {slides.map((_, index) => (
           <button
             key={index}
             type="button"
-            className={`w-3 h-3 rounded-full ${
-              index === currentIndex
-                ? "bg-mint"
-                : "bg-surface"
-            }`}
+            className="flex h-6 w-6 items-center justify-center rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-mint"
             aria-current={
               index === currentIndex ? "true" : "false"
             }
             aria-label={`Slide ${index + 1}`}
             onClick={() => setCurrentIndex(index)}
-          />
+          >
+            {/* The dot itself, unchanged at 12px. aria-hidden because the
+                button already carries the label. */}
+            <span
+              aria-hidden="true"
+              className={`block h-3 w-3 rounded-full ${
+                index === currentIndex ? "bg-mint" : "bg-surface"
+              }`}
+            />
+          </button>
         ))}
       </div>
 

@@ -64,9 +64,25 @@ export function buildOrganization(locale, description) {
      * in schema.org an absent day means closed, and listing them explicitly
      * adds noise without adding meaning.
      *
-     * NOTE: Tuesday and Thursday closing at 19:30 contradicts the course
-     * schedule, which has classes running 19:15–20:45 on exactly those two
-     * days. See the comment on courseSchedule in buildGroupCourse.
+     * These are Marion's working hours, which are NOT the class timetable and
+     * are not supposed to match it. She works across the week; the in-person
+     * Rennes classes run Tuesday and Thursday only, and online lessons can be
+     * any weekday. So a day with no in-person class is still a working day.
+     *
+     * Recorded because an earlier note here read the two as contradictory and
+     * proposed "fixing" one to match the other. They describe different
+     * things, and collapsing them would make both wrong.
+     *
+     * Tuesday and Thursday close at 20:45, confirmed by Marion. They said
+     * 19:30, which is when the in-person group actually finishes — so the
+     * listing was telling Google she was shut during the second class of the
+     * evening, and anyone searching at 20:00 on a Tuesday saw a closed
+     * business that was in fact mid-lesson.
+     *
+     * MUST MATCH THE GOOGLE BUSINESS PROFILE. Google treats the Profile as
+     * authoritative and this markup as corroboration; if the two disagree it
+     * trusts the Profile and may distrust the rest of the markup with it.
+     * Changing this file alone fixes nothing on its own.
      */
     openingHoursSpecification: [
       {
@@ -79,7 +95,7 @@ export function buildOrganization(locale, description) {
         '@type': 'OpeningHoursSpecification',
         dayOfWeek: ['Tuesday', 'Thursday'],
         opens: '09:30',
-        closes: '19:30',
+        closes: '20:45',
       },
     ],
     areaServed: [
@@ -180,12 +196,11 @@ export function buildGroupCourse(locale, t) {
          * These times come from the schedule shown on the page:
          * 17:30–19:00 and 19:15–20:45, Tuesdays and Thursdays.
          *
-         * They outlast the opening hours on the organisation, which say the
-         * business closes at 19:30 on those days. Both cannot be right, and
-         * Google can see both in the same graph. The class times are almost
-         * certainly the correct ones, since they are what the site
-         * advertises — which would mean the Google listing needs extending to
-         * 20:45 rather than these being trimmed.
+         * They are the class timetable, not Marion's working hours — see the
+         * note on openingHoursSpecification in buildOrganization. The two
+         * differ on purpose: these are the two days the in-person Rennes
+         * group meets, while she works across the week and teaches online on
+         * other days.
          */
         courseSchedule: {
           '@type': 'Schedule',

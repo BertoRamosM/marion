@@ -218,11 +218,20 @@ const Header = () => {
             Academy
           </span>
         </h1> */}
-{/* No lg:w-32: the logo, not the links, was setting the header height.
-    At 128px wide it rendered 84px tall, which with the row padding made a
-    108px bar on top of the 44px announcement strip. Holding it at md:w-28
-    from md upward takes the row to 97px, and frees 16px of horizontal room
-    for the nav as a side effect. */}
+{/* The logo, not the links, sets the header height: the nav is 24px tall and
+    the flag row 36px, so whatever the logo draws at is the bar.
+
+    At md:w-28 (112px) it rendered 73px tall and the row came to 97px. Held
+    at sm:w-24 (96px) it renders 63px and the row comes to 79px. The py-1 it
+    used to carry is gone with it — the row has its own padding, so that was
+    8px of height buying nothing.
+
+    Going much below w-20 stops helping: the 36px flag row becomes the
+    tallest thing in the bar and sets the floor.
+
+    The hero's top padding in Carousel.jsx is what holds content clear of this
+    fixed bar, so the two have to move together — shrinking the bar on its own
+    only widens the gap underneath it. */}
 {/* 326x213 matches the real file. The previous 150x180 declared a portrait
     box, so the browser reserved ~200px of height and then collapsed to ~104px
     once the image loaded — a visible jump in a fixed header. */}
@@ -232,7 +241,7 @@ const Header = () => {
   width={326}
   height={213}
   priority
-  /* Widest it ever draws is md:w-28, i.e. 112px. Undeclared, it asked
+  /* Widest it ever draws is sm:w-24, i.e. 96px. Undeclared, it asked
      for the 384px variant on every page load. */
 
   /* unoptimized: this is a flat-colour logo with alpha, and WebP
@@ -240,7 +249,7 @@ const Header = () => {
      palettised PNG straight through is smaller, needs no transform, and
      is cached for a year by _headers. */
   unoptimized
-  className="py-1 w-20 h-auto sm:w-24 md:w-28"
+  className="w-20 h-auto sm:w-24"
 />
         {/* <nav>, not a plain div: this was the only navigation on the site
             with no landmark, so screen-reader users had nothing to jump to.

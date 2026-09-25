@@ -365,6 +365,10 @@
     "formNotice": "Tus datos se usan únicamente para responder a tu solicitud.",
     "formNoticeLink": "Más información"
   },
+  "NotFound": {
+    "title": "Página no encontrada",
+    "body": "Esta página no existe o ha sido movida. Aquí tienes por dónde seguir:"
+  },
   "Instagram": {
     "title": "Sígueme en Instagram",
     "subtitle": "Un vistazo a las clases y a la vida en Rennes.",
@@ -387,6 +391,33 @@
   "Gallery": {
     "title": "En imágenes",
     "description": "Algunos momentos de las clases en Rennes, actividades con los estudiantes, la sala y el barrio de alrededor."
+  },
+  "GalleryAlt": {
+    "picnic": "Una docena de estudiantes alrededor de una mesa de picnic bajo un árbol, con platos y bebidas",
+    "marionShelf": "Marion sonriente detrás de una estantería de la mediateca",
+    "worksheetsPair": "Dos participantes con hojas de actividad durante un taller de conversación",
+    "pizzeria": "Diez estudiantes en torno a unas pizzas durante una salida al restaurante",
+    "conversationCards": "Dos participantes conversando, con tarjetas de temas sobre la mesa",
+    "venue": "La entrada de la Maison des associations en Rennes, donde se imparten las clases presenciales",
+    "rennesHouses": "Ilustración de casas de entramado de madera de Rennes con comercios en la planta baja",
+    "marionLibrary": "Marion en la mediateca, con estanterías y una cristalera al fondo",
+    "woodenWallPair": "Dos participantes conversan con hojas en la mano ante una pared de madera clara",
+    "apero": "Una veintena de personas de pie con bebidas en un apéro franco-inglés",
+    "boardGames": "Seis estudiantes en una mesa de un bar de juegos de mesa, con estanterías de juegos",
+    "marionDisplays": "Marion ante los expositores de la mediateca",
+    "cafeTerrace": "Siete estudiantes en la terraza de un café de Rennes",
+    "marionOutdoors": "Marion al aire libre delante de un edificio de ladrillo",
+    "conversationGame": "Dos participantes conversan con hojas de actividad durante un juego de conversación",
+    "cardGame": "Estudiantes reunidos en torno a un juego de cartas en una mesa de picnic",
+    "workshopPair": "Dos participantes charlan durante un taller",
+    "marionSeated": "Marion sentada con las piernas cruzadas ante las estanterías de una biblioteca",
+    "comparingAnswers": "Dos participantes comparan sus respuestas durante una actividad",
+    "cafeCoffees": "Ocho estudiantes alrededor de unos cafés en una terraza",
+    "groupGame": "Participantes rellenan su hoja de actividad durante un juego de grupo",
+    "vocabularyCards": "Dos estudiantes trabajan el vocabulario con tarjetas en grupo reducido",
+    "marionSmiling": "Marion sonriente en la mediateca",
+    "classroomPair": "Dos estudiantes sonrientes en el aula, con una pizarra detrás",
+    "marionFacade": "Marion ante la fachada de colores de un edificio de Rennes"
   },
   "Faq": {
     "nav": "Preguntas frecuentes",

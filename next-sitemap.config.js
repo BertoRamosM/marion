@@ -7,12 +7,43 @@ const offerSlugs = require('./src/content/offers.json');
 const locales = ['fr', 'en', 'es'];
 const defaultLocale = 'fr';
 
+/*
+ * lastmod, which the sitemap did not carry at all.
+ *
+ * next-sitemap's autoLastmod only applies to routes it discovers from the
+ * build output, and every URL on this site is supplied through
+ * additionalPaths instead — so the option was on and doing nothing, and not
+ * one entry had a date. Google treats lastmod as a crawl hint, and it is the
+ * main way a blog says "this changed, come back".
+ *
+ * Two clocks on purpose. An article is dated by the article: its own updated
+ * or published date, so re-deploying the site does not claim every post was
+ * revised. Everything else is dated by the deploy, which for pages that are
+ * generated from the codebase is genuinely when they last changed.
+ */
+const BUILD_DATE = new Date().toISOString();
+
+/** ISO date for a post: its revision date if it has one, else publication. */
+function postLastmod(post) {
+  const date = post.updated || post.date;
+  if (!date) return BUILD_DATE;
+  const parsed = new Date(date);
+  return Number.isNaN(parsed.getTime()) ? BUILD_DATE : parsed.toISOString();
+}
+
+/** The newest post date, so the blog index moves when a post lands. */
+function blogIndexLastmod() {
+  const dates = posts.map(postLastmod).sort();
+  return dates.length ? dates[dates.length - 1] : BUILD_DATE;
+}
+
 /** Builds one sitemap entry plus its hreflang alternates. */
-function entry(siteUrl, path, priority, changefreq) {
+function entry(siteUrl, path, priority, changefreq, lastmod = BUILD_DATE) {
   return {
     loc: path,
     changefreq,
     priority,
+    lastmod,
     alternateRefs: locales.map((locale) => ({
       href: `${siteUrl}/${locale}${path.replace(/^\/[a-z]{2}/, '')}`,
       hreflang: locale,
@@ -51,6 +82,7 @@ function offerEntry(siteUrl, offer, locale, priority, changefreq) {
     loc: `/${locale}/${offerSlugs[offer][locale]}`,
     changefreq,
     priority,
+    lastmod: BUILD_DATE,
     alternateRefs: locales.map((alt) => ({
       href: `${siteUrl}/${alt}/${offerSlugs[offer][alt]}`,
       hreflang: alt,
@@ -101,13 +133,22 @@ module.exports = {
         entry(config.siteUrl, `/${locale}/mentions-legales`, 0.3, 'yearly')
       );
 
-      // Blog index
-      paths.push(entry(config.siteUrl, `/${locale}/blog`, 0.7, 'weekly'));
+      // Blog index. Dated by the newest post, so it moves when one lands
+      // rather than on every unrelated deploy.
+      paths.push(
+        entry(config.siteUrl, `/${locale}/blog`, 0.7, 'weekly', blogIndexLastmod())
+      );
 
-      // One entry per blog post
+      // One entry per blog post, dated by the post itself.
       for (const post of posts) {
         paths.push(
-          entry(config.siteUrl, `/${locale}/blog/${post.id}`, 0.6, 'monthly')
+          entry(
+            config.siteUrl,
+            `/${locale}/blog/${post.id}`,
+            0.6,
+            'monthly',
+            postLastmod(post)
+          )
         );
       }
     }

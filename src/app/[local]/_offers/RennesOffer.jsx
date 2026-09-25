@@ -45,6 +45,8 @@ const PRICES = ['text27', 'text28'];
 
 export default function RennesOffer() {
   const t = useTranslations('Courses');
+  const tFaq = useTranslations('Faq');
+  const tIntro = useTranslations('Intro');
 
   return (
     <>
@@ -143,13 +145,30 @@ export default function RennesOffer() {
             locale-aware page transition to somewhere it already is. It used
             to be "/#contact" because the only form was on the home page.
           */}
+          {/*
+            The free first lesson, named at the point of decision.
+
+            This button said "Réserver ma place" — book my place — on the two
+            pages built to convert, which reads as committing to the 440€ on
+            the card right above it. The trial being free was mentioned only
+            in the thin banner at the top of every page, i.e. nowhere near
+            where anyone decides.
+
+            Both strings already existed: Faq.signupCta is the wording the FAQ
+            page has always used for exactly this action, and Intro.trial is
+            the line the home page uses. No new copy, and the CTA now names
+            the cheapest possible next step instead of the most expensive one.
+          */}
           <div className="mt-6 lg:mt-auto lg:pt-6">
             <a
               href="#contact"
               className="block w-full rounded-lg bg-gradient-to-tr from-ember to-ember-deep px-6 py-3 text-center font-semibold text-on-ember shadow transition-transform duration-300 ease-out hover:scale-105"
             >
-              {t('bookPlace')}
+              {tFaq('signupCta')}
             </a>
+            <p className="mt-2 text-center text-sm font-semibold text-rust">
+              {tIntro('trial')}
+            </p>
           </div>
         </section>
       </div>

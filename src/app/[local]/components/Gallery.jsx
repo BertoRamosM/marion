@@ -36,45 +36,32 @@ import CameraIcon from "../icons/CameraIcon";
  * often enough to notice it is fixed.
  */
 const images = [
-  { src: "/gallery/Photo 15.webp", width: 1201, height: 1140 },
-  { src: "/gallery/Photo 8.webp", width: 1600, height: 2400 },
-  { src: "/gallery/Photo 25.webp", width: 1600, height: 1579 },
-  { src: "/gallery/Photo 17.webp", width: 1600, height: 1200 },
-  { src: "/gallery/Photo 29.webp", width: 1600, height: 1873 },
-  { src: "/gallery/Photo 4.webp", width: 1600, height: 842 },
-  { src: "/gallery/rennes.webp", width: 1600, height: 1216 },
-  { src: "/gallery/Photo 9.webp", width: 1600, height: 2400 },
-  { src: "/gallery/Photo 26.webp", width: 1600, height: 1813 },
-  { src: "/gallery/Photo 22.webp", width: 1600, height: 1280 },
-  { src: "/gallery/Photo 16.webp", width: 1600, height: 1200 },
-  { src: "/gallery/Photo 1.webp", width: 1600, height: 1067 },
-  { src: "/gallery/Photo 18.webp", width: 1600, height: 1568 },
-  { src: "/gallery/Photo 6.webp", width: 1600, height: 2400 },
-  { src: "/gallery/Photo 27.webp", width: 1600, height: 1613 },
-  { src: "/gallery/Photo 20.webp", width: 1600, height: 1473 },
-  { src: "/gallery/Photo 30.webp", width: 1600, height: 1557 },
-  { src: "/gallery/Photo 11.webp", width: 1600, height: 1067 },
-  { src: "/gallery/Photo 23.webp", width: 1600, height: 1773 },
-  { src: "/gallery/Photo 19.webp", width: 1600, height: 1200 },
-  { src: "/gallery/Photo 24.webp", width: 1600, height: 1386 },
-  { src: "/gallery/Photo 21.webp", width: 1600, height: 1725 },
-  { src: "/gallery/Photo 7.webp", width: 1600, height: 2400 },
-  { src: "/gallery/Photo 28.webp", width: 1600, height: 1472 },
-  { src: "/gallery/Photo 10.webp", width: 1600, height: 1067 },
+  { src: "/gallery/Photo 15.webp", width: 1201, height: 1140, alt: "picnic" },
+  { src: "/gallery/Photo 8.webp", width: 1600, height: 2400, alt: "marionShelf" },
+  { src: "/gallery/Photo 25.webp", width: 1600, height: 1579, alt: "worksheetsPair" },
+  { src: "/gallery/Photo 17.webp", width: 1600, height: 1200, alt: "pizzeria" },
+  { src: "/gallery/Photo 29.webp", width: 1600, height: 1873, alt: "conversationCards" },
+  { src: "/gallery/Photo 4.webp", width: 1600, height: 842, alt: "venue" },
+  { src: "/gallery/rennes.webp", width: 1600, height: 1216, alt: "rennesHouses" },
+  { src: "/gallery/Photo 9.webp", width: 1600, height: 2400, alt: "marionLibrary" },
+  { src: "/gallery/Photo 26.webp", width: 1600, height: 1813, alt: "woodenWallPair" },
+  { src: "/gallery/Photo 22.webp", width: 1600, height: 1280, alt: "apero" },
+  { src: "/gallery/Photo 16.webp", width: 1600, height: 1200, alt: "boardGames" },
+  { src: "/gallery/Photo 1.webp", width: 1600, height: 1067, alt: "marionDisplays" },
+  { src: "/gallery/Photo 18.webp", width: 1600, height: 1568, alt: "cafeTerrace" },
+  { src: "/gallery/Photo 6.webp", width: 1600, height: 2400, alt: "marionOutdoors" },
+  { src: "/gallery/Photo 27.webp", width: 1600, height: 1613, alt: "conversationGame" },
+  { src: "/gallery/Photo 20.webp", width: 1600, height: 1473, alt: "cardGame" },
+  { src: "/gallery/Photo 30.webp", width: 1600, height: 1557, alt: "workshopPair" },
+  { src: "/gallery/Photo 11.webp", width: 1600, height: 1067, alt: "marionSeated" },
+  { src: "/gallery/Photo 23.webp", width: 1600, height: 1773, alt: "comparingAnswers" },
+  { src: "/gallery/Photo 19.webp", width: 1600, height: 1200, alt: "cafeCoffees" },
+  { src: "/gallery/Photo 24.webp", width: 1600, height: 1386, alt: "groupGame" },
+  { src: "/gallery/Photo 21.webp", width: 1600, height: 1725, alt: "vocabularyCards" },
+  { src: "/gallery/Photo 7.webp", width: 1600, height: 2400, alt: "marionSmiling" },
+  { src: "/gallery/Photo 28.webp", width: 1600, height: 1472, alt: "classroomPair" },
+  { src: "/gallery/Photo 10.webp", width: 1600, height: 1067, alt: "marionFacade" },
 ];
-
-/*
- * The magnifier drawn inside each tile's badge, as a data URI.
- *
- * Inline rather than a file in public/: it is under 300 bytes, so a separate
- * request would cost far more than it saves, and it cannot go missing. White
- * stroke, because it only ever sits on the dark scrim disc.
- *
- * The '#' in a colour has to be written %23 — a raw one starts the fragment
- * and the browser silently drops the rest of the SVG.
- */
-const MAGNIFIER =
-  "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='11' cy='11' r='7'/%3E%3Cpath d='M20 20l-3.6-3.6M11 8.5v5M8.5 11h5'/%3E%3C/svg%3E\")";
 
 /** Circular arrow button, styled to match the hero carousel controls. */
 const ArrowButton = ({ direction, onClick, label, className }) => (
@@ -105,7 +92,19 @@ const ArrowButton = ({ direction, onClick, label, className }) => (
 const Gallery = () => {
   const t = useTranslations("A11y");
   const tGallery = useTranslations("Gallery");
+  const tAlt = useTranslations("GalleryAlt");
   const tLabel = useTranslations("SectionLabel");
+
+  /*
+   * What a screen reader is told about a given photo.
+   *
+   * Every photo in the array carries its own description key. The fallback
+   * is for one added later without one: a numbered generic line is a poor
+   * description, but it is still better than an empty alt, which claims the
+   * image is decorative and can be skipped.
+   */
+  const altFor = (image, index) =>
+    image.alt ? tAlt(image.alt) : t("galleryItem", { number: index + 1 });
 
   const [openIndex, setOpenIndex] = useState(null);
   const isOpen = openIndex !== null;
@@ -259,16 +258,18 @@ const Gallery = () => {
             {/*
               Telling people these open.
 
-              Before this the only hint was cursor-zoom-in, which a touch
-              device has no way to show — so on a phone, where most of this
-              traffic is, twenty-eight photos looked like a plain contact
-              sheet and the lightbox went undiscovered.
-
-              Three cues, deliberately layered so no one is left out:
-                - a magnifier badge on every tile, always visible, which is
-                  the only one a touch user gets
                 - a scrim and a slight zoom on hover and on keyboard focus
                 - title, so a desktop hover also gets the native tooltip
+                - cursor-zoom-in on the button below
+
+              There was a fourth: a small magnifier badge on every tile,
+              always visible. It was removed on request, and the trade is
+              worth knowing rather than rediscovering. All three cues left are
+              hover, focus or cursor states, and a touch device has none of
+              those — so on a phone the grid gives no visible signal that a
+              photo opens, and someone has to try it to find out. Tapping a
+              photo grid is a common enough instinct that this is a reasonable
+              bet, but it is a bet.
 
               title reuses A11y.galleryOpen — "Agrandir la photo 3" — which the
               aria-label already uses, so the tooltip and the screen reader say
@@ -283,7 +284,7 @@ const Gallery = () => {
             >
               <Image
                 src={image.src}
-                alt={t("galleryItem", { number: index + 1 })}
+                alt={altFor(image, index)}
                 width={image.width}
                 height={image.height}
                 loading="lazy"
@@ -291,41 +292,14 @@ const Gallery = () => {
                 sizes="(max-width: 640px) 32vw, (max-width: 768px) 24vw, (max-width: 1024px) 15vw, 13vw"
               />
 
-              {/* Darkens on hover/focus so the badge below stays legible over
-                  a pale photo. pointer-events-none so it never eats the click. */}
+              {/* Darkens on hover and on keyboard focus, so the tile reacts
+                  to being pointed at. pointer-events-none so it never eats
+                  the click. */}
               <span
                 aria-hidden="true"
                 className="pointer-events-none absolute inset-0 rounded-lg bg-scrim opacity-0 transition-opacity duration-300 group-hover:opacity-30 group-focus-visible:opacity-30"
               />
 
-              {/*
-                The always-on cue: one element per tile, not four.
-
-                The magnifier is a background-image rather than an inline
-                <svg><circle/><path/>, which is the same picture for a quarter
-                of the nodes. Across 28 tiles that is 112 elements versus 28 —
-                7% of the page's entire DOM spent on a decorative icon that
-                never changes. background-color still shows through behind a
-                transparent background-image, so the disc costs nothing extra.
-
-                bg-scrim, not one of the veils. The white veils are tuned for
-                raised panels on a cream card and drop to 4-9% opacity in dark
-                mode — veil-50 renders at 5% there, which is a white icon on
-                nothing. --scrim is the one token defined once and never
-                overridden by the dark theme, so it stays a solid dark disc in
-                both, which is what a badge sitting on an unpredictable photo
-                needs. See the veil comments in globals.css.
-
-                Hover only scales it. It used to turn mint too, but the icon is
-                baked white into the image now and white on mint is not legible
-                — a fixed dark disc is the one state that is readable over
-                every photo in the grid.
-              */}
-              <span
-                aria-hidden="true"
-                style={{ backgroundImage: MAGNIFIER }}
-                className="pointer-events-none absolute bottom-1 right-1 h-6 w-6 rounded-full bg-scrim bg-center bg-no-repeat shadow-sm transition-transform duration-300 group-hover:scale-110 motion-reduce:transition-none"
-              />
             </button>
           </div>
         ))}
@@ -381,7 +355,7 @@ const Gallery = () => {
             <Image
               key={openIndex}
               src={images[openIndex].src}
-              alt={t("galleryItem", { number: openIndex + 1 })}
+              alt={altFor(images[openIndex], openIndex)}
               fill
               loading="eager"
               sizes="(max-width: 1024px) 100vw, 1024px"

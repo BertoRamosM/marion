@@ -75,6 +75,26 @@ function buildJsonLd(locale, description, teacherDescription) {
 }
 
 /*
+ * Only fr, en and es are locales. Anything else in this position is a 404.
+ *
+ * Without this, generateStaticParams below prerenders the three and Next
+ * renders ANY other value on demand — so /nope, /wp-admin and
+ * /google60d0ecfd0683796b.html all returned 200, serving the French home page
+ * with lang="nope" on it. next-intl compounds it by design: request.ts falls
+ * back to the default locale for an unrecognised one, so there is nothing to
+ * throw and no error to notice.
+ *
+ * That is worse than a cosmetic bug. Every junk URL anyone links or a scanner
+ * probes becomes an indexable 200 duplicate of the home page under a bogus
+ * lang attribute, and a soft 404 is the one thing Search Console cannot tell
+ * you is wrong, because the server keeps insisting the page is fine.
+ *
+ * The [offer] segment already does this a level down; this is the same guard
+ * on the segment above it.
+ */
+export const dynamicParams = false;
+
+/*
  * Tells Next.js the three locale segments up front, so /fr, /en and /es are
  * built as static HTML at deploy time instead of rendered per request.
  *

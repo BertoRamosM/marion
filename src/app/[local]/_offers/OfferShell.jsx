@@ -45,9 +45,22 @@ export default function OfferShell({
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      <main id="main-content" tabIndex={-1} className="flex-1 p-8 pb-20 sm:p-20">
-        {/* pt-32 clears the fixed banner + header, as on the other pages. */}
-        <div className="max-w-5xl mx-auto pt-32 sm:pt-28">
+      {/*
+        px-4 rather than p-8 on phones: 32px a side was 17% of a 375px screen
+        spent on empty margin. pt-4 because the wrapper below carries the
+        header clearance.
+
+        Horizontal padding then steps up instead of jumping straight to 80px:
+        sm:p-20 gave every screen from 640px the same 80px gutter, which is
+        25% of a 640px tablet. sm:px-8 / lg:px-20 keeps 80px where there is
+        room for it. Vertical spacing is unchanged.
+      */}
+      <main id="main-content" tabIndex={-1} className="flex-1 px-4 pt-4 pb-20 sm:px-8 sm:py-20 lg:px-20">
+        {/* pt-24 clears the fixed banner + header, as on the other pages. It
+            was pt-32 sm:pt-28, sized for the taller header; against the
+            trimmed bar that left 64px of dead space at the top of every
+            phone screen. ~16px clear on a phone now, ~53px from sm up. */}
+        <div className="max-w-5xl mx-auto pt-28 sm:pt-24">
           <nav className="text-sm text-ink-600 mb-6" aria-label="Breadcrumb">
             <Link href="/" className="hover:text-rust underline">
               {breadcrumbHome}
